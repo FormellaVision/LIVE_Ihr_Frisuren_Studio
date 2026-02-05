@@ -1,0 +1,28 @@
+import { MetadataRoute } from 'next';
+import { BUSINESS_INFO } from '@/lib/constants';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = BUSINESS_INFO.website;
+
+  const routes = [
+    { path: '', priority: 1.0, changeFrequency: 'daily' as const },
+    { path: '/leistungen', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/damenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/herrenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/balayage-hamburg-hamm', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/galerie', priority: 0.7, changeFrequency: 'weekly' as const },
+    { path: '/bewertungen', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: '/ueber-uns', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/impressum', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/datenschutz', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/barrierefreiheit', priority: 0.3, changeFrequency: 'yearly' as const },
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: new Date(),
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
+}
