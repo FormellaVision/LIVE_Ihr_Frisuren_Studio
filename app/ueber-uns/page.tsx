@@ -5,6 +5,7 @@ import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Award, Users, Heart, Globe } from 'lucide-react';
+import { HistorySection } from '@/components/about/HistorySection';
 
 export const metadata: Metadata = {
   title: 'Team & Geschichte - Friseur Hamburg Hamm',
@@ -58,30 +59,10 @@ export default function UeberUnsPage() {
         backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
 
+      <HistorySection businessInfo={BUSINESS_INFO} />
+
       <section className="section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="heading-md mb-6 text-center">Unsere Geschichte</h2>
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Seit <strong>{BUSINESS_INFO.founded}</strong> ist Ihr Frisuren-Studio die erste Adresse
-                für professionelle Friseur- und Kosmetikdienstleistungen in Hamburg Hamm.
-                Was als kleiner Salon begann, ist heute ein moderner Meisterbetrieb mit einem
-                vielseitigen Team.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Unser Inhaber, <strong>{BUSINESS_INFO.owner}</strong>, ist selbst
-                Friseurmeister und bildet seit Jahren erfolgreich Nachwuchs aus. Seine Leidenschaft
-                für das Handwerk und sein Auge für Trends prägen den Stil unseres Studios.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Heute sind wir stolz auf über <strong>{BUSINESS_INFO.reviews.count} positive Bewertungen</strong> bei
-                Google und eine treue Stammkundschaft aus Hamburg Hamm und Umgebung. Unser Erfolgsgeheimnis?
-                Qualität, Herzlichkeit und ein Team, das wirklich für Sie da ist.
-              </p>
-            </div>
-          </div>
-
           <h2 className="heading-md mb-8 text-center">Das Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {TEAM_MEMBERS.map((member, index) => (
