@@ -163,12 +163,10 @@ export default function KontaktPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl overflow-hidden shadow-lg h-64">
+              <div className="rounded-xl overflow-hidden shadow-lg h-80">
                 <iframe
                   src={BUSINESS_INFO.googleMapsEmbed}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
+                  className="map-embed"
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
