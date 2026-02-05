@@ -114,7 +114,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="text-center max-w-lg px-4"
             >
-              <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl font-light text-white leading-tight mb-4 md:hidden">
                 Haare sind Vertrauenssache.
               </h1>
               <p className="text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight">
@@ -216,7 +216,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
               className="text-center mb-6 px-4"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
                 Haare sind Vertrauenssache.
                 <br />
                 <span className="text-amber-400 font-normal" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>

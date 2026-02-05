@@ -37,7 +37,7 @@ export function PriceList({ title, services }: PriceListProps) {
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
-      <h3 className={`font-playfair text-2xl font-bold mb-6 ${colors.text}`}>{title}</h3>
+      <h2 className={`font-playfair text-2xl font-bold mb-6 ${colors.text}`}>{title}</h2>
       <motion.div
         variants={containerVariants}
         initial="hidden"

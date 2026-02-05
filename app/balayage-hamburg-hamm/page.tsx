@@ -133,9 +133,9 @@ export default function BalayagePage() {
 
           <div className="mt-12 max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
-              <h3 className="font-playfair text-2xl font-bold mb-6">
+              <h2 className="font-playfair text-2xl font-bold mb-6">
                 Was ist Balayage?
-              </h3>
+              </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-gray-700 mb-4">
@@ -150,7 +150,7 @@ export default function BalayagePage() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold mb-3">Vorteile von Balayage:</h4>
+                  <h3 className="font-bold mb-3">Vorteile von Balayage:</h3>
                   <ul className="space-y-2">
                     {[
                       'Natürliches, sonnenverwöhntes Aussehen',
@@ -172,9 +172,9 @@ export default function BalayagePage() {
 
           <div className="mt-12 max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="font-playfair text-2xl font-bold mb-4">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
                 Unsere Balayage-Expertinnen
-              </h3>
+              </h2>
               <p className="text-gray-700 mb-4">
                 In unserem Team haben wir spezialisierte Coloristinnen, die regelmäßig
                 Fortbildungen in modernsten Färbetechniken besuchen. Nassrin Karimi ist

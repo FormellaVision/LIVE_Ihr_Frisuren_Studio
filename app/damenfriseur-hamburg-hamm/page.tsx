@@ -113,9 +113,9 @@ export default function DamenfriseurPage() {
 
           <div className="mt-12 max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
-              <h3 className="font-playfair text-2xl font-bold mb-4">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
                 Warum Ihr Frisuren-Studio für Damen?
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {[
                   'Meisterqualität seit 2004 in Hamburg Hamm',

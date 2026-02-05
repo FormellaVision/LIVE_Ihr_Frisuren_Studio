@@ -112,9 +112,9 @@ export default function HerrenfriseurPage() {
 
           <div className="mt-12 max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8">
-              <h3 className="font-playfair text-2xl font-bold mb-4">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
                 Das Gentleman-Paket - Nur 49€
-              </h3>
+              </h2>
               <p className="text-gray-700 mb-4">
                 Unser Rundum-Sorglos-Paket für den modernen Mann:
               </p>
@@ -136,9 +136,9 @@ export default function HerrenfriseurPage() {
 
           <div className="mt-12 max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="font-playfair text-2xl font-bold mb-4">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
                 Warum Ihr Frisuren-Studio für Herren?
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {[
                   'Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung',
