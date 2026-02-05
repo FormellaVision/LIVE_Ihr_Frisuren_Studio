@@ -31,7 +31,7 @@ export default function BewertungenPage() {
         title="Kundenbewertungen"
         subtitle={`${BUSINESS_INFO.reviews.rating} Sterne bei ${BUSINESS_INFO.reviews.count}+ Bewertungen`}
         description="Lesen Sie was unsere zufriedenen Kunden über Ihr Frisuren-Studio in Hamburg Hamm sagen"
-        backgroundImage="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImage="https://images.pexels.com/photos/3993452/pexels-photo-3993452.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
 
       <section className="section-padding">

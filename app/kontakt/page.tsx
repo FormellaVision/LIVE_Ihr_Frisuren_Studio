@@ -30,7 +30,7 @@ export default function KontaktPage() {
         title="Kontakt"
         subtitle="Ihr Frisuren-Studio Hamburg Hamm"
         description="So erreichen Sie uns - telefonisch, per WhatsApp, E-Mail oder persönlich vor Ort"
-        backgroundImage="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImage="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
 
       <section className="section-padding">

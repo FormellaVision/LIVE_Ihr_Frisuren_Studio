@@ -43,7 +43,7 @@ export default function GaleriePage() {
         title="Unsere Galerie"
         subtitle="Ihr Frisuren-Studio Hamburg Hamm"
         description="Lassen Sie sich von unseren Arbeiten inspirieren - Damenhaarschnitte, Balayage, Herrenhaarschnitte und mehr"
-        backgroundImage="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImage="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
 
       <section className="section-padding">
