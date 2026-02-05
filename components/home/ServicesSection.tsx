@@ -39,13 +39,17 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
 };
 
 export function ServicesSection() {
@@ -55,8 +59,8 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
           <h2 className="heading-lg mb-4">Unsere Leistungen in Hamburg Hamm</h2>
@@ -67,7 +71,7 @@ export function ServicesSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
           className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
         >
           {serviceCategories.map((category, index) => (
@@ -80,9 +84,9 @@ export function ServicesSection() {
                 <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 break-words">{category.title}</h3>
-              <p className="mb-4 sm:mb-6 text-white/90 text-sm sm:text-base break-words">{category.description}</p>
+              <p className="mb-4 sm:mb-6 text-white/90 text-base sm:text-lg break-words">{category.description}</p>
 
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-xs sm:text-sm">
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-sm sm:text-base">
                 {category.services.map((service, idx) => (
                   <div
                     key={idx}
@@ -107,8 +111,8 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+          transition={{ duration: 0.8 }}
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">
