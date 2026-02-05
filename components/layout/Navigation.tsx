@@ -129,11 +129,11 @@ export function Navigation() {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <Phone className="w-5 h-5 relative z-10" />
-                <span className="relative z-10">Termin: {BUSINESS_INFO.phone}</span>
+                <Phone className="w-4 h-4 lg:w-5 lg:h-5 relative z-10 flex-shrink-0" />
+                <span className="relative z-10 text-sm lg:text-base whitespace-nowrap">Termin: {BUSINESS_INFO.phone}</span>
               </a>
             </div>
 
@@ -195,7 +195,7 @@ export function Navigation() {
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      'block w-full px-8 py-5 border-2 rounded-2xl text-center text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95',
+                      'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words',
                       pathname === link.href
                         ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
                         : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
@@ -216,25 +216,25 @@ export function Navigation() {
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
                   onClick={closeMenu}
-                  className="group relative overflow-hidden block w-full px-8 py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300"
+                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                  <span className="relative z-10 flex items-center justify-center gap-3">
-                    <Phone className="w-6 h-6" />
-                    Jetzt anrufen
+                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                    <span className="break-words">Jetzt anrufen</span>
                   </span>
                 </a>
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
                   onClick={closeMenu}
-                  className="group relative overflow-hidden block w-full px-8 py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300"
+                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                  <span className="relative z-10 flex items-center justify-center gap-3">
-                    <MessageCircle className="w-6 h-6" />
-                    Termin vereinbaren
+                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                    <span className="break-words">Termin vereinbaren</span>
                   </span>
                 </a>
               </motion.div>

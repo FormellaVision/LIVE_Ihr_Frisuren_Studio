@@ -22,7 +22,7 @@ export function Footer() {
       <meta itemProp="telephone" content={BUSINESS_INFO.phoneInternational} />
       <meta itemProp="email" content={BUSINESS_INFO.email} />
       <div className="container-custom section-padding">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Image
@@ -74,7 +74,7 @@ export function Footer() {
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm break-all">{BUSINESS_INFO.email}</span>
+                  <span className="text-sm break-words min-w-0">{BUSINESS_INFO.email}</span>
                 </a>
               </li>
               <li
@@ -116,28 +116,28 @@ export function Footer() {
           <div>
             <h3 className="font-playfair text-lg font-bold mb-6">Öffnungszeiten</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex justify-between text-gray-400">
-                <span>Montag</span>
-                <span>Geschlossen</span>
+              <li className="flex justify-between gap-2 text-gray-400">
+                <span className="flex-shrink-0">Montag</span>
+                <span className="text-right">Geschlossen</span>
               </li>
-              <li className="flex justify-between text-gray-300">
-                <span>Dienstag - Freitag</span>
-                <span>{OPENING_HOURS.tuesday.times}</span>
+              <li className="flex justify-between gap-2 text-gray-300">
+                <span className="flex-shrink-0 min-w-0">Dienstag - Freitag</span>
+                <span className="whitespace-nowrap text-right">{OPENING_HOURS.tuesday.times}</span>
               </li>
-              <li className="flex justify-between text-gray-300">
-                <span>Samstag</span>
-                <span>{OPENING_HOURS.saturday.times}</span>
+              <li className="flex justify-between gap-2 text-gray-300">
+                <span className="flex-shrink-0">Samstag</span>
+                <span className="whitespace-nowrap text-right">{OPENING_HOURS.saturday.times}</span>
               </li>
-              <li className="flex justify-between text-gray-400">
-                <span>Sonntag</span>
-                <span>Geschlossen</span>
+              <li className="flex justify-between gap-2 text-gray-400">
+                <span className="flex-shrink-0">Sonntag</span>
+                <span className="text-right">Geschlossen</span>
               </li>
               <li className="pt-3 mt-3 border-t border-gray-700">
                 <div className="flex items-center gap-2 text-amber-400">
-                  <Clock className="w-4 h-4" />
-                  <span className="font-medium">Afterwork Specials</span>
+                  <Clock className="w-4 h-4 flex-shrink-0" />
+                  <span className="font-medium text-sm">Afterwork Specials</span>
                 </div>
-                <p className="text-gray-400 text-xs mt-1">
+                <p className="text-gray-400 text-xs mt-1 leading-relaxed">
                   {OPENING_HOURS.afterwork.weekdays} & {OPENING_HOURS.afterwork.saturday}
                   <br />
                   Regulärer Preis {OPENING_HOURS.afterwork.surcharge}
@@ -181,16 +181,16 @@ export function Footer() {
             <p>
               © {currentYear} {BUSINESS_INFO.name}. Alle Rechte vorbehalten.
             </p>
-            <div className="flex gap-6">
-              <Link href="/impressum" className="hover:text-gray-300 transition-colors">
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center md:justify-end">
+              <Link href="/impressum" className="hover:text-gray-300 transition-colors whitespace-nowrap">
                 Impressum
               </Link>
-              <Link href="/datenschutz" className="hover:text-gray-300 transition-colors">
+              <Link href="/datenschutz" className="hover:text-gray-300 transition-colors whitespace-nowrap">
                 Datenschutz
               </Link>
               <Link
                 href="/barrierefreiheit"
-                className="hover:text-gray-300 transition-colors"
+                className="hover:text-gray-300 transition-colors whitespace-nowrap"
               >
                 Barrierefreiheit
               </Link>

@@ -36,7 +36,7 @@ export function PriceList({ title, services }: PriceListProps) {
   const colors = colorMap[title as keyof typeof colorMap] || { text: 'text-teal-600', bg: 'bg-teal-50' };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8">
+    <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
       <h2 className={`font-playfair text-2xl font-bold mb-6 ${colors.text}`}>{title}</h2>
       <motion.div
         variants={containerVariants}
@@ -49,15 +49,15 @@ export function PriceList({ title, services }: PriceListProps) {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="flex justify-between items-start py-3 border-b border-gray-100 last:border-0"
+            className="flex justify-between items-start gap-3 py-3 border-b border-gray-100 last:border-0"
           >
-            <div className="flex-1 pr-4">
-              <span className="font-medium text-gray-900">{service.name}</span>
+            <div className="flex-1 min-w-0 pr-2">
+              <span className="font-medium text-gray-900 break-words">{service.name}</span>
               {service.description && (
-                <p className="text-sm text-gray-500 mt-1">{service.description}</p>
+                <p className="text-sm text-gray-500 mt-1 break-words">{service.description}</p>
               )}
             </div>
-            <span className={`font-bold ${colors.text} whitespace-nowrap`}>
+            <span className={`font-bold ${colors.text} whitespace-nowrap flex-shrink-0`}>
               {service.price}
             </span>
           </motion.div>

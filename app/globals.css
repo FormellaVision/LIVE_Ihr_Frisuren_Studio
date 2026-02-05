@@ -40,23 +40,40 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    width: 100vw;
+    max-width: 100%;
   }
 
   body {
     @apply bg-warm-white text-foreground font-montserrat antialiased;
     overflow-x: hidden;
-    width: 100vw;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-playfair;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
   }
 }
 
 @layer components {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .section-padding {
@@ -85,18 +102,26 @@
 
   .heading-xl {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .heading-lg {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .heading-md {
     @apply text-2xl md:text-3xl font-bold leading-tight;
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .heading-sm {
     @apply text-xl md:text-2xl font-bold leading-tight;
+    max-width: 100%;
+    word-wrap: break-word;
   }
 }
 

@@ -39,7 +39,7 @@ export function HeroSection() {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-8 py-12 sm:py-16">
+        <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-12 sm:py-16">
 
           {/* Top Section - Incoming Call Badge */}
           <motion.div
@@ -112,12 +112,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-center max-w-lg px-4"
+              className="text-center max-w-lg px-2 sm:px-4"
             >
-              <h1 className="text-3xl sm:text-4xl font-light text-white leading-tight mb-4 md:hidden">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-4 md:hidden break-words">
                 Haare sind Vertrauenssache.
               </h1>
-              <p className="text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight">
+              <p className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
                 Überlass sie nicht dem Zufall.
               </p>
             </motion.div>
@@ -214,9 +214,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
-              className="text-center mb-6 px-4"
+              className="text-center mb-6 px-4 max-w-full"
             >
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4 break-words" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
                 Haare sind Vertrauenssache.
                 <br />
                 <span className="text-amber-400 font-normal" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
@@ -244,22 +244,22 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.45 }}
               className="mb-12"
             >
-              <div className="flex gap-4 justify-center flex-wrap">
+              <div className="flex gap-3 sm:gap-4 justify-center flex-wrap px-4">
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                  className="group inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-neutral-900 font-medium transition-all duration-300 px-10 py-4 rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105"
+                  className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-amber-500 hover:bg-amber-400 text-neutral-900 font-medium transition-all duration-300 px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105"
                   aria-label="Jetzt anrufen"
                 >
-                  <Phone className="w-5 h-5" />
-                  <span className="text-base">Jetzt anrufen</span>
+                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-sm sm:text-base whitespace-nowrap">Jetzt anrufen</span>
                 </a>
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
-                  className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-medium transition-all duration-300 px-10 py-4 rounded-full border border-white/20 hover:border-white/30 hover:scale-105"
+                  className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-medium transition-all duration-300 px-6 sm:px-10 py-3 sm:py-4 rounded-full border border-white/20 hover:border-white/30 hover:scale-105"
                   aria-label="WhatsApp schreiben"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span className="text-base">WhatsApp</span>
+                  <MessageCircle className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-sm sm:text-base whitespace-nowrap">WhatsApp</span>
                 </a>
               </div>
             </motion.div>
@@ -406,8 +406,8 @@ function SwipeToAnswerSlider({
       />
 
       {/* Text Label */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <span className="text-white/80 text-sm font-light tracking-wider">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-16">
+        <span className="text-white/80 text-xs sm:text-sm font-light tracking-wider">
           Jetzt antworten
         </span>
       </div>

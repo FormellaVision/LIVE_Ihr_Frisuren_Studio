@@ -18,7 +18,7 @@ export function ServicePageHeader({
   backgroundImage,
 }: ServicePageHeaderProps) {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -27,20 +27,20 @@ export function ServicePageHeader({
       />
 
       <div className="relative z-10 container-custom">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2 rounded-full mb-6 shadow-md"
+            className="inline-flex flex-wrap items-center justify-center gap-2 bg-white/90 backdrop-blur-sm px-4 sm:px-5 py-2 rounded-full mb-6 shadow-md"
           >
-            <Award className="w-4 h-4 text-teal-600" />
-            <span className="text-sm font-semibold text-gray-800">
+            <Award className="w-4 h-4 text-teal-600 flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold text-gray-800 whitespace-nowrap">
               Meisterbetrieb seit {BUSINESS_INFO.founded}
             </span>
             <span className="text-gray-400">|</span>
-            <span className="flex items-center gap-1 text-sm text-gray-800">
-              <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+            <span className="flex items-center gap-1 text-xs sm:text-sm text-gray-800 whitespace-nowrap">
+              <Star className="w-4 h-4 text-amber-500 fill-amber-500 flex-shrink-0" />
               {BUSINESS_INFO.reviews.rating}
             </span>
           </motion.div>
@@ -49,7 +49,7 @@ export function ServicePageHeader({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="heading-xl mb-4"
+            className="heading-xl mb-4 break-words"
           >
             {title}
           </motion.h1>
@@ -58,7 +58,7 @@ export function ServicePageHeader({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-teal-600 font-semibold mb-4"
+            className="text-lg sm:text-xl text-teal-600 font-semibold mb-4 break-words"
           >
             {subtitle}
           </motion.p>
@@ -67,7 +67,7 @@ export function ServicePageHeader({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-gray-600"
+            className="text-base sm:text-lg text-gray-600 break-words leading-relaxed"
           >
             {description}
           </motion.p>

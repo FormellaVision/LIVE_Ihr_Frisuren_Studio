@@ -74,22 +74,22 @@ export function ServicesSection() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`bg-gradient-to-br ${category.gradient} p-8 rounded-2xl text-white shadow-xl card-hover`}
+              className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                <category.icon className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0">
+                <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="font-playfair text-3xl font-bold mb-4">{category.title}</h3>
-              <p className="mb-6 text-white/90">{category.description}</p>
+              <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 break-words">{category.title}</h3>
+              <p className="mb-4 sm:mb-6 text-white/90 text-sm sm:text-base break-words">{category.description}</p>
 
-              <div className="space-y-3 mb-6 text-sm">
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-xs sm:text-sm">
                 {category.services.map((service, idx) => (
                   <div
                     key={idx}
-                    className="flex justify-between border-b border-white/20 pb-2 last:border-0"
+                    className="flex justify-between gap-2 border-b border-white/20 pb-2 last:border-0"
                   >
-                    <span className="truncate mr-2">{service.name}</span>
-                    <span className="font-bold whitespace-nowrap">{service.price}</span>
+                    <span className="break-words min-w-0 flex-1">{service.name}</span>
+                    <span className="font-bold whitespace-nowrap flex-shrink-0">{service.price}</span>
                   </div>
                 ))}
               </div>
@@ -109,37 +109,37 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-8 md:p-12 rounded-2xl shadow-2xl"
+          className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
-          <div className="flex flex-col md:flex-row items-start gap-6">
-            <div className="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center flex-shrink-0">
-              <Moon className="w-8 h-8 text-gray-900" />
+          <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/30 rounded-full flex items-center justify-center flex-shrink-0">
+              <Moon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />
             </div>
-            <div className="flex-1">
-              <h3 className="font-playfair text-3xl font-bold mb-3 text-gray-900">
+            <div className="flex-1 min-w-0">
+              <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 break-words">
                 Afterwork Spezialcut
               </h3>
-              <p className="text-lg mb-4 text-gray-800">
+              <p className="text-base sm:text-lg mb-4 text-gray-800 break-words leading-relaxed">
                 Arbeiten Sie bis spät? Kein Problem! Genießen Sie eine exklusive 1-zu-1 Behandlung
                 nach Feierabend in privater Atmosphäre.
               </p>
-              <div className="flex flex-wrap gap-3 text-sm font-semibold mb-6">
-                <span className="bg-white/40 text-gray-900 px-4 py-2 rounded-full">
+              <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+                <span className="bg-white/40 text-gray-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap">
                   {OPENING_HOURS.afterwork.weekdays}
                 </span>
-                <span className="bg-white/40 text-gray-900 px-4 py-2 rounded-full">
+                <span className="bg-white/40 text-gray-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap">
                   {OPENING_HOURS.afterwork.saturday}
                 </span>
-                <span className="bg-white/40 text-gray-900 px-4 py-2 rounded-full">
+                <span className="bg-white/40 text-gray-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
                   Regulärer Preis {OPENING_HOURS.afterwork.surcharge}
                 </span>
               </div>
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:bg-gray-800 transition-colors"
               >
-                <Phone className="w-5 h-5" />
-                Afterwork-Termin: {BUSINESS_INFO.phone}
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span className="break-words">Afterwork-Termin: {BUSINESS_INFO.phone}</span>
               </a>
             </div>
           </div>
