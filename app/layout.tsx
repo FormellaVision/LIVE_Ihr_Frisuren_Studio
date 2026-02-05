@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { getOrganizationSchema } from '@/lib/schema';
+import { getLocalBusinessSchema, getContactPointSchema } from '@/lib/local-seo';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 const playfair = Playfair_Display({
@@ -87,6 +88,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = getOrganizationSchema();
+  const localBusinessSchema = getLocalBusinessSchema();
+  const contactPointSchema = getContactPointSchema();
 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
@@ -115,6 +118,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }}
         />
       </body>
     </html>

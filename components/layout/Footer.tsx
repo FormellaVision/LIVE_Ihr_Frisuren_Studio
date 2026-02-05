@@ -17,7 +17,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white" itemScope itemType="https://schema.org/LocalBusiness">
+      <meta itemProp="name" content={BUSINESS_INFO.name} />
+      <meta itemProp="telephone" content={BUSINESS_INFO.phoneInternational} />
+      <meta itemProp="email" content={BUSINESS_INFO.email} />
       <div className="container-custom section-padding">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
@@ -74,7 +77,11 @@ export function Footer() {
                   <span className="text-sm break-all">{BUSINESS_INFO.email}</span>
                 </a>
               </li>
-              <li>
+              <li
+                itemProp="address"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+              >
                 <a
                   href={BUSINESS_INFO.googleMaps}
                   target="_blank"
@@ -83,10 +90,12 @@ export function Footer() {
                 >
                   <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
-                    {BUSINESS_INFO.address.street}
+                    <span itemProp="streetAddress">{BUSINESS_INFO.address.street}</span>
                     <br />
-                    {BUSINESS_INFO.address.postalCode} {BUSINESS_INFO.address.city}-
-                    {BUSINESS_INFO.address.district}
+                    <span itemProp="postalCode">{BUSINESS_INFO.address.postalCode}</span>{' '}
+                    <span itemProp="addressLocality">{BUSINESS_INFO.address.city}</span>
+                    {'-'}
+                    <span itemProp="addressRegion">{BUSINESS_INFO.address.district}</span>
                   </span>
                 </a>
               </li>
