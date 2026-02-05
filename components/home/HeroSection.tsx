@@ -232,7 +232,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center mb-10"
             >
-              <p className="text-xl md:text-2xl text-white/90 font-light tracking-wide" style={{ textShadow: '0 2px 15px rgba(0, 0, 0, 0.7)' }}>
+              <p className="text-2xl md:text-3xl lg:text-4xl text-white font-bold tracking-wide" style={{ textShadow: '0 3px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 146, 60, 0.3)' }}>
                 Dein Friseur in Hamburg Hamm
               </p>
             </motion.div>
