@@ -27,7 +27,7 @@ export function HeroSection() {
   return (
     <>
       {/* Mobile Call Screen Version */}
-      <section className="md:hidden relative h-screen flex items-center justify-center overflow-hidden overflow-x-hidden" style={{ overscrollBehavior: 'none' }}>
+      <section className="md:hidden relative h-screen flex items-center justify-center overflow-hidden">
         {/* Authentic Call Screen Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
@@ -131,17 +131,10 @@ export function HeroSection() {
             className="w-full space-y-8"
           >
 
-            {/* Answer Button - Mobile */}
-            <motion.button
-              onClick={handleAnswer}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-6 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 hover:from-emerald-400 hover:to-emerald-500 transition-all"
-              aria-label="Jetzt anrufen"
-            >
-              <Phone className="w-5 h-5" />
-              <span>Jetzt anrufen</span>
-            </motion.button>
+            {/* Swipe to Answer Slider */}
+            <div className="w-full px-2">
+              <SwipeToAnswerSlider onAnswer={handleAnswer} resetRef={sliderResetRef} />
+            </div>
 
             {/* Secondary Actions */}
             <div className="flex items-center justify-center gap-6">

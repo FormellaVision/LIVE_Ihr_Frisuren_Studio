@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const contactPointSchema = getContactPointSchema();
 
   return (
-    <html lang="de" className={`${playfair.variable} ${montserrat.variable} overflow-x-hidden`}>
+    <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-montserrat pb-16 md:pb-0 overflow-x-hidden">
+      <body className="font-montserrat pb-16 md:pb-0">
         <Navigation />
         <Breadcrumb />
         <main>{children}</main>
