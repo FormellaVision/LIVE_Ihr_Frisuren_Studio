@@ -40,13 +40,11 @@ export function LocationSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl overflow-hidden shadow-2xl h-[450px]"
+            className="rounded-2xl overflow-hidden shadow-2xl h-[300px] md:h-[450px]"
           >
             <iframe
               src={BUSINESS_INFO.googleMapsEmbed}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
+              className="map-embed"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
