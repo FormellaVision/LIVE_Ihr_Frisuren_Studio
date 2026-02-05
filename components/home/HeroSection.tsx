@@ -184,8 +184,8 @@ export function HeroSection() {
         {/* Radial Overlay - Center Focus */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.5)_50%,rgba(0,0,0,0.7)_100%)]" />
 
-        <div className="relative z-10 container mx-auto max-w-7xl px-6 py-12">
-          <div className="max-w-5xl mx-auto">
+        <div className="relative z-10 container mx-auto max-w-7xl px-6 py-12 h-full flex flex-col">
+          <div className="max-w-5xl mx-auto flex-1 flex flex-col justify-center">
 
             {/* Premium Trust Indicators */}
             <motion.div
@@ -263,13 +263,14 @@ export function HeroSection() {
                 </a>
               </div>
             </motion.div>
+          </div>
 
-            {/* Premium Stats Grid */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-6 border-t border-white/10"
+          {/* Premium Stats Grid - Positioned at Bottom */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12 border-t border-white/10 w-full mt-auto"
             >
               <div className="text-center group">
                 <div className="text-4xl lg:text-5xl font-extralight text-amber-400 mb-2 transition-all duration-300 group-hover:scale-110">
@@ -296,7 +297,6 @@ export function HeroSection() {
                 </div>
               </div>
             </motion.div>
-          </div>
         </div>
       </section>
     </>
