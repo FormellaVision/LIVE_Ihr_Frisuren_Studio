@@ -22,7 +22,7 @@ export function ServicePageHeader({
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(249, 247, 244, 0.95), rgba(249, 247, 244, 0.90)), url('${backgroundImage}')`,
+          backgroundImage: `linear-gradient(to bottom, rgba(249, 247, 244, 0.65), rgba(249, 247, 244, 0.55)), url('${backgroundImage}')`,
         }}
       />
 
