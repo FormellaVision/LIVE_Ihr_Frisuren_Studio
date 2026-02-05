@@ -18,7 +18,7 @@ export function ServicePageHeader({
   backgroundImage,
 }: ServicePageHeaderProps) {
   return (
-    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:h-screen md:flex md:items-center md:justify-center md:overflow-hidden md:pt-20">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -26,7 +26,7 @@ export function ServicePageHeader({
         }}
       />
 
-      <div className="relative z-10 container-custom">
+      <div className="relative z-10 container-custom w-full">
         <div className="max-w-3xl mx-auto text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
