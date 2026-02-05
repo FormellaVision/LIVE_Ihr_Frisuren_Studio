@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Clock } from 'lucide-react';
@@ -64,6 +65,24 @@ export default function BalayagePage() {
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Balayage Hamburg Hamm', url: `${BUSINESS_INFO.website}/balayage-hamburg-hamm` },
   ]);
+
+  const relatedServices = [
+    {
+      href: '/damenfriseur-hamburg-hamm',
+      label: 'Damenfriseur Hamburg Hamm',
+      description: 'Professionelle Damenhaarschnitte & Styling',
+    },
+    {
+      href: '/haare-faerben-hamburg-hamm',
+      label: 'Haare färben',
+      description: 'Alle Färbe- und Colorationstechniken',
+    },
+    {
+      href: '/preise',
+      label: 'Alle Preise',
+      description: 'Transparente Preisliste für alle Leistungen',
+    },
+  ];
 
   return (
     <>
@@ -167,6 +186,15 @@ export default function BalayagePage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-custom">
+          <RelatedServices
+            services={relatedServices}
+            title="Entdecken Sie weitere Services"
+          />
         </div>
       </section>
 

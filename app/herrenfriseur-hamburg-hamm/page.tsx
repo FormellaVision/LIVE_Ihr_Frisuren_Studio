@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { SERVICES_HERREN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
 import { Check, Scissors, Award } from 'lucide-react';
@@ -63,6 +64,24 @@ export default function HerrenfriseurPage() {
       price: s.price,
     }))
   );
+
+  const relatedServices = [
+    {
+      href: '/haare-faerben-hamburg-hamm',
+      label: 'Haare färben',
+      description: 'Camouflage für graue Haare und moderne Colorationen',
+    },
+    {
+      href: '/leistungen',
+      label: 'Alle Leistungen',
+      description: 'Komplettes Angebot für Damen, Herren & Kosmetik',
+    },
+    {
+      href: '/preise',
+      label: 'Preise anschauen',
+      description: 'Transparente Preise für alle Herrenfrisuren',
+    },
+  ];
 
   return (
     <>
@@ -136,6 +155,15 @@ export default function HerrenfriseurPage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-custom">
+          <RelatedServices
+            services={relatedServices}
+            title="Entdecken Sie weitere Services"
+          />
         </div>
       </section>
 
