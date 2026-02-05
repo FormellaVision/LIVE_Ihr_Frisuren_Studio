@@ -1,10 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Playfair_Display, Montserrat } from 'next/font/google';
-import { NavigationWrapper } from '@/components/layout/NavigationWrapper';
+import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
-import { BreadcrumbWrapper } from '@/components/shared/BreadcrumbWrapper';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { getOrganizationSchema } from '@/lib/schema';
 import { getLocalBusinessSchema, getContactPointSchema } from '@/lib/local-seo';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -110,8 +110,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-montserrat pb-16 md:pb-0">
-        <NavigationWrapper />
-        <BreadcrumbWrapper />
+        <Navigation />
+        <Breadcrumb />
         <main>{children}</main>
         <Footer />
         <StickyMobileBar />
