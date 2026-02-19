@@ -24,30 +24,30 @@ export function CTABanner({
       <div className="container-custom text-center">
         <h2 className="heading-md text-white mb-4">{title}</h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">{description}</p>
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
           <a
             href={`tel:${BUSINESS_INFO.phoneInternational}`}
-            className="bg-white hover:bg-gray-100 text-teal-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
+            className="bg-white hover:bg-gray-100 text-teal-700 px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3 min-w-0"
           >
-            <Phone className="w-5 h-5" />
-            {BUSINESS_INFO.phone}
+            <Phone className="w-5 h-5 flex-shrink-0" />
+            <span className="whitespace-nowrap">{BUSINESS_INFO.phone}</span>
           </a>
           <a
             href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Termin via WhatsApp buchen (öffnet in neuem Tab)"
-            className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
+            className="bg-amber-500 hover:bg-amber-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3"
           >
-            <MessageCircle className="w-5 h-5" aria-hidden="true" />
+            <MessageCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
             WhatsApp
           </a>
           <a
             href={`mailto:${BUSINESS_INFO.email}`}
             aria-label={`E-Mail schreiben an ${BUSINESS_INFO.email}`}
-            className="bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3 backdrop-blur-sm"
+            className="bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3 backdrop-blur-sm"
           >
-            <Mail className="w-5 h-5" aria-hidden="true" />
+            <Mail className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
             E-Mail
           </a>
         </div>

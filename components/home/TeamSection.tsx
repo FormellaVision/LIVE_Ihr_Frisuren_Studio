@@ -31,7 +31,7 @@ export function TeamSection() {
           className="max-w-4xl mx-auto"
         >
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="aspect-[2/1] overflow-hidden">
+            <div className="aspect-[4/3] sm:aspect-[2/1] overflow-hidden">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
@@ -40,11 +40,11 @@ export function TeamSection() {
               </motion.div>
             </div>
 
-            <div className="p-8 md:p-12 text-center">
-              <h3 className="font-playfair text-3xl md:text-4xl font-bold mb-4">
+            <div className="p-5 sm:p-8 md:p-12 text-center">
+              <h3 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 Lernen Sie uns kennen
               </h3>
-              <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
                 Unser vielseitiges Team vereint jahrelange Erfahrung, Kreativität und
                 internationale Expertise. Wir sprechen Deutsch, Englisch, Türkisch und Persisch.
               </p>
@@ -53,7 +53,7 @@ export function TeamSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-teal-700 transition-colors"
+                  className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:bg-teal-700 transition-colors"
                 >
                   <Users className="w-5 h-5" />
                   Team kennenlernen

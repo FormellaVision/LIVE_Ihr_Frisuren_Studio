@@ -29,18 +29,18 @@ export function LocationSection() {
           className="text-center mb-16"
         >
           <h2 id="location-heading" className="heading-lg mb-4">So finden Sie uns in Hamburg Hamm</h2>
-          <p className="text-xl text-gray-600">
-            {BUSINESS_INFO.address.street} - {BUSINESS_INFO.address.postalCode} Hamburg-{BUSINESS_INFO.address.district}
+          <p className="text-base sm:text-xl text-gray-600 break-words">
+            {BUSINESS_INFO.address.street} · {BUSINESS_INFO.address.postalCode} Hamburg-{BUSINESS_INFO.address.district}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl overflow-hidden shadow-2xl h-[300px] md:h-[450px]"
+            className="rounded-2xl overflow-hidden shadow-2xl h-[220px] sm:h-[280px] md:h-[450px]"
           >
             <iframe
               src={BUSINESS_INFO.googleMapsEmbed}
@@ -123,17 +123,17 @@ export function LocationSection() {
                 <div className="flex-1">
                   <h3 className="font-bold text-xl mb-3">Öffnungszeiten</h3>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Dienstag - Freitag</span>
-                      <span className="font-semibold">{OPENING_HOURS.tuesday.times}</span>
+                    <div className="flex justify-between gap-2">
+                      <span className="flex-shrink-0">Dienstag - Freitag</span>
+                      <span className="font-semibold whitespace-nowrap text-right">{OPENING_HOURS.tuesday.times}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Samstag</span>
-                      <span className="font-semibold">{OPENING_HOURS.saturday.times}</span>
+                    <div className="flex justify-between gap-2">
+                      <span className="flex-shrink-0">Samstag</span>
+                      <span className="font-semibold whitespace-nowrap text-right">{OPENING_HOURS.saturday.times}</span>
                     </div>
-                    <div className="flex justify-between border-t border-white/20 pt-2 mt-2">
-                      <span>Sonntag & Montag</span>
-                      <span className="font-semibold">Geschlossen</span>
+                    <div className="flex justify-between gap-2 border-t border-white/20 pt-2 mt-2">
+                      <span className="flex-shrink-0">Sonntag & Montag</span>
+                      <span className="font-semibold text-right">Geschlossen</span>
                     </div>
                   </div>
                 </div>

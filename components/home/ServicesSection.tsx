@@ -72,7 +72,7 @@ export function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '0px 0px -50px 0px' }}
-          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
         >
           {serviceCategories.map((category, index) => (
             <motion.div

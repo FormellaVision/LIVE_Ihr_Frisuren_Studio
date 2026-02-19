@@ -40,7 +40,7 @@ export function HeroSection() {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-12 sm:py-16">
+        <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-8 sm:py-12">
 
           {/* Top Section - Incoming Call Badge */}
           <motion.div
@@ -97,13 +97,13 @@ export function HeroSection() {
               </div>
 
               {/* Main Avatar Circle - Logo only, no white background */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+              <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 flex items-center justify-center">
                 <Image
                   src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770241885/ihrfrisurenstudio_Logo_Wei%C3%9Ferbg_az4ghu.png"
                   alt="Ihr Frisuren-Studio Logo"
                   width={320}
                   height={320}
-                  className="w-64 h-64 sm:w-72 sm:h-72 object-contain"
+                  className="w-40 h-40 xs:w-48 xs:h-48 sm:w-64 sm:h-64 object-contain"
                 />
               </div>
             </motion.div>
