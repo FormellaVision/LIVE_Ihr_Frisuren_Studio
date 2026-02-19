@@ -206,7 +206,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #1f2937' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #1f2937' }}>
             <p style={{ color: '#6b7280', fontSize: '0.875rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ marginRight: '0.5rem', color: '#9ca3af' }}>Erstellt mit</span>
               <a
