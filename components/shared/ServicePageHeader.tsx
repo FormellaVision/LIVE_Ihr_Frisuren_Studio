@@ -18,7 +18,7 @@ export function ServicePageHeader({
   backgroundImage,
 }: ServicePageHeaderProps) {
   return (
-    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+    <section className="relative pt-10 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
