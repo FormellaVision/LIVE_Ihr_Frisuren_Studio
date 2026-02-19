@@ -28,7 +28,7 @@ export function HeroSection() {
   return (
     <>
       {/* Mobile Call Screen Version */}
-      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="md:hidden relative h-screen flex items-center justify-center overflow-hidden">
+      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="md:hidden relative h-screen -mt-16 flex items-center justify-center overflow-hidden">
         {/* Authentic Call Screen Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
@@ -176,7 +176,7 @@ export function HeroSection() {
       </section>
 
       {/* Desktop Version - Premium Hero */}
-      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="hidden md:flex relative h-screen items-center justify-center overflow-hidden pt-20">
+      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="hidden md:flex relative h-screen -mt-16 items-center justify-center overflow-hidden pt-20">
         {/* Background Image */}
         <Image
           src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
