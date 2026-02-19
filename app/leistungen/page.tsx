@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { PaymentBadges } from '@/components/shared/PaymentBadges';
 import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 
@@ -62,6 +63,16 @@ export default function LeistungenPage() {
               <br />
               Bei besonderen Wünschen oder längeren Haaren kann der Preis variieren.
             </p>
+          </div>
+
+          <div className="mt-10 max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+            <h3 className="font-playfair text-lg font-bold text-gray-800 text-center mb-1">
+              Zahlungsmethoden
+            </h3>
+            <p className="text-sm text-gray-500 text-center mb-5">
+              Wir akzeptieren alle gängigen Zahlungsarten
+            </p>
+            <PaymentBadges variant="light" showLabel={false} />
           </div>
         </div>
       </section>

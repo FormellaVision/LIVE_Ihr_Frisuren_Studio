@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Phone, PhoneOff, Scissors, Award, Star, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import { BUSINESS_INFO } from '@/lib/constants';
+import { PaymentBadges } from '@/components/shared/PaymentBadges';
 
 export function HeroSection() {
   const sliderResetRef = useRef<() => void>(() => {});
@@ -166,6 +167,9 @@ export function HeroSection() {
                 <span className="text-xs text-white/60 font-light">Nachricht</span>
               </motion.a>
             </div>
+
+            {/* Payment Trust Signals */}
+            <PaymentBadges variant="dark" showLabel={true} className="pt-2" />
           </motion.div>
 
         </div>
@@ -272,8 +276,9 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12 border-t border-white/10 w-full mt-auto"
+            className="flex flex-col items-center gap-8 w-full mt-auto"
             >
+            <div className="grid grid-cols-3 gap-8 max-w-3xl w-full pt-12 border-t border-white/10">
               <div className="text-center group">
                 <div className="text-4xl lg:text-5xl font-extralight text-amber-400 mb-2 transition-all duration-300 group-hover:scale-110">
                   20+
@@ -298,6 +303,8 @@ export function HeroSection() {
                   Sprachen
                 </div>
               </div>
+            </div>
+            <PaymentBadges variant="dark" showLabel={true} />
             </motion.div>
         </div>
       </section>

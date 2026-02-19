@@ -12,6 +12,7 @@ import {
   Star,
 } from 'lucide-react';
 import { BUSINESS_INFO, NAV_LINKS, OPENING_HOURS } from '@/lib/constants';
+import { PaymentBadges } from '@/components/shared/PaymentBadges';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -182,6 +183,9 @@ export function Footer() {
 
       <div className="border-t border-gray-800">
         <div className="container-custom py-6">
+          <div className="mb-6 pb-6 border-b border-gray-800">
+            <PaymentBadges variant="dark" showLabel={true} />
+          </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <p>
               © {currentYear} {BUSINESS_INFO.name}. Alle Rechte vorbehalten.

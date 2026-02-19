@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Phone, MessageCircle, Calendar, Check } from 'lucide-react';
+import { Phone, MessageCircle, Calendar, Check, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 export function CTASection() {
@@ -41,11 +41,19 @@ export function CTASection() {
               <MessageCircle className="w-6 h-6" aria-hidden="true" />
               WhatsApp
             </a>
+            <a
+              href={`mailto:${BUSINESS_INFO.email}`}
+              aria-label={`E-Mail schreiben an ${BUSINESS_INFO.email}`}
+              className="bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white text-white px-10 py-5 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3 backdrop-blur-sm"
+            >
+              <Mail className="w-6 h-6" aria-hidden="true" />
+              E-Mail
+            </a>
             <Link
               href="/kontakt"
               className="border-2 border-white hover:bg-white hover:text-teal-700 text-white px-10 py-5 rounded-lg text-lg font-semibold transition-all inline-flex items-center gap-3"
             >
-              <Calendar className="w-6 h-6" />
+              <Calendar className="w-6 h-6" aria-hidden="true" />
               Kontakt
             </Link>
           </div>
