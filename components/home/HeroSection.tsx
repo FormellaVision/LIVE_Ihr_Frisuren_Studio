@@ -174,11 +174,13 @@ export function HeroSection() {
       {/* Desktop Version - Premium Hero */}
       <section className="hidden md:flex relative h-screen items-center justify-center overflow-hidden pt-20">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')`,
-          }}
+        <Image
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          alt="Premium Friseursalon Ihr Frisuren-Studio Hamburg Hamm"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
 
         {/* Radial Overlay - Center Focus */}

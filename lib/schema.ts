@@ -224,10 +224,14 @@ export function getServiceSchema(
     provider: {
       '@id': `${BUSINESS_INFO.website}/#organization`,
     },
-    areaServed: {
-      '@type': 'City',
-      name: 'Hamburg',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'Hamburg' },
+      {
+        '@type': 'Neighborhood',
+        name: 'Hamm',
+        containedInPlace: { '@type': 'City', name: 'Hamburg' },
+      },
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${serviceType} Leistungen`,

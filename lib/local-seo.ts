@@ -70,8 +70,8 @@ export function getOpeningHoursSchema() {
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'BeautySalon',
-    '@id': `${BUSINESS_INFO.website}#organization`,
+    '@type': 'HairSalon',
+    '@id': `${BUSINESS_INFO.website}/#localbusiness`,
     name: BUSINESS_INFO.name,
     description: 'Premium Friseur in Hamburg Hamm - Meisterbetrieb seit 2004',
     url: BUSINESS_INFO.website,
@@ -143,10 +143,14 @@ export function getServiceSchema(
         addressCountry: 'DE',
       },
     },
-    areaServed: {
-      '@type': 'City',
-      name: 'Hamburg',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'Hamburg' },
+      {
+        '@type': 'Neighborhood',
+        name: 'Hamm',
+        containedInPlace: { '@type': 'City', name: 'Hamburg' },
+      },
+    ],
     priceRange: priceRange,
     image: image,
   };

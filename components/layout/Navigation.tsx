@@ -84,7 +84,7 @@ export function Navigation() {
             : undefined
         }
       >
-        <nav className="max-w-7xl mx-auto px-4">
+        <nav className="max-w-7xl mx-auto px-4" role="navigation" aria-label="Hauptnavigation">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3 z-10">
               <Image
@@ -110,6 +110,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={pathname === link.href ? 'page' : undefined}
                   className={cn(
                     'relative text-base font-medium transition-all duration-300 py-1',
                     pathname === link.href
