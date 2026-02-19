@@ -33,6 +33,8 @@ export function StickyMobileBar() {
 
   return (
     <div
+      role="complementary"
+      aria-label="Schnell-Kontakt"
       className={`fixed bottom-8 left-0 right-0 z-50 md:hidden transition-all duration-300 ease-in-out ${
         isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
@@ -41,10 +43,12 @@ export function StickyMobileBar() {
         <a
           href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
           className="relative group"
-          aria-label="WhatsApp Nachricht senden"
+          aria-label="WhatsApp Nachricht senden (öffnet in neuem Tab)"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/40 active:scale-95 transition-transform">
-            <MessageCircle className="w-7 h-7 text-white" />
+            <MessageCircle className="w-7 h-7 text-white" aria-hidden="true" />
 
             <motion.div
               animate={{
@@ -77,10 +81,10 @@ export function StickyMobileBar() {
         <a
           href={`tel:${BUSINESS_INFO.phoneInternational}`}
           className="relative group"
-          aria-label="Jetzt anrufen"
+          aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
         >
           <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/40 active:scale-95 transition-transform">
-            <Phone className="w-7 h-7 text-white" />
+            <Phone className="w-7 h-7 text-white" aria-hidden="true" />
 
             <motion.div
               animate={{

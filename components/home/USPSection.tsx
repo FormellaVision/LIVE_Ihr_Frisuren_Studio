@@ -63,7 +63,7 @@ const itemVariants = {
 
 export function USPSection() {
   return (
-    <section id="usp-section" className="section-padding bg-warm-white">
+    <section id="usp-section" aria-labelledby="usp-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export function USPSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-4">
+          <h2 id="usp-heading" className="heading-lg mb-4">
             Warum Ihr Frisuren-Studio in Hamburg Hamm?
           </h2>
           <p className="text-xl text-gray-600">
@@ -95,6 +95,7 @@ export function USPSection() {
             >
               <div
                 className={`w-20 h-20 ${usp.color} rounded-full flex items-center justify-center mx-auto mb-6`}
+                aria-hidden="true"
               >
                 <usp.icon className="w-10 h-10 text-white" />
               </div>
@@ -117,7 +118,7 @@ export function USPSection() {
               variants={itemVariants}
               className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md card-hover"
             >
-              <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <feature.icon className="w-5 h-5 text-teal-600" />
               </div>
               <div>

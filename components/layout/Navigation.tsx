@@ -130,10 +130,11 @@ export function Navigation() {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
+                aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
                 className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <Phone className="w-4 h-4 lg:w-5 lg:h-5 relative z-10 flex-shrink-0" />
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                <Phone className="w-4 h-4 lg:w-5 lg:h-5 relative z-10 flex-shrink-0" aria-hidden="true" />
                 <span className="relative z-10 text-sm lg:text-base whitespace-nowrap">Termin: {BUSINESS_INFO.phone}</span>
               </a>
             </div>
@@ -141,9 +142,11 @@ export function Navigation() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden min-w-[44px] min-h-[44px] p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 rounded-lg bg-white/50 hover:bg-white/80"
-              aria-label="Menu"
+              aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             </button>
           </div>
         </nav>
@@ -152,6 +155,10 @@ export function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Hauptmenü"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -164,9 +171,9 @@ export function Navigation() {
             <button
               onClick={closeMenu}
               className="absolute top-4 right-4 z-[101] min-w-[44px] min-h-[44px] p-3 bg-white/90 backdrop-blur-sm border-2 border-gray-200 rounded-xl text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 shadow-xl transition-all duration-300"
-              aria-label="Close Menu"
+              aria-label="Menü schließen"
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             </button>
 
             <motion.div
@@ -217,24 +224,26 @@ export function Navigation() {
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
                   onClick={closeMenu}
+                  aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
                   className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                   <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
                     <span className="break-words">Jetzt anrufen</span>
                   </span>
                 </a>
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
                   onClick={closeMenu}
+                  aria-label="Termin via WhatsApp vereinbaren (öffnet in neuem Tab)"
                   className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                   <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
                     <span className="break-words">Termin vereinbaren</span>
                   </span>
                 </a>

@@ -27,7 +27,7 @@ export function HeroSection() {
   return (
     <>
       {/* Mobile Call Screen Version */}
-      <section className="md:hidden relative h-screen flex items-center justify-center overflow-hidden">
+      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="md:hidden relative h-screen flex items-center justify-center overflow-hidden">
         {/* Authentic Call Screen Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
@@ -67,7 +67,7 @@ export function HeroSection() {
               className="relative"
             >
               {/* Outer pulse rings */}
-              <div className="absolute inset-0 -m-12">
+              <div className="absolute inset-0 -m-12" aria-hidden="true">
                 <motion.div
                   animate={{
                     scale: [1, 1.4, 1.4, 1],
@@ -172,7 +172,7 @@ export function HeroSection() {
       </section>
 
       {/* Desktop Version - Premium Hero */}
-      <section className="hidden md:flex relative h-screen items-center justify-center overflow-hidden pt-20">
+      <section aria-label="Willkommen bei Ihr Frisuren-Studio Hamburg Hamm" className="hidden md:flex relative h-screen items-center justify-center overflow-hidden pt-20">
         {/* Background Image */}
         <Image
           src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
@@ -424,7 +424,13 @@ function SwipeToAnswerSlider({
         }}
         onMouseDown={(e) => handleStart(e.clientX)}
         onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-        aria-label="Schieben zum Anrufen"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onAnswer();
+          }
+        }}
+        aria-label="Schieben oder Enter drücken zum Anrufen"
         role="button"
         tabIndex={0}
       >

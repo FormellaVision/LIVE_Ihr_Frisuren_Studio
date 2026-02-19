@@ -45,9 +45,9 @@ export function Footer() {
               Premium Friseur in Hamburg Hamm. Damen, Herren, Balayage & Kosmetik.
               Ihr mehrsprachiges Team mit Meisterqualität.
             </p>
-            <div className="flex items-center gap-2 text-amber-400">
-              <Star className="w-5 h-5 fill-current" />
-              <span className="font-semibold">
+            <div className="flex items-center gap-2 text-amber-400" aria-label={`Bewertung: ${BUSINESS_INFO.reviews.rating} von 5 Sternen`}>
+              <Star className="w-5 h-5 fill-current" aria-hidden="true" />
+              <span className="font-semibold" aria-hidden="true">
                 {BUSINESS_INFO.reviews.rating} Sterne
               </span>
               <span className="text-gray-400">
@@ -56,24 +56,26 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="font-playfair text-lg font-bold mb-6">Kontakt</h3>
+          <section aria-labelledby="footer-contact-heading">
+            <h3 id="footer-contact-heading" className="font-playfair text-lg font-bold mb-6">Kontakt</h3>
             <ul className="space-y-4">
               <li>
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
+                  aria-label={`Anrufen: ${BUSINESS_INFO.phone}`}
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <span>{BUSINESS_INFO.phone}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${BUSINESS_INFO.email}`}
+                  aria-label={`E-Mail schreiben: ${BUSINESS_INFO.email}`}
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm break-words min-w-0">{BUSINESS_INFO.email}</span>
                 </a>
               </li>
@@ -86,9 +88,10 @@ export function Footer() {
                   href={BUSINESS_INFO.googleMaps}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Adresse auf Google Maps ansehen (öffnet in neuem Tab)"
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm">
                     <span itemProp="streetAddress">{BUSINESS_INFO.address.street}</span>
                     <br />
@@ -104,17 +107,18 @@ export function Footer() {
                   href={BUSINESS_INFO.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Instagram-Profil ${BUSINESS_INFO.instagram} öffnen (öffnet in neuem Tab)`}
                   className="flex items-center gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <Instagram className="w-5 h-5 flex-shrink-0" />
+                  <Instagram className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
                   <span>{BUSINESS_INFO.instagram}</span>
                 </a>
               </li>
             </ul>
-          </div>
+          </section>
 
-          <div>
-            <h3 className="font-playfair text-lg font-bold mb-6">Öffnungszeiten</h3>
+          <section aria-labelledby="footer-hours-heading">
+            <h3 id="footer-hours-heading" className="font-playfair text-lg font-bold mb-6">Öffnungszeiten</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex justify-between gap-2 text-gray-400">
                 <span className="flex-shrink-0">Montag</span>
@@ -134,7 +138,7 @@ export function Footer() {
               </li>
               <li className="pt-3 mt-3 border-t border-gray-700">
                 <div className="flex items-center gap-2 text-amber-400">
-                  <Clock className="w-4 h-4 flex-shrink-0" />
+                  <Clock className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                   <span className="font-medium text-sm">Afterwork Specials</span>
                 </div>
                 <p className="text-gray-400 text-xs mt-1 leading-relaxed">
@@ -144,10 +148,10 @@ export function Footer() {
                 </p>
               </li>
             </ul>
-          </div>
+          </section>
 
-          <div>
-            <h3 className="font-playfair text-lg font-bold mb-6">Navigation</h3>
+          <nav aria-labelledby="footer-nav-heading">
+            <h3 id="footer-nav-heading" className="font-playfair text-lg font-bold mb-6">Navigation</h3>
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -165,13 +169,14 @@ export function Footer() {
                 href={BUSINESS_INFO.googleMaps}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Uns auf Google Maps ansehen (öffnet in neuem Tab)"
                 className="inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300 transition-colors"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
                 Auf Google Maps ansehen
               </a>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
 

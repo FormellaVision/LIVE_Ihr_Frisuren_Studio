@@ -54,7 +54,7 @@ const itemVariants = {
 
 export function ServicesSection() {
   return (
-    <section id="leistungen" className="section-padding">
+    <section id="leistungen" aria-labelledby="services-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export function ServicesSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-4">Unsere Leistungen in Hamburg Hamm</h2>
+          <h2 id="services-heading" className="heading-lg mb-4">Unsere Leistungen in Hamburg Hamm</h2>
           <p className="text-xl text-gray-600">Damen - Herren - Balayage - Kosmetik</p>
         </motion.div>
 
@@ -80,7 +80,7 @@ export function ServicesSection() {
               variants={itemVariants}
               className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0" aria-hidden="true">
                 <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 break-words">{category.title}</h3>
@@ -116,7 +116,7 @@ export function ServicesSection() {
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/30 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/30 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
               <Moon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />
             </div>
             <div className="flex-1 min-w-0">
@@ -140,6 +140,7 @@ export function ServicesSection() {
               </div>
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
+                aria-label={`Afterwork-Termin buchen: ${BUSINESS_INFO.phone}`}
                 className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:bg-gray-800 transition-colors"
               >
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />

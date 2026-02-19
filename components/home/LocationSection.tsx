@@ -19,7 +19,7 @@ const itemVariants = {
 
 export function LocationSection() {
   return (
-    <section className="section-padding bg-warm-white">
+    <section id="standort" aria-labelledby="location-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export function LocationSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-4">So finden Sie uns in Hamburg Hamm</h2>
+          <h2 id="location-heading" className="heading-lg mb-4">So finden Sie uns in Hamburg Hamm</h2>
           <p className="text-xl text-gray-600">
             {BUSINESS_INFO.address.street} - {BUSINESS_INFO.address.postalCode} Hamburg-{BUSINESS_INFO.address.district}
           </p>
@@ -61,7 +61,7 @@ export function LocationSection() {
           >
             <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -79,7 +79,7 @@ export function LocationSection() {
 
             <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Train className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -100,7 +100,7 @@ export function LocationSection() {
 
             <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Car className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export function LocationSection() {
               className="bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">

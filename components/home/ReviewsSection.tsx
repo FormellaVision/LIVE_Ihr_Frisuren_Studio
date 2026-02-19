@@ -21,7 +21,7 @@ export function ReviewsSection() {
   const displayReviews = REVIEWS.slice(0, 3);
 
   return (
-    <section className="section-padding">
+    <section id="bewertungen" aria-labelledby="reviews-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export function ReviewsSection() {
               {BUSINESS_INFO.reviews.rating} Sterne - {BUSINESS_INFO.reviews.count}+ Bewertungen
             </span>
           </div>
-          <h2 className="heading-lg mb-4">Das sagen unsere Kunden</h2>
+          <h2 id="reviews-heading" className="heading-lg mb-4">Das sagen unsere Kunden</h2>
           <p className="text-xl text-gray-600">
             Über {BUSINESS_INFO.reviews.count} zufriedene Kunden aus Hamburg Hamm & Umgebung
           </p>
@@ -50,21 +50,29 @@ export function ReviewsSection() {
           className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
         >
           {displayReviews.map((review, index) => (
-            <motion.div
+            <motion.article
               key={index}
               variants={itemVariants}
+              aria-label={`Bewertung von ${review.author}`}
               className="bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
-              <div className="flex gap-1 text-amber-500 mb-4">
+              <div
+                className="flex gap-1 text-amber-500 mb-4"
+                aria-label={`${review.rating} von 5 Sternen`}
+              >
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
+                  <Star key={i} className="w-5 h-5 fill-current" aria-hidden="true" />
                 ))}
               </div>
               <p className="text-gray-700 mb-4 italic leading-relaxed">
                 &ldquo;{review.text}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-xl font-bold text-teal-600">
+                <div
+                  className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-xl font-bold text-teal-600"
+                  role="img"
+                  aria-label={`Avatar von ${review.author}`}
+                >
                   {review.initial}
                 </div>
                 <div>
@@ -72,7 +80,7 @@ export function ReviewsSection() {
                   <p className="text-sm text-gray-500">{review.date}</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
 
@@ -87,9 +95,10 @@ export function ReviewsSection() {
             href="https://www.google.com/search?q=Ihr+Frisuren-Studio+Hamburg+Rezensionen"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Alle ${BUSINESS_INFO.reviews.count}+ Bewertungen auf Google ansehen (öffnet in neuem Tab)`}
             className="btn-outline"
           >
-            <ExternalLink className="w-5 h-5" />
+            <ExternalLink className="w-5 h-5" aria-hidden="true" />
             Alle {BUSINESS_INFO.reviews.count}+ Bewertungen auf Google ansehen
           </a>
         </motion.div>

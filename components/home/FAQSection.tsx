@@ -10,7 +10,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding">
+    <section id="faq" aria-labelledby="faq-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-4">Häufig gestellte Fragen</h2>
+          <h2 id="faq-heading" className="heading-lg mb-4">Häufig gestellte Fragen</h2>
           <p className="text-xl text-gray-600">
             Alles Wichtige zu Ihrem Friseurbesuch in Hamburg Hamm
           </p>

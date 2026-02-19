@@ -7,7 +7,7 @@ import { BUSINESS_INFO } from '@/lib/constants';
 
 export function CTASection() {
   return (
-    <section className="section-padding bg-gradient-to-br from-teal-600 to-teal-700 text-white">
+    <section aria-labelledby="cta-heading" className="section-padding bg-gradient-to-br from-teal-600 to-teal-700 text-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -16,7 +16,7 @@ export function CTASection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="heading-lg mb-6">Bereit für Ihren neuen Look?</h2>
+          <h2 id="cta-heading" className="heading-lg mb-6">Bereit für Ihren neuen Look?</h2>
           <p className="text-xl mb-10 text-white/90">
             Buchen Sie jetzt Ihren Termin bei Hamburgs Top-Friseur in Hamm.
             Wir freuen uns auf Sie!
@@ -25,16 +25,20 @@ export function CTASection() {
           <div className="flex gap-4 justify-center flex-wrap mb-8">
             <a
               href={`tel:${BUSINESS_INFO.phoneInternational}`}
+              aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
               className="bg-white hover:bg-gray-100 text-teal-700 px-10 py-5 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
             >
-              <Phone className="w-6 h-6" />
+              <Phone className="w-6 h-6" aria-hidden="true" />
               {BUSINESS_INFO.phone}
             </a>
             <a
               href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Termin via WhatsApp buchen (öffnet in neuem Tab)"
               className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-5 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
             >
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-6 h-6" aria-hidden="true" />
               WhatsApp
             </a>
             <Link
@@ -46,20 +50,20 @@ export function CTASection() {
             </Link>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
+          <ul className="flex flex-wrap justify-center gap-6 text-sm text-white/80 list-none">
+            <li className="flex items-center gap-2">
+              <Check className="w-4 h-4" aria-hidden="true" />
               Antwort in 24h
-            </span>
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="w-4 h-4" aria-hidden="true" />
               Meisterbetrieb seit {BUSINESS_INFO.founded}
-            </span>
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="w-4 h-4" aria-hidden="true" />
               {BUSINESS_INFO.reviews.count}+ Top-Bewertungen ({BUSINESS_INFO.reviews.rating})
-            </span>
-          </div>
+            </li>
+          </ul>
         </motion.div>
       </div>
     </section>
