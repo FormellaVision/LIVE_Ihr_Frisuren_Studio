@@ -115,9 +115,9 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="text-center max-w-lg px-2 sm:px-4"
             >
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-2 md:hidden break-words">
+              <p className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-2 md:hidden break-words">
                 Haare sind Vertrauenssache.
-              </h1>
+              </p>
               <h2 className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
                 Überlass sie nicht dem Zufall.
               </h2>
@@ -215,6 +215,8 @@ export function HeroSection() {
               </div>
             </motion.div>
 
+            <h1 className="sr-only">Friseur Hamburg Hamm – Ihr Frisuren-Studio seit 2004</h1>
+
             {/* Main Headline - Premium Typography */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -222,13 +224,13 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
               className="text-center mb-6 px-4 max-w-full"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4 break-words" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
+              <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight mb-4 break-words" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
                 Haare sind Vertrauenssache.
                 <br />
                 <span className="text-amber-400 font-normal" style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 30px rgba(0, 0, 0, 0.6)' }}>
                   Überlass sie nicht dem Zufall.
                 </span>
-              </h1>
+              </p>
             </motion.div>
 
             {/* Subheading */}

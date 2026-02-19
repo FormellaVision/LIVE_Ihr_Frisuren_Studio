@@ -114,7 +114,7 @@ export function getOrganizationSchema() {
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'HairSalon'],
+    '@type': 'HairSalon',
     '@id': `${BUSINESS_INFO.website}/#localbusiness`,
     name: BUSINESS_INFO.fullName,
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
@@ -241,7 +241,7 @@ export function getServiceSchema(
 export function getReviewSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'HairSalon',
     '@id': `${BUSINESS_INFO.website}/#localbusiness`,
     name: BUSINESS_INFO.name,
     aggregateRating: {
