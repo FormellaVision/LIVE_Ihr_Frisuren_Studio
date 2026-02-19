@@ -1,9 +1,28 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Instagram } from 'lucide-react';
+
+const relatedServices = [
+  {
+    href: '/damenfriseur-hamburg-hamm',
+    label: 'Damenfriseur Hamburg Hamm',
+    description: 'Haarschnitte, Styling und Colorationen für Damen - individuell und professionell.',
+  },
+  {
+    href: '/herrenfriseur-hamburg-hamm',
+    label: 'Herrenfriseur Hamburg Hamm',
+    description: 'Klassische und moderne Herrenschnitte, Bartpflege und Styling.',
+  },
+  {
+    href: '/balayage-hamburg-hamm',
+    label: 'Balayage Hamburg Hamm',
+    description: 'Natürliche Farbtechniken für ein strahlendes, lebendiges Ergebnis.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Galerie - Friseur Hamburg Hamm',
@@ -83,6 +102,15 @@ export default function GaleriePage() {
               {BUSINESS_INFO.instagram} auf Instagram
             </a>
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-custom max-w-6xl mx-auto">
+          <RelatedServices
+            services={relatedServices}
+            title="Unsere Leistungen entdecken"
+          />
         </div>
       </section>
 

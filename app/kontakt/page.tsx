@@ -1,8 +1,27 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
+
+const contactServices = [
+  {
+    href: '/leistungen',
+    label: 'Alle Leistungen & Preise',
+    description: 'Informieren Sie sich über unser vollständiges Angebot und unsere Preise.',
+  },
+  {
+    href: '/damenfriseur-hamburg-hamm',
+    label: 'Damenfriseur Hamburg Hamm',
+    description: 'Haarschnitte, Balayage, Styling und Colorationen für Damen.',
+  },
+  {
+    href: '/herrenfriseur-hamburg-hamm',
+    label: 'Herrenfriseur Hamburg Hamm',
+    description: 'Professionelle Herrenschnitte und Bartpflege in Hamburg Hamm.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Kontakt - Friseur Hamburg Hamm',
@@ -175,6 +194,15 @@ export default function KontaktPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-warm-white">
+        <div className="container-custom max-w-6xl mx-auto">
+          <RelatedServices
+            services={contactServices}
+            title="Unsere Leistungen"
+          />
         </div>
       </section>
 

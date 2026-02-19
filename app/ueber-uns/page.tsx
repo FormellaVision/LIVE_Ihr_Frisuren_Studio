@@ -1,11 +1,30 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Award, Users, Heart, Globe } from 'lucide-react';
 import { HistorySection } from '@/components/about/HistorySection';
+
+const teamServices = [
+  {
+    href: '/leistungen',
+    label: 'Alle Leistungen & Preise',
+    description: 'Das komplette Angebot: Damenfriseur, Herrenfriseur, Balayage, Kosmetik und mehr.',
+  },
+  {
+    href: '/damenfriseur-hamburg-hamm',
+    label: 'Damenfriseur Hamburg Hamm',
+    description: 'Unsere Spezialistinnen für Damen-Haarschnitte, Farbe und Styling.',
+  },
+  {
+    href: '/galerie',
+    label: 'Unsere Galerie',
+    description: 'Sehen Sie sich unsere Arbeiten an - Inspiration für Ihren nächsten Besuch.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Team & Geschichte - Friseur Hamburg Hamm',
@@ -105,6 +124,15 @@ export default function UeberUnsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-custom max-w-6xl mx-auto">
+          <RelatedServices
+            services={teamServices}
+            title="Was wir für Sie tun können"
+          />
         </div>
       </section>
 

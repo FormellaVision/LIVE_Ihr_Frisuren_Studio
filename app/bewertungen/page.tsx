@@ -1,9 +1,28 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Star, ExternalLink, Quote } from 'lucide-react';
+
+const nextStepServices = [
+  {
+    href: '/damenfriseur-hamburg-hamm',
+    label: 'Damenfriseur Hamburg Hamm',
+    description: 'Professionelle Haarschnitte, Colorationen und Styling für Damen.',
+  },
+  {
+    href: '/herrenfriseur-hamburg-hamm',
+    label: 'Herrenfriseur Hamburg Hamm',
+    description: 'Klassische und moderne Schnitte, Bartpflege - für den gepflegten Herren.',
+  },
+  {
+    href: '/balayage-hamburg-hamm',
+    label: 'Balayage Hamburg Hamm',
+    description: 'Natürliche Farbverläufe und strahlende Farbergebnisse vom Experten.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Bewertungen - Friseur Hamburg Hamm',
@@ -110,6 +129,15 @@ export default function BewertungenPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-warm-white">
+        <div className="container-custom max-w-6xl mx-auto">
+          <RelatedServices
+            services={nextStepServices}
+            title="Bereit für Ihren Termin?"
+          />
         </div>
       </section>
 
