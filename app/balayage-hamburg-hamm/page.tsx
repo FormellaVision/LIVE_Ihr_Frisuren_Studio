@@ -72,10 +72,15 @@ export default function BalayagePage() {
       label: 'Damenfriseur Hamburg Hamm',
       description: 'Professionelle Damenhaarschnitte & Styling',
     },
-{
-      href: '/preise',
-      label: 'Alle Preise',
-      description: 'Transparente Preisliste für alle Leistungen',
+    {
+      href: '/herrenfriseur-hamburg-hamm',
+      label: 'Herrenfriseur Hamburg Hamm',
+      description: 'Moderne Herrenhaarschnitte & Bartpflege',
+    },
+    {
+      href: '/leistungen',
+      label: 'Alle Leistungen & Preise',
+      description: 'Komplettes Angebot: Damen, Herren & Kosmetik',
     },
   ];
 

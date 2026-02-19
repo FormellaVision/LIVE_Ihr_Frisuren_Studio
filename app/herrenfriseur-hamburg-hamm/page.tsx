@@ -66,15 +66,20 @@ export default function HerrenfriseurPage() {
   );
 
   const relatedServices = [
-{
-      href: '/leistungen',
-      label: 'Alle Leistungen',
-      description: 'Komplettes Angebot für Damen, Herren & Kosmetik',
+    {
+      href: '/damenfriseur-hamburg-hamm',
+      label: 'Damenfriseur Hamburg Hamm',
+      description: 'Professionelle Damenhaarschnitte & Styling',
     },
     {
-      href: '/preise',
-      label: 'Preise anschauen',
-      description: 'Transparente Preise für alle Herrenfrisuren',
+      href: '/balayage-hamburg-hamm',
+      label: 'Balayage Hamburg Hamm',
+      description: 'Natürliche Highlights mit modernen Färbetechniken',
+    },
+    {
+      href: '/leistungen',
+      label: 'Alle Leistungen & Preise',
+      description: 'Komplettes Angebot: Damen, Herren & Kosmetik',
     },
   ];
 

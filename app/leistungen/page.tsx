@@ -3,6 +3,7 @@ import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 
@@ -74,6 +75,31 @@ export default function LeistungenPage() {
             </p>
             <PaymentBadges variant="light" showLabel={false} />
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding pt-0">
+        <div className="container-custom">
+          <RelatedServices
+            title="Entdecken Sie weitere Services"
+            services={[
+              {
+                href: '/damenfriseur-hamburg-hamm',
+                label: 'Damenfriseur Hamburg Hamm',
+                description: 'Professionelle Damenhaarschnitte & Styling',
+              },
+              {
+                href: '/herrenfriseur-hamburg-hamm',
+                label: 'Herrenfriseur Hamburg Hamm',
+                description: 'Moderne Herrenhaarschnitte & Bartpflege',
+              },
+              {
+                href: '/balayage-hamburg-hamm',
+                label: 'Balayage Hamburg Hamm',
+                description: 'Natürliche Highlights mit modernen Färbetechniken',
+              },
+            ]}
+          />
         </div>
       </section>
 
