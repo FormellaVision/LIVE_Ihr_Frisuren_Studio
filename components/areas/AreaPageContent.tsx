@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Check, Car, Train } from 'lucide-react';
+import { MapPin, Phone, Clock, Check, Car, Train, ChevronDown } from 'lucide-react';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 
@@ -32,31 +32,36 @@ interface Props {
 export function AreaPageContent({ area }: Props) {
   return (
     <>
-      <section
-        className="relative pt-10 pb-16 md:pb-24 overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(249,247,244,0.7), rgba(249,247,244,0.6)), url('${area.image}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="relative z-10 container-custom">
+      <section className="relative min-h-[72vh] flex items-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url('${area.image}')`,
+            backgroundPosition: 'center 35%',
+          }}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+
+        <div className="relative z-10 container-custom w-full pt-8 pb-24">
           <div className="max-w-3xl mx-auto text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-md"
+              className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2 rounded-full mb-7 shadow-lg"
             >
-              <MapPin className="w-4 h-4 text-teal-600" />
-              <span className="text-sm font-semibold text-gray-800">Friseur nahe {area.name}</span>
+              <MapPin className="w-4 h-4 text-amber-400" />
+              <span className="text-sm font-semibold text-white">Friseur nahe {area.name}</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="heading-xl mb-4"
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 break-words"
+              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)' }}
             >
               Friseur {area.name} Hamburg
             </motion.h1>
@@ -65,7 +70,8 @@ export function AreaPageContent({ area }: Props) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-teal-600 font-semibold mb-4"
+              className="text-base sm:text-lg md:text-xl text-teal-300 font-semibold mb-4"
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}
             >
               Ihr Frisuren-Studio – Meisterbetrieb seit 2004
             </motion.p>
@@ -74,12 +80,45 @@ export function AreaPageContent({ area }: Props) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base text-gray-600 leading-relaxed"
+              className="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto mb-10"
             >
               {area.intro}
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center"
+            >
+              <a
+                href={`tel:${BUSINESS_INFO.phoneInternational}`}
+                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-black/30"
+              >
+                <Phone className="w-4 h-4" />
+                {BUSINESS_INFO.phone}
+              </a>
+              <Link
+                href="/termin-buchen"
+                className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                Termin buchen
+              </Link>
+            </motion.div>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F7F4] to-transparent pointer-events-none" />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
+          aria-hidden="true"
+        >
+          <ChevronDown className="w-6 h-6 animate-bounce" />
+        </motion.div>
       </section>
 
       <section className="section-padding bg-warm-white">
