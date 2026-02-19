@@ -53,8 +53,6 @@ export function Breadcrumb() {
   if (items.length === 0) return null;
 
   return (
-    <>
-    <div className="h-16" aria-hidden="true" />
     <nav aria-label="Breadcrumb" className="py-3 bg-gray-50 border-b border-gray-200">
       <div className="container-custom">
         <ol className="flex items-center gap-2 text-sm">
@@ -92,6 +90,5 @@ export function Breadcrumb() {
         </ol>
       </div>
     </nav>
-    </>
   );
 }

@@ -4,7 +4,6 @@ import { Playfair_Display, Montserrat } from 'next/font/google';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
-import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { getOrganizationSchema } from '@/lib/schema';
 import { getContactPointSchema } from '@/lib/local-seo';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -116,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Zum Hauptinhalt springen
         </a>
         <Navigation />
-        <Breadcrumb />
+        <div className="h-16" aria-hidden="true" />
         <main id="main">{children}</main>
         <Footer />
         <StickyMobileBar />

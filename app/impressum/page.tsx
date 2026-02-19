@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
+    <>
+    <Breadcrumb />
     <div className="section-padding">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
@@ -122,5 +125,6 @@ export default function ImpressumPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
