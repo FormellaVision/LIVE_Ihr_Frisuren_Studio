@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 interface CTABannerProps {
@@ -34,10 +34,21 @@ export function CTABanner({
           </a>
           <a
             href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Termin via WhatsApp buchen (öffnet in neuem Tab)"
             className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
           >
-            <MessageCircle className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" aria-hidden="true" />
             WhatsApp
+          </a>
+          <a
+            href={`mailto:${BUSINESS_INFO.email}`}
+            aria-label={`E-Mail schreiben an ${BUSINESS_INFO.email}`}
+            className="bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-3 backdrop-blur-sm"
+          >
+            <Mail className="w-5 h-5" aria-hidden="true" />
+            E-Mail
           </a>
         </div>
       </div>
