@@ -72,12 +72,7 @@ export default function DamenfriseurPage() {
       label: 'Balayage Hamburg Hamm',
       description: 'Natürliche Highlights mit modernen Färbetechniken',
     },
-    {
-      href: '/haare-faerben-hamburg-hamm',
-      label: 'Haare färben',
-      description: 'Professionelle Colorationen und Ansatzfärbungen',
-    },
-    {
+{
       href: '/preise',
       label: 'Alle Preise anschauen',
       description: 'Transparente Preise für alle Leistungen',

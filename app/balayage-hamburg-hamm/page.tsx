@@ -72,12 +72,7 @@ export default function BalayagePage() {
       label: 'Damenfriseur Hamburg Hamm',
       description: 'Professionelle Damenhaarschnitte & Styling',
     },
-    {
-      href: '/haare-faerben-hamburg-hamm',
-      label: 'Haare färben',
-      description: 'Alle Färbe- und Colorationstechniken',
-    },
-    {
+{
       href: '/preise',
       label: 'Alle Preise',
       description: 'Transparente Preisliste für alle Leistungen',

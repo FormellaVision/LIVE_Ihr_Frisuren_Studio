@@ -66,12 +66,7 @@ export default function HerrenfriseurPage() {
   );
 
   const relatedServices = [
-    {
-      href: '/haare-faerben-hamburg-hamm',
-      label: 'Haare färben',
-      description: 'Camouflage für graue Haare und moderne Colorationen',
-    },
-    {
+{
       href: '/leistungen',
       label: 'Alle Leistungen',
       description: 'Komplettes Angebot für Damen, Herren & Kosmetik',
