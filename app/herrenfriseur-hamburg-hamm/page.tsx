@@ -4,7 +4,7 @@ import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { SERVICES_HERREN, BUSINESS_INFO } from '@/lib/constants';
-import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Scissors, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -64,6 +64,8 @@ export default function HerrenfriseurPage() {
       price: s.price,
     }))
   );
+
+  const faqSchema = getFAQSchema(SERVICE_FAQS.herren);
 
   const relatedServices = [
     {
@@ -180,6 +182,10 @@ export default function HerrenfriseurPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

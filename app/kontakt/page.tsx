@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getContactPageSchema } from '@/lib/schema';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
+import { GoogleBusinessProfile } from '@/components/shared/GoogleBusinessProfile';
 
 const contactServices = [
   {
@@ -42,6 +43,7 @@ export default function KontaktPage() {
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Kontakt', url: `${BUSINESS_INFO.website}/kontakt` },
   ]);
+  const contactPageSchema = getContactPageSchema();
 
   return (
     <>
@@ -199,6 +201,9 @@ export default function KontaktPage() {
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom max-w-6xl mx-auto">
+          <div className="mb-12">
+            <GoogleBusinessProfile />
+          </div>
           <RelatedServices
             services={contactServices}
             title="Unsere Leistungen"
@@ -209,6 +214,10 @@ export default function KontaktPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
     </>
   );

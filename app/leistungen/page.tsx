@@ -5,7 +5,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, BUSINESS_INFO } from '@/lib/constants';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getAfterworkOfferSchema, getServiceSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Leistungen & Preise - Friseur Hamburg Hamm',
@@ -26,6 +26,17 @@ export default function LeistungenPage() {
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Leistungen', url: `${BUSINESS_INFO.website}/leistungen` },
   ]);
+  const afterworkOfferSchema = getAfterworkOfferSchema();
+  const serviceSchema = getServiceSchema(
+    'Friseursalon',
+    'Leistungen & Preise - Ihr Frisuren-Studio Hamburg Hamm',
+    'Professionelle Friseurdienstleistungen in Hamburg Hamm: Damen, Herren, Balayage & Kosmetik. Transparente Preise im Meisterbetrieb seit 2004.',
+    `${BUSINESS_INFO.website}/leistungen`,
+    [
+      ...SERVICES_DAMEN.slice(0, 4).map((s) => ({ name: s.name, description: s.name, price: s.price })),
+      ...SERVICES_HERREN.slice(0, 3).map((s) => ({ name: s.name, description: s.name, price: s.price })),
+    ]
+  );
 
   return (
     <>
@@ -111,6 +122,14 @@ export default function LeistungenPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(afterworkOfferSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </>
   );

@@ -3,7 +3,7 @@ import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -65,6 +65,20 @@ export default function BalayagePage() {
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Balayage Hamburg Hamm', url: `${BUSINESS_INFO.website}/balayage-hamburg-hamm` },
   ]);
+
+  const serviceSchema = getServiceSchema(
+    'Balayage',
+    'Balayage Hamburg Hamm',
+    'Professionelle Balayage-Behandlungen in Hamburg Hamm. Handgemalte Highlights, Ombre, Babylights und Foliensträhnen von spezialisierten Coloristinnen.',
+    `${BUSINESS_INFO.website}/balayage-hamburg-hamm`,
+    balayageServices.map((s) => ({
+      name: s.name,
+      description: s.description,
+      price: s.price,
+    }))
+  );
+
+  const faqSchema = getFAQSchema(SERVICE_FAQS.balayage);
 
   const relatedServices = [
     {
@@ -207,6 +221,14 @@ export default function BalayagePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

@@ -4,7 +4,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getPersonSchemas } from '@/lib/schema';
 import { Award, Users, Heart, Globe } from 'lucide-react';
 import { HistorySection } from '@/components/about/HistorySection';
 
@@ -68,6 +68,7 @@ export default function UeberUnsPage() {
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Über uns', url: `${BUSINESS_INFO.website}/ueber-uns` },
   ]);
+  const personSchemas = getPersonSchemas();
 
   return (
     <>
@@ -145,6 +146,13 @@ export default function UeberUnsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {personSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
     </>
   );
 }
