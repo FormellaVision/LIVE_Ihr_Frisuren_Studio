@@ -95,6 +95,7 @@ export default function BalayagePage() {
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
+          <h2 className="sr-only">Unsere Balayage-Leistungen</h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
             {features.map((feature, index) => (
               <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
@@ -109,9 +110,9 @@ export default function BalayagePage() {
 
           <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="font-playfair text-2xl font-bold mb-6 text-amber-600">
+              <h2 className="font-playfair text-2xl font-bold mb-6 text-amber-600">
                 Balayage & Coloration Preise
-              </h3>
+              </h2>
               <div className="space-y-4">
                 {balayageServices.map((service, index) => (
                   <div
@@ -150,7 +151,7 @@ export default function BalayagePage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold mb-3">Vorteile von Balayage:</h3>
+                  <h3 className="font-bold mb-3">Vorteile von Balayage</h3>
                   <ul className="space-y-2">
                     {[
                       'Natürliches, sonnenverwöhntes Aussehen',

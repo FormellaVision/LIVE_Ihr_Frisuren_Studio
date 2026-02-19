@@ -94,6 +94,7 @@ export default function HerrenfriseurPage() {
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
+          <h2 className="sr-only">Unsere Stärken als Herrenfriseur Hamburg Hamm</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
             {features.map((feature, index) => (
               <div key={index} className="text-center bg-white p-8 rounded-2xl shadow-lg">

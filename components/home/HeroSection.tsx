@@ -115,12 +115,12 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="text-center max-w-lg px-2 sm:px-4"
             >
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-4 md:hidden break-words">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-2 md:hidden break-words">
                 Haare sind Vertrauenssache.
               </h1>
-              <p className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
                 Überlass sie nicht dem Zufall.
-              </p>
+              </h2>
             </motion.div>
           </div>
 
@@ -238,9 +238,9 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center mb-10"
             >
-              <p className="text-2xl md:text-3xl lg:text-4xl text-white font-bold tracking-wide" style={{ textShadow: '0 3px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 146, 60, 0.3)' }}>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-white font-bold tracking-wide" style={{ textShadow: '0 3px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 146, 60, 0.3)' }}>
                 Dein Friseur in Hamburg Hamm
-              </p>
+              </h2>
             </motion.div>
 
             {/* CTA Section */}

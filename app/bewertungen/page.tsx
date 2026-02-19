@@ -111,9 +111,9 @@ export default function BewertungenPage() {
 
           <div className="mt-16 max-w-3xl mx-auto text-center">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-8">
-              <h3 className="font-playfair text-2xl font-bold mb-4">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
                 Waren Sie zufrieden mit Ihrem Besuch?
-              </h3>
+              </h2>
               <p className="text-gray-700 mb-6">
                 Wir freuen uns über Ihre Bewertung! Ihr Feedback hilft uns, noch besser zu werden
                 und anderen Kunden bei ihrer Entscheidung.

@@ -48,9 +48,9 @@ export default function LeistungenPage() {
           </div>
 
           <div className="mt-12 max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6">
-            <h3 className="font-playfair text-xl font-bold mb-3 text-amber-800">
+            <h2 className="font-playfair text-xl font-bold mb-3 text-amber-800">
               Afterwork Specials
-            </h3>
+            </h2>
             <p className="text-gray-700">
               Genießen Sie exklusive Termine nach Feierabend: Di-Fr ab 19:00 Uhr & Sa ab 14:00 Uhr.
               <br />
@@ -67,9 +67,9 @@ export default function LeistungenPage() {
           </div>
 
           <div className="mt-10 max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h3 className="font-playfair text-lg font-bold text-gray-800 text-center mb-1">
+            <h2 className="font-playfair text-lg font-bold text-gray-800 text-center mb-1">
               Zahlungsmethoden
-            </h3>
+            </h2>
             <p className="text-sm text-gray-500 text-center mb-5">
               Wir akzeptieren alle gängigen Zahlungsarten
             </p>
