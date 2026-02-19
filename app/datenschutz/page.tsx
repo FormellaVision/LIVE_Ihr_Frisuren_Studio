@@ -14,7 +14,7 @@ export default function DatenschutzPage() {
         <div className="max-w-3xl mx-auto">
           <h1 className="heading-lg mb-8">Datenschutzerklärung</h1>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose-body">
             <h2>1. Datenschutz auf einen Blick</h2>
 
             <h3>Allgemeine Hinweise</h3>

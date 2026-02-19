@@ -14,7 +14,7 @@ export default function BarrierefreiheitPage() {
         <div className="max-w-3xl mx-auto">
           <h1 className="heading-lg mb-8">Erklärung zur Barrierefreiheit</h1>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose-body">
             <p>
               {BUSINESS_INFO.name} ist bemüht, seine Website im Einklang mit den nationalen
               Rechtsvorschriften zur Umsetzung der Richtlinie (EU) 2016/2102 des Europäischen

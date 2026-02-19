@@ -14,7 +14,7 @@ export default function ImpressumPage() {
         <div className="max-w-3xl mx-auto">
           <h1 className="heading-lg mb-8">Impressum</h1>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose-body">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
               <strong>{BUSINESS_INFO.name}</strong>
