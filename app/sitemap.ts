@@ -4,7 +4,7 @@ import { BUSINESS_INFO } from '@/lib/constants';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BUSINESS_INFO.website;
 
-  const routes = [
+  const mainRoutes = [
     { path: '', priority: 1.0, changeFrequency: 'daily' as const },
     { path: '/damenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/herrenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'weekly' as const },
@@ -31,7 +31,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/datenschutz', priority: 0.3, changeFrequency: 'yearly' as const },
   ];
 
-  return routes.map((route) => ({
+  const serviceAreas = [
+    'borgfelde', 'horn', 'eilbek', 'wandsbek', 'billstedt', 'mitte', 'bergedorf'
+  ];
+
+  const services = [
+    'damenfriseur', 'herrenfriseur', 'balayage', 'haare-faerben'
+  ];
+
+  const serviceAreaRoutes = services.flatMap(service =>
+    serviceAreas.map(area => ({
+      path: `/${service}-hamburg-${area}`,
+      priority: 0.7,
+      changeFrequency: 'weekly' as const,
+    }))
+  );
+
+  const allRoutes = [...mainRoutes, ...serviceAreaRoutes];
+
+  return allRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,

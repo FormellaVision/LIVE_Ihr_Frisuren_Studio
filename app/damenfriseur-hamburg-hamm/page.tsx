@@ -6,6 +6,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ServiceAreaLinks } from '@/components/shared/ServiceAreaLinks';
 import { SERVICES_DAMEN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Sparkles, Palette, Award } from 'lucide-react';
@@ -198,6 +199,11 @@ export default function DamenfriseurPage() {
         faqs={SERVICE_FAQS.damen}
         title="Häufige Fragen zum Damenfriseur"
         subtitle="Alles Wichtige zu Damenhaarschnitten in Hamburg Hamm"
+      />
+
+      <ServiceAreaLinks
+        service="Damenfriseur"
+        serviceSlug="damenfriseur"
       />
 
       <section className="section-padding">
