@@ -5,6 +5,7 @@ import { ServicesSection } from '@/components/home/ServicesSection';
 import { TeamSection } from '@/components/home/TeamSection';
 import { ReviewsSection } from '@/components/home/ReviewsSection';
 import { LocationSection } from '@/components/home/LocationSection';
+import { ServiceAreaStrip } from '@/components/home/ServiceAreaStrip';
 import { FAQSection } from '@/components/home/FAQSection';
 import { CTASection } from '@/components/home/CTASection';
 import { getFAQSchema, getLocalBusinessSchema, getReviewSchema } from '@/lib/schema';
@@ -54,6 +55,7 @@ export default function HomePage() {
       <TeamSection />
       <ReviewsSection />
       <LocationSection />
+      <ServiceAreaStrip />
       <FAQSection />
       <CTASection />
       <script

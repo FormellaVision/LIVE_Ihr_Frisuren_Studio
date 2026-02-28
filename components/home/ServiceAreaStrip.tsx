@@ -2,66 +2,103 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { MapPin, Train } from 'lucide-react';
 
 const areas = [
-    { name: 'Hamm', href: '/areas/hamm' },
-    { name: 'Borgfelde', href: '/areas/borgfelde' },
-    { name: 'Horn', href: '/areas/horn' },
-    { name: 'Eilbek', href: '/areas/eilbek' },
+  { name: 'Hamburg Hamm', plz: '20537', href: '/areas/hamm', primary: true },
+  { name: 'Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
+  { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
+  { name: 'Rothenburgsort', plz: '20539', href: '/areas/hamm', primary: false },
+  { name: 'St. Georg', plz: '20099', href: '/areas/mitte', primary: false },
+  { name: 'Eilbek', plz: '22089', href: '/areas/eilbek', primary: false },
+  { name: 'Wandsbek', plz: '22041', href: '/areas/wandsbek', primary: false },
+  { name: 'Billstedt', plz: '22111', href: '/areas/billstedt', primary: false },
 ];
 
-const postalCodes = ['20537', '20535', '20539'];
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 export function ServiceAreaStrip() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="section-padding bg-gradient-to-br from-teal-50 to-white"
-            aria-labelledby="service-area-heading"
+  return (
+    <section
+      aria-labelledby="service-area-heading"
+      className="section-padding bg-gray-900 text-white"
+    >
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-            <div className="container-custom">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 bg-teal-100 px-4 py-2 rounded-full mb-4">
-                        <MapPin className="w-4 h-4 text-teal-600" />
-                        <span className="text-sm font-semibold text-teal-700">Einzugsgebiet</span>
-                    </div>
+          <div className="inline-flex items-center gap-2 bg-teal-600/20 border border-teal-500/30 px-4 py-2 rounded-full mb-4">
+            <MapPin className="w-4 h-4 text-teal-400" />
+            <span className="text-sm text-teal-300 font-medium">Einzugsgebiet</span>
+          </div>
+          <h2 id="service-area-heading" className="font-playfair text-3xl md:text-4xl font-bold mb-4">
+            Ihr Friseur für Hamburg Hamm & Umgebung
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Wir bedienen Kunden aus Hamburg-Hamm (PLZ 20537), Borgfelde (20535) und den
+            umliegenden Stadtteilen — bestens erreichbar mit U2/U4 Burgstraße.
+          </p>
+        </motion.div>
 
-                    <h2 id="service-area-heading" className="font-playfair text-2xl md:text-3xl font-bold mb-4">
-                        Ihr Friseur für Hamburg Hamm & Umgebung
-                    </h2>
-                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        Bestens erreichbar mit U2/U4 Haltestelle Burgstraße — nur 5 Minuten zu Fuß.
-                        Wir freuen uns auf Kunden aus der gesamten Umgebung.
-                    </p>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8"
+        >
+          {areas.map((area) => (
+            <motion.div key={area.name} variants={itemVariants}>
+              <Link
+                href={area.href}
+                className={`group flex flex-col items-center gap-1 rounded-xl p-4 text-center transition-all duration-300 border ${
+                  area.primary
+                    ? 'bg-teal-600/20 border-teal-500/50 hover:bg-teal-600/30'
+                    : 'bg-white/5 border-white/10 hover:bg-teal-600/10 hover:border-teal-500/30'
+                }`}
+              >
+                <MapPin
+                  className={`w-4 h-4 transition-transform group-hover:scale-110 ${
+                    area.primary ? 'text-teal-400' : 'text-gray-400 group-hover:text-teal-400'
+                  }`}
+                />
+                <span className="font-semibold text-white text-sm leading-tight">{area.name}</span>
+                <span className="text-xs text-gray-400">PLZ {area.plz}</span>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
 
-                    <div className="flex flex-wrap justify-center gap-3 mb-4">
-                        {areas.map((area) => (
-                            <Link
-                                key={area.name}
-                                href={area.href}
-                                className="px-4 py-2 bg-white rounded-full shadow-md text-sm font-semibold text-gray-700 hover:bg-teal-600 hover:text-white transition-colors duration-200"
-                            >
-                                {area.name}
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-2">
-                        {postalCodes.map((code) => (
-                            <span
-                                key={code}
-                                className="px-3 py-1 bg-gray-100 rounded-full text-xs font-mono text-gray-500"
-                            >
-                                PLZ {code}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </motion.section>
-    );
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400"
+        >
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-teal-400 flex-shrink-0" />
+            <span>Hammer Landstraße 4 · 20537 Hamburg-Hamm</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-gray-700" />
+          <div className="flex items-center gap-2">
+            <Train className="w-4 h-4 text-teal-400 flex-shrink-0" />
+            <span>U2/U4 Burgstraße · 5 Min. zu Fuß</span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

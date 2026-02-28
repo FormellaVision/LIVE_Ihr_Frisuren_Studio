@@ -152,31 +152,71 @@ export function Footer() {
           </section>
 
           <nav aria-labelledby="footer-nav-heading">
-            <h3 id="footer-nav-heading" className="font-playfair text-lg font-bold mb-6">Navigation</h3>
-            <ul className="space-y-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-teal-400 transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <h3 id="footer-nav-heading" className="font-playfair text-lg font-bold mb-6">Leistungen</h3>
+            <ul className="space-y-2 mb-6">
+              <li>
+                <Link href="/friseur-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Friseur Hamburg Hamm
+                </Link>
+              </li>
+              <li>
+                <Link href="/damenfriseur-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Damenfriseur Hamburg Hamm
+                </Link>
+              </li>
+              <li>
+                <Link href="/herrenfriseur-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Herrenfriseur Hamburg Hamm
+                </Link>
+              </li>
+              <li>
+                <Link href="/balayage-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Balayage Hamburg Hamm
+                </Link>
+              </li>
+              <li>
+                <Link href="/haare-faerben-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Haare färben Hamburg Hamm
+                </Link>
+              </li>
+              <li>
+                <Link href="/leistungen" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Alle Leistungen & Preise
+                </Link>
+              </li>
+              <li>
+                <Link href="/bewertungen" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Kundenbewertungen
+                </Link>
+              </li>
+              <li>
+                <Link href="/termin-buchen" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+                  Termin buchen
+                </Link>
+              </li>
             </ul>
-            <div className="mt-6 pt-6 border-t border-gray-700">
-              <a
-                href={BUSINESS_INFO.googleMaps}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Uns auf Google Maps ansehen (öffnet in neuem Tab)"
-                className="inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300 transition-colors"
-              >
-                <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                Auf Google Maps ansehen
-              </a>
+            <div className="pt-4 border-t border-gray-700 space-y-1 mb-4">
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Stadtteile</p>
+              <Link href="/areas/hamm" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
+                Hamm (20537)
+              </Link>
+              <Link href="/areas/borgfelde" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
+                Borgfelde (20535)
+              </Link>
+              <Link href="/areas/horn" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
+                Horn
+              </Link>
             </div>
+            <a
+              href={BUSINESS_INFO.googleMaps}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Uns auf Google Maps ansehen (öffnet in neuem Tab)"
+              className="inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300 transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" aria-hidden="true" />
+              Google Maps
+            </a>
           </nav>
         </div>
       </div>
