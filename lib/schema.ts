@@ -460,6 +460,10 @@ export const DEFAULT_FAQS = [
     question: 'Was ist der Afterwork Spezialcut?',
     answer: `Der Afterwork Spezialcut ist unser exklusiver Service nach Feierabend. Genießen Sie eine private 1-zu-1 Behandlung in entspannter Atmosphäre. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag.`,
   },
+  {
+    question: 'Bedient ihr auch Kunden aus 20535 und Borgfelde?',
+    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist bestens erreichbar aus Borgfelde, Horn, Eilbek und den Postleitzahlen 20535, 20537, 20539. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt.`,
+  },
 ];
 
 export const SERVICE_FAQS = {
@@ -498,6 +502,14 @@ export const SERVICE_FAQS = {
       question: 'Muss ich einen Termin vereinbaren?',
       answer: `Terminvereinbarung ist empfohlen, um Wartezeiten zu vermeiden. Rufen Sie uns unter ${BUSINESS_INFO.phone} an oder schreiben Sie per WhatsApp. Wir bieten auch Afterwork-Termine nach 19:00 Uhr an.`,
     },
+    {
+      question: 'Bieten Sie Afterwork-Termine für Herren an?',
+      answer: `Ja! Unser Afterwork Spezialcut ist ideal für Berufstätige. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag. Rufen Sie uns an unter ${BUSINESS_INFO.phone}.`,
+    },
+    {
+      question: 'Was kostet Bartpflege in Hamburg Hamm?',
+      answer: 'Bart-Styling gibt es bei uns ab 12€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
+    },
   ],
   balayage: [
     {
@@ -515,6 +527,36 @@ export const SERVICE_FAQS = {
     {
       question: 'Verwenden Sie Olaplex bei Balayage?',
       answer: 'Ja, wir verwenden hochwertige Pflegeprodukte inklusive Olaplex-Behandlungen, um das Haar während und nach dem Färbeprozess optimal zu schützen und zu kräftigen.',
+    },
+    {
+      question: 'Ist Balayage schädlich für die Haare?',
+      answer: 'Bei uns nicht! Wir verwenden Olaplex und hochwertige Pflegeprodukte, um Ihr Haar während des gesamten Färbeprozesses zu schützen. Unsere erfahrenen Coloristinnen achten auf die Haargesundheit.',
+    },
+    {
+      question: 'Kann ich Balayage auch bei dunklen Haaren machen lassen?',
+      answer: 'Absolut! Balayage funktioniert bei allen Haarfarben. Bei sehr dunklem Haar sind eventuell mehrere Sitzungen nötig, um das gewünschte Ergebnis schonend zu erreichen. Wir beraten Sie im Vorfeld ausführlich.',
+    },
+  ],
+  haereFaerben: [
+    {
+      question: 'Was kostet Haare färben in Hamburg Hamm?',
+      answer: 'Ansatz färben gibt es bei uns ab 43€, Längen/Spitzen färben ab 29€, Coloration komplett inkl. Schnitt ab 87€, Foliensträhnen ab 85€ und Balayage inkl. Veredelung & Schnitt ab 179€.',
+    },
+    {
+      question: 'Wie lange dauert eine Coloration beim Friseur?',
+      answer: 'Eine einfache Ansatzfärbung dauert ca. 1-1,5 Stunden. Eine komplette Coloration mit Schnitt ca. 2 Stunden. Balayage-Behandlungen benötigen ca. 3-4 Stunden je nach Haarlänge und gewünschtem Ergebnis.',
+    },
+    {
+      question: 'Welche Färbetechniken bieten Sie in Hamburg Hamm an?',
+      answer: 'Wir bieten das komplette Spektrum: Ansatz-/Komplett-Coloration, Foliensträhnen, Balayage, Ombre/Sombre sowie Herren-Coloration und Graue-Haare-Camouflage. Unsere Coloristinnen beraten Sie individuell.',
+    },
+    {
+      question: 'Wie pflege ich gefärbte Haare richtig?',
+      answer: 'Verwenden Sie sulfatfreies Shampoo, waschen Sie Ihr Haar nicht zu heiß und nutzen Sie regelmäßig eine Farbschutz-Kur. Wir empfehlen zudem alle 6-8 Wochen eine Auffrischung. Gerne beraten wir Sie zu passenden Pflegeprodukten.',
+    },
+    {
+      question: 'Ist Haare färben schädlich?',
+      answer: 'Mit professionellen Produkten und erfahrenen Stylisten ist das Risiko minimal. Wir verwenden Olaplex-Behandlungen zum Schutz der Haarstruktur und hochwertige Colorationen, die das Haar schonen.',
     },
   ],
 };

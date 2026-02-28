@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
+import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
@@ -81,6 +83,11 @@ export default function BalayagePage() {
   const faqSchema = getFAQSchema(SERVICE_FAQS.balayage);
 
   const relatedServices = [
+    {
+      href: '/haare-faerben-hamburg-hamm',
+      label: 'Haare färben Hamburg Hamm',
+      description: 'Alle Colorationstechniken: Ansatzfärbung, Strähnen & mehr',
+    },
     {
       href: '/damenfriseur-hamburg-hamm',
       label: 'Damenfriseur Hamburg Hamm',
@@ -201,8 +208,39 @@ export default function BalayagePage() {
               </p>
             </div>
           </div>
+
+          {/* Pflegetipps */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
+                Pflegetipps nach der Balayage
+              </h2>
+              <ul className="space-y-3">
+                {[
+                  'Sulfatfreies Shampoo verwenden für langanhaltende Farbe',
+                  'Haare nicht zu heiß waschen — lauwarmes Wasser schont die Farbe',
+                  'Regelmäßig Farbschutz-Kur oder Olaplex anwenden',
+                  'UV-Schutz für die Haare im Sommer nutzen',
+                  'Auffrischung alle 3-6 Monate empfohlen',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
+
+      <ServiceContactBlock />
+
+      <ServiceFAQSection
+        faqs={SERVICE_FAQS.balayage}
+        title="Häufige Fragen zu Balayage"
+        subtitle="Alles Wichtige zur Balayage-Behandlung in Hamburg Hamm"
+      />
 
       <section className="section-padding">
         <div className="container-custom">

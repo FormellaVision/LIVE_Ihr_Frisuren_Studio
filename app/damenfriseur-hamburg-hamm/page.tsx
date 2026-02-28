@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
+import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { SERVICES_DAMEN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
@@ -48,6 +50,13 @@ const features = [
   },
 ];
 
+const processSteps = [
+  { step: '1', title: 'Beratung', description: 'Persönliche Typberatung und Wunschanalyse' },
+  { step: '2', title: 'Waschen & Pflege', description: 'Premium-Pflege abgestimmt auf Ihren Haartyp' },
+  { step: '3', title: 'Schnitt & Styling', description: 'Präzisionsschnitt von erfahrenen Stylisten' },
+  { step: '4', title: 'Finish', description: 'Professionelles Styling mit hochwertigen Produkten' },
+];
+
 export default function DamenfriseurPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
@@ -73,6 +82,11 @@ export default function DamenfriseurPage() {
       href: '/balayage-hamburg-hamm',
       label: 'Balayage Hamburg Hamm',
       description: 'Natürliche Highlights mit modernen Färbetechniken',
+    },
+    {
+      href: '/haare-faerben-hamburg-hamm',
+      label: 'Haare färben Hamburg Hamm',
+      description: 'Professionelle Colorationen, Strähnen & Balayage',
     },
     {
       href: '/herrenfriseur-hamburg-hamm',
@@ -110,22 +124,39 @@ export default function DamenfriseurPage() {
             ))}
           </div>
 
+          {/* Ablauf */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <h2 className="font-playfair text-3xl font-bold text-center mb-10">Ihr Termin bei uns — So läuft es ab</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {processSteps.map((step, index) => (
+                <div key={index} className="relative bg-white p-6 rounded-2xl shadow-lg">
+                  <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                    {step.step}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-600">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="max-w-3xl mx-auto">
             <PriceList title="Damen" services={SERVICES_DAMEN} />
           </div>
 
+          {/* Für wen geeignet */}
           <div className="mt-12 max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
               <h2 className="font-playfair text-2xl font-bold mb-4">
-                Warum Ihr Frisuren-Studio für Damen?
+                Für wen ist unser Damenfriseur-Service ideal?
               </h2>
               <ul className="space-y-3">
                 {[
-                  'Meisterqualität seit 2004 in Hamburg Hamm',
-                  'Spezialisiert auf Balayage und moderne Färbetechniken',
-                  'Hochwertige Produkte für langanhaltende Ergebnisse',
-                  'Mehrsprachige Beratung (Deutsch, Englisch, Türkisch, Persisch)',
-                  'Afterwork-Termine nach 19:00 Uhr möglich',
+                  'Frauen die Wert auf individuelle Beratung und Typanalyse legen',
+                  'Kundinnen mit anspruchsvollen Haaren (lockig, dünn, dick)',
+                  'Alle die natürliche Highlights mit Balayage wünschen',
+                  'Bräute und feierliche Anlässe (Hochsteckfrisuren, Brautstyling)',
+                  'Berufstätige Frauen — auch Afterwork-Termine nach 19:00 Uhr',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
@@ -136,8 +167,38 @@ export default function DamenfriseurPage() {
             </div>
           </div>
 
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h2 className="font-playfair text-2xl font-bold mb-4">
+                Warum Ihr Frisuren-Studio für Damen?
+              </h2>
+              <ul className="space-y-3">
+                {[
+                  'Meisterqualität seit 2004 in Hamburg Hamm',
+                  'Spezialisiert auf Balayage und moderne Färbetechniken',
+                  'Hochwertige Produkte für langanhaltende Ergebnisse',
+                  'Mehrsprachige Beratung (Deutsch, Englisch, Türkisch, Persisch)',
+                  'Afterwork-Termine nach 19:00 Uhr möglich',
+                  `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden (${BUSINESS_INFO.reviews.rating} Sterne)`,
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
+
+      <ServiceContactBlock />
+
+      <ServiceFAQSection
+        faqs={SERVICE_FAQS.damen}
+        title="Häufige Fragen zum Damenfriseur"
+        subtitle="Alles Wichtige zu Damenhaarschnitten in Hamburg Hamm"
+      />
 
       <section className="section-padding">
         <div className="container-custom">
