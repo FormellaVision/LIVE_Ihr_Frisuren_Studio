@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Zap } from 'lucide-react';
 import { NAV_LINKS, BUSINESS_INFO } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
@@ -233,6 +233,18 @@ export function Navigation() {
                     <span className="break-words">Jetzt anrufen</span>
                   </span>
                 </a>
+                <Link
+                  href="/schnellkontakt"
+                  onClick={closeMenu}
+                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-teal-500/50 hover:from-teal-600 hover:to-teal-700 hover:scale-105 active:scale-95 transition-all duration-300"
+                  aria-label="Schnellkontakt"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                    <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+                    <span className="break-words">Schnellkontakt</span>
+                  </span>
+                </Link>
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
                   onClick={closeMenu}
