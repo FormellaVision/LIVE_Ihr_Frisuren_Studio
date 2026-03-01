@@ -19,7 +19,7 @@ export function ServicePageHeader({
   backgroundImage,
 }: ServicePageHeaderProps) {
   return (
-    <section className="relative h-[calc(100dvh-4rem)] min-h-[500px] flex items-center overflow-hidden">
+    <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
       <div
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
@@ -31,8 +31,8 @@ export function ServicePageHeader({
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
 
-      <div className="relative z-10 container-custom w-full py-12">
-        <div className="max-w-3xl mx-auto text-center px-4">
+      <div className="relative z-10 container-custom w-full h-full flex flex-col justify-center">
+        <div className="max-w-3xl mx-auto text-center px-4 flex-1 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,8 +102,6 @@ export function ServicePageHeader({
           </motion.div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F7F4] to-transparent pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0 }}
