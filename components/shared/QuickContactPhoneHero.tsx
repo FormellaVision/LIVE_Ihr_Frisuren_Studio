@@ -23,7 +23,7 @@ export function QuickContactPhoneHero() {
   };
 
   return (
-    <section aria-label="Schnellkontakt – Anruf von Ihr Frisuren-Studio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section aria-label="Schnellkontakt – Anruf von Ihr Frisuren-Studio" className="relative h-screen flex items-center justify-center overflow-hidden -mt-16 md:mt-0">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
       <div
@@ -33,7 +33,7 @@ export function QuickContactPhoneHero() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-8 sm:py-12">
+      <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-8 sm:py-12 md:pt-8">
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}

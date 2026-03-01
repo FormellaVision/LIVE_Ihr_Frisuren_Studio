@@ -41,6 +41,8 @@ export function Navigation() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const isSchnellkontaktPage = pathname === '/schnellkontakt';
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -49,7 +51,7 @@ export function Navigation() {
         setHasScrolled(false);
       }
 
-      if (isMobile) {
+      if (isMobile && isSchnellkontaktPage) {
         const heroHeight = window.innerHeight;
         const scrollThreshold = heroHeight * 0.8;
         const currentScroll = window.scrollY;
@@ -59,7 +61,7 @@ export function Navigation() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, isSchnellkontaktPage]);
 
   const closeMenu = () => setIsOpen(false);
 
@@ -67,7 +69,7 @@ export function Navigation() {
     <>
       <motion.header
         initial={{ y: -80 }}
-        animate={{ y: isMobile ? (isMobileHeaderVisible ? 0 : -80) : 0 }}
+        animate={{ y: isMobile && isSchnellkontaktPage ? (isMobileHeaderVisible ? 0 : -80) : 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
