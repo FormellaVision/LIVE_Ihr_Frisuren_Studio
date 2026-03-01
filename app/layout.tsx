@@ -4,6 +4,7 @@ import { Playfair_Display, Montserrat } from 'next/font/google';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
+import { CookieBanner } from '@/components/layout/CookieBanner';
 import { getOrganizationSchema } from '@/lib/schema';
 import { getContactPointSchema } from '@/lib/local-seo';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -95,14 +96,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#0d9488" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYXFK59BYC"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied'
+              });
+            `,
+          }}
+        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYXFK59BYC"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               gtag('js', new Date());
-              gtag('config', 'G-EYXFK59BYC');
+              gtag('config', 'G-EYXFK59BYC', {
+                'anonymize_ip': true
+              });
             `,
           }}
         />
@@ -119,6 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <StickyMobileBar />
+        <CookieBanner />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
