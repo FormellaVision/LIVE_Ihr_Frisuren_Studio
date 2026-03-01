@@ -13,7 +13,7 @@ interface MapPlaceholderProps {
 
 export function MapPlaceholder({
   title = 'Google Maps',
-  description = 'Um die Karte zu sehen, aktivieren Sie bitte Marketing-Cookies in unseren Cookie-Einstellungen.',
+  description = 'Um die Karte zu sehen und unseren Standort zu finden, aktivieren Sie bitte die Marketing-Cookies. Dabei werden Daten an Google in die USA übertragen. Sie können diese Auswahl jederzeit in den Cookie-Einstellungen ändern.',
 }: MapPlaceholderProps) {
   const { consent, isLoaded } = useConsent();
   const [showSettings, setShowSettings] = useState(false);

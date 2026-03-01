@@ -3,6 +3,7 @@ import { QuickContactPhoneHero } from '@/components/shared/QuickContactPhoneHero
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
+import { GoogleMap } from '@/components/shared/GoogleMap';
 
 export const metadata: Metadata = {
   title: 'Schnellkontakt - Friseur Hamburg Hamm',
@@ -159,12 +160,9 @@ export default function SchnellkontaktPage() {
               </div>
 
               <div className="rounded-xl overflow-hidden shadow-lg h-80">
-                <iframe
-                  src={BUSINESS_INFO.googleMapsEmbed}
-                  className="map-embed"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                <GoogleMap
+                  latitude={BUSINESS_INFO.coordinates.latitude}
+                  longitude={BUSINESS_INFO.coordinates.longitude}
                   title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
                 />
               </div>

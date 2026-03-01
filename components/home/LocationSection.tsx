@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Train, Car, Clock } from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
+import { GoogleMap } from '@/components/shared/GoogleMap';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,12 +43,9 @@ export function LocationSection() {
             transition={{ duration: 0.6 }}
             className="rounded-2xl overflow-hidden shadow-2xl h-[220px] sm:h-[280px] md:h-[450px]"
           >
-            <iframe
-              src={BUSINESS_INFO.googleMapsEmbed}
-              className="map-embed"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+            <GoogleMap
+              latitude={BUSINESS_INFO.coordinates.latitude}
+              longitude={BUSINESS_INFO.coordinates.longitude}
               title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
             />
           </motion.div>
