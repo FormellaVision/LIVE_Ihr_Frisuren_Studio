@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { QuickContactPhoneHero } from '@/components/shared/QuickContactPhoneHero';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
@@ -28,6 +29,8 @@ export default function SchnellkontaktPage() {
   return (
     <>
       <QuickContactPhoneHero />
+
+      <Breadcrumb />
 
       <section className="section-padding">
         <div className="container-custom">

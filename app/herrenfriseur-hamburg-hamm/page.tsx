@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
@@ -117,6 +118,8 @@ export default function HerrenfriseurPage() {
         description="Professionelle Herrenhaarschnitte, Bartmodellage und Gentleman-Service von erfahrenen Stylisten"
         backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">

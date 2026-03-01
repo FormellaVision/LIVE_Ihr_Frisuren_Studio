@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
@@ -109,6 +110,8 @@ export default function DamenfriseurPage() {
         description="Professionelle Damenhaarschnitte, Balayage und Colorationen von erfahrenen Stylisten in Hamburg-Hamm"
         backgroundImage="https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">

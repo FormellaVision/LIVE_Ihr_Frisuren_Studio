@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
@@ -80,6 +81,8 @@ export default function UeberUnsPage() {
         description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
         backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <HistorySection businessInfo={BUSINESS_INFO} />
 

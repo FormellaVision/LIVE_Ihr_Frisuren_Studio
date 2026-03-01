@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
@@ -147,6 +148,8 @@ export default function HaareFaerbenPage() {
                 description="Professionelles Haare färben von erfahrenen Coloristinnen — mit Olaplex-Schutz für gesundes, strahlendes Haar"
                 backgroundImage="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920"
             />
+
+            <Breadcrumb />
 
             {/* Features */}
             <section className="section-padding bg-warm-white">

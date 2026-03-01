@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, MessageCircle, Mail, Clock, MapPin, Star, Award, Check, Moon, Calendar } from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -100,6 +101,8 @@ export default function TerminBuchenPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb />
 
         <section className="section-padding bg-warm-white" aria-labelledby="contact-options-heading">
           <div className="container-custom">

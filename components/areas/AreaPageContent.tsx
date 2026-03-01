@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Check, Car, Train, ChevronDown } from 'lucide-react';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
@@ -34,6 +35,7 @@ interface Props {
 export function AreaPageContent({ area }: Props) {
   return (
     <>
+      <Breadcrumb />
       <section className="relative h-[calc(100dvh-4rem)] min-h-[500px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-no-repeat"

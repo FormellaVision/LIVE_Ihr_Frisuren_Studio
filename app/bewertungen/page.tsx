@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
@@ -52,6 +53,8 @@ export default function BewertungenPage() {
         description="Lesen Sie was unsere zufriedenen Kunden über Ihr Frisuren-Studio in Hamburg Hamm sagen"
         backgroundImage="https://images.pexels.com/photos/3993452/pexels-photo-3993452.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding">
         <div className="container-custom">

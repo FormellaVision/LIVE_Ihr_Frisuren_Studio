@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
@@ -66,6 +67,8 @@ export default function GaleriePage() {
         description="Lassen Sie sich von unseren Arbeiten inspirieren - Damenhaarschnitte, Balayage, Herrenhaarschnitte und mehr"
         backgroundImage="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding">
         <div className="container-custom">

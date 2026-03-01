@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumbs } from '@/components/shared/Breadcrumbs';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema, getContactPageSchema } from '@/lib/schema';
@@ -54,6 +55,8 @@ export default function KontaktPage() {
         description="So erreichen Sie uns - telefonisch, per WhatsApp, E-Mail oder persönlich vor Ort"
         backgroundImage="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumbs items={[{ label: 'Kontakt', href: '/kontakt' }]} />
 
       <section className="section-padding">
         <div className="container-custom">

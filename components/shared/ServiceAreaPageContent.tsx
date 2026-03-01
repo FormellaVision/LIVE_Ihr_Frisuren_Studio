@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Check, ChevronDown } from 'lucide-react';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { BUSINESS_INFO } from '@/lib/constants';
 
@@ -113,6 +114,8 @@ export function ServiceAreaPageContent({
           <ChevronDown className="w-6 h-6 animate-bounce" />
         </motion.div>
       </section>
+
+      <Breadcrumb />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">

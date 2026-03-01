@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
@@ -48,6 +49,8 @@ export default function LeistungenPage() {
         description="Transparente Preise, professioneller Service - Damen, Herren, Balayage & Kosmetik"
         backgroundImage="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding">
         <div className="container-custom">

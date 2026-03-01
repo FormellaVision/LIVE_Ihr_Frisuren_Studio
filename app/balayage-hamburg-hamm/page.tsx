@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
@@ -114,6 +115,8 @@ export default function BalayagePage() {
         description="Natürliche Highlights und strahlende Farben mit der Balayage-Technik - handgemalt von unseren Colorations-Expertinnen"
         backgroundImage="https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
+
+      <Breadcrumb />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
