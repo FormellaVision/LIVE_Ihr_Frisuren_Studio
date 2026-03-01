@@ -147,28 +147,27 @@ export const REVIEWS = [
 ] as const;
 
 export const SERVICES_DAMEN = [
-  { name: 'Cut & Go (Trockenschnitt)', price: 'ab 33€' },
-  { name: 'Waschen, Schneiden & Föhnen (Kurz)', price: '43€' },
-  { name: 'Waschen, Schneiden & Föhnen (Mittel)', price: '47€' },
-  { name: 'Waschen, Schneiden & Föhnen (Lang)', price: '49€' },
-  { name: 'Ansatz färben', price: 'ab 43€' },
+  { name: 'Cut & Go (Waschen + Schneiden)', price: '33€' },
+  { name: 'Waschen, Schneiden, Föhnen', price: 'ab 43€' },
+  { name: 'Ansatzfarbe', price: '49€' },
+  { name: 'Balayage', price: 'ab 179€' },
+  { name: 'Paket "Schöne Augen"', price: '39€' },
   { name: 'Längen/Spitzen färben', price: 'ab 29€' },
   { name: 'Coloration komplett inkl. Schnitt', price: 'ab 87€' },
   { name: 'Foliensträhnen', price: 'ab 85€' },
-  { name: 'Balayage inkl. Veredelung & Schnitt', price: 'ab 179€' },
   { name: 'Dauerwelle/Volumenwelle inkl. Schnitt', price: 'ab 99€' },
   { name: 'Hochsteckfrisur', price: 'ab 55€' },
   { name: 'Brautstyling', price: 'auf Anfrage' },
 ] as const;
 
 export const SERVICES_HERREN = [
-  { name: 'Maschinenschnitt', price: '18€' },
-  { name: 'Maschinenschnitt mit Kontur', price: '22€' },
-  { name: 'Design-Schnitt', price: '34€' },
-  { name: 'Waschen, Schneiden, Föhnen', price: '32€' },
-  { name: 'Bart-Styling', price: 'ab 12€' },
-  { name: 'Bartmodellage', price: 'ab 15€' },
+  { name: 'Klassischer Herrenhaarschnitt (trocken)', price: '28€' },
+  { name: 'Maschinenschnitt', price: '19€' },
+  { name: 'Waschen, Schneiden, Föhnen', price: '33€' },
+  { name: 'Barttrimmen', price: 'ab 8€' },
   { name: 'Paket "Gentleman" (Schnitt + Bart + Augenbrauen)', price: '49€' },
+  { name: 'Design-Schnitt', price: '34€' },
+  { name: 'Bartmodellage', price: 'ab 15€' },
   { name: 'Coloration', price: 'ab 25€' },
   { name: 'Camouflage (Graue Haare)', price: 'ab 29€' },
 ] as const;
