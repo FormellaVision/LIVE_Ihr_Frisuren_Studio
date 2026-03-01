@@ -87,6 +87,10 @@ export const useConsent = () => {
     window.dispatchEvent(
       new CustomEvent('consent-updated', { detail: newSettings })
     );
+
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
   };
 
   const acceptAll = () => {

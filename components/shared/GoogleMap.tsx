@@ -1,20 +1,18 @@
 'use client';
 
 import { useConsent } from '@/hooks/useConsent';
+import { BUSINESS_INFO } from '@/lib/constants';
 import { MapPlaceholder } from './MapPlaceholder';
 
 interface GoogleMapProps {
-  latitude: number;
-  longitude: number;
+  latitude?: number;
+  longitude?: number;
   zoom?: number;
   title?: string;
   description?: string;
 }
 
 export function GoogleMap({
-  latitude,
-  longitude,
-  zoom = 15,
   title = 'Google Maps',
   description = 'Um die Karte zu sehen, aktivieren Sie bitte Marketing-Cookies in unseren Cookie-Einstellungen.',
 }: GoogleMapProps) {
@@ -28,11 +26,6 @@ export function GoogleMap({
     return <MapPlaceholder title={title} description={description} />;
   }
 
-  const mapUrl = new URL('https://www.google.com/maps/embed/v1/place');
-  mapUrl.searchParams.append('key', process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '');
-  mapUrl.searchParams.append('q', `${latitude},${longitude}`);
-  mapUrl.searchParams.append('zoom', zoom.toString());
-
   return (
     <iframe
       width="100%"
@@ -41,7 +34,7 @@ export function GoogleMap({
       allowFullScreen
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      src={mapUrl.toString()}
+      src={BUSINESS_INFO.googleMapsEmbed}
       title={title}
     />
   );
