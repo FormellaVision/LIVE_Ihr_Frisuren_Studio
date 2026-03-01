@@ -7,17 +7,15 @@ import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 
 export function CookieBanner() {
-  const { consent, isLoaded, acceptAll, rejectAll } = useConsent();
+  const { consent, isLoaded, acceptAll, rejectAll, hasUserDecided } = useConsent();
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && consent) {
-      const hasDecided =
-        consent.analytics !== false || consent.marketing !== false;
-      setShowBanner(!hasDecided);
+    if (isLoaded) {
+      setShowBanner(!hasUserDecided);
     }
-  }, [isLoaded, consent]);
+  }, [isLoaded, hasUserDecided]);
 
   useEffect(() => {
     const handleOpenBanner = () => {
@@ -58,7 +56,10 @@ export function CookieBanner() {
                 </p>
               </div>
               <button
-                onClick={() => setShowBanner(false)}
+                onClick={() => {
+                  rejectAll();
+                  setShowBanner(false);
+                }}
                 className="flex-shrink-0 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 rounded p-1"
                 aria-label="Banner schließen"
               >
@@ -81,8 +82,7 @@ export function CookieBanner() {
                   rejectAll();
                   setShowBanner(false);
                 }}
-                variant="outline"
-                className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"
               >
                 Nur notwendige
               </Button>

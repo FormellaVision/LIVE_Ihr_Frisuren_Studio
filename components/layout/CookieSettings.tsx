@@ -59,7 +59,7 @@ export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
                   Technisch notwendige Cookies
                 </Label>
                 <p className="text-xs text-gray-600 mt-1">
-                  Erforderlich für die grundlegende Funktionalität der Website.
+                  Erforderlich für die grundlegende Funktionalität der Website, einschließlich Bildoptimierung via Cloudinary.
                 </p>
               </div>
               <Switch
@@ -80,7 +80,7 @@ export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
                   Analytics
                 </Label>
                 <p className="text-xs text-gray-600 mt-1">
-                  Google Analytics zur Analyse und Verbesserung der Website-Performance.
+                  Google Analytics 4 zur Analyse und Verbesserung der Website-Performance. (Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO)
                 </p>
               </div>
               <Switch
@@ -105,7 +105,7 @@ export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
                   Marketing & externe Services
                 </Label>
                 <p className="text-xs text-gray-600 mt-1">
-                  Google Maps und andere externe Dienste für erweiterte Funktionalität.
+                  Google Maps zur Anzeige unseres Standorts und zusätzliche externe Services für erweiterte Funktionalität. (Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO)
                 </p>
               </div>
               <Switch

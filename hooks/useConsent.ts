@@ -10,6 +10,7 @@ export type ConsentData = {
   settings: ConsentSettings;
   timestamp: number;
   consentId: string;
+  hasUserDecided: boolean;
 };
 
 const generateConsentId = (): string => {
@@ -26,6 +27,7 @@ const CONSENT_VALIDITY_MS = 365 * 24 * 60 * 60 * 1000;
 export const useConsent = () => {
   const [consent, setConsent] = useState<ConsentSettings | null>(null);
   const [consentId, setConsentId] = useState<string>('');
+  const [hasUserDecided, setHasUserDecided] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -40,23 +42,28 @@ export const useConsent = () => {
           localStorage.removeItem('user-consent');
           setConsent({ essential: true, analytics: false, marketing: false });
           setConsentId('');
+          setHasUserDecided(false);
         } else {
           setConsent(data.settings);
           setConsentId(data.consentId);
+          setHasUserDecided(data.hasUserDecided || true);
         }
       } catch {
         setConsent({ essential: true, analytics: false, marketing: false });
         setConsentId('');
+        setHasUserDecided(false);
       }
     } else {
       setConsent({ essential: true, analytics: false, marketing: false });
       setConsentId('');
+      setHasUserDecided(false);
     }
     setIsLoaded(true);
   }, []);
 
   const updateConsent = (newSettings: ConsentSettings) => {
     setConsent(newSettings);
+    setHasUserDecided(true);
 
     const newConsentId = consentId || generateConsentId();
     setConsentId(newConsentId);
@@ -65,6 +72,7 @@ export const useConsent = () => {
       settings: newSettings,
       timestamp: Date.now(),
       consentId: newConsentId,
+      hasUserDecided: true,
     };
 
     localStorage.setItem('user-consent', JSON.stringify(consentData));
@@ -93,7 +101,7 @@ export const useConsent = () => {
     window.dispatchEvent(new CustomEvent('open-cookie-banner'));
   };
 
-  return { consent, consentId, updateConsent, acceptAll, rejectAll, isLoaded, openBanner };
+  return { consent, consentId, hasUserDecided, updateConsent, acceptAll, rejectAll, isLoaded, openBanner };
 };
 
 declare global {
