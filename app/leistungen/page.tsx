@@ -4,6 +4,8 @@ import { PriceList } from '@/components/shared/PriceList';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
 import { RelatedServices } from '@/components/sections/RelatedServices';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getAfterworkOfferSchema, getServiceSchema } from '@/lib/schema';
 
@@ -50,42 +52,54 @@ export default function LeistungenPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <PriceList title="Damen" services={SERVICES_DAMEN} />
-            <PriceList title="Herren" services={SERVICES_HERREN} />
+            <ScrollAnimationCard direction="left" delay={0.1} hasScale>
+              <PriceList title="Damen" services={SERVICES_DAMEN} />
+            </ScrollAnimationCard>
+            <ScrollAnimationCard direction="right" delay={0.2} hasScale>
+              <PriceList title="Herren" services={SERVICES_HERREN} />
+            </ScrollAnimationCard>
           </div>
 
-          <div id="kosmetik" className="mt-8 max-w-3xl mx-auto">
-            <PriceList title="Kosmetik" services={SERVICES_KOSMETIK} />
-          </div>
+          <AnimatedSection direction="up" delay={0.3} hasScale>
+            <div id="kosmetik" className="mt-8 max-w-3xl mx-auto">
+              <PriceList title="Kosmetik" services={SERVICES_KOSMETIK} />
+            </div>
+          </AnimatedSection>
 
-          <div className="mt-12 max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6">
-            <h2 className="font-playfair text-xl font-bold mb-3 text-amber-800">
-              Afterwork Specials
-            </h2>
-            <p className="text-gray-700">
-              Genießen Sie exklusive Termine nach Feierabend: Di-Fr ab 19:00 Uhr & Sa ab 14:00 Uhr.
-              <br />
-              <strong>Aufpreis: +10€ auf reguläre Preise</strong>
-            </p>
-          </div>
+          <ScrollAnimationCard direction="diagonal-up-left" delay={0.4} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6">
+              <h2 className="font-playfair text-xl font-bold mb-3 text-amber-800">
+                Afterwork Specials
+              </h2>
+              <p className="text-gray-700">
+                Genießen Sie exklusive Termine nach Feierabend: Di-Fr ab 19:00 Uhr & Sa ab 14:00 Uhr.
+                <br />
+                <strong>Aufpreis: +10€ auf reguläre Preise</strong>
+              </p>
+            </div>
+          </ScrollAnimationCard>
 
-          <div className="mt-8 max-w-3xl mx-auto text-center text-sm text-gray-500">
-            <p>
-              Alle Preise verstehen sich inklusive Beratung und professioneller Produkte.
-              <br />
-              Bei besonderen Wünschen oder längeren Haaren kann der Preis variieren.
-            </p>
-          </div>
+          <AnimatedSection direction="up" delay={0.5}>
+            <div className="mt-8 max-w-3xl mx-auto text-center text-sm text-gray-500">
+              <p>
+                Alle Preise verstehen sich inklusive Beratung und professioneller Produkte.
+                <br />
+                Bei besonderen Wünschen oder längeren Haaren kann der Preis variieren.
+              </p>
+            </div>
+          </AnimatedSection>
 
-          <div className="mt-10 max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-            <h2 className="font-playfair text-lg font-bold text-gray-800 text-center mb-1">
-              Zahlungsmethoden
-            </h2>
-            <p className="text-sm text-gray-500 text-center mb-5">
-              Wir akzeptieren alle gängigen Zahlungsarten
-            </p>
-            <PaymentBadges variant="light" showLabel={false} />
-          </div>
+          <ScrollAnimationCard direction="diagonal-up-right" delay={0.6} hasScale>
+            <div className="mt-10 max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+              <h2 className="font-playfair text-lg font-bold text-gray-800 text-center mb-1">
+                Zahlungsmethoden
+              </h2>
+              <p className="text-sm text-gray-500 text-center mb-5">
+                Wir akzeptieren alle gängigen Zahlungsarten
+              </p>
+              <PaymentBadges variant="light" showLabel={false} />
+            </div>
+          </ScrollAnimationCard>
         </div>
       </section>
 

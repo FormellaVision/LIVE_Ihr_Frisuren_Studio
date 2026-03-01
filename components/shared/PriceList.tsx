@@ -23,13 +23,17 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.05 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  hidden: { opacity: 0, x: -30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
 };
 
 export function PriceList({ title, services }: PriceListProps) {
@@ -42,13 +46,14 @@ export function PriceList({ title, services }: PriceListProps) {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: '-60px' }}
         className="space-y-4"
       >
         {services.map((service, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
+            transition={{ duration: 0.5 }}
             className="flex justify-between items-start gap-3 py-3 border-b border-gray-100 last:border-0"
           >
             <div className="flex-1 min-w-0 pr-2">

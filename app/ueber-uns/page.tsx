@@ -3,6 +3,8 @@ import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
 import { getBreadcrumbSchema, getPersonSchemas } from '@/lib/schema';
 import { Award, Users, Heart, Globe } from 'lucide-react';
@@ -83,47 +85,72 @@ export default function UeberUnsPage() {
 
       <section className="section-padding">
         <div className="container-custom">
-          <h2 className="heading-md mb-8 text-center">Das Team</h2>
+          <AnimatedSection direction="up" hasScale>
+            <h2 className="heading-md mb-8 text-center">Das Team</h2>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {TEAM_MEMBERS.map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
-                <div className="aspect-square overflow-hidden">
-                  <PlaceholderImage index={index} />
-                </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="font-playfair text-2xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-teal-600 font-semibold mb-3 text-base">{member.role}</p>
-                  <p className="text-gray-600 mb-4 flex-grow">{member.description}</p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {member.languages.map((lang, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"
-                      >
-                        {lang}
-                      </span>
-                    ))}
+            {TEAM_MEMBERS.map((member, index) => {
+              const directions: Array<'left' | 'right' | 'up'> = ['left', 'right', 'up'];
+              return (
+                <ScrollAnimationCard
+                  key={index}
+                  direction={directions[index % directions.length]}
+                  delay={index * 0.1}
+                  hasScale
+                  hasRotation
+                >
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                    <div className="aspect-square overflow-hidden">
+                      <PlaceholderImage index={index} />
+                    </div>
+                    <div className="p-8 flex flex-col flex-grow">
+                      <h3 className="font-playfair text-2xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-teal-600 font-semibold mb-3 text-base">{member.role}</p>
+                      <p className="text-gray-600 mb-4 flex-grow">{member.description}</p>
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {member.languages.map((lang, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"
+                          >
+                            {lang}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </ScrollAnimationCard>
+              );
+            })}
           </div>
         </div>
       </section>
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
-          <h2 className="heading-md mb-12 text-center">Unsere Werte</h2>
+          <AnimatedSection direction="up" hasScale>
+            <h2 className="heading-md mb-12 text-center">Unsere Werte</h2>
+          </AnimatedSection>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {values.map((value, index) => (
-              <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
-                <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-7 h-7 text-teal-600" />
+            {values.map((value, index) => {
+              const directions: Array<'diagonal-up-left' | 'diagonal-up-right' | 'up' | 'down'> = ['diagonal-up-left', 'diagonal-up-right', 'up', 'down'];
+              return (
+              <ScrollAnimationCard
+                key={index}
+                direction={directions[index % 4]}
+                delay={index * 0.12}
+                hasScale
+              >
+                <div className="text-center bg-white p-6 rounded-xl shadow-lg">
+                  <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <value.icon className="w-7 h-7 text-teal-600" />
+                  </div>
+                  <h3 className="font-bold mb-2">{value.title}</h3>
+                  <p className="text-sm text-gray-600">{value.description}</p>
                 </div>
-                <h3 className="font-bold mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-600">{value.description}</p>
-              </div>
-            ))}
+              </ScrollAnimationCard>
+            );
+            })}
           </div>
         </div>
       </section>
