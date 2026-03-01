@@ -24,22 +24,23 @@ export function HeroSection() {
         className="object-cover object-center"
       />
 
-      <div className="absolute inset-0 bg-black/45" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.72)_100%)]" />
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(245,239,230,0.18),rgba(0,0,0,0.18),rgba(0,0,0,0.32))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,248,239,0.12)_0%,rgba(0,0,0,0.08)_38%,rgba(0,0,0,0.28)_100%)]" />
 
       <div className="relative z-10 h-full w-full">
         <div className="container mx-auto flex h-full max-w-7xl flex-col px-4 sm:px-6">
-          <div className="flex h-full flex-col items-center justify-center text-center">
+          <div className="flex h-full flex-col items-center justify-center text-center py-8 sm:py-10 lg:py-12">
             <motion.div
               initial={{ opacity: 0, y: -14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
-              className="mb-4 sm:mb-5"
+              className="mb-8 sm:mb-10 lg:mb-12 mt-4 sm:mt-6"
             >
-              <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-white/20 bg-black/30 px-4 py-2.5 backdrop-blur-md sm:px-5">
+              <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-white/35 bg-[rgba(32,26,22,0.42)] px-5 py-3 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.18)] sm:px-6">
                 <div className="inline-flex items-center gap-2">
                   <Award className="h-4 w-4 shrink-0 text-amber-400" />
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-white/95 sm:text-xs">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-white sm:text-xs">
                     Meisterbetrieb seit {foundedYear}
                   </span>
                 </div>
@@ -48,7 +49,7 @@ export function HeroSection() {
 
                 <div className="inline-flex items-center gap-2">
                   <Star className="h-4 w-4 shrink-0 fill-amber-400 text-amber-400" />
-                  <span className="text-[11px] text-white/95 sm:text-sm">
+                  <span className="text-[11px] text-white sm:text-sm">
                     {reviewRating} Sterne · {reviewCount}+ Bewertungen
                   </span>
                 </div>
@@ -59,16 +60,16 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.82, y: 20, rotate: -1.5 }}
               animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.95, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-              className="mb-4 sm:mb-6"
+              className="mb-6 sm:mb-8 lg:mb-10"
             >
-              <div className="relative mx-auto aspect-square w-[180px] sm:w-[220px] md:w-[280px] lg:w-[340px] xl:w-[390px]">
+              <div className="relative mx-auto aspect-square w-[210px] sm:w-[260px] md:w-[320px] lg:w-[390px] xl:w-[450px]">
                 <Image
                   src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772399060/2face_Logo_zczbdd.svg"
                   alt="Ihr Frisuren-Studio Logo"
                   fill
                   priority
-                  sizes="(max-width: 640px) 180px, (max-width: 768px) 220px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 390px"
-                  className="object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.55)]"
+                  sizes="(max-width: 640px) 210px, (max-width: 768px) 260px, (max-width: 1024px) 320px, (max-width: 1280px) 390px, 450px"
+                  className="object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.28)]"
                 />
               </div>
             </motion.div>
@@ -80,15 +81,17 @@ export function HeroSection() {
               className="mx-auto w-full max-w-5xl"
             >
               <h1
-                className="mx-auto max-w-5xl text-balance font-semibold leading-[1.02] tracking-tight text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
-                style={{ textShadow: '0 4px 24px rgba(0,0,0,0.72)' }}
+                className="mx-auto max-w-4xl font-semibold leading-[1.02] tracking-tight text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem]"
+                style={{ textShadow: '0 3px 18px rgba(0,0,0,0.28)' }}
               >
-                Friseur Hamburg Hamm – Meisterbetrieb seit 2004
+                Friseur Hamburg Hamm
+                <br />
+                Meisterbetrieb seit 2004
               </h1>
 
               <p
-                className="mx-auto mt-4 max-w-3xl text-pretty text-sm leading-relaxed text-white/92 sm:mt-5 sm:text-base md:text-lg lg:text-xl"
-                style={{ textShadow: '0 2px 16px rgba(0,0,0,0.65)' }}
+                className="mx-auto mt-5 max-w-3xl text-pretty text-sm leading-relaxed text-white/95 sm:mt-6 sm:text-base md:text-lg lg:text-xl"
+                style={{ textShadow: '0 2px 12px rgba(0,0,0,0.2)' }}
               >
                 Ihr Frisuren-Studio für Premium-Haarschnitte, Balayage und Kosmetik in Hamburg Hamm.
               </p>
@@ -98,12 +101,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.28 }}
-              className="mt-6 sm:mt-8"
+              className="mt-8 sm:mt-10"
             >
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-950 shadow-lg shadow-amber-500/25 transition-all duration-300 hover:scale-[1.03] hover:bg-amber-400 hover:shadow-amber-500/40 sm:px-8 sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:scale-[1.03] hover:bg-amber-400 hover:shadow-amber-500/35 sm:px-8 sm:text-base"
                   aria-label="Jetzt anrufen"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
@@ -112,7 +115,7 @@ export function HeroSection() {
 
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:border-white/35 hover:bg-white/20 sm:px-8 sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-[rgba(38,32,28,0.38)] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:border-white/45 hover:bg-[rgba(38,32,28,0.5)] sm:px-8 sm:text-base"
                   aria-label="WhatsApp schreiben"
                 >
                   <MessageCircle className="h-5 w-5 shrink-0" />
@@ -125,9 +128,9 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.75, delay: 0.38 }}
-              className="mt-5 sm:mt-6"
+              className="mt-6 sm:mt-8 mb-4 sm:mb-6"
             >
-              <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-black/25 px-4 py-2 text-xs text-white/88 backdrop-blur-sm sm:text-sm">
+              <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-white/30 bg-[rgba(32,26,22,0.32)] px-4 py-2.5 text-xs text-white/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(0,0,0,0.12)] sm:text-sm">
                 <MapPin className="h-4 w-4 shrink-0 text-amber-400" />
                 <span className="text-center">
                   Hammer Landstraße 4 · 20537 Hamburg
