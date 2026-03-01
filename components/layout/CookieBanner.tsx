@@ -19,6 +19,18 @@ export function CookieBanner() {
     }
   }, [isLoaded, consent]);
 
+  useEffect(() => {
+    const handleOpenBanner = () => {
+      setShowBanner(true);
+      setShowSettings(false);
+    };
+
+    window.addEventListener('open-cookie-banner', handleOpenBanner);
+    return () => {
+      window.removeEventListener('open-cookie-banner', handleOpenBanner);
+    };
+  }, []);
+
   if (!showBanner || !isLoaded) return null;
 
   return (
@@ -33,7 +45,9 @@ export function CookieBanner() {
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Wir nutzen Cookies und externe Dienste (Google Analytics, Google Maps)
-                  für Analyse und Funktionalität. Mehr erfahren Sie in unserer{' '}
+                  für Analyse und Funktionalität. Diese Auswahl wird für 365 Tage gespeichert.
+                  Sie können Ihre Einwilligung jederzeit über "Cookie-Einstellungen" im Footer
+                  widerrufen. Mehr erfahren Sie in unserer{' '}
                   <a
                     href="/datenschutz"
                     className="text-teal-600 hover:text-teal-700 underline"

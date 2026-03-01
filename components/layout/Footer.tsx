@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { BUSINESS_INFO, NAV_LINKS, OPENING_HOURS } from '@/lib/constants';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
+import { CookieResetButton } from './CookieResetButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -237,6 +238,7 @@ export function Footer() {
               <Link href="/datenschutz" className="hover:text-gray-300 transition-colors whitespace-nowrap">
                 Datenschutz
               </Link>
+              <CookieResetButton />
               <Link
                 href="/barrierefreiheit"
                 className="hover:text-gray-300 transition-colors whitespace-nowrap"

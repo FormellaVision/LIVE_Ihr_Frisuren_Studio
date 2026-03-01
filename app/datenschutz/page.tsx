@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { CookieResetButton } from '@/components/layout/CookieResetButton';
 
 export const metadata: Metadata = {
   title: 'Datenschutz',
@@ -181,11 +182,25 @@ export default function DatenschutzPage() {
 
             <h3>Cookies</h3>
             <p>
-              Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem
-              Endgerät gespeichert werden und bestimmte Einstellungen und Daten zum Austausch mit
+              Unsere Website verwendet Cookies und den Browser-Speicher (localStorage). Cookies sind kleine Textdateien,
+              die auf Ihrem Endgerät gespeichert werden und bestimmte Einstellungen und Daten zum Austausch mit
               unserem System über Ihren Browser speichern. Ein Cookie enthält in der Regel den Namen
               der Domain, von der die Cookie-Daten gesendet wurden, sowie Informationen über das
               Alter des Cookies und einen alphanumerischen Bezeichner.
+            </p>
+            <p>
+              Rechtlich gesehen wird der Browser-Speicher (localStorage) nach § 25 TTDSG genauso wie ein Cookie behandelt.
+              Wir nutzen ihn zur Speicherung Ihrer Cookie-Einwilligung, da dies für das Consent-Management technisch notwendig ist.
+            </p>
+            <p>
+              <strong>Speicherdauer der Cookie-Einstellungen:</strong> Ihre Cookie-Einwilligung wird für 365 Tage gespeichert.
+              Nach Ablauf dieser Frist werden Ihre Einstellungen automatisch gelöscht und das Cookie-Banner wird beim nächsten Besuch
+              erneut angezeigt. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie auf{' '}
+              <CookieResetButton /> klicken, das Sie im Footer und in dieser Datenschutzerklärung finden.
+            </p>
+            <p>
+              <strong>Ihre Consent-ID:</strong> Jeder Benutzer erhält eine eindeutige Consent-ID (z.B. cs_1a2b3c) zur Referenzierung
+              bei datenschutzbezogenen Anfragen.
             </p>
             <p>
               Wir verwenden Cookies, um unsere Website nutzerfreundlich zu gestalten. Einige Cookies
@@ -199,15 +214,17 @@ export default function DatenschutzPage() {
               Limited, Gordon House, Barrow Street, Dublin 4, Irland (nachfolgend: Google).
             </p>
             <p>
+              Google Analytics wird nur geladen, wenn Sie der Speicherung von Analytics-Cookies explizit zugestimmt haben.
               Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website durch
               Sie ermöglichen. Die durch Cookies erzeugten Informationen über Ihre Benutzung dieser
               Website werden in der Regel an einen Server von Google in den USA übertragen und dort
               gespeichert.
             </p>
             <p>
-              Die Nutzung von Google Analytics erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
-              (berechtigtes Interesse an der Analyse des Nutzerverhaltens zur Optimierung unseres
-              Webangebots). Sie können die Erfassung Ihrer Daten durch Google Analytics verhindern,
+              Die Nutzung von Google Analytics erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+              Sie haben jederzeit das Recht, Ihre Einwilligung zu widerrufen, indem Sie{' '}
+              <CookieResetButton /> anklicken und die Einstellung für "Analytics" deaktivieren.
+              Sie können die Erfassung Ihrer Daten durch Google Analytics zusätzlich verhindern,
               indem Sie das Browser-Add-on zur Deaktivierung von Google Analytics herunterladen und
               installieren. Den Download finden Sie unter:{' '}
               <a

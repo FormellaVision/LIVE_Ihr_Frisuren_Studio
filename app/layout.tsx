@@ -108,13 +108,52 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function checkAndLoadAnalytics() {
+                  try {
+                    const consent = localStorage.getItem('user-consent');
+                    if (consent) {
+                      const data = JSON.parse(consent);
+                      if (data.settings && data.settings.analytics) {
+                        window['ga-disable-G-EYXFK59BYC'] = false;
+                        gtag('consent', 'update', {
+                          'analytics_storage': 'granted',
+                          'ad_storage': data.settings.marketing ? 'granted' : 'denied'
+                        });
+                      } else {
+                        window['ga-disable-G-EYXFK59BYC'] = true;
+                      }
+                    }
+                  } catch (e) {
+                    window['ga-disable-G-EYXFK59BYC'] = true;
+                  }
+                }
+
+                checkAndLoadAnalytics();
+
+                window.addEventListener('consent-updated', function(e) {
+                  if (e.detail && e.detail.analytics) {
+                    window['ga-disable-G-EYXFK59BYC'] = false;
+                  } else {
+                    window['ga-disable-G-EYXFK59BYC'] = true;
+                  }
+                });
+              })();
+            `,
+          }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYXFK59BYC"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               gtag('js', new Date());
               gtag('config', 'G-EYXFK59BYC', {
-                'anonymize_ip': true
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false
               });
             `,
           }}

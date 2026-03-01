@@ -21,7 +21,7 @@ interface CookieSettingsProps {
 }
 
 export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
-  const { consent, updateConsent, acceptAll } = useConsent();
+  const { consent, consentId, updateConsent, acceptAll } = useConsent();
   const [localSettings, setLocalSettings] = useState(consent);
 
   useEffect(() => {
@@ -121,7 +121,7 @@ export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
             </div>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 space-y-2">
             <p className="text-xs text-blue-900">
               <strong>Hinweis:</strong> Diese Einstellungen werden für 365 Tage
               gespeichert. Sie können diese jederzeit in der{' '}
@@ -130,6 +130,11 @@ export function CookieSettings({ open, onOpenChange }: CookieSettingsProps) {
               </a>{' '}
               ändern.
             </p>
+            {consentId && (
+              <p className="text-xs text-blue-900">
+                <strong>Ihre Consent-ID:</strong> <code className="bg-blue-100 px-2 py-1 rounded font-mono text-xs">{consentId}</code>
+              </p>
+            )}
           </div>
         </div>
 
