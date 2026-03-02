@@ -3,7 +3,7 @@ const placeholderConfigs = [
   { bg: '#F4D474', icon: '🪮' },
   { bg: '#4A7BA7', icon: '💨' },
   { bg: '#E8A9B8', icon: '🖌️' },
-  { bg: '#FF9F43', icon: '🌀' },
+  { bg: '#C85A54', icon: '💇' },
   { bg: '#9B6BB3', icon: '✨' },
 ];
 
