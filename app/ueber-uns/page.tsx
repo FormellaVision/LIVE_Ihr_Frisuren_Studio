@@ -79,7 +79,7 @@ export default function UeberUnsPage() {
         title="Unser Team"
         subtitle={`Meisterbetrieb seit ${BUSINESS_INFO.founded}`}
         description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
-        backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImage="https://res.cloudinary.com/dqkld61zu/image/upload/v1772474796/Teamfoto2_w3uxfj.webp"
       />
 
       <Breadcrumb />
