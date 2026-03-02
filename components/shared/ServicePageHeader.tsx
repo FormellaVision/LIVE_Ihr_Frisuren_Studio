@@ -24,7 +24,7 @@ export function ServicePageHeader({
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          backgroundPosition: 'center 35%',
+          backgroundPosition: 'center top',
         }}
       />
 

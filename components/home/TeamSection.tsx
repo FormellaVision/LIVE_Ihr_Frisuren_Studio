@@ -31,10 +31,11 @@ export function TeamSection() {
           className="max-w-4xl mx-auto"
         >
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="aspect-[4/3] sm:aspect-[2/1] overflow-hidden">
+            <div className="aspect-[4/3] sm:aspect-[2/1] overflow-hidden relative">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
+                className="w-full h-full"
               >
                 <TeamCoverImage />
               </motion.div>
