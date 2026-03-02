@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
-import { PlaceholderImage } from '@/components/shared/TeamPlaceholder';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
@@ -103,8 +103,14 @@ export default function UeberUnsPage() {
                   hasRotation
                 >
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
-                    <div className="aspect-square overflow-hidden">
-                      <PlaceholderImage index={index} />
+                    <div className="aspect-square overflow-hidden relative">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
                     </div>
                     <div className="p-8 flex flex-col flex-grow">
                       <h3 className="font-playfair text-2xl font-bold mb-2">{member.name}</h3>
