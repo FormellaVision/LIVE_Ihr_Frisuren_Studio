@@ -81,14 +81,14 @@ export const TEAM_MEMBERS = [
   {
     name: 'Mehtap Aydin',
     role: 'Gesellin',
-    description: 'Vielseitige Friseurin',
+    description: 'Vielseitige Friseurin mit breitem Fachwissen, Kundenberatung und persönliches Engagement',
     languages: ['Deutsch', 'Türkisch', 'Englisch'],
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Mehtap_srb10k.webp',
   },
   {
     name: 'Hossein Amiri',
     role: 'Azubi',
-    description: 'Friseur in Ausbildung',
+    description: 'Motivierter Friseur in Ausbildung mit großem Engagement und freundlichem Service',
     languages: ['Deutsch', 'Türkisch'],
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Hossein_pe2p4l.webp',
   },
