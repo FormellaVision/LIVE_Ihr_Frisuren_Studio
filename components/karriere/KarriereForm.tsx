@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, User, Phone, Mail, Briefcase, MessageSquare, Calendar, Upload, ChevronDown } from 'lucide-react';
+import { Send, CircleCheck as CheckCircle, User, Phone, Mail, Briefcase, MessageSquare, Calendar, Upload, ChevronDown } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 
