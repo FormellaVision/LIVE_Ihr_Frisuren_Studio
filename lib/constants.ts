@@ -99,6 +99,20 @@ export const TEAM_MEMBERS = [
     languages: ['Deutsch', 'Türkisch'],
     image: '/team/guel.jpg',
   },
+  {
+    name: 'Dilshad Issa',
+    role: 'Azubi seit 2024',
+    description: 'Friseur in Ausbildung',
+    languages: ['Deutsch', 'Englisch'],
+    image: '/team/dilshad.jpg',
+  },
+  {
+    name: 'Hossein Amiri',
+    role: 'Azubi',
+    description: 'Friseur in Ausbildung',
+    languages: ['Deutsch', 'Englisch'],
+    image: '/team/hossein.jpg',
+  },
 ] as const;
 
 export const REVIEWS = [
