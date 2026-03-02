@@ -54,6 +54,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg',
+    apple: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg',
+  },
   openGraph: {
     title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
     description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
@@ -94,9 +98,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0d9488" />
+        <link rel="icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg" />
+        <meta name="theme-color" content="#f59e0b" />
+        <meta name="msapplication-TileColor" content="#f59e0b" />
+        <meta name="application-name" content="Ihr Frisuren-Studio" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Ihr Frisuren-Studio" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
