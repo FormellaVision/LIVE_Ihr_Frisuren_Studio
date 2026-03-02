@@ -100,17 +100,10 @@ export const TEAM_MEMBERS = [
     image: '/team/guel.jpg',
   },
   {
-    name: 'Dilshad Issa',
-    role: 'Azubi seit 2024',
-    description: 'Friseur in Ausbildung',
-    languages: ['Deutsch', 'Englisch'],
-    image: '/team/dilshad.jpg',
-  },
-  {
     name: 'Hossein Amiri',
     role: 'Azubi',
     description: 'Friseur in Ausbildung',
-    languages: ['Deutsch', 'Englisch'],
+    languages: ['Deutsch', 'Türkisch'],
     image: '/team/hossein.jpg',
   },
 ] as const;
