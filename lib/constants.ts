@@ -106,6 +106,13 @@ export const TEAM_MEMBERS = [
     languages: ['Deutsch'],
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Jessica_i7zltn.webp',
   },
+  {
+    name: 'Geansever Osman',
+    role: 'Gesellin',
+    description: 'Hair & Make-up Artistin mit kreativer Expertise und leidenschaftlicher Kundenbetreuung',
+    languages: ['Deutsch', 'Türkisch', 'Rumänisch'],
+    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772466585/Geansever_uygo4u.webp',
+  },
 ] as const;
 
 export const REVIEWS = [

@@ -131,6 +131,27 @@ export default function UeberUnsPage() {
                 </ScrollAnimationCard>
               );
             })}
+
+            <ScrollAnimationCard
+              direction="up"
+              delay={TEAM_MEMBERS.length * 0.1}
+              hasScale
+              hasRotation
+            >
+              <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl shadow-lg overflow-hidden flex flex-col h-full items-center justify-center p-8 text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-md">
+                  <span className="text-4xl">✨</span>
+                </div>
+                <h3 className="font-playfair text-2xl font-bold mb-4 text-teal-900">Hier könnte dein Name stehen</h3>
+                <p className="text-teal-700 mb-6">Werde Teil unseres Teams</p>
+                <a
+                  href="mailto:ihr.frisuren.studio.hamburg@gmail.com?subject=Bewerbung%20Ihr%20Frisuren-Studio"
+                  className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-700 transition-colors"
+                >
+                  Jetzt bewerben
+                </a>
+              </div>
+            </ScrollAnimationCard>
           </div>
         </div>
       </section>
