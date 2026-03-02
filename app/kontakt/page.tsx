@@ -5,7 +5,6 @@ import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema, getContactPageSchema } from '@/lib/schema';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
-import { GoogleBusinessProfile } from '@/components/shared/GoogleBusinessProfile';
 import { GoogleMap } from '@/components/shared/GoogleMap';
 
 const contactServices = [
@@ -200,9 +199,6 @@ export default function KontaktPage() {
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom max-w-6xl mx-auto">
-          <div className="mb-12">
-            <GoogleBusinessProfile />
-          </div>
           <RelatedServices
             services={contactServices}
             title="Unsere Leistungen"
