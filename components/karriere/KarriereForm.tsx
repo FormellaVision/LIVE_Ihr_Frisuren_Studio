@@ -10,7 +10,6 @@ import {
   Briefcase,
   MessageSquare,
   Calendar,
-  Upload,
   ChevronDown,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -36,11 +35,10 @@ interface FormData {
   phone: string;
   email: string;
   position: string;
-  message: string;
   experience: string;
   earliest_start: string;
   work_model: string;
-  resume_filename: string;
+  message: string;
 }
 
 const initialForm: FormData = {
@@ -49,11 +47,10 @@ const initialForm: FormData = {
   phone: '',
   email: '',
   position: '',
-  message: '',
   experience: '',
   earliest_start: '',
   work_model: '',
-  resume_filename: '',
+  message: '',
 };
 
 export function KarriereForm() {
@@ -85,27 +82,24 @@ export function KarriereForm() {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) handleChange('resume_filename', file.name);
-  };
-
   const buildApplicationText = () => {
     return [
       'Bewerbung über die Website',
       '',
+      'PERSÖNLICHE DATEN',
       `Vorname: ${form.first_name}`,
       `Nachname: ${form.last_name}`,
       `Telefon: ${form.phone}`,
       `E-Mail: ${form.email}`,
+      '',
+      'BEWERBUNG',
       `Stelle / Position: ${form.position}`,
-      `Nachricht: ${form.message}`,
+      form.work_model ? `Arbeitsmodell: ${form.work_model}` : '',
       form.experience ? `Berufserfahrung: ${form.experience}` : '',
       form.earliest_start ? `Frühester Starttermin: ${form.earliest_start}` : '',
-      form.work_model ? `Arbeitsmodell: ${form.work_model}` : '',
-      form.resume_filename ? `Lebenslauf-Datei: ${form.resume_filename}` : '',
       '',
-      'Hinweis: Falls ein Lebenslauf vorhanden ist, bitte manuell anhängen oder nachreichen.',
+      'NACHRICHT',
+      form.message,
     ]
       .filter(Boolean)
       .join('\n');
@@ -116,7 +110,7 @@ export function KarriereForm() {
     if (!validate()) return;
 
     const subject = encodeURIComponent(
-      `Bewerbung: ${form.position} – ${form.first_name} ${form.last_name}`
+      `Bewerbung – ${form.position} – ${form.first_name} ${form.last_name}`
     );
     const body = encodeURIComponent(buildApplicationText());
 
@@ -219,21 +213,6 @@ export function KarriereForm() {
         </div>
       </FormField>
 
-      <FormField
-        label="Deine Nachricht"
-        required
-        icon={<MessageSquare className="w-4 h-4" />}
-        error={errors.message}
-      >
-        <textarea
-          value={form.message}
-          onChange={(e) => handleChange('message', e.target.value)}
-          placeholder="Erzähl uns kurz etwas über dich – was motiviert dich, bei uns zu arbeiten?"
-          rows={4}
-          className={`${fieldClass(!!errors.message)} resize-none`}
-        />
-      </FormField>
-
       <div className="border-t border-gray-100 pt-6">
         <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
           Optionale Angaben
@@ -284,40 +263,20 @@ export function KarriereForm() {
         </div>
 
         <div className="mt-5">
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-            <span className="flex items-center gap-2">
-              <Upload className="w-4 h-4 text-gray-400" />
-              Lebenslauf hochladen <span className="text-gray-400 font-normal">(optional)</span>
-            </span>
-          </label>
-
-          <label className="flex items-center gap-3 cursor-pointer border border-dashed border-gray-300 hover:border-teal-400 rounded-xl px-4 py-4 transition-colors duration-200 group">
-            <input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={handleFileChange}
-              className="sr-only"
+          <FormField
+            label="Deine Nachricht"
+            required
+            icon={<MessageSquare className="w-4 h-4" />}
+            error={errors.message}
+          >
+            <textarea
+              value={form.message}
+              onChange={(e) => handleChange('message', e.target.value)}
+              placeholder="Erzähl uns kurz etwas über dich – was motiviert dich, bei uns zu arbeiten?"
+              rows={4}
+              className={`${fieldClass(!!errors.message)} resize-none`}
             />
-            <div className="flex-1">
-              {form.resume_filename ? (
-                <span className="text-teal-700 font-medium text-sm">{form.resume_filename}</span>
-              ) : (
-                <span className="text-gray-400 text-sm group-hover:text-teal-600 transition-colors">
-                  PDF, Word – wird nicht automatisch übertragen
-                </span>
-              )}
-            </div>
-            <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full group-hover:bg-teal-100 transition-colors">
-              Datei wählen
-            </span>
-          </label>
-
-          {form.resume_filename && (
-            <p className="text-xs text-gray-400 mt-1.5">
-              Hinweis: Die Datei wird nicht automatisch versendet. Bitte Lebenslauf im nächsten
-              Schritt manuell an E-Mail oder WhatsApp anhängen.
-            </p>
-          )}
+          </FormField>
         </div>
       </div>
 
