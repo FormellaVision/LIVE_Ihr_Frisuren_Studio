@@ -29,8 +29,8 @@ export function GoogleMap({
   return (
     <iframe
       width="100%"
-      height="400"
-      style={{ border: 0, borderRadius: '0.5rem' }}
+      height="100%"
+      style={{ border: 0, borderRadius: '0.5rem', minHeight: '300px' }}
       allowFullScreen
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"

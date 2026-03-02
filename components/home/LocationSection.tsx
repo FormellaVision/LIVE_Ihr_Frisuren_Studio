@@ -41,7 +41,7 @@ export function LocationSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl overflow-hidden shadow-2xl h-[220px] sm:h-[280px] md:h-[450px]"
+            className="rounded-2xl overflow-hidden shadow-2xl h-[220px] sm:h-[280px] md:h-[450px] flex flex-col"
           >
             <GoogleMap
               latitude={BUSINESS_INFO.coordinates.latitude}

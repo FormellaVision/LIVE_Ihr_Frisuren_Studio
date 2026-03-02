@@ -188,7 +188,7 @@ export default function KontaktPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl overflow-hidden shadow-lg h-80">
+              <div className="rounded-xl overflow-hidden shadow-lg h-80 flex flex-col">
                 <GoogleMap
                   latitude={BUSINESS_INFO.coordinates.latitude}
                   longitude={BUSINESS_INFO.coordinates.longitude}
