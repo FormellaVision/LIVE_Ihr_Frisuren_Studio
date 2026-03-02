@@ -34,8 +34,8 @@ export function HeroSection() {
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className="flex h-full flex-col items-center justify-center text-center"
-    style={{
-paddingTop: `${NAVBAR_HEIGHT}px`,
+style={{
+  paddingTop: `${NAVBAR_HEIGHT}px`,
   paddingBottom: '20px',
 }}
           >
