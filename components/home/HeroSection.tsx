@@ -9,7 +9,7 @@ const NAVBAR_HEIGHT = 64;
 const HERO_BOTTOM_SAFE = 20;
 
 export function HeroSection() {
-  const reviewCount = BUSINESS_INFO?.reviews?.count ?? 250;
+  const reviewCount = BUSINESS_INFO?.reviews?.count ?? 245;
   const reviewRating = BUSINESS_INFO?.reviews?.rating ?? '4,9';
   const foundedYear = BUSINESS_INFO?.founded ?? 2004;
 
