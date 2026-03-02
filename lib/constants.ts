@@ -86,11 +86,11 @@ export const TEAM_MEMBERS = [
     image: '/team/mehtap.jpg',
   },
   {
-    name: 'Hossein Amiri',
-    role: 'Azubi',
-    description: 'Friseur in Ausbildung',
-    languages: ['Deutsch', 'Türkisch'],
-    image: '/team/hossein.jpg',
+    name: 'Jessica',
+    role: 'Gesellin',
+    description: 'Über 15 Jahre Erfahrung, Spezialistin mit großer Leidenschaft für ihr Handwerk',
+    languages: ['Deutsch'],
+    image: '/team/jessica.jpg',
   },
   {
     name: 'Gül',
@@ -100,11 +100,11 @@ export const TEAM_MEMBERS = [
     image: '/team/guel.jpg',
   },
   {
-    name: 'Jessica',
-    role: 'Gesellin',
-    description: 'Über 15 Jahre Erfahrung, Spezialistin mit großer Leidenschaft für ihr Handwerk',
-    languages: ['Deutsch'],
-    image: '/team/jessica.jpg',
+    name: 'Hossein Amiri',
+    role: 'Azubi',
+    description: 'Friseur in Ausbildung',
+    languages: ['Deutsch', 'Türkisch'],
+    image: '/team/hossein.jpg',
   },
 ] as const;
 
