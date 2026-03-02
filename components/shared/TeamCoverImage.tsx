@@ -8,7 +8,7 @@ export function TeamCoverImage() {
       src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772474796/Teamfoto2_w3uxfj.webp"
       alt="Unser Team in Hamburg Hamm"
       fill
-      className="object-cover"
+      className="object-cover object-bottom"
       priority
       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
     />
