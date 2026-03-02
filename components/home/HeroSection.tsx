@@ -34,10 +34,10 @@ export function HeroSection() {
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className="flex h-full flex-col items-center justify-center text-center"
-            style={{
-              paddingTop: `calc(${NAVBAR_HEIGHT}px + 12px)`,
-              paddingBottom: '20px',
-            }}
+           style={{
+  paddingTop: `calc(${NAVBAR_HEIGHT}px + 12px)`,
+  paddingBottom: '20px',
+}}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 16 }}
