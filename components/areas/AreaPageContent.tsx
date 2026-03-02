@@ -35,8 +35,7 @@ interface Props {
 export function AreaPageContent({ area }: Props) {
   return (
     <>
-      <Breadcrumb />
-      <section className="relative h-[calc(100dvh-4rem)] min-h-[500px] flex items-center overflow-hidden">
+      <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-no-repeat"
           style={{
@@ -112,7 +111,7 @@ export function AreaPageContent({ area }: Props) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F7F4] to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -124,6 +123,8 @@ export function AreaPageContent({ area }: Props) {
           <ChevronDown className="w-6 h-6 animate-bounce" />
         </motion.div>
       </section>
+
+      <Breadcrumb />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
