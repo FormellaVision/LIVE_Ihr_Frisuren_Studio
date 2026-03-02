@@ -86,18 +86,18 @@ export const TEAM_MEMBERS = [
     image: '/team/mehtap.jpg',
   },
   {
-    name: 'Mirza',
-    role: 'Azubi seit 2025',
-    description: 'Friseur in Ausbildung',
-    languages: ['Deutsch', 'Englisch'],
-    image: '/team/mirza.jpg',
+    name: 'Jessica',
+    role: 'Gesellin',
+    description: 'Über 15 Jahre Erfahrung, Spezialistin mit großer Leidenschaft für ihr Handwerk',
+    languages: ['Deutsch'],
+    image: '/team/jessica.jpg',
   },
   {
-    name: 'Dilshad Issa',
-    role: 'Azubi seit 2024',
-    description: 'Friseur in Ausbildung',
-    languages: ['Deutsch', 'Englisch'],
-    image: '/team/dilshad.jpg',
+    name: 'Gül',
+    role: 'Friseurmeisterin',
+    description: 'Mehr als 10 Jahre Erfahrung, Fachkompetenz und freundliche Beratung',
+    languages: ['Deutsch', 'Türkisch'],
+    image: '/team/guel.jpg',
   },
 ] as const;
 
