@@ -34,7 +34,7 @@ export function HeroSection() {
       <div
         className="absolute inset-x-0 z-10"
         style={{
-          top: `${NAVBAR_HEIGHT}px`,
+          top: 0,
           bottom: `${HERO_BOTTOM_SAFE}px`,
         }}
       >
