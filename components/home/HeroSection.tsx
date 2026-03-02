@@ -5,6 +5,9 @@ import { Phone, Star, MessageCircle, MapPin, Award } from 'lucide-react';
 import Image from 'next/image';
 import { BUSINESS_INFO } from '@/lib/constants';
 
+const NAVBAR_HEIGHT = 64;
+const HERO_BOTTOM_SAFE = 20;
+
 export function HeroSection() {
   const reviewCount = BUSINESS_INFO?.reviews?.count ?? 250;
   const reviewRating = BUSINESS_INFO?.reviews?.rating ?? '4,9';
@@ -28,9 +31,15 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(246,240,232,0.16),rgba(0,0,0,0.08),rgba(0,0,0,0.24))]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,247,238,0.16)_0%,rgba(0,0,0,0.03)_45%,rgba(0,0,0,0.18)_100%)]" />
 
-      <div className="relative z-10 h-full w-full">
+      <div
+        className="absolute inset-x-0 z-10"
+        style={{
+          top: `${NAVBAR_HEIGHT}px`,
+          bottom: `${HERO_BOTTOM_SAFE}px`,
+        }}
+      >
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-full flex-col items-center justify-center text-center pt-20 pb-4 sm:pt-24 sm:pb-5 md:pt-28 md:pb-5 lg:pt-32">
+          <div className="flex h-full min-h-0 flex-col items-center justify-center text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -137,3 +146,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+  );
+}
