@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useConsent } from '@/hooks/useConsent';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
@@ -20,13 +20,13 @@ export function MapPlaceholder({
 
   if (!isLoaded || !consent) {
     return (
-      <div className="w-full h-96 bg-gray-200 rounded-lg animate-pulse" />
+      <div className="w-full h-full bg-gray-200 animate-pulse" />
     );
   }
 
   if (consent.marketing) {
     return (
-      <div className="w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
+      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
         <p className="text-gray-500">Google Maps wird geladen...</p>
       </div>
     );
@@ -34,7 +34,7 @@ export function MapPlaceholder({
 
   return (
     <>
-      <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex flex-col items-center justify-center gap-4 border border-gray-300">
+      <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center gap-4 border border-gray-300">
         <MapPin className="w-12 h-12 text-gray-400" />
         <h3 className="text-lg font-semibold text-gray-700 text-center px-4">
           {title}

@@ -2,6 +2,7 @@
 
 import { useConsent } from '@/hooks/useConsent';
 import { BUSINESS_INFO } from '@/lib/constants';
+import { MapEmbed } from './MapEmbed';
 import { MapPlaceholder } from './MapPlaceholder';
 
 interface GoogleMapProps {
@@ -19,23 +20,33 @@ export function GoogleMap({
   const { consent, isLoaded } = useConsent();
 
   if (!isLoaded) {
-    return <MapPlaceholder title={title} description={description} />;
+    return (
+      <MapEmbed>
+        <MapPlaceholder title={title} description={description} />
+      </MapEmbed>
+    );
   }
 
   if (!consent?.marketing) {
-    return <MapPlaceholder title={title} description={description} />;
+    return (
+      <MapEmbed>
+        <MapPlaceholder title={title} description={description} />
+      </MapEmbed>
+    );
   }
 
   return (
-    <iframe
-      width="100%"
-      height="100%"
-      style={{ border: 0, borderRadius: '0.5rem', minHeight: '300px' }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      src={BUSINESS_INFO.googleMapsEmbed}
-      title={title}
-    />
+    <MapEmbed>
+      <iframe
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        src={BUSINESS_INFO.googleMapsEmbed}
+        title={title}
+      />
+    </MapEmbed>
   );
 }
