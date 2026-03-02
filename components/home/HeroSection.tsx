@@ -16,7 +16,7 @@ export function HeroSection() {
   return (
     <section
       aria-label="Friseur Hamburg Hamm – Ihr Frisuren-Studio"
-      className="relative h-[100svh] min-h-[100svh] overflow-hidden"
+      className="relative h-screen -mt-16 pt-20 overflow-hidden"
     >
       <Image
         src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"

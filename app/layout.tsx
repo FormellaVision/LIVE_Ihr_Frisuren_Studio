@@ -127,7 +127,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Zum Hauptinhalt springen
         </a>
         <Navigation />
-        <div className="h-16" aria-hidden="true" />
         <main id="main">{children}</main>
         <Footer />
         <StickyMobileBar />
