@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg',
-    apple: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg',
+    icon: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg',
+    apple: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg',
   },
   openGraph: {
     title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
@@ -98,8 +98,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772416868/2face_Favicon_eyli93.svg" />
+        <link rel="icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg" />
         <meta name="theme-color" content="#f59e0b" />
         <meta name="msapplication-TileColor" content="#f59e0b" />
         <meta name="application-name" content="Ihr Frisuren-Studio" />
