@@ -2,8 +2,17 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CircleCheck as CheckCircle, User, Phone, Mail, Briefcase, MessageSquare, Calendar, Upload, ChevronDown } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import {
+  Send,
+  User,
+  Phone,
+  Mail,
+  Briefcase,
+  MessageSquare,
+  Calendar,
+  Upload,
+  ChevronDown,
+} from 'lucide-react';
 import Link from 'next/link';
 
 const POSITION_OPTIONS = [
@@ -17,6 +26,9 @@ const POSITION_OPTIONS = [
 ];
 
 const WORK_MODEL_OPTIONS = ['Vollzeit', 'Teilzeit', 'Mini-Job'];
+
+const APPLICATION_EMAIL = 'ihr.frisuren.studio.hamburg@gmail.com';
+const WHATSAPP_NUMBER = '491733878209';
 
 interface FormData {
   first_name: string;
@@ -47,27 +59,30 @@ const initialForm: FormData = {
 export function KarriereForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState('');
 
   const validate = (): boolean => {
     const newErrors: Partial<FormData> = {};
+
     if (!form.first_name.trim()) newErrors.first_name = 'Bitte Vorname eingeben';
     if (!form.last_name.trim()) newErrors.last_name = 'Bitte Nachname eingeben';
     if (!form.phone.trim()) newErrors.phone = 'Bitte Telefonnummer eingeben';
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       newErrors.email = 'Bitte gültige E-Mail eingeben';
+    }
     if (!form.position) newErrors.position = 'Bitte Stelle auswählen';
-    if (!form.message.trim() || form.message.trim().length < 10)
+    if (!form.message.trim() || form.message.trim().length < 10) {
       newErrors.message = 'Bitte kurze Nachricht eingeben (min. 10 Zeichen)';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (field: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,62 +90,48 @@ export function KarriereForm() {
     if (file) handleChange('resume_filename', file.name);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-    setIsSubmitting(true);
-    setSubmitError('');
-
-    const { error } = await supabase.from('job_applications').insert([form]);
-
-    if (error) {
-      setSubmitError('Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder ruf uns an.');
-      setIsSubmitting(false);
-      return;
-    }
-
-    setIsSuccess(true);
-    setIsSubmitting(false);
+  const buildApplicationText = () => {
+    return [
+      'Bewerbung über die Website',
+      '',
+      `Vorname: ${form.first_name}`,
+      `Nachname: ${form.last_name}`,
+      `Telefon: ${form.phone}`,
+      `E-Mail: ${form.email}`,
+      `Stelle / Position: ${form.position}`,
+      `Nachricht: ${form.message}`,
+      form.experience ? `Berufserfahrung: ${form.experience}` : '',
+      form.earliest_start ? `Frühester Starttermin: ${form.earliest_start}` : '',
+      form.work_model ? `Arbeitsmodell: ${form.work_model}` : '',
+      form.resume_filename ? `Lebenslauf-Datei: ${form.resume_filename}` : '',
+      '',
+      'Hinweis: Falls ein Lebenslauf vorhanden ist, bitte manuell anhängen oder nachreichen.',
+    ]
+      .filter(Boolean)
+      .join('\n');
   };
 
-  if (isSuccess) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center py-16 px-6"
-      >
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-teal-50 rounded-full mb-6">
-          <CheckCircle className="w-10 h-10 text-teal-600" />
-        </div>
-        <h3 className="font-playfair text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-          Vielen Dank, {form.first_name}!
-        </h3>
-        <p className="text-gray-600 max-w-md mx-auto leading-relaxed mb-8">
-          Deine Bewerbung ist bei uns eingegangen. Wir melden uns persönlich bei dir – in der Regel innerhalb von 1–2 Werktagen.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href="tel:+49402509029"
-            className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
-          >
-            <Phone className="w-4 h-4" />
-            040 2509029
-          </a>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 border border-gray-200 hover:border-teal-500 text-gray-700 hover:text-teal-700 font-semibold px-6 py-3 rounded-full transition-all duration-300"
-          >
-            Zur Startseite
-          </Link>
-        </div>
-      </motion.div>
+  const handleEmailApply = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const subject = encodeURIComponent(
+      `Bewerbung: ${form.position} – ${form.first_name} ${form.last_name}`
     );
-  }
+    const body = encodeURIComponent(buildApplicationText());
+
+    window.location.href = `mailto:${APPLICATION_EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  const handleWhatsAppApply = () => {
+    if (!validate()) return;
+
+    const text = encodeURIComponent(buildApplicationText());
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+  };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+    <form onSubmit={handleEmailApply} noValidate className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <FormField
           label="Vorname"
@@ -209,7 +210,9 @@ export function KarriereForm() {
           >
             <option value="">Bitte auswählen …</option>
             {POSITION_OPTIONS.map((opt) => (
-              <option key={opt} value={opt}>{opt}</option>
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
             ))}
           </select>
           <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -232,7 +235,9 @@ export function KarriereForm() {
       </FormField>
 
       <div className="border-t border-gray-100 pt-6">
-        <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Optionale Angaben</p>
+        <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+          Optionale Angaben
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <FormField label="Berufserfahrung" icon={<Briefcase className="w-4 h-4" />}>
@@ -250,14 +255,16 @@ export function KarriereForm() {
               type="text"
               value={form.earliest_start}
               onChange={(e) => handleChange('earliest_start', e.target.value)}
-              placeholder="z.B. ab sofort, 01.03.2025"
+              placeholder="z.B. ab sofort, 01.03.2026"
               className={fieldClass(false)}
             />
           </FormField>
         </div>
 
         <div className="mt-5">
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Arbeitsmodell</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+            Arbeitsmodell
+          </label>
           <div className="flex flex-wrap gap-3">
             {WORK_MODEL_OPTIONS.map((opt) => (
               <button
@@ -283,6 +290,7 @@ export function KarriereForm() {
               Lebenslauf hochladen <span className="text-gray-400 font-normal">(optional)</span>
             </span>
           </label>
+
           <label className="flex items-center gap-3 cursor-pointer border border-dashed border-gray-300 hover:border-teal-400 rounded-xl px-4 py-4 transition-colors duration-200 group">
             <input
               type="file"
@@ -295,7 +303,7 @@ export function KarriereForm() {
                 <span className="text-teal-700 font-medium text-sm">{form.resume_filename}</span>
               ) : (
                 <span className="text-gray-400 text-sm group-hover:text-teal-600 transition-colors">
-                  PDF, Word – bis 5 MB
+                  PDF, Word – wird nicht automatisch übertragen
                 </span>
               )}
             </div>
@@ -303,51 +311,43 @@ export function KarriereForm() {
               Datei wählen
             </span>
           </label>
+
           {form.resume_filename && (
             <p className="text-xs text-gray-400 mt-1.5">
-              Hinweis: Der Dateiname wird gespeichert. Sende deinen Lebenslauf bei Bedarf zusätzlich per E-Mail.
+              Hinweis: Die Datei wird nicht automatisch versendet. Bitte Lebenslauf im nächsten
+              Schritt manuell an E-Mail oder WhatsApp anhängen.
             </p>
           )}
         </div>
       </div>
 
       <div className="bg-gray-50 rounded-xl p-4 text-sm text-gray-500 leading-relaxed">
-        Mit dem Absenden stimmst du zu, dass deine Daten zur Bearbeitung deiner Bewerbung gespeichert werden. Weitere Informationen findest du in unserer{' '}
+        Nach dem Klick auf E-Mail oder WhatsApp werden deine Angaben automatisch übernommen. Du
+        kannst die Bewerbung dort kurz prüfen und anschließend selbst absenden. Weitere
+        Informationen findest du in unserer{' '}
         <Link href="/datenschutz" className="text-teal-600 hover:underline underline-offset-2">
           Datenschutzerklärung
         </Link>.
       </div>
 
-      <AnimatePresence>
-        {submitError && (
-          <motion.p
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="text-red-600 text-sm bg-red-50 border border-red-100 rounded-xl px-4 py-3"
-          >
-            {submitError}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <button
+          type="submit"
+          className="flex-1 inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-amber-200"
+        >
+          <Mail className="w-5 h-5" />
+          Per E-Mail bewerben
+        </button>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-amber-200"
-      >
-        {isSubmitting ? (
-          <>
-            <span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-            Wird gesendet …
-          </>
-        ) : (
-          <>
-            <Send className="w-5 h-5" />
-            Jetzt bewerben
-          </>
-        )}
-      </button>
+        <button
+          type="button"
+          onClick={handleWhatsAppApply}
+          className="flex-1 inline-flex items-center justify-center gap-2.5 border border-gray-200 hover:border-teal-500 text-gray-700 hover:text-teal-700 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] bg-white"
+        >
+          <Send className="w-5 h-5" />
+          Per WhatsApp bewerben
+        </button>
+      </div>
     </form>
   );
 }
@@ -376,7 +376,9 @@ function FormField({ label, required, icon, error, children }: FormFieldProps) {
         {label}
         {required && <span className="text-amber-500">*</span>}
       </label>
+
       {children}
+
       <AnimatePresence>
         {error && (
           <motion.p
