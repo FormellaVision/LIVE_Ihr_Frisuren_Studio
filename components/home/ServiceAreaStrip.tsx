@@ -7,12 +7,8 @@ import { MapPin, Train } from 'lucide-react';
 const areas = [
   { name: 'Hamburg Hamm', plz: '20537', href: '/areas/hamm', primary: true },
   { name: 'Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
+  { name: 'Hamburg-Mitte', plz: '20099', href: '/areas/hamburg-mitte', primary: false },
   { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
-  { name: 'Rothenburgsort', plz: '20539', href: '/areas/hamm', primary: false },
-  { name: 'St. Georg', plz: '20099', href: '/areas/mitte', primary: false },
-  { name: 'Eilbek', plz: '22089', href: '/areas/eilbek', primary: false },
-  { name: 'Wandsbek', plz: '22041', href: '/areas/wandsbek', primary: false },
-  { name: 'Billstedt', plz: '22111', href: '/areas/billstedt', primary: false },
 ];
 
 const containerVariants = {
@@ -57,7 +53,7 @@ export function ServiceAreaStrip() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8"
         >
           {areas.map((area) => (
             <motion.div key={area.name} variants={itemVariants}>

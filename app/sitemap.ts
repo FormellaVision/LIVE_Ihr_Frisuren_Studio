@@ -18,12 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/areas/hamm', priority: 0.8, changeFrequency: 'weekly' as const },
     { path: '/areas/borgfelde', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/areas/eilbek', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/areas/wandsbek', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/areas/mitte', priority: 0.7, changeFrequency: 'weekly' as const },
+    { path: '/areas/hamburg-mitte', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/areas/horn', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/areas/billstedt', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/areas/bergedorf', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/galerie', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/ueber-uns', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/barrierefreiheit', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -32,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const serviceAreas = [
-    'borgfelde', 'horn', 'eilbek', 'wandsbek', 'billstedt', 'mitte', 'bergedorf'
+    'borgfelde', 'horn', 'mitte'
   ];
 
   const services = [

@@ -15,12 +15,8 @@ interface ServiceAreaLinksProps {
 const AREAS: Area[] = [
   { name: 'Hamm', slug: 'hamm' },
   { name: 'Borgfelde', slug: 'borgfelde' },
+  { name: 'Hamburg-Mitte', slug: 'mitte' },
   { name: 'Horn', slug: 'horn' },
-  { name: 'Eilbek', slug: 'eilbek' },
-  { name: 'Wandsbek', slug: 'wandsbek' },
-  { name: 'Billstedt', slug: 'billstedt' },
-  { name: 'Mitte', slug: 'mitte' },
-  { name: 'Bergedorf', slug: 'bergedorf' },
 ];
 
 export function ServiceAreaLinks({

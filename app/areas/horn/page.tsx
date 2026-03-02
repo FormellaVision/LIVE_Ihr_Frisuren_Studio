@@ -4,13 +4,20 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio in der Nähe',
-  description: `Friseur nahe Horn Hamburg – Meisterbetrieb seit 2004 in Hamburg-Hamm. Damen, Herren, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
-  keywords: ['friseur horn hamburg', 'friseur horn', 'haarschnitt horn hamburg', 'friseursalon horn hamburg'],
+  title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio | Meisterbetrieb, nur 10 Min.',
+  description: `Friseur nahe Horn Hamburg – Meisterbetrieb seit 2004. Ca. 10 Min. mit U2. Damen ab 33€, Herren ab 18€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Bewertungen. Tel: ${BUSINESS_INFO.phone}`,
+  keywords: [
+    'friseur horn hamburg',
+    'friseur horn',
+    'haarschnitt horn hamburg',
+    'friseursalon horn hamburg',
+    'damenfriseur horn hamburg',
+    'herrenfriseur horn hamburg',
+  ],
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/horn` },
   openGraph: {
-    title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio',
-    description: `Premium Friseur nahe Horn Hamburg. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
+    title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio | Meisterbetrieb, nur 10 Min.',
+    description: `Premium Friseur nahe Horn Hamburg. Ca. 10 Min. mit U2 Burgstraße. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
     url: `${BUSINESS_INFO.website}/areas/horn`,
   },
 };
@@ -18,6 +25,7 @@ export const metadata: Metadata = {
 export default function HornPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
+    { name: 'Stadtteile', url: `${BUSINESS_INFO.website}/areas/hamm` },
     { name: 'Friseur Horn Hamburg', url: `${BUSINESS_INFO.website}/areas/horn` },
   ]);
 
@@ -52,18 +60,19 @@ export default function HornPage() {
         area={{
           name: 'Horn',
           slug: 'horn',
-          intro: 'Kunden aus Horn kommen regelmäßig zu Ihrem Frisuren-Studio in Hamburg-Hamm. Die Nähe der beiden Stadtteile macht uns zur natürlichen Wahl für Friseurbesuche aus Horn – mit Meisterqualität und herzlichem Service.',
+          intro: `Kunden aus Horn schätzen den kurzen Weg zu Ihrem Frisuren-Studio in Hamburg-Hamm. Per U2 oder Fahrrad in etwa 10 Minuten – und Sie genießen Meisterqualität in entspannter Atmosphäre. Für die ganze Familie, für besondere Anlässe und für den Alltag.`,
           distance: 'ca. 10 Minuten entfernt',
-          travelInfo: 'Von Horn fahren Sie mit der U2 bis Burgstraße oder mit dem Bus direkt zur Hammer Landstraße. Per Fahrrad sind es auf direktem Weg ca. 10–15 Minuten.',
+          travelInfo: `Von Horn zur Hammer Landstraße: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß. Per Fahrrad über den Mümmelmannsberg-Weg ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
           travelIcon: 'train',
           highlights: [
-            'Kurze Anfahrt aus Horn – per U-Bahn oder Fahrrad ideal',
-            `Über ${BUSINESS_INFO.reviews.count} zufriedene Kunden mit ${BUSINESS_INFO.reviews.rating} Sterne Durchschnitt`,
-            'Spezialisiert auf anspruchsvolle Haarschnitte und Colorationen',
-            'Afterwork-Termine für Berufstätige – Di–Fr nach 19:00 Uhr',
-            'Familienfreundlicher Service für die ganze Familie',
+            'Kurze, direkte Verbindung aus Horn – 10 Min. per U2 oder Fahrrad',
+            `Über ${BUSINESS_INFO.reviews.count} zufriedene Kunden – ${BUSINESS_INFO.reviews.rating} Sterne auf Google`,
+            'Familienfreundlich: Kinder, Damen und Herren willkommen',
+            'Spezialisiert auf anspruchsvolle Schnitte, Balayage und Colorationen',
+            'Afterwork-Termine Di–Fr nach 19:00 Uhr – ideal für Berufstätige',
+            'Persönliche Beratung auf Deutsch, Englisch, Türkisch und Persisch',
           ],
-          nearbyDistricts: ['Hamm', 'Billstedt', 'Rothenburgsort', 'Borgfelde', 'Eilbek'],
+          nearbyDistricts: ['Hamm', 'Borgfelde', 'Rothenburgsort', 'Billstedt'],
           image: 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920',
         }}
       />

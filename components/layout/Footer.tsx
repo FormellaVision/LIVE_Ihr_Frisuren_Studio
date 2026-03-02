@@ -204,6 +204,9 @@ export function Footer() {
               <Link href="/areas/borgfelde" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
                 Borgfelde (20535)
               </Link>
+              <Link href="/areas/hamburg-mitte" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
+                Hamburg-Mitte
+              </Link>
               <Link href="/areas/horn" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
                 Horn
               </Link>

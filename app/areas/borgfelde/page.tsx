@@ -4,13 +4,20 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur Borgfelde Hamburg – Ihr Frisuren-Studio in der Nähe',
-  description: `Friseur nahe Borgfelde Hamburg – Meisterbetrieb seit 2004 in Hamburg-Hamm. Damen, Herren, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
-  keywords: ['friseur borgfelde', 'friseur borgfelde hamburg', 'haarschnitt borgfelde', 'friseursalon borgfelde'],
+  title: 'Friseur Borgfelde Hamburg – Ihr Frisuren-Studio | Nur 5 Min. entfernt',
+  description: `Friseur nahe Borgfelde Hamburg – Meisterbetrieb seit 2004. Nur 5–10 Min. mit U2/U4. Damen ab 33€, Herren ab 18€, Balayage ab 179€. Tel: ${BUSINESS_INFO.phone}`,
+  keywords: [
+    'friseur borgfelde',
+    'friseur borgfelde hamburg',
+    'haarschnitt borgfelde',
+    'friseursalon borgfelde',
+    'damenfriseur borgfelde',
+    'herrenfriseur borgfelde',
+  ],
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/borgfelde` },
   openGraph: {
-    title: 'Friseur Borgfelde Hamburg – Ihr Frisuren-Studio',
-    description: `Premium Friseur nahe Borgfelde Hamburg. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
+    title: 'Friseur Borgfelde Hamburg – Ihr Frisuren-Studio | Nur 5 Min. entfernt',
+    description: `Premium Friseur nahe Borgfelde Hamburg. Nur 5–10 Min. mit U-Bahn. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
     url: `${BUSINESS_INFO.website}/areas/borgfelde`,
   },
 };
@@ -18,6 +25,7 @@ export const metadata: Metadata = {
 export default function BorgfeldePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
+    { name: 'Stadtteile', url: `${BUSINESS_INFO.website}/areas/hamm` },
     { name: 'Friseur Borgfelde Hamburg', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
   ]);
 
@@ -52,18 +60,19 @@ export default function BorgfeldePage() {
         area={{
           name: 'Borgfelde',
           slug: 'borgfelde',
-          intro: 'Wohnen Sie in Borgfelde und suchen einen zuverlässigen Friseur? Ihr Frisuren-Studio in Hamburg-Hamm ist Ihr nächster Premium-Friseur – direkt angrenzend an Borgfelde, bequem erreichbar mit Bus und U-Bahn.',
+          intro: `Borgfelde und Hamm sind direkte Nachbarstadtteile – und Ihr Frisuren-Studio liegt genau an dieser Grenze. Nur 5–10 Minuten per U-Bahn oder Bus, und Sie sind bei einem der besten Friseure Hamburgs. Meisterbetrieb seit 2004, mit Herz fürs Handwerk und persönlicher Beratung.`,
           distance: 'ca. 5–10 Minuten entfernt',
-          travelInfo: 'Von Borgfelde erreichen Sie uns bequem mit der U-Bahn U2/U4 bis Haltestelle Burgstraße oder mit den Buslinien 25 und 130 direkt in die Hammer Landstraße.',
+          travelInfo: `Von Borgfelde erreichen Sie uns einfach und schnell: Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß entlang der Hammer Landstraße. Alternativ mit den Buslinien 25 oder 130 direkt bis zum Salon.`,
           travelIcon: 'train',
           highlights: [
-            'Nur 5–10 Minuten von Borgfelde – ideal für Ihren nächsten Friseurbesuch',
-            `Meisterbetrieb seit ${BUSINESS_INFO.founded} mit über ${BUSINESS_INFO.reviews.count} Bewertungen`,
-            'Damen- und Herrenschnitte, Balayage, Coloration & Kosmetik',
+            'Direkter Nachbarschaftssalon – Borgfelde grenzt direkt an Hamm',
+            `Meisterbetrieb seit ${BUSINESS_INFO.founded} mit ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} ★)`,
+            'Nur 2 U-Bahn-Stationen von Borgfelde – schnell und unkompliziert',
+            'Damen, Herren, Balayage, Coloration und Kosmetik unter einem Dach',
             'Mehrsprachige Beratung: Deutsch, Englisch, Türkisch, Persisch',
-            'Flexible Afterwork-Termine nach 19:00 Uhr',
+            'Flexible Afterwork-Termine nach 19:00 Uhr verfügbar',
           ],
-          nearbyDistricts: ['Hamm', 'Eilbek', 'St. Georg', 'Horn', 'Rothenburgsort'],
+          nearbyDistricts: ['Hamm', 'St. Georg', 'Horn', 'Rothenburgsort'],
           image: 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920',
         }}
       />
