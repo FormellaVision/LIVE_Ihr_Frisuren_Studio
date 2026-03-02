@@ -5,7 +5,7 @@ import { Phone, Star, MessageCircle, MapPin, Award } from 'lucide-react';
 import Image from 'next/image';
 import { BUSINESS_INFO } from '@/lib/constants';
 
-const NAVBAR_HEIGHT = 64;
+const NAVBAR_HEIGHT = 0;
 const HERO_BOTTOM_SAFE = 20;
 
 export function HeroSection() {
