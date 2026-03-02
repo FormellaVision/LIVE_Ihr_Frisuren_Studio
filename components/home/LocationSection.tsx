@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Train, Car, Clock } from 'lucide-react';
+import { MapPin, Brain as Train, Car, Clock } from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { GoogleMap } from '@/components/shared/GoogleMap';
 
