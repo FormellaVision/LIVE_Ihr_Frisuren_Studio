@@ -38,8 +38,7 @@ export function GoogleMap({
   return (
     <MapEmbed>
       <iframe
-        width="100%"
-        height="100%"
+        className="w-full h-full flex-1"
         style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
