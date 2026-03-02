@@ -138,18 +138,27 @@ export default function UeberUnsPage() {
               hasScale
               hasRotation
             >
-              <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl shadow-lg overflow-hidden flex flex-col h-full items-center justify-center p-8 text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-md">
-                  <span className="text-4xl">✨</span>
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                <div className="aspect-square overflow-hidden relative">
+                  <Image
+                    src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772473119/Name_wrzzyw.webp"
+                    alt="Bewerbung"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
-                <h3 className="font-playfair text-2xl font-bold mb-4 text-teal-900">Hier könnte dein Name stehen</h3>
-                <p className="text-teal-700 mb-6">Werde Teil unseres Teams</p>
-                <a
-                  href="mailto:ihr.frisuren.studio.hamburg@gmail.com?subject=Bewerbung%20Ihr%20Frisuren-Studio"
-                  className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-700 transition-colors"
-                >
-                  Jetzt bewerben
-                </a>
+                <div className="p-8 flex flex-col flex-grow items-center text-center">
+                  <h3 className="font-playfair text-2xl font-bold mb-2">Hier könnte dein Name stehen</h3>
+                  <p className="text-teal-600 font-semibold mb-3 text-base">Bewerbung</p>
+                  <p className="text-gray-600 mb-4 flex-grow">Werde Teil unseres Teams</p>
+                  <a
+                    href="mailto:ihr.frisuren.studio.hamburg@gmail.com?subject=Bewerbung%20Ihr%20Frisuren-Studio"
+                    className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-full font-semibold text-sm hover:bg-teal-700 transition-colors"
+                  >
+                    Jetzt bewerben
+                  </a>
+                </div>
               </div>
             </ScrollAnimationCard>
           </div>
