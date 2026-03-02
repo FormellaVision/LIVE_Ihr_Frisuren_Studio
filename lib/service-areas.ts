@@ -36,7 +36,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten',
       'U2/U4 zu Burgstraße oder Buslinien 25, 130',
       'Spezialisiert auf Damenschnitte und Colorationen',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      '245+ Google-Bewertungen mit 4.9 Sternen',
       'Entspannte Atmosphäre und individuelle Beratung',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -96,7 +96,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
       'Einfache Anfahrt für Pendler',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      '245+ Google-Bewertungen mit 4.9 Sternen',
       'Spezialisiert auf Colorationen und Balayage',
       'Faire Preise und transparente Preisliste',
     ],
@@ -159,7 +159,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten mit U-Bahn',
       'Spezialisiert auf Herrenschnitte und Bartpflege',
-      '250+ zufriedene Kunden mit 4.9 Sternen',
+      '245+ zufriedene Kunden mit 4.9 Sternen',
       'Freundliches Team, keine Wartezeiten',
       'Gentleman-Paket inkl. Schnitt, Bart & Augenbrauen ab 49€',
     ],
@@ -220,7 +220,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
       'Einfache Erreichbarkeit für Pendler',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      '245+ Google-Bewertungen mit 4.9 Sternen',
       'Spezialisiert auf moderne Herrenschnitte',
       'Faire Preise: Schnitt ab 18€',
     ],
@@ -344,7 +344,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
       'Spezialisiert auf Balayage und moderne Färbetechniken',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      '245+ Google-Bewertungen mit 4.9 Sternen',
       'Faire Preise: Balayage ab 179€ inkl. Schnitt',
       'Premium-Produkte für langanhaltende Ergebnisse',
     ],
@@ -468,7 +468,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
       'Spezialisiert auf Colorationen und Balayage',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      '245+ Google-Bewertungen mit 4.9 Sternen',
       'Faire Preise: Coloration komplett ab 87€',
       'Hochwertige Produkte für langanhaltende Farbe',
     ],
