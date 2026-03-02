@@ -38,7 +38,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.9, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
-              className="mb-4 sm:mb-5 md:mb-6"
+              className="mt-16 sm:mt-20 md:mt-24 lg:mt-28 mb-4 sm:mb-5 md:mb-6"
             >
               <div className="relative mx-auto aspect-square w-[200px] xs:w-[220px] sm:w-[250px] md:w-[290px] lg:w-[330px] xl:w-[370px]">
                 <Image
