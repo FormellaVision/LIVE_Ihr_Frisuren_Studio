@@ -93,11 +93,11 @@ export const TEAM_MEMBERS = [
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Hossein_pe2p4l.webp',
   },
   {
-    name: 'Gül',
-    role: 'Friseurmeisterin',
-    description: 'Mehr als 10 Jahre Erfahrung, Fachkompetenz und freundliche Beratung',
-    languages: ['Deutsch', 'Türkisch'],
-    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Gu%CC%88l_tx8xms.webp',
+    name: 'Geansever Osman',
+    role: 'Gesellin',
+    description: 'Hair & Make-up Artistin mit kreativer Expertise und leidenschaftlicher Kundenbetreuung',
+    languages: ['Deutsch', 'Türkisch', 'Rumänisch'],
+    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772466585/Geansever_uygo4u.webp',
   },
   {
     name: 'Jessica',
@@ -107,11 +107,11 @@ export const TEAM_MEMBERS = [
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Jessica_i7zltn.webp',
   },
   {
-    name: 'Geansever Osman',
-    role: 'Gesellin',
-    description: 'Hair & Make-up Artistin mit kreativer Expertise und leidenschaftlicher Kundenbetreuung',
-    languages: ['Deutsch', 'Türkisch', 'Rumänisch'],
-    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772466585/Geansever_uygo4u.webp',
+    name: 'Gül',
+    role: 'Friseurmeisterin',
+    description: 'Mehr als 10 Jahre Erfahrung, Fachkompetenz und freundliche Beratung',
+    languages: ['Deutsch', 'Türkisch'],
+    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Gu%CC%88l_tx8xms.webp',
   },
 ] as const;
 
