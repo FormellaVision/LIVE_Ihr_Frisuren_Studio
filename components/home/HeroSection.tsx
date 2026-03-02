@@ -35,7 +35,7 @@ export function HeroSection() {
           <div
             className="flex h-full flex-col items-center justify-center text-center"
            style={{
-  paddingTop: `calc(${NAVBAR_HEIGHT}px + 12px)`,
+  paddingTop: `${NAVBAR_HEIGHT}px`,
   paddingBottom: '20px',
 }}
           >
