@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { MapPin, Train } from 'lucide-react';
+import { MapPin, Brain as Train } from 'lucide-react';
 
 const areas = [
   { name: 'Hamburg Hamm', plz: '20537', href: '/areas/hamm', primary: true },
