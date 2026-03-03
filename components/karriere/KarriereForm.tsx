@@ -85,27 +85,36 @@ export function KarriereForm() {
   };
 
   const buildApplicationText = () => {
-    return [
-      'Bewerbung über die Website',
-      '',
-      'PERSÖNLICHE DATEN',
-      `Vorname: ${form.first_name}`,
-      `Nachname: ${form.last_name}`,
-      `Telefon: ${form.phone}`,
-      `E-Mail: ${form.email}`,
-      '',
-      'BEWERBUNG',
-      `Stelle / Position: ${form.position}`,
-      form.work_model ? `Arbeitsmodell: ${form.work_model}` : '',
-      form.experience ? `Berufserfahrung: ${form.experience}` : '',
-      form.earliest_start ? `Frühester Starttermin: ${form.earliest_start}` : '',
-      '',
-      'NACHRICHT',
-      form.message,
-    ]
-      .filter(Boolean)
-      .join('\n');
-  };
+  const formattedDate = form.earliest_start
+    ? new Date(form.earliest_start).toLocaleDateString('de-DE')
+    : '';
+
+  return [
+    'Hallo,',
+    '',
+    'hiermit bewerbe ich mich über die Website.',
+    '',
+    'Persönliche Daten',
+    `• Vorname: ${form.first_name}`,
+    `• Nachname: ${form.last_name}`,
+    `• Telefon: ${form.phone}`,
+    `• E-Mail: ${form.email}`,
+    '',
+    'Bewerbung',
+    `• Stelle / Position: ${form.position}`,
+    form.work_model ? `• Arbeitsmodell: ${form.work_model}` : '',
+    form.experience ? `• Berufserfahrung: ${form.experience}` : '',
+    formattedDate ? `• Frühester Starttermin: ${formattedDate}` : '',
+    '',
+    'Nachricht',
+    form.message,
+    '',
+    'Viele Grüße',
+    `${form.first_name} ${form.last_name}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+};
 
   const handleEmailApply = (e: React.FormEvent) => {
     e.preventDefault();
