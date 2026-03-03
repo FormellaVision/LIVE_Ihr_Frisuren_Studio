@@ -8,8 +8,8 @@ import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { CTABanner } from '@/components/shared/CTABanner';
 
 export const metadata: Metadata = {
-  title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
-  description: `Friseur Hamburg Hamm: Premium Meisterbetrieb seit 2004. Damen ab 33€, Herren ab 18€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
+  description: `Friseur Hamburg Hamm: Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen ab 33€, Herren ab 19€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     'haarschnitt hamburg hamm',
   ],
   openGraph: {
-    title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
-    description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
+    title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
+    description: `Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
     url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm`,
   },
   alternates: {
@@ -171,7 +171,7 @@ export default function FriseurHamburgHammPage() {
             <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <h2 id="why-us-heading" className="font-playfair text-3xl font-bold mb-6">
-                  Warum Ihr Frisuren-Studio der beste Friseur in Hamburg Hamm ist
+                  Warum Kunden aus Hamburg Hamm auf uns vertrauen
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Seit {BUSINESS_INFO.founded} sind wir der vertrauensvolle Friseur in Hamburg-Hamm. Als
@@ -311,8 +311,8 @@ export default function FriseurHamburgHammPage() {
         </section>
 
         <CTABanner
-          title="Ihr Termin beim besten Friseur in Hamburg Hamm"
-          description="Meisterbetrieb seit 2004. Damen ab 33€ · Herren ab 18€ · Balayage ab 179€"
+          title="Termin beim Friseur in Hamburg Hamm buchen"
+          description="Meisterbetrieb seit 2004. Damen ab 33€ · Herren ab 19€ · Balayage ab 179€"
         />
       </div>
 

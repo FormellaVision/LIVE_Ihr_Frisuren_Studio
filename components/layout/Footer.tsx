@@ -197,7 +197,7 @@ export function Footer() {
               </li>
             </ul>
             <div className="pt-4 border-t border-gray-700 space-y-1 mb-4">
-              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Stadtteile</p>
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Einzugsgebiet</p>
               <Link href="/areas/hamm" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
                 Hamburg Hamm
               </Link>

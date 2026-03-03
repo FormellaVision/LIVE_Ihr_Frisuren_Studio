@@ -8,7 +8,7 @@ import { LocationSection } from '@/components/home/LocationSection';
 import { ServiceAreaStrip } from '@/components/home/ServiceAreaStrip';
 import { FAQSection } from '@/components/home/FAQSection';
 import { CTASection } from '@/components/home/CTASection';
-import { getFAQSchema, getLocalBusinessSchema, getReviewSchema } from '@/lib/schema';
+import { getFAQSchema, getReviewSchema } from '@/lib/schema';
 import { DEFAULT_FAQS } from '@/lib/schema';
 import { BUSINESS_INFO } from '@/lib/constants';
 
@@ -44,7 +44,6 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const faqSchema = getFAQSchema(DEFAULT_FAQS);
-  const localBusinessSchema = getLocalBusinessSchema();
   const reviewSchema = getReviewSchema();
 
   return (
@@ -61,10 +60,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <script
         type="application/ld+json"

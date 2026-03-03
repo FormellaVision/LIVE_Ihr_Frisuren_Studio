@@ -1,10 +1,12 @@
 import { BUSINESS_INFO, OPENING_HOURS, TEAM_MEMBERS, REVIEWS } from './constants';
 
+const BUSINESS_ID = `${BUSINESS_INFO.website}/#business`;
+
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#organization`,
+    '@id': BUSINESS_ID,
     name: BUSINESS_INFO.name,
     alternateName: 'Ihr Frisuren-Studio Hamburg Hamm',
     url: BUSINESS_INFO.website,
@@ -43,9 +45,32 @@ export function getOrganizationSchema() {
       { '@type': 'City', name: 'Hamburg' },
       { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
       { '@type': 'Neighborhood', name: 'Horn', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
+      { '@type': 'Neighborhood', name: 'Borgfelde', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
+      { '@type': 'Neighborhood', name: 'Hamburg-Mitte', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
       { '@type': 'Neighborhood', name: 'Rothenburgsort', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
       { '@type': 'Neighborhood', name: 'St. Georg', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Borgfelde', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: BUSINESS_INFO.phoneInternational,
+        contactType: 'customer service',
+        availableLanguage: ['German', 'Turkish', 'Persian', 'English'],
+        areaServed: 'DE',
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '19:00',
+        },
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: BUSINESS_INFO.phoneInternational,
+        contactType: 'customer service',
+        availableLanguage: ['German', 'Turkish', 'Persian', 'English'],
+        description: 'WhatsApp verfügbar',
+      },
     ],
     hasMap: BUSINESS_INFO.googleMaps,
     aggregateRating: {
@@ -111,52 +136,6 @@ export function getOrganizationSchema() {
   };
 }
 
-export function getLocalBusinessSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#localbusiness`,
-    name: BUSINESS_INFO.fullName,
-    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
-    telephone: BUSINESS_INFO.phoneInternational,
-    email: BUSINESS_INFO.email,
-    url: BUSINESS_INFO.website,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS_INFO.address.street,
-      addressLocality: BUSINESS_INFO.address.city,
-      addressRegion: BUSINESS_INFO.address.district,
-      postalCode: BUSINESS_INFO.address.postalCode,
-      addressCountry: 'DE',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: BUSINESS_INFO.coordinates.latitude,
-      longitude: BUSINESS_INFO.coordinates.longitude,
-    },
-    openingHoursSpecification: getOpeningHoursSpecification(),
-    priceRange: '€€',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-      bestRating: '5',
-      worstRating: '1',
-    },
-    sameAs: [
-      BUSINESS_INFO.instagramUrl,
-      BUSINESS_INFO.googleMaps,
-      BUSINESS_INFO.appleMaps,
-    ],
-    hasMap: BUSINESS_INFO.googleMaps,
-    founder: {
-      '@type': 'Person',
-      name: BUSINESS_INFO.owner,
-      jobTitle: 'Friseurmeister',
-    },
-  };
-}
-
 export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -200,7 +179,7 @@ export function getServiceSchema(
     description,
     provider: {
       '@type': 'HairSalon',
-      '@id': `${BUSINESS_INFO.website}/#organization`,
+      '@id': BUSINESS_ID,
       name: BUSINESS_INFO.name,
       telephone: BUSINESS_INFO.phoneInternational,
       address: {
@@ -239,10 +218,19 @@ export function getServiceSchema(
 }
 
 export function getReviewSchema() {
+  const staticDates = [
+    '2025-12-15',
+    '2025-12-01',
+    '2025-11-10',
+    '2025-10-15',
+    '2025-09-01',
+    '2025-08-01',
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#localbusiness`,
+    '@id': BUSINESS_ID,
     name: BUSINESS_INFO.name,
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -264,7 +252,7 @@ export function getReviewSchema() {
         name: review.author,
       },
       reviewBody: review.text,
-      datePublished: getRelativeDateISO(review.date),
+      datePublished: staticDates[index] || '2025-01-01',
     })),
   };
 }
@@ -279,7 +267,7 @@ export function getPersonSchemas() {
     knowsLanguage: member.languages,
     worksFor: {
       '@type': 'HairSalon',
-      '@id': `${BUSINESS_INFO.website}/#organization`,
+      '@id': BUSINESS_ID,
       name: BUSINESS_INFO.name,
     },
     affiliation: {
@@ -295,7 +283,7 @@ export function getAfterworkOfferSchema() {
     '@context': 'https://schema.org',
     '@type': 'Offer',
     name: 'Afterwork Spezialcut',
-    description: `Exklusiver Afterwork-Termin nach Feierabend. Private 1-zu-1 Behandlung in entspannter Atmosphäre. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}.`,
+    description: `Exklusiver Afterwork-Termin nach Feierabend. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}.`,
     priceCurrency: 'EUR',
     priceSpecification: {
       '@type': 'PriceSpecification',
@@ -303,6 +291,7 @@ export function getAfterworkOfferSchema() {
     },
     seller: {
       '@type': 'HairSalon',
+      '@id': BUSINESS_ID,
       name: BUSINESS_INFO.name,
       url: BUSINESS_INFO.website,
       telephone: BUSINESS_INFO.phoneInternational,
@@ -336,7 +325,7 @@ export function getContactPageSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#localbusiness`,
+    '@id': BUSINESS_ID,
     name: BUSINESS_INFO.name,
     url: BUSINESS_INFO.website,
     telephone: BUSINESS_INFO.phoneInternational,
@@ -355,29 +344,6 @@ export function getContactPageSchema() {
       longitude: BUSINESS_INFO.coordinates.longitude,
     },
     openingHoursSpecification: getOpeningHoursSpecification(),
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: BUSINESS_INFO.phoneInternational,
-        contactType: 'customer service',
-        availableLanguage: ['German', 'Turkish', 'Persian', 'English'],
-        areaServed: 'DE',
-        hoursAvailable: {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '09:00',
-          closes: '19:00',
-        },
-      },
-      {
-        '@type': 'ContactPoint',
-        telephone: BUSINESS_INFO.phoneInternational,
-        contactType: 'customer service',
-        contactOption: 'TollFree',
-        availableLanguage: ['German', 'Turkish', 'Persian', 'English'],
-        description: 'WhatsApp verfügbar',
-      },
-    ],
     hasMap: BUSINESS_INFO.googleMaps,
     sameAs: [
       BUSINESS_INFO.instagramUrl,
@@ -391,12 +357,6 @@ function getOpeningHoursSpecification() {
   return [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Monday',
-      opens: '00:00',
-      closes: '00:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '09:00',
       closes: '19:00',
@@ -407,31 +367,13 @@ function getOpeningHoursSpecification() {
       opens: '08:00',
       closes: '14:00',
     },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Sunday',
-      opens: '00:00',
-      closes: '00:00',
-    },
   ];
-}
-
-function getRelativeDateISO(relativeDate: string): string {
-  const now = new Date();
-  if (relativeDate.includes('Wochen')) {
-    const weeks = parseInt(relativeDate) || 1;
-    now.setDate(now.getDate() - weeks * 7);
-  } else if (relativeDate.includes('Monat')) {
-    const months = parseInt(relativeDate) || 1;
-    now.setMonth(now.getMonth() - months);
-  }
-  return now.toISOString().split('T')[0];
 }
 
 export const DEFAULT_FAQS = [
   {
     question: 'Wo befindet sich Ihr Frisuren-Studio in Hamburg Hamm?',
-    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}. Perfekt erreichbar mit U-Bahn U2/U4 Haltestelle Burgstraße (5 Min. zu Fuß) und Buslinien 25, 130, 160, 261, 609, 610. Parkplätze sind in der Nähe vorhanden.`,
+    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}. Gut erreichbar mit U-Bahn U2/U4 Haltestelle Burgstraße (5 Min. zu Fuß) und Buslinien 25, 130, 160, 261, 609, 610. Parkplätze sind in der Nähe vorhanden.`,
   },
   {
     question: 'Was kostet ein Damenhaarschnitt bei Ihr Frisuren-Studio?',
@@ -445,11 +387,11 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Wie kann ich einen Termin buchen?',
-    answer: `Sie können telefonisch unter ${BUSINESS_INFO.phone}, per WhatsApp unter ${BUSINESS_INFO.phone} oder über unsere Online-Buchungsseite einen Termin vereinbaren. Für Afterwork-Termine nach 19:00 Uhr rufen Sie uns bitte direkt an.`,
+    answer: `Sie können telefonisch unter ${BUSINESS_INFO.phone}, per WhatsApp unter ${BUSINESS_INFO.phone} oder persönlich im Salon einen Termin vereinbaren. Für Afterwork-Termine nach 19:00 Uhr rufen Sie uns bitte direkt an.`,
   },
   {
-    question: 'Warum ist Ihr Frisuren-Studio der beste Friseur in Hamburg Hamm?',
-    answer: `Als zertifizierter Meisterbetrieb seit ${BUSINESS_INFO.founded} bieten wir höchste Qualität in Hamburg Hamm. Mit über ${BUSINESS_INFO.reviews.count} Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne Durchschnitt) und einem mehrsprachigen Team (Deutsch, Englisch, Türkisch, Persisch) sind wir der vertrauensvolle Partner für Premium-Haarschnitte, Balayage und Kosmetik.`,
+    question: 'Was zeichnet Ihr Frisuren-Studio in Hamburg Hamm aus?',
+    answer: `Als zertifizierter Meisterbetrieb seit ${BUSINESS_INFO.founded} bieten wir höchste Qualität in Hamburg Hamm. Mit über ${BUSINESS_INFO.reviews.count} Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne Durchschnitt) und einem mehrsprachigen Team (Deutsch, Englisch, Türkisch, Persisch) ist Ihr Frisuren-Studio ein erfahrener Partner für Haarschnitte, Balayage und Kosmetik.`,
   },
   {
     question: 'Welche Sprachen sprechen Sie?',
@@ -458,11 +400,11 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Was ist der Afterwork Spezialcut?',
-    answer: `Der Afterwork Spezialcut ist unser exklusiver Service nach Feierabend. Genießen Sie eine private 1-zu-1 Behandlung in entspannter Atmosphäre. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag.`,
+    answer: `Der Afterwork Spezialcut ist unser Service nach Feierabend. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag.`,
   },
   {
-    question: 'Bedient ihr auch Kunden aus 20535 und Borgfelde?',
-    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist bestens erreichbar aus Borgfelde, Horn, Eilbek und den Postleitzahlen 20535, 20537, 20539. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt.`,
+    question: 'Bedient ihr auch Kunden aus Borgfelde und Hamburg Mitte?',
+    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist gut erreichbar aus Borgfelde, Horn und Hamburg Mitte. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt.`,
   },
 ];
 
@@ -488,11 +430,11 @@ export const SERVICE_FAQS = {
   herren: [
     {
       question: 'Was kostet ein Herrenhaarschnitt in Hamburg Hamm?',
-      answer: 'Herrenhaarschnitte beginnen bei 18€ (Maschinenschnitt). Der Design-Schnitt kostet 34€, Waschen, Schneiden & Föhnen 32€. Das Gentleman-Paket (Schnitt + Bart + Augenbrauen) nur 49€.',
+      answer: 'Herrenhaarschnitte beginnen bei 19€ (Maschinenschnitt). Der Design-Schnitt kostet 34€, Waschen, Schneiden & Föhnen 33€. Das Gentleman-Paket (Schnitt + Bart + Augenbrauen) nur 49€.',
     },
     {
       question: 'Bieten Sie Bart-Styling an?',
-      answer: 'Ja, wir sind Bartpflege-Spezialisten. Bart-Styling ab 12€, Bartmodellage ab 15€. Unser Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung.',
+      answer: 'Ja, wir sind Bartpflege-Spezialisten. Bart-Styling ab 8€, Bartmodellage ab 15€. Unser Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung.',
     },
     {
       question: 'Was beinhaltet das Gentleman-Paket?',
@@ -504,11 +446,11 @@ export const SERVICE_FAQS = {
     },
     {
       question: 'Bieten Sie Afterwork-Termine für Herren an?',
-      answer: `Ja! Unser Afterwork Spezialcut ist ideal für Berufstätige. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag. Rufen Sie uns an unter ${BUSINESS_INFO.phone}.`,
+      answer: `Ja! Unser Afterwork-Service ist ideal für Berufstätige. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag. Rufen Sie uns an unter ${BUSINESS_INFO.phone}.`,
     },
     {
       question: 'Was kostet Bartpflege in Hamburg Hamm?',
-      answer: 'Bart-Styling gibt es bei uns ab 12€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
+      answer: 'Bart-Styling gibt es bei uns ab 8€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
     },
   ],
   balayage: [
@@ -540,7 +482,7 @@ export const SERVICE_FAQS = {
   haereFaerben: [
     {
       question: 'Was kostet Haare färben in Hamburg Hamm?',
-      answer: 'Ansatz färben gibt es bei uns ab 43€, Längen/Spitzen färben ab 29€, Coloration komplett inkl. Schnitt ab 87€, Foliensträhnen ab 85€ und Balayage inkl. Veredelung & Schnitt ab 179€.',
+      answer: 'Ansatz färben gibt es bei uns ab 49€, Längen/Spitzen färben ab 29€, Coloration komplett inkl. Schnitt ab 87€, Foliensträhnen ab 85€ und Balayage inkl. Veredelung & Schnitt ab 179€.',
     },
     {
       question: 'Wie lange dauert eine Coloration beim Friseur?',

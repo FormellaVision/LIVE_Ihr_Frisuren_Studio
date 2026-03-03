@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur nahe Horn | Ihr Frisuren-Studio in Hamburg-Hamm',
-  description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
+  title: 'Friseur nahe Horn – Ihr Frisuren-Studio in Hamburg Hamm',
+  description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
   keywords: [
     'friseur horn',
     'friseur nahe horn',
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/horn` },
   openGraph: {
-    title: 'Friseur nahe Horn | Ihr Frisuren-Studio in Hamburg-Hamm',
-    description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
+    title: 'Friseur nahe Horn – Ihr Frisuren-Studio in Hamburg Hamm',
+    description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
     url: `${BUSINESS_INFO.website}/areas/horn`,
   },
 };
@@ -28,33 +28,8 @@ export default function HornPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/areas/hamm` },
-    { name: 'Friseur nahe Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
+    { name: 'Für Kunden aus Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
   ]);
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#business`,
-    name: BUSINESS_INFO.name,
-    url: BUSINESS_INFO.website,
-    telephone: BUSINESS_INFO.phoneInternational,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS_INFO.address.street,
-      addressLocality: BUSINESS_INFO.address.city,
-      postalCode: BUSINESS_INFO.address.postalCode,
-      addressCountry: 'DE',
-    },
-    areaServed: [
-      { '@type': 'Neighborhood', name: 'Horn', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-    },
-  };
 
   return (
     <>
@@ -62,15 +37,15 @@ export default function HornPage() {
         area={{
           name: 'Horn',
           slug: 'horn',
-          intro: `Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm – schnell erreichbar in nur 10 Minuten. Unser Salon in der Hammer Landstraße 4 ist bequem per U2 oder Fahrrad zu erreichen. Persönliche Beratung und Meisterqualität für Damen, Herren, Balayage und Haare färben.`,
-          distance: 'ca. 10 Minuten bis Hamburg-Hamm',
-          travelInfo: `Von Horn zum Friseur in Hamburg-Hamm: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Per Fahrrad ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
+          intro: `Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg Hamm – schnell erreichbar in nur 10 Minuten. Unser Salon in der Hammer Landstraße 4 ist bequem per U2 oder Fahrrad zu erreichen. Persönliche Beratung und Meisterqualität für Damen, Herren, Balayage und Haare färben.`,
+          distance: 'ca. 10 Minuten bis Hamburg Hamm',
+          travelInfo: `Von Horn zum Friseur in Hamburg Hamm: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Per Fahrrad ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
           travelIcon: 'train',
           highlights: [
             'Für Kundinnen und Kunden aus Horn – schnell erreichbar in 10 Minuten',
             `Über ${BUSINESS_INFO.reviews.count} zufriedene Kunden – ${BUSINESS_INFO.reviews.rating} Sterne auf Google`,
-            'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg-Hamm',
-            'Persönliche Beratung in unserem Salon in Hamburg-Hamm',
+            'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg Hamm',
+            'Persönliche Beratung in unserem Salon in Hamburg Hamm',
             'Afterwork-Termine Di–Fr nach 19:00 Uhr – ideal für Berufstätige',
             'Beratung auf Deutsch, Englisch, Türkisch und Persisch',
           ],
@@ -79,7 +54,6 @@ export default function HornPage() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </>
   );
 }

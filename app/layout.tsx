@@ -7,7 +7,6 @@ import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { AnalyticsScript } from '@/components/layout/AnalyticsScript';
 import { getOrganizationSchema } from '@/lib/schema';
-import { getContactPointSchema } from '@/lib/local-seo';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 const playfair = Playfair_Display({
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS_INFO.website),
   title: {
     default: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
-    template: '%s | Ihr Frisuren-Studio Hamburg Hamm',
+    template: '%s | Ihr Frisuren-Studio',
   },
   description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}) Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
@@ -93,7 +92,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = getOrganizationSchema();
-  const contactPointSchema = getContactPointSchema();
 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
@@ -135,10 +133,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }}
         />
       </body>
     </html>

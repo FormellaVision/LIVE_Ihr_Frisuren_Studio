@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio in Hamm',
-  description: `Ihr Friseur in Hamburg-Hamm: Ihr Frisuren-Studio in der Hammer Landstraße 4 für Damen, Herren, Balayage und Haare färben. Persönlich, modern und gut erreichbar.`,
+  title: 'Friseur Hamburg Hamm – Standort & Leistungen',
+  description: `Ihr Friseur in Hamburg Hamm: Ihr Frisuren-Studio in der Hammer Landstraße 4 für Damen, Herren, Balayage und Haare färben. Meisterbetrieb seit 2004, persönlich und gut erreichbar.`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/hamm` },
   openGraph: {
-    title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio in Hamm',
-    description: `Ihr Friseur in Hamburg-Hamm: Ihr Frisuren-Studio in der Hammer Landstraße 4 für Damen, Herren, Balayage und Haare färben. Persönlich, modern und gut erreichbar.`,
+    title: 'Friseur Hamburg Hamm – Standort & Leistungen',
+    description: `Ihr Friseur in Hamburg Hamm: Ihr Frisuren-Studio in der Hammer Landstraße 4 für Damen, Herren, Balayage und Haare färben. Meisterbetrieb seit 2004, persönlich und gut erreichbar.`,
     url: `${BUSINESS_INFO.website}/areas/hamm`,
   },
 };
@@ -30,32 +30,6 @@ export default function HammPage() {
     { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/areas/hamm` },
   ]);
 
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#business`,
-    name: BUSINESS_INFO.name,
-    url: BUSINESS_INFO.website,
-    telephone: BUSINESS_INFO.phoneInternational,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS_INFO.address.street,
-      addressLocality: BUSINESS_INFO.address.city,
-      postalCode: BUSINESS_INFO.address.postalCode,
-      addressCountry: 'DE',
-    },
-    areaServed: [
-      { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'City', name: 'Hamburg' },
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-    },
-  };
-
   return (
     <>
       <AreaPageContent
@@ -63,12 +37,12 @@ export default function HammPage() {
           name: 'Hamburg Hamm',
           slug: 'hamm',
           isMainLocation: true,
-          intro: `Willkommen in Ihrem Frisuren-Studio – Ihr Friseur in Hamburg-Hamm seit 2004. In der Hammer Landstraße 4 erwartet Sie unser erfahrenes Team für Damenschnitte, Herrenschnitte, Balayage und Haare färben. Persönliche Beratung, moderne Techniken und Meisterqualität seit über 20 Jahren.`,
+          intro: `Willkommen in Ihrem Frisuren-Studio – Ihr Friseur in Hamburg Hamm seit 2004. In der Hammer Landstraße 4 erwartet Sie unser erfahrenes Team für Damenschnitte, Herrenschnitte, Balayage und Haare färben. Persönliche Beratung, moderne Techniken und Meisterqualität seit über 20 Jahren.`,
           distance: 'Direkter Standort – Hammer Landstraße 4',
-          travelInfo: `Unser Salon befindet sich zentral in Hamburg-Hamm, Hammer Landstraße 4. Mit der U2 oder U4 bis Haltestelle Burgstraße, dann 5 Minuten zu Fuß. Buslinien 25, 130, 160 und 261 halten in unmittelbarer Nähe. Parkmöglichkeiten in der Hammer Landstraße vorhanden. Auch gut erreichbar aus Borgfelde, Hamburg Mitte und Horn.`,
+          travelInfo: `Unser Salon befindet sich zentral in Hamburg Hamm, Hammer Landstraße 4. Mit der U2 oder U4 bis Haltestelle Burgstraße, dann 5 Minuten zu Fuß. Buslinien 25, 130, 160 und 261 halten in unmittelbarer Nähe. Parkmöglichkeiten in der Hammer Landstraße vorhanden. Auch gut erreichbar aus Borgfelde, Hamburg Mitte und Horn.`,
           travelIcon: 'train',
           highlights: [
-            `Ihr Frisuren-Studio in Hamburg-Hamm – Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
+            `Ihr Frisuren-Studio in Hamburg Hamm – Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
             `${BUSINESS_INFO.reviews.count}+ Google-Bewertungen mit ${BUSINESS_INFO.reviews.rating} Sternen`,
             'Damen, Herren, Balayage und Haare färben unter einem Dach',
             'Mehrsprachige Beratung: Deutsch, Englisch, Türkisch und Persisch',
@@ -80,7 +54,6 @@ export default function HammPage() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </>
   );
 }

@@ -7,7 +7,7 @@ import { MapPin, Brain as Train } from 'lucide-react';
 const areas = [
   { name: 'Hamburg Hamm', plz: '20537', href: '/areas/hamm', primary: true },
   { name: 'Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
-  { name: 'Hamburg-Mitte', plz: '20099', href: '/areas/hamburg-mitte', primary: false },
+  { name: 'Hamburg Mitte', plz: '20099', href: '/areas/hamburg-mitte', primary: false },
   { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
 ];
 

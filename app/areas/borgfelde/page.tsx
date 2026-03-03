@@ -28,33 +28,8 @@ export default function BorgfeldePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/areas/hamm` },
-    { name: 'Friseur nahe Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
+    { name: 'Für Kunden aus Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
   ]);
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HairSalon',
-    '@id': `${BUSINESS_INFO.website}/#business`,
-    name: BUSINESS_INFO.name,
-    url: BUSINESS_INFO.website,
-    telephone: BUSINESS_INFO.phoneInternational,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS_INFO.address.street,
-      addressLocality: BUSINESS_INFO.address.city,
-      postalCode: BUSINESS_INFO.address.postalCode,
-      addressCountry: 'DE',
-    },
-    areaServed: [
-      { '@type': 'Neighborhood', name: 'Borgfelde', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-    },
-  };
 
   return (
     <>
@@ -62,15 +37,15 @@ export default function BorgfeldePage() {
         area={{
           name: 'Borgfelde',
           slug: 'borgfelde',
-          intro: `Viele Kundinnen und Kunden aus Borgfelde besuchen Ihr Frisuren-Studio in Hamburg-Hamm – nur wenige Minuten entfernt. Borgfelde und Hamm sind direkte Nachbarstadtteile, und unser Salon in der Hammer Landstraße 4 ist bequem per U-Bahn oder Bus erreichbar. Meisterbetrieb seit 2004, mit persönlicher Beratung für Damen, Herren, Balayage und Haare färben.`,
-          distance: 'ca. 5–10 Minuten bis Hamburg-Hamm',
-          travelInfo: `Von Borgfelde zum Friseur in Hamburg-Hamm: Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß entlang der Hammer Landstraße. Alternativ mit den Buslinien 25 oder 130 direkt bis zum Salon in der Hammer Landstraße 4.`,
+          intro: `Viele Kundinnen und Kunden aus Borgfelde besuchen Ihr Frisuren-Studio in Hamburg Hamm – nur wenige Minuten entfernt. Borgfelde und Hamm sind direkte Nachbarstadtteile, und unser Salon in der Hammer Landstraße 4 ist bequem per U-Bahn oder Bus erreichbar. Meisterbetrieb seit 2004, mit persönlicher Beratung für Damen, Herren, Balayage und Haare färben.`,
+          distance: 'ca. 5–10 Minuten bis Hamburg Hamm',
+          travelInfo: `Von Borgfelde zum Friseur in Hamburg Hamm: Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß entlang der Hammer Landstraße. Alternativ mit den Buslinien 25 oder 130 direkt bis zum Salon in der Hammer Landstraße 4.`,
           travelIcon: 'train',
           highlights: [
-            'Für Kundinnen und Kunden aus Borgfelde – nur wenige Minuten bis Hamburg-Hamm',
+            'Für Kundinnen und Kunden aus Borgfelde – nur wenige Minuten bis Hamburg Hamm',
             `Meisterbetrieb seit ${BUSINESS_INFO.founded} mit ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} ★)`,
-            'Gut erreichbar: 2 U-Bahn-Stationen von Borgfelde nach Hamburg-Hamm',
-            'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg-Hamm',
+            'Gut erreichbar: 2 U-Bahn-Stationen von Borgfelde nach Hamburg Hamm',
+            'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg Hamm',
             'Mehrsprachige Beratung: Deutsch, Englisch, Türkisch, Persisch',
             'Flexible Afterwork-Termine nach 19:00 Uhr verfügbar',
           ],
@@ -79,7 +54,6 @@ export default function BorgfeldePage() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </>
   );
 }

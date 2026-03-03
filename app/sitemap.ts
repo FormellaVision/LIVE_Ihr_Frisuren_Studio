@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/balayage-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/haare-faerben-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/leistungen', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/preise', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/friseur-hamburg-hamm', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/termin-buchen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -47,7 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: new Date('2025-01-15'),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));

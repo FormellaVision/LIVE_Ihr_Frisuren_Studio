@@ -20,13 +20,13 @@ export const SERVICE_LABELS: Record<string, string> = {
 
 export const AREA_LABELS: Record<string, string> = {
   'hamm': 'Hamburg Hamm',
-  'horn': 'Hamburg Horn',
+  'horn': 'Horn',
   'mitte': 'Hamburg Mitte',
-  'eilbek': 'Hamburg Eilbek',
-  'wandsbek': 'Hamburg Wandsbek',
-  'bergedorf': 'Hamburg Bergedorf',
-  'billstedt': 'Hamburg Billstedt',
-  'borgfelde': 'Hamburg Borgfelde',
+  'borgfelde': 'Borgfelde',
+  'eilbek': 'Eilbek',
+  'wandsbek': 'Wandsbek',
+  'bergedorf': 'Bergedorf',
+  'billstedt': 'Billstedt',
 };
 
 export function extractBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
