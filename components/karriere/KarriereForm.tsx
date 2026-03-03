@@ -27,7 +27,7 @@ const POSITION_OPTIONS = [
 const WORK_MODEL_OPTIONS = ['Vollzeit', 'Teilzeit', 'Mini-Job'];
 
 const APPLICATION_EMAIL = 'ihr.frisuren.studio.hamburg@gmail.com';
-const WHATSAPP_NUMBER = '491733878209';
+const WHATSAPP_NUMBER = '49402509029';
 
 interface FormData {
   first_name: string;
@@ -56,6 +56,8 @@ const initialForm: FormData = {
 export function KarriereForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  const today = new Date().toISOString().split('T')[0];
 
   const validate = (): boolean => {
     const newErrors: Partial<FormData> = {};
@@ -231,10 +233,10 @@ export function KarriereForm() {
 
           <FormField label="Frühester Starttermin" icon={<Calendar className="w-4 h-4" />}>
             <input
-              type="text"
+              type="date"
               value={form.earliest_start}
+              min={today}
               onChange={(e) => handleChange('earliest_start', e.target.value)}
-              placeholder="z.B. ab sofort, 01.03.2026"
               className={fieldClass(false)}
             />
           </FormField>
