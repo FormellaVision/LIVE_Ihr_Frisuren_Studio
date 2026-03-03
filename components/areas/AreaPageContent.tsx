@@ -12,6 +12,7 @@ import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 export interface AreaData {
   name: string;
   slug: string;
+  isMainLocation?: boolean;
   intro: string;
   distance: string;
   travelInfo: string;
@@ -56,7 +57,9 @@ export function AreaPageContent({ area }: Props) {
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2 rounded-full mb-7 shadow-lg"
             >
               <MapPin className="w-4 h-4 text-amber-400" />
-              <span className="text-sm font-semibold text-white">Friseur nahe {area.name}</span>
+              <span className="text-sm font-semibold text-white">
+                {area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`}
+              </span>
             </motion.div>
 
             <motion.h1
@@ -66,7 +69,7 @@ export function AreaPageContent({ area }: Props) {
               className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 break-words"
               style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)' }}
             >
-              Friseur {area.name} Hamburg
+              {area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`}
             </motion.h1>
 
             <motion.p
@@ -282,8 +285,10 @@ export function AreaPageContent({ area }: Props) {
       </section>
 
       <CTABanner
-        title={`Ihr Friseur aus ${area.name}`}
-        description={`Als Meisterbetrieb seit 2004 sind wir der Friseur Ihres Vertrauens in Hamburg – erreichbar aus ${area.name} in wenigen Minuten.`}
+        title={area.isMainLocation ? `Ihr Friseur in ${area.name}` : `Ihr Friseur nahe ${area.name}`}
+        description={area.isMainLocation
+          ? `Als Meisterbetrieb seit 2004 sind wir der Friseur Ihres Vertrauens direkt in Hamburg-Hamm – für Damen, Herren, Balayage und Haare färben.`
+          : `Kundinnen und Kunden aus ${area.name} besuchen uns in unserem Salon in Hamburg-Hamm – als Meisterbetrieb seit 2004 in nur wenigen Minuten erreichbar.`}
       />
     </>
   );

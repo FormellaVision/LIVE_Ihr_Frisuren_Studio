@@ -4,20 +4,22 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio | Meisterbetrieb, nur 10 Min.',
-  description: `Friseur nahe Horn Hamburg – Meisterbetrieb seit 2004. Ca. 10 Min. mit U2. Damen ab 33€, Herren ab 18€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Bewertungen. Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Friseur nahe Horn | Ihr Frisuren-Studio in Hamburg-Hamm',
+  description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
   keywords: [
-    'friseur horn hamburg',
     'friseur horn',
-    'haarschnitt horn hamburg',
-    'friseursalon horn hamburg',
-    'damenfriseur horn hamburg',
-    'herrenfriseur horn hamburg',
+    'friseur nahe horn',
+    'friseur horn hamburg',
+    'friseur in der nähe von horn',
+    'damenfriseur horn',
+    'herrenfriseur horn',
+    'balayage horn',
+    'haare färben horn',
   ],
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/horn` },
   openGraph: {
-    title: 'Friseur Horn Hamburg – Ihr Frisuren-Studio | Meisterbetrieb, nur 10 Min.',
-    description: `Premium Friseur nahe Horn Hamburg. Ca. 10 Min. mit U2 Burgstraße. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
+    title: 'Friseur nahe Horn | Ihr Frisuren-Studio in Hamburg-Hamm',
+    description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
     url: `${BUSINESS_INFO.website}/areas/horn`,
   },
 };
@@ -25,8 +27,8 @@ export const metadata: Metadata = {
 export default function HornPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Stadtteile', url: `${BUSINESS_INFO.website}/areas/hamm` },
-    { name: 'Friseur Horn Hamburg', url: `${BUSINESS_INFO.website}/areas/horn` },
+    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/areas/hamm` },
+    { name: 'Friseur nahe Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
   ]);
 
   const localBusinessSchema = {
@@ -60,19 +62,19 @@ export default function HornPage() {
         area={{
           name: 'Horn',
           slug: 'horn',
-          intro: `Kunden aus Horn schätzen den kurzen Weg zu Ihrem Frisuren-Studio in Hamburg-Hamm. Per U2 oder Fahrrad in etwa 10 Minuten – und Sie genießen Meisterqualität in entspannter Atmosphäre. Für die ganze Familie, für besondere Anlässe und für den Alltag.`,
-          distance: 'ca. 10 Minuten entfernt',
-          travelInfo: `Von Horn zur Hammer Landstraße: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß. Per Fahrrad über den Mümmelmannsberg-Weg ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
+          intro: `Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg-Hamm – schnell erreichbar in nur 10 Minuten. Unser Salon in der Hammer Landstraße 4 ist bequem per U2 oder Fahrrad zu erreichen. Persönliche Beratung und Meisterqualität für Damen, Herren, Balayage und Haare färben.`,
+          distance: 'ca. 10 Minuten bis Hamburg-Hamm',
+          travelInfo: `Von Horn zum Friseur in Hamburg-Hamm: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Per Fahrrad ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
           travelIcon: 'train',
           highlights: [
-            'Kurze, direkte Verbindung aus Horn – 10 Min. per U2 oder Fahrrad',
+            'Für Kundinnen und Kunden aus Horn – schnell erreichbar in 10 Minuten',
             `Über ${BUSINESS_INFO.reviews.count} zufriedene Kunden – ${BUSINESS_INFO.reviews.rating} Sterne auf Google`,
-            'Familienfreundlich: Kinder, Damen und Herren willkommen',
-            'Spezialisiert auf anspruchsvolle Schnitte, Balayage und Colorationen',
+            'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg-Hamm',
+            'Persönliche Beratung in unserem Salon in Hamburg-Hamm',
             'Afterwork-Termine Di–Fr nach 19:00 Uhr – ideal für Berufstätige',
-            'Persönliche Beratung auf Deutsch, Englisch, Türkisch und Persisch',
+            'Beratung auf Deutsch, Englisch, Türkisch und Persisch',
           ],
-          nearbyDistricts: ['Hamm', 'Borgfelde', 'Rothenburgsort', 'Billstedt'],
+          nearbyDistricts: ['Hamburg Hamm', 'Borgfelde', 'Rothenburgsort', 'Billstedt'],
           image: 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920',
         }}
       />

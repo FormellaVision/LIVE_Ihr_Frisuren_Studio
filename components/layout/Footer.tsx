@@ -162,22 +162,22 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/damenfriseur-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
-                  Damenfriseur Hamburg Hamm
+                  Damenfriseur
                 </Link>
               </li>
               <li>
                 <Link href="/herrenfriseur-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
-                  Herrenfriseur Hamburg Hamm
+                  Herrenfriseur
                 </Link>
               </li>
               <li>
                 <Link href="/balayage-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
-                  Balayage Hamburg Hamm
+                  Balayage
                 </Link>
               </li>
               <li>
                 <Link href="/haare-faerben-hamburg-hamm" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
-                  Haare färben Hamburg Hamm
+                  Haare färben
                 </Link>
               </li>
               <li>
@@ -199,13 +199,13 @@ export function Footer() {
             <div className="pt-4 border-t border-gray-700 space-y-1 mb-4">
               <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Stadtteile</p>
               <Link href="/areas/hamm" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
-                Hamm (20537)
+                Hamburg Hamm
               </Link>
               <Link href="/areas/borgfelde" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
-                Borgfelde (20535)
+                Borgfelde
               </Link>
               <Link href="/areas/hamburg-mitte" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
-                Hamburg-Mitte
+                Hamburg Mitte
               </Link>
               <Link href="/areas/horn" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">
                 Horn
