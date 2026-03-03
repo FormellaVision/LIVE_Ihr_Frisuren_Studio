@@ -105,11 +105,11 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Damenfriseur',
     serviceSlug: 'damenfriseur',
-    area: 'Mitte',
+    area: 'Hamburg Mitte',
     areaSlug: 'mitte',
-    description: 'Damenfriseur für Hamburg-Mitte: Zentral erreichbar mit Meisterbetrieb-Qualität.',
+    description: 'Damenfriseur für Hamburg Mitte: Zentral erreichbar mit Meisterbetrieb-Qualität aus Hamburg Hamm.',
     benefits: [
-      'Ca. 10-15 Minuten von Hamburg-Mitte entfernt',
+      'Ca. 10-15 Minuten von Hamburg Mitte entfernt',
       'U2 oder U4 zu Burgstraße oder S-Bahn zum Hauptbahnhof',
       'Entspannte Atmosphäre weg vom Trubel der Innenstadt',
       'Faire Preise: Damenschnitt ab 43€',
@@ -229,11 +229,11 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Herrenfriseur',
     serviceSlug: 'herrenfriseur',
-    area: 'Mitte',
+    area: 'Hamburg Mitte',
     areaSlug: 'mitte',
-    description: 'Herrenfriseur für Hamburg-Mitte: Moderne Schnitte zentral und leicht erreichbar.',
+    description: 'Herrenfriseur für Hamburg Mitte: Moderne Schnitte zentral und leicht erreichbar aus Hamburg Hamm.',
     benefits: [
-      'Ca. 10-15 Minuten von Hamburg-Mitte entfernt',
+      'Ca. 10-15 Minuten von Hamburg Mitte entfernt',
       'U2/U4 zu Burgstraße, direkt vom Hauptbahnhof erreichbar',
       'Meisterqualität mit entspannter Atmosphäre',
       'Moderne Schnitt- und Styling-Techniken',
@@ -353,11 +353,11 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Balayage',
     serviceSlug: 'balayage',
-    area: 'Mitte',
+    area: 'Hamburg Mitte',
     areaSlug: 'mitte',
-    description: 'Balayage für Hamburg-Mitte: Moderne Highlights zentral und leicht erreichbar.',
+    description: 'Balayage für Hamburg Mitte: Moderne Highlights zentral und leicht erreichbar aus Hamburg Hamm.',
     benefits: [
-      'Ca. 10-15 Minuten von Hamburg-Mitte entfernt',
+      'Ca. 10-15 Minuten von Hamburg Mitte entfernt',
       'U2/U4 zu Burgstraße, leicht vom Zentrum erreichbar',
       'Spezialisiert auf Balayage und moderne Färbetechniken',
       'Entspannte Atmosphäre weg vom Trubel',
@@ -477,11 +477,11 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Haare färben',
     serviceSlug: 'haare-faerben',
-    area: 'Mitte',
+    area: 'Hamburg Mitte',
     areaSlug: 'mitte',
-    description: 'Haare färben für Hamburg-Mitte: Professionelle Colorationen zentral und leicht erreichbar.',
+    description: 'Haare färben für Hamburg Mitte: Professionelle Colorationen zentral und leicht erreichbar aus Hamburg Hamm.',
     benefits: [
-      'Ca. 10-15 Minuten von Hamburg-Mitte entfernt',
+      'Ca. 10-15 Minuten von Hamburg Mitte entfernt',
       'U2/U4 zu Burgstraße, vom Zentrum leicht zu erreichen',
       'Spezialisiert auf Colorationen und Balayage',
       'Olaplex-Schutz für gesundes Haar',

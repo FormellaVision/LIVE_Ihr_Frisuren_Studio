@@ -23,10 +23,15 @@ export const AREA_LABELS: Record<string, string> = {
   'horn': 'Horn',
   'mitte': 'Hamburg Mitte',
   'borgfelde': 'Borgfelde',
-  'eilbek': 'Eilbek',
-  'wandsbek': 'Wandsbek',
-  'bergedorf': 'Bergedorf',
-  'billstedt': 'Billstedt',
+  'hamburg-mitte': 'Hamburg Mitte',
+};
+
+export const AREA_HREFS: Record<string, string> = {
+  'hamm': '/areas/hamm',
+  'horn': '/areas/horn',
+  'mitte': '/areas/hamburg-mitte',
+  'borgfelde': '/areas/borgfelde',
+  'hamburg-mitte': '/areas/hamburg-mitte',
 };
 
 export function extractBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
@@ -113,11 +118,12 @@ export function createServiceAreaBreadcrumbs(
 ): BreadcrumbItem[] {
   const serviceLabel = formatServiceLabel(service);
   const areaLabel = AREA_LABELS[area] || formatLabel(area);
+  const areaHref = AREA_HREFS[area] || `/areas/${area}`;
 
   return [
     {
       label: areaLabel,
-      href: `/areas/${area}`,
+      href: areaHref,
     },
     {
       label: serviceLabel,

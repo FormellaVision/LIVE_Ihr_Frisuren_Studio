@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${BUSINESS_INFO.website}/balayage-hamburg-bergedorf`,
   },
+  robots: { index: false, follow: false },
   openGraph: {
     title: `${data.service} ${data.area} Hamburg - Ihr Frisuren-Studio`,
     description: data.description,

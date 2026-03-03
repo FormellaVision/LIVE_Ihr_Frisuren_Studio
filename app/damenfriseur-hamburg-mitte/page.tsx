@@ -9,17 +9,18 @@ const data = SERVICE_AREAS.find(
 )!;
 
 export const metadata: Metadata = {
-  title: `${data.service} ${data.area} Hamburg - Ihr Frisuren-Studio`,
-  description: `${data.service} in ${data.area} Hamburg: ${data.description.slice(0, 100)}... Meisterbetrieb seit 2004. Tel: ${BUSINESS_INFO.phone}`,
+  title: `${data.service} nahe Hamburg Mitte – Ihr Frisuren-Studio in Hamburg Hamm`,
+  description: `${data.service} nahe Hamburg Mitte: ${data.description.slice(0, 100)}... Meisterbetrieb seit 2004. Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
-    `${data.service.toLowerCase()} ${data.area.toLowerCase()} hamburg`,
-    `friseur ${data.area.toLowerCase()}`,
+    `${data.service.toLowerCase()} hamburg mitte`,
+    `friseur hamburg mitte`,
+    `friseur nahe hamburg mitte`,
   ],
   alternates: {
     canonical: `${BUSINESS_INFO.website}/damenfriseur-hamburg-mitte`,
   },
   openGraph: {
-    title: `${data.service} ${data.area} Hamburg - Ihr Frisuren-Studio`,
+    title: `${data.service} nahe Hamburg Mitte – Ihr Frisuren-Studio in Hamburg Hamm`,
     description: data.description,
     url: `${BUSINESS_INFO.website}/damenfriseur-hamburg-mitte`,
   },
@@ -29,8 +30,8 @@ export default function Page() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Damenfriseur', url: `${BUSINESS_INFO.website}/damenfriseur-hamburg-hamm` },
-    { name: `${data.area}`, url: `${BUSINESS_INFO.website}/areas/${data.areaSlug}` },
-    { name: `${data.service} ${data.area}`, url: `${BUSINESS_INFO.website}/damenfriseur-hamburg-${data.areaSlug}` },
+    { name: 'Hamburg Mitte', url: `${BUSINESS_INFO.website}/areas/hamburg-mitte` },
+    { name: `${data.service} nahe Hamburg Mitte`, url: `${BUSINESS_INFO.website}/damenfriseur-hamburg-mitte` },
   ]);
 
   return (

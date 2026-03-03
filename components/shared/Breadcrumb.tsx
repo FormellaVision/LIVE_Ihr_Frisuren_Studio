@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
-import { SERVICE_LABELS, AREA_LABELS } from '@/lib/breadcrumbs';
+import { SERVICE_LABELS, AREA_LABELS, AREA_HREFS } from '@/lib/breadcrumbs';
 
 interface BreadcrumbItem {
   label: string;
@@ -148,7 +148,7 @@ function extractAreaHref(segments: string[]): string {
   for (let i = segments.length - 1; i >= 0; i--) {
     const part = segments[i];
     if (AREA_LABELS[part]) {
-      return `/areas/${part}`;
+      return AREA_HREFS[part] || `/areas/${part}`;
     }
   }
   return '/';
