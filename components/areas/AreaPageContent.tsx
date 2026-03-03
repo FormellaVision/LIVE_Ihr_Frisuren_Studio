@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Check, Car, Train, ChevronDown } from 'lucide-react';
+import { MapPin, Phone, Clock, Check, Car, Brain as Train, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
