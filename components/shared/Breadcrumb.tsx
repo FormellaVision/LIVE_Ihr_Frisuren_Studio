@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, Chrome as Home } from 'lucide-react';
+import { ChevronRight, Home } from 'lucide-react';
 import { SERVICE_LABELS, AREA_LABELS, AREA_HREFS } from '@/lib/breadcrumbs';
 
 interface BreadcrumbItem {
@@ -14,24 +14,29 @@ export function Breadcrumb() {
   const pathname = usePathname();
 
   const getBreadcrumbItems = (): BreadcrumbItem[] => {
-    if (pathname === '/') return [];
+    if (!pathname || pathname === '/') return [];
 
     const segments = pathname.split('/').filter(Boolean);
     const items: BreadcrumbItem[] = [];
 
+    // /leistungen, /kontakt, etc.
     if (segments.length === 1) {
       const segment = segments[0];
       const label = SERVICE_LABELS[segment] || formatLabel(segment);
       items.push({ label, href: undefined });
-    } else if (segments[0] === 'areas' && segments[1]) {
+      return items;
+    }
+
+    // /areas/<slug>
+    if (segments[0] === 'areas' && segments[1]) {
       const areaSlug = segments[1];
       const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
-      items.push({
-        label: areaLabel,
-        href: undefined,
-      });
-    } else if (segments.length >= 2) {
-      const fullPath = segments.join('-');
+      items.push({ label: areaLabel, href: undefined });
+      return items;
+    }
+
+    // /<service>-hamburg-<area...>
+    if (segments.length >= 2) {
       const areaLabel = extractAreaLabel(segments);
       const serviceLabel = extractServiceLabel(segments[0]);
 
@@ -44,28 +49,26 @@ export function Breadcrumb() {
         label: serviceLabel,
         href: undefined,
       });
+
+      return items;
     }
 
     return items;
   };
 
   const items = getBreadcrumbItems();
-
   if (items.length === 0) return null;
 
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className="bg-white/80 backdrop-blur-sm border-b border-gray-200"
-    >
+    <nav aria-label="Breadcrumb" className="bg-white/80 backdrop-blur-sm border-b border-gray-200">
       <div className="container-custom">
         <ol
-          className="flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 overflow-x-auto text-sm"
+          className="flex items-center gap-2 py-3 md:py-4 overflow-x-auto text-sm list-none m-0 p-0"
           itemScope
           itemType="https://schema.org/BreadcrumbList"
         >
           <li
-            className="flex items-center gap-2 whitespace-nowrap"
+            className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0"
             itemProp="itemListElement"
             itemScope
             itemType="https://schema.org/ListItem"
@@ -87,8 +90,8 @@ export function Breadcrumb() {
 
             return (
               <li
-                key={index}
-                className="flex items-center gap-2 whitespace-nowrap"
+                key={`${item.label}-${index}`}
+                className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0"
                 itemProp="itemListElement"
                 itemScope
                 itemType="https://schema.org/ListItem"
@@ -100,10 +103,7 @@ export function Breadcrumb() {
                 <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
 
                 {isLast ? (
-                  <span
-                    className="text-sm font-montserrat text-gray-600 px-2 py-1"
-                    aria-current="page"
-                  >
+                  <span className="text-sm font-montserrat text-gray-600 px-2 py-1" aria-current="page">
                     {item.label}
                   </span>
                 ) : (
@@ -126,7 +126,7 @@ export function Breadcrumb() {
 function formatLabel(segment: string): string {
   return segment
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
 
@@ -137,9 +137,7 @@ function extractServiceLabel(service: string): string {
 function extractAreaLabel(segments: string[]): string {
   for (let i = segments.length - 1; i >= 0; i--) {
     const part = segments[i];
-    if (AREA_LABELS[part]) {
-      return AREA_LABELS[part];
-    }
+    if (AREA_LABELS[part]) return AREA_LABELS[part];
   }
   return formatLabel(segments[segments.length - 1]);
 }
@@ -147,9 +145,7 @@ function extractAreaLabel(segments: string[]): string {
 function extractAreaHref(segments: string[]): string {
   for (let i = segments.length - 1; i >= 0; i--) {
     const part = segments[i];
-    if (AREA_LABELS[part]) {
-      return AREA_HREFS[part] || `/areas/${part}`;
-    }
+    if (AREA_LABELS[part]) return AREA_HREFS[part] || `/areas/${part}`;
   }
   return '/';
 }
