@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Friseur Wandsbek Hamburg – Ihr Frisuren-Studio in der Nähe',
   description: `Friseur nahe Wandsbek Hamburg – Meisterbetrieb seit 2004 in Hamburg-Hamm. Damen, Herren, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
   keywords: ['friseur wandsbek', 'friseur wandsbek hamburg', 'haarschnitt wandsbek', 'friseursalon wandsbek'],
+  robots: { index: false, follow: false },
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/wandsbek` },
   openGraph: {
     title: 'Friseur Wandsbek Hamburg – Ihr Frisuren-Studio',

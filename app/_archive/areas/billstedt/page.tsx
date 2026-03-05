@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Friseur Billstedt Hamburg – Ihr Frisuren-Studio in der Nähe',
   description: `Friseur nahe Billstedt Hamburg – Meisterbetrieb seit 2004 in Hamburg-Hamm. Damen, Herren, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
   keywords: ['friseur billstedt', 'friseur billstedt hamburg', 'haarschnitt billstedt', 'friseursalon billstedt hamburg'],
+  robots: { index: false, follow: false },
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/billstedt` },
   openGraph: {
     title: 'Friseur Billstedt Hamburg – Ihr Frisuren-Studio',

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Friseur Eilbek Hamburg – Ihr Frisuren-Studio in der Nähe',
   description: `Friseur nahe Eilbek Hamburg – Meisterbetrieb seit 2004 in Hamburg-Hamm. Premium Haarschnitte, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
   keywords: ['friseur eilbek', 'friseur eilbek hamburg', 'haarschnitt eilbek', 'friseursalon eilbek hamburg'],
+  robots: { index: false, follow: false },
   alternates: { canonical: `${BUSINESS_INFO.website}/areas/eilbek` },
   openGraph: {
     title: 'Friseur Eilbek Hamburg – Ihr Frisuren-Studio',

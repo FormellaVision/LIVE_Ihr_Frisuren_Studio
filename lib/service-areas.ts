@@ -6,7 +6,6 @@ export interface ServiceAreaData {
   description: string;
   benefits: string[];
   image: string;
-  plz?: string;
 }
 
 export const SERVICE_AREAS: ServiceAreaData[] = [
@@ -24,7 +23,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Afterwork-Termine nach 19:00 Uhr möglich',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Damenfriseur',
@@ -40,7 +38,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Entspannte Atmosphäre und individuelle Beratung',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Damenfriseur',
@@ -60,51 +57,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Damenfriseur',
     serviceSlug: 'damenfriseur',
-    area: 'Eilbek',
-    areaSlug: 'eilbek',
-    description: 'Damenfriseur in Eilbek-Nähe: Meisterbetrieb mit Spezialisierung auf Balayage und moderne Färbetechniken.',
-    benefits: [
-      'Ca. 10 Minuten von Eilbek entfernt',
-      'U1 oder U3 zur nächsten Haltestelle, dann leicht zu erreichen',
-      'Spezialisiert auf Balayage und moderne Techniken',
-      'Mehrsprachiges Team (Deutsch, Englisch, Türkisch, Persisch)',
-      'Individuelle Konsultation für jeden Haartyp',
-    ],
-    image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Damenfriseur',
-    serviceSlug: 'damenfriseur',
-    area: 'Wandsbek',
-    areaSlug: 'wandsbek',
-    description: 'Damenfriseur für Wandsbek-Bewohner: Professionelle Haarschnitte mit hervorragender U-Bahn-Anbindung.',
-    benefits: [
-      'Gute Verbindung von Wandsbek via U1 und Buslinien 25, 130',
-      'Ca. 10-15 Minuten Fahrzeit',
-      'Höchste Qualitätsstandards seit 2004',
-      'Breites Leistungsspektrum: Schnitte, Colorationen, Balayage',
-      'Flexible Afterwork-Termine für Berufstätige',
-    ],
-    image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Damenfriseur',
-    serviceSlug: 'damenfriseur',
-    area: 'Billstedt',
-    areaSlug: 'billstedt',
-    description: 'Damenfriseur für Billstedt: Hervorragende U-Bahn-Verbindung mit professioneller Meisterqualität.',
-    benefits: [
-      'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
-      'Einfache Anfahrt für Pendler',
-      '245+ Google-Bewertungen mit 4.9 Sternen',
-      'Spezialisiert auf Colorationen und Balayage',
-      'Faire Preise und transparente Preisliste',
-    ],
-    image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Damenfriseur',
-    serviceSlug: 'damenfriseur',
     area: 'Hamburg Mitte',
     areaSlug: 'mitte',
     description: 'Damenfriseur für Hamburg Mitte: Zentral erreichbar mit Meisterbetrieb-Qualität aus Hamburg Hamm.',
@@ -116,23 +68,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Mehrsprachige Konsultation für internationale Gäste',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20099',
-  },
-  {
-    service: 'Damenfriseur',
-    serviceSlug: 'damenfriseur',
-    area: 'Bergedorf',
-    areaSlug: 'bergedorf',
-    description: 'Damenfriseur für Bergedorf-Kunden: Premium-Service mit S-Bahn und U-Bahn-Anbindung.',
-    benefits: [
-      'S21 zum Hauptbahnhof, dann U2/U4 zu Burgstraße (ca. 25-30 Min)',
-      'Alternativ mit Auto via B5 in etwa 25 Minuten',
-      'Eines der höchstbewerteten Salons in Hamburg: 4.9 Sterne',
-      'Spezialisiert auf Balayage und Premium-Haarschnitte',
-      'Beratung in mehreren Sprachen für internationale Kunden',
-    ],
-    image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '21029',
   },
   {
     service: 'Herrenfriseur',
@@ -148,7 +83,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Afterwork-Termine nach 19:00 Uhr möglich',
     ],
     image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Herrenfriseur',
@@ -164,7 +98,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Gentleman-Paket inkl. Schnitt, Bart & Augenbrauen ab 49€',
     ],
     image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Herrenfriseur',
@@ -184,51 +117,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Herrenfriseur',
     serviceSlug: 'herrenfriseur',
-    area: 'Eilbek',
-    areaSlug: 'eilbek',
-    description: 'Herrenfriseur in Eilbek-Nähe: Moderne Schnitte und Bartpflege von Meistern.',
-    benefits: [
-      'Ca. 10 Minuten von Eilbek entfernt',
-      'Leicht mit U-Bahn oder Auto zu erreichen',
-      'Meisterbetrieb seit 2004 mit hohem Qualitätsstandard',
-      'Spezialisiert auf Herrenschnitte und Bartmodellage',
-      'Individuelle Konsultation und angepasster Service',
-    ],
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Herrenfriseur',
-    serviceSlug: 'herrenfriseur',
-    area: 'Wandsbek',
-    areaSlug: 'wandsbek',
-    description: 'Herrenfriseur für Wandsbek: Professionelle Haarschnitte mit guter U-Bahn-Anbindung.',
-    benefits: [
-      'Gute Verbindung von Wandsbek via U1 und Busse',
-      'Ca. 10-15 Minuten Fahrtzeit',
-      'Meisterqualität und breites Leistungsspektrum',
-      'Spezialisiert auf Herrenschnitte und Bartpflege',
-      'Afterwork-Termine für arbeitstätige Männer',
-    ],
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Herrenfriseur',
-    serviceSlug: 'herrenfriseur',
-    area: 'Billstedt',
-    areaSlug: 'billstedt',
-    description: 'Herrenfriseur für Billstedt: Meisterqualität mit direkter U2-Verbindung.',
-    benefits: [
-      'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
-      'Einfache Erreichbarkeit für Pendler',
-      '245+ Google-Bewertungen mit 4.9 Sternen',
-      'Spezialisiert auf moderne Herrenschnitte',
-      'Faire Preise: Schnitt ab 18€',
-    ],
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Herrenfriseur',
-    serviceSlug: 'herrenfriseur',
     area: 'Hamburg Mitte',
     areaSlug: 'mitte',
     description: 'Herrenfriseur für Hamburg Mitte: Moderne Schnitte zentral und leicht erreichbar aus Hamburg Hamm.',
@@ -240,23 +128,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Faire Preise: Design-Schnitt ab 34€',
     ],
     image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20099',
-  },
-  {
-    service: 'Herrenfriseur',
-    serviceSlug: 'herrenfriseur',
-    area: 'Bergedorf',
-    areaSlug: 'bergedorf',
-    description: 'Herrenfriseur für Bergedorf: Premium-Service mit S-Bahn und U-Bahn-Verbindung.',
-    benefits: [
-      'S21 zum Hauptbahnhof, dann U2/U4 (ca. 25-30 Min)',
-      'Alternativ mit Auto via B5 in etwa 25 Minuten',
-      'Eines der höchstbewerteten Salons: 4.9 Sterne',
-      'Spezialisiert auf moderne Herrenschnitte',
-      'Professionelle Bartpflege und Gentleman-Service',
-    ],
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '21029',
   },
   {
     service: 'Balayage',
@@ -272,7 +143,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Beratung für jeden Haartyp und Wunschfarbe',
     ],
     image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Balayage',
@@ -288,7 +158,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Beratung für pflegeleichte Farbtrends',
     ],
     image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Balayage',
@@ -308,51 +177,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Balayage',
     serviceSlug: 'balayage',
-    area: 'Eilbek',
-    areaSlug: 'eilbek',
-    description: 'Balayage in Eilbek: Spezialisiert auf moderne Färbetechniken für natürliche Highlights.',
-    benefits: [
-      'Ca. 10 Minuten von Eilbek entfernt',
-      'Spezialisiert auf Balayage und moderne Techniken',
-      'Mehrsprachiges Team (Deutsch, Englisch, Türkisch, Persisch)',
-      'Individuelle Farbberatung nach Haarstruktur',
-      'Premium-Produkte für länganhaltende Farbe',
-    ],
-    image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Balayage',
-    serviceSlug: 'balayage',
-    area: 'Wandsbek',
-    areaSlug: 'wandsbek',
-    description: 'Balayage für Wandsbek: Moderne Färbetechniken mit guter U-Bahn-Anbindung.',
-    benefits: [
-      'Gute Verbindung von Wandsbek via U1 und Busse',
-      'Ca. 10-15 Minuten Fahrtzeit',
-      'Spezialisiert auf Balayage und moderne Färbetechniken',
-      'Erfahrene Coloristinnen mit aktuellem Know-how',
-      'Flexible Afterwork-Termine für Berufstätige',
-    ],
-    image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Balayage',
-    serviceSlug: 'balayage',
-    area: 'Billstedt',
-    areaSlug: 'billstedt',
-    description: 'Balayage für Billstedt: Professionelle Highlights mit direkter U2-Verbindung.',
-    benefits: [
-      'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
-      'Spezialisiert auf Balayage und moderne Färbetechniken',
-      '245+ Google-Bewertungen mit 4.9 Sternen',
-      'Faire Preise: Balayage ab 179€ inkl. Schnitt',
-      'Premium-Produkte für langanhaltende Ergebnisse',
-    ],
-    image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Balayage',
-    serviceSlug: 'balayage',
     area: 'Hamburg Mitte',
     areaSlug: 'mitte',
     description: 'Balayage für Hamburg Mitte: Moderne Highlights zentral und leicht erreichbar aus Hamburg Hamm.',
@@ -364,23 +188,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Individuelle Farbberatung für jeden Typ',
     ],
     image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20099',
-  },
-  {
-    service: 'Balayage',
-    serviceSlug: 'balayage',
-    area: 'Bergedorf',
-    areaSlug: 'bergedorf',
-    description: 'Balayage für Bergedorf: Premium-Färbetechniken mit S-Bahn und U-Bahn-Anbindung.',
-    benefits: [
-      'S21 zum Hauptbahnhof, dann U2/U4 (ca. 25-30 Min)',
-      'Alternativ mit Auto via B5 in etwa 25 Minuten',
-      'Spezialisiert auf hochwertige Balayage',
-      'Eines der besten Salons Hamburgs: 4.9 Sterne',
-      'Premium-Service mit individueller Beratung',
-    ],
-    image: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '21029',
   },
   {
     service: 'Haare färben',
@@ -396,7 +203,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Faire Preise: Ansatz ab 43€, Coloration ab 87€',
     ],
     image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Haare färben',
@@ -412,7 +218,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Flexibles Zeitfenster inkl. Afterwork-Termine',
     ],
     image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20537',
   },
   {
     service: 'Haare färben',
@@ -432,51 +237,6 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
   {
     service: 'Haare färben',
     serviceSlug: 'haare-faerben',
-    area: 'Eilbek',
-    areaSlug: 'eilbek',
-    description: 'Haare färben in Eilbek: Spezialisiert auf Colorationen und Balayage mit Schutzbehandlung.',
-    benefits: [
-      'Ca. 10 Minuten von Eilbek entfernt',
-      'Spezialisiert auf Balayage und moderne Färbetechniken',
-      'Olaplex-Behandlung zum Schutz der Haare',
-      'Mehrsprachige Farbberatung',
-      'Individuelle Konzepte für jeden Haartyp',
-    ],
-    image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Haare färben',
-    serviceSlug: 'haare-faerben',
-    area: 'Wandsbek',
-    areaSlug: 'wandsbek',
-    description: 'Haare färben für Wandsbek: Professionelle Colorationen mit guter Anbindung.',
-    benefits: [
-      'Gute Verbindung von Wandsbek via U1 und Busse',
-      'Ca. 10-15 Minuten Fahrtzeit',
-      'Spezialisiert auf hochwertige Colorationen',
-      'Erfahrene Coloristinnen mit Spezialisierung',
-      'Flexible Afterwork-Termine für Pendler',
-    ],
-    image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Haare färben',
-    serviceSlug: 'haare-faerben',
-    area: 'Billstedt',
-    areaSlug: 'billstedt',
-    description: 'Haare färben für Billstedt: Professionelle Colorationen mit direkter U2-Verbindung.',
-    benefits: [
-      'Direkte U2-Verbindung von Billstedt (ca. 15-20 Minuten)',
-      'Spezialisiert auf Colorationen und Balayage',
-      '245+ Google-Bewertungen mit 4.9 Sternen',
-      'Faire Preise: Coloration komplett ab 87€',
-      'Hochwertige Produkte für langanhaltende Farbe',
-    ],
-    image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    service: 'Haare färben',
-    serviceSlug: 'haare-faerben',
     area: 'Hamburg Mitte',
     areaSlug: 'mitte',
     description: 'Haare färben für Hamburg Mitte: Professionelle Colorationen zentral und leicht erreichbar aus Hamburg Hamm.',
@@ -488,22 +248,77 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Individuelle Farbberatung für Ihren Typ',
     ],
     image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '20099',
   },
-  {
-    service: 'Haare färben',
-    serviceSlug: 'haare-faerben',
-    area: 'Bergedorf',
-    areaSlug: 'bergedorf',
-    description: 'Haare färben für Bergedorf: Premium-Colorationen mit S-Bahn und U-Bahn-Anbindung.',
-    benefits: [
-      'S21 zum Hauptbahnhof, dann U2/U4 (ca. 25-30 Min)',
-      'Alternativ mit Auto via B5 in etwa 25 Minuten',
-      'Spezialisiert auf hochwertige Colorationen',
-      'Eines der beste Salons Hamburgs: 4.9 Sterne',
-      'Premium-Service mit individuellem Konzept',
-    ],
-    image: 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    plz: '21029',
+];
+
+const LEGACY_AREAS = ['eilbek', 'wandsbek', 'billstedt', 'bergedorf'];
+const LEGACY_AREA_NAMES: Record<string, string> = {
+  eilbek: 'Eilbek',
+  wandsbek: 'Wandsbek',
+  billstedt: 'Billstedt',
+  bergedorf: 'Bergedorf',
+};
+
+const LEGACY_DESCRIPTIONS: Record<string, Record<string, string>> = {
+  damenfriseur: {
+    eilbek: 'Damenfriseur in Eilbek-Nähe: Meisterbetrieb mit Spezialisierung auf Balayage und moderne Färbetechniken.',
+    wandsbek: 'Damenfriseur für Wandsbek-Bewohner: Professionelle Haarschnitte mit hervorragender U-Bahn-Anbindung.',
+    billstedt: 'Damenfriseur für Billstedt: Hervorragende U-Bahn-Verbindung mit professioneller Meisterqualität.',
+    bergedorf: 'Damenfriseur für Bergedorf-Kunden: Premium-Service mit S-Bahn und U-Bahn-Anbindung.',
   },
+  herrenfriseur: {
+    eilbek: 'Herrenfriseur in Eilbek-Nähe: Moderne Schnitte und Bartpflege von Meistern.',
+    wandsbek: 'Herrenfriseur für Wandsbek: Professionelle Haarschnitte mit guter U-Bahn-Anbindung.',
+    billstedt: 'Herrenfriseur für Billstedt: Meisterqualität mit direkter U2-Verbindung.',
+    bergedorf: 'Herrenfriseur für Bergedorf: Premium-Service mit S-Bahn und U-Bahn-Verbindung.',
+  },
+  balayage: {
+    eilbek: 'Balayage in Eilbek: Spezialisiert auf moderne Färbetechniken für natürliche Highlights.',
+    wandsbek: 'Balayage für Wandsbek: Moderne Färbetechniken mit guter U-Bahn-Anbindung.',
+    billstedt: 'Balayage für Billstedt: Professionelle Highlights mit direkter U2-Verbindung.',
+    bergedorf: 'Balayage für Bergedorf: Premium-Färbetechniken mit S-Bahn und U-Bahn-Anbindung.',
+  },
+  'haare-faerben': {
+    eilbek: 'Haare färben in Eilbek: Spezialisiert auf Colorationen und Balayage mit Schutzbehandlung.',
+    wandsbek: 'Haare färben für Wandsbek: Professionelle Colorationen mit guter Anbindung.',
+    billstedt: 'Haare färben für Billstedt: Professionelle Colorationen mit direkter U2-Verbindung.',
+    bergedorf: 'Haare färben für Bergedorf: Premium-Colorationen mit S-Bahn und U-Bahn-Anbindung.',
+  },
+};
+
+const LEGACY_BENEFITS = [
+  'Meisterbetrieb seit 2004 – zertifizierte Qualität',
+  'Spezialisiert auf Balayage und moderne Techniken',
+  'Mehrsprachiges Team (Deutsch, Englisch, Türkisch, Persisch)',
+  '290+ Google-Bewertungen mit 4.9 Sternen',
+  'Individuelle Beratung und maßgeschneiderte Haarkonzepte',
+];
+
+const SERVICE_NAMES: Record<string, string> = {
+  damenfriseur: 'Damenfriseur',
+  herrenfriseur: 'Herrenfriseur',
+  balayage: 'Balayage',
+  'haare-faerben': 'Haare färben',
+};
+
+const SERVICE_IMAGES: Record<string, string> = {
+  damenfriseur: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  herrenfriseur: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  balayage: 'https://images.pexels.com/photos/1787295/pexels-photo-1787295.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'haare-faerben': 'https://images.pexels.com/photos/1444067/pexels-photo-1444067.jpeg?auto=compress&cs=tinysrgb&w=1920',
+};
+
+export const ALL_SERVICE_AREAS: ServiceAreaData[] = [
+  ...SERVICE_AREAS,
+  ...Object.keys(SERVICE_NAMES).flatMap(serviceSlug =>
+    LEGACY_AREAS.map(areaSlug => ({
+      service: SERVICE_NAMES[serviceSlug],
+      serviceSlug,
+      area: LEGACY_AREA_NAMES[areaSlug],
+      areaSlug,
+      description: LEGACY_DESCRIPTIONS[serviceSlug]?.[areaSlug] ?? '',
+      benefits: LEGACY_BENEFITS,
+      image: SERVICE_IMAGES[serviceSlug],
+    }))
+  ),
 ];

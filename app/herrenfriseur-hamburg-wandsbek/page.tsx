@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { ServiceAreaPageContent } from '@/components/shared/ServiceAreaPageContent';
-import { SERVICE_AREAS } from '@/lib/service-areas';
+import { ALL_SERVICE_AREAS } from '@/lib/service-areas';
 
-const data = SERVICE_AREAS.find(
+const data = ALL_SERVICE_AREAS.find(
   (item) => item.serviceSlug === 'herrenfriseur' && item.areaSlug === 'wandsbek'
 )!;
 
@@ -30,7 +30,7 @@ export default function Page() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Herrenfriseur', url: `${BUSINESS_INFO.website}/herrenfriseur-hamburg-hamm` },
-    { name: `${data.area}`, url: `${BUSINESS_INFO.website}/areas/${data.areaSlug}` },
+    { name: `${data.area}`, url: `${BUSINESS_INFO.website}/${data.serviceSlug}-hamburg-hamm` },
     { name: `${data.service} ${data.area}`, url: `${BUSINESS_INFO.website}/herrenfriseur-hamburg-${data.areaSlug}` },
   ]);
 

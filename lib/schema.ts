@@ -42,13 +42,10 @@ export function getOrganizationSchema() {
     },
     openingHoursSpecification: getOpeningHoursSpecification(),
     areaServed: [
-      { '@type': 'City', name: 'Hamburg' },
-      { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Horn', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Borgfelde', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Hamburg-Mitte', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'Rothenburgsort', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
-      { '@type': 'Neighborhood', name: 'St. Georg', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
+      { '@type': 'AdministrativeArea', name: 'Hamburg-Hamm, Hamburg, DE' },
+      { '@type': 'AdministrativeArea', name: 'Borgfelde, Hamburg, DE' },
+      { '@type': 'AdministrativeArea', name: 'Hamburg Mitte, Hamburg, DE' },
+      { '@type': 'AdministrativeArea', name: 'Horn, Hamburg, DE' },
     ],
     contactPoint: [
       {
@@ -191,8 +188,7 @@ export function getServiceSchema(
       },
     },
     areaServed: [
-      { '@type': 'City', name: 'Hamburg' },
-      { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
+      { '@type': 'AdministrativeArea', name: 'Hamburg-Hamm, Hamburg, DE' },
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

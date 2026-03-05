@@ -13,7 +13,7 @@ import { DEFAULT_FAQS } from '@/lib/schema';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
+  title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio Meisterbetrieb',
   description: `Friseur Hamburg Hamm: Premium Meisterbetrieb seit 2004. Damen ab 33€, Herren ab 18€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}) Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
     'friseur hamburg hamm',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'herrenfriseur hamburg hamm',
   ],
   openGraph: {
-    title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
+    title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio Meisterbetrieb',
     description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
     url: BUSINESS_INFO.website,
     images: [

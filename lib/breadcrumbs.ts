@@ -20,17 +20,17 @@ export const SERVICE_LABELS: Record<string, string> = {
 
 export const AREA_LABELS: Record<string, string> = {
   'hamm': 'Hamburg Hamm',
+  'borgfelde': 'Borgfelde',
   'horn': 'Horn',
   'mitte': 'Hamburg Mitte',
-  'borgfelde': 'Borgfelde',
   'hamburg-mitte': 'Hamburg Mitte',
 };
 
 export const AREA_HREFS: Record<string, string> = {
   'hamm': '/areas/hamm',
+  'borgfelde': '/areas/borgfelde',
   'horn': '/areas/horn',
   'mitte': '/areas/hamburg-mitte',
-  'borgfelde': '/areas/borgfelde',
   'hamburg-mitte': '/areas/hamburg-mitte',
 };
 
