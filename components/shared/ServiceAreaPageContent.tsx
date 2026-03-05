@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Check, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 interface ServiceAreaContentProps {
@@ -135,54 +136,31 @@ export function ServiceAreaPageContent({
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Andere Services für {area}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Entdecken Sie unser komplettes Angebot auch in {area}:
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Link
-                  href={`/damenfriseur-hamburg-${areaSlug}`}
-                  className="group bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl shadow-md p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-teal-200"
-                >
-                  <h3 className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors mb-1">
-                    Damenfriseur
-                  </h3>
-                  <p className="text-xs text-gray-500">ab 43€</p>
-                </Link>
-                <Link
-                  href={`/herrenfriseur-hamburg-${areaSlug}`}
-                  className="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-blue-200"
-                >
-                  <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
-                    Herrenfriseur
-                  </h3>
-                  <p className="text-xs text-gray-500">ab 18€</p>
-                </Link>
-                <Link
-                  href={`/balayage-hamburg-${areaSlug}`}
-                  className="group bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl shadow-md p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-amber-200"
-                >
-                  <h3 className="font-semibold text-gray-900 group-hover:text-amber-600 transition-colors mb-1">
-                    Balayage
-                  </h3>
-                  <p className="text-xs text-gray-500">ab 179€</p>
-                </Link>
-                <Link
-                  href={`/haare-faerben-hamburg-${areaSlug}`}
-                  className="group bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-md p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-purple-200"
-                >
-                  <h3 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors mb-1">
-                    Haare färben
-                  </h3>
-                  <p className="text-xs text-gray-500">ab 43€</p>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <RelatedServices
+            title={`Weitere Services in ${area}`}
+            services={[
+              {
+                href: `/damenfriseur-hamburg-${areaSlug}`,
+                label: `Damenfriseur ${area}`,
+                description: 'Professionelle Damenhaarschnitte & Balayage',
+              },
+              {
+                href: `/herrenfriseur-hamburg-${areaSlug}`,
+                label: `Herrenfriseur ${area}`,
+                description: 'Moderne Herrenhaarschnitte & Bartpflege',
+              },
+              {
+                href: `/balayage-hamburg-${areaSlug}`,
+                label: `Balayage ${area}`,
+                description: 'Natürliche Highlights mit Spezialtechniken',
+              },
+              {
+                href: `/haare-faerben-hamburg-${areaSlug}`,
+                label: `Haare färben ${area}`,
+                description: 'Professionelle Colorationen & Strähnen',
+              },
+            ]}
+          />
         </div>
       </section>
 

@@ -23,7 +23,7 @@ export function RelatedServices({
       </h2>
       <p className="text-gray-600 mb-8">Entdecken Sie weitere Leistungen</p>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {services.map((service) => (
           <Link
             key={service.href}
