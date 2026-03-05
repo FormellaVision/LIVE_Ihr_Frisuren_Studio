@@ -21,6 +21,10 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
+// Absolute OG image (1200x630 recommended) for previews on Google/Facebook/X/Slack.
+const OG_IMAGE_URL =
+  'https://res.cloudinary.com/dqkld61zu/image/upload/v1772734032/Ihr-Frisuren-Studio_meta_fnn7mj.webp';
+
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS_INFO.website),
   title: {
@@ -64,7 +68,7 @@ export const metadata: Metadata = {
     siteName: 'Ihr Frisuren-Studio Hamburg Hamm',
     images: [
       {
-        url: `${BUSINESS_INFO.website}/og-image.jpg`,
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: 'Ihr Frisuren-Studio - Premium Friseur in Hamburg Hamm',
@@ -77,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio',
     description: `Premium Friseur in Hamburg Hamm seit 2004 Tel: ${BUSINESS_INFO.phone}`,
-    images: [`${BUSINESS_INFO.website}/og-image.jpg`],
+    images: [OG_IMAGE_URL],
   },
   alternates: {
     canonical: BUSINESS_INFO.website,
@@ -86,7 +90,7 @@ export const metadata: Metadata = {
     'geo.region': 'DE-HH',
     'geo.placename': 'Hamburg Hamm',
     'geo.position': `${BUSINESS_INFO.coordinates.latitude};${BUSINESS_INFO.coordinates.longitude}`,
-    'ICBM': `${BUSINESS_INFO.coordinates.latitude}, ${BUSINESS_INFO.coordinates.longitude}`,
+    ICBM: `${BUSINESS_INFO.coordinates.latitude}, ${BUSINESS_INFO.coordinates.longitude}`,
   },
 };
 
@@ -96,8 +100,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg"
+          type="image/svg+xml"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg"
+        />
         <meta name="theme-color" content="#f59e0b" />
         <meta name="msapplication-TileColor" content="#f59e0b" />
         <meta name="application-name" content="Ihr Frisuren-Studio" />
