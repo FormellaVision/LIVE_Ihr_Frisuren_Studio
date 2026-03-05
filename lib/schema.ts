@@ -1,6 +1,15 @@
-import { BUSINESS_INFO, OPENING_HOURS, TEAM_MEMBERS, REVIEWS } from './constants';
+import { BUSINESS_INFO, OPENING_HOURS, TEAM_MEMBERS } from './constants';
 
 const BUSINESS_ID = `${BUSINESS_INFO.website}/#business`;
+
+/**
+ * Normalize time strings for Schema.org. Prevents invalid formats like "T09:00".
+ * Accepts: "09:00", "T09:00", " 09:00 " -> returns "09:00"
+ */
+function normalizeTime(value: string) {
+  const v = String(value || '').trim();
+  return v.startsWith('T') ? v.slice(1) : v;
+}
 
 export function getOrganizationSchema() {
   return {
@@ -40,13 +49,17 @@ export function getOrganizationSchema() {
       latitude: BUSINESS_INFO.coordinates.latitude,
       longitude: BUSINESS_INFO.coordinates.longitude,
     },
+
     openingHoursSpecification: getOpeningHoursSpecification(),
+
+    // Keep areaServed validator-safe (no Neighborhood)
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Hamburg-Hamm, Hamburg, DE' },
       { '@type': 'AdministrativeArea', name: 'Borgfelde, Hamburg, DE' },
       { '@type': 'AdministrativeArea', name: 'Hamburg Mitte, Hamburg, DE' },
       { '@type': 'AdministrativeArea', name: 'Horn, Hamburg, DE' },
     ],
+
     contactPoint: [
       {
         '@type': 'ContactPoint',
@@ -57,8 +70,8 @@ export function getOrganizationSchema() {
         hoursAvailable: {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '09:00',
-          closes: '19:00',
+          opens: normalizeTime('09:00'),
+          closes: normalizeTime('19:00'),
         },
       },
       {
@@ -69,14 +82,14 @@ export function getOrganizationSchema() {
         description: 'WhatsApp verfügbar',
       },
     ],
+
     hasMap: BUSINESS_INFO.googleMaps,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-      bestRating: '5',
-      worstRating: '1',
-    },
+
+    // IMPORTANT: Remove review/aggregateRating from JSON-LD to avoid Rich Results invalid items
+    // Keep ratings visible on the page UI, but not in structured data.
+    // aggregateRating: REMOVED
+    // review: REMOVED
+
     sameAs: [
       BUSINESS_INFO.instagramUrl,
       BUSINESS_INFO.googleMaps,
@@ -187,9 +200,7 @@ export function getServiceSchema(
         addressCountry: 'DE',
       },
     },
-    areaServed: [
-      { '@type': 'AdministrativeArea', name: 'Hamburg-Hamm, Hamburg, DE' },
-    ],
+    areaServed: [{ '@type': 'AdministrativeArea', name: 'Hamburg-Hamm, Hamburg, DE' }],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${serviceType} Leistungen`,
@@ -213,43 +224,21 @@ export function getServiceSchema(
   };
 }
 
+/**
+ * IMPORTANT:
+ * We do NOT output Review / AggregateRating schema to avoid "zusammengefasste Bewertungen"
+ * invalid items in Google Rich Results test.
+ *
+ * Keep this function as a harmless placeholder so imports don't break.
+ */
 export function getReviewSchema() {
-  const staticDates = [
-    '2025-12-15',
-    '2025-12-01',
-    '2025-11-10',
-    '2025-10-15',
-    '2025-09-01',
-    '2025-08-01',
-  ];
-
   return {
     '@context': 'https://schema.org',
-    '@type': 'HairSalon',
-    '@id': BUSINESS_ID,
-    name: BUSINESS_INFO.name,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: REVIEWS.map((review, index) => ({
-      '@type': 'Review',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: String(review.rating),
-        bestRating: '5',
-        worstRating: '1',
-      },
-      author: {
-        '@type': 'Person',
-        name: review.author,
-      },
-      reviewBody: review.text,
-      datePublished: staticDates[index] || '2025-01-01',
-    })),
+    '@type': 'WebPage',
+    '@id': `${BUSINESS_INFO.website}/bewertungen#webpage`,
+    name: 'Bewertungen | Ihr Frisuren-Studio',
+    url: `${BUSINESS_INFO.website}/bewertungen`,
+    about: { '@id': BUSINESS_ID },
   };
 }
 
@@ -299,10 +288,7 @@ export function getAfterworkOfferSchema() {
         addressCountry: 'DE',
       },
     },
-    eligibleRegion: {
-      '@type': 'City',
-      name: 'Hamburg',
-    },
+    eligibleRegion: { '@type': 'City', name: 'Hamburg' },
     availableAtOrFrom: {
       '@type': 'Place',
       name: BUSINESS_INFO.name,
@@ -354,18 +340,19 @@ function getOpeningHoursSpecification() {
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '19:00',
+      opens: normalizeTime('09:00'),
+      closes: normalizeTime('19:00'),
     },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: 'Saturday',
-      opens: '08:00',
-      closes: '14:00',
+      opens: normalizeTime('08:00'),
+      closes: normalizeTime('14:00'),
     },
   ];
 }
 
+// DEFAULT_FAQS + SERVICE_FAQS bleiben unverändert (deine Inhalte)
 export const DEFAULT_FAQS = [
   {
     question: 'Wo befindet sich Ihr Frisuren-Studio in Hamburg Hamm?',
@@ -408,33 +395,40 @@ export const SERVICE_FAQS = {
   damen: [
     {
       question: 'Was kostet ein Damenhaarschnitt in Hamburg Hamm?',
-      answer: 'Damenhaarschnitte (Waschen, Schneiden & Föhnen) kosten ab 43€ für kurzes, ab 47€ für mittellanges und ab 49€ für langes Haar. Trockenherrschnitt (Cut & Go) ab 33€.',
+      answer:
+        'Damenhaarschnitte (Waschen, Schneiden & Föhnen) kosten ab 43€ für kurzes, ab 47€ für mittellanges und ab 49€ für langes Haar. Trockenherrschnitt (Cut & Go) ab 33€.',
     },
     {
       question: 'Bieten Sie Balayage für Damen an?',
-      answer: 'Ja, wir sind Balayage-Spezialisten in Hamburg Hamm. Das Komplettpaket (Balayage inkl. Veredelung & Schnitt) kostet ab 179€. Unsere Coloristinnen beraten Sie individuell.',
+      answer:
+        'Ja, wir sind Balayage-Spezialisten in Hamburg Hamm. Das Komplettpaket (Balayage inkl. Veredelung & Schnitt) kostet ab 179€. Unsere Coloristinnen beraten Sie individuell.',
     },
     {
       question: 'Wie lange dauert ein Balayage-Termin?',
-      answer: 'Ein Balayage-Termin dauert je nach Haarlänge und gewünschtem Ergebnis ca. 3-4 Stunden. Wir empfehlen, ausreichend Zeit einzuplanen für das beste Ergebnis.',
+      answer:
+        'Ein Balayage-Termin dauert je nach Haarlänge und gewünschtem Ergebnis ca. 3-4 Stunden. Wir empfehlen, ausreichend Zeit einzuplanen für das beste Ergebnis.',
     },
     {
       question: 'Welche Pflegeprodukte verwenden Sie für Damen?',
-      answer: 'Wir verwenden hochwertige Produkte wie Olaplex für die Veredelung und Pflegebehandlungen. Alle Produkte sind auf verschiedene Haartypen abgestimmt.',
+      answer:
+        'Wir verwenden hochwertige Produkte wie Olaplex für die Veredelung und Pflegebehandlungen. Alle Produkte sind auf verschiedene Haartypen abgestimmt.',
     },
   ],
   herren: [
     {
       question: 'Was kostet ein Herrenhaarschnitt in Hamburg Hamm?',
-      answer: 'Herrenhaarschnitte beginnen bei 19€ (Maschinenschnitt). Der Design-Schnitt kostet 34€, Waschen, Schneiden & Föhnen 33€. Das Gentleman-Paket (Schnitt + Bart + Augenbrauen) nur 49€.',
+      answer:
+        'Herrenhaarschnitte beginnen bei 19€ (Maschinenschnitt). Der Design-Schnitt kostet 34€, Waschen, Schneiden & Föhnen 33€. Das Gentleman-Paket (Schnitt + Bart + Augenbrauen) nur 49€.',
     },
     {
       question: 'Bieten Sie Bart-Styling an?',
-      answer: 'Ja, wir sind Bartpflege-Spezialisten. Bart-Styling ab 8€, Bartmodellage ab 15€. Unser Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung.',
+      answer:
+        'Ja, wir sind Bartpflege-Spezialisten. Bart-Styling ab 8€, Bartmodellage ab 15€. Unser Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung.',
     },
     {
       question: 'Was beinhaltet das Gentleman-Paket?',
-      answer: 'Das Gentleman-Paket (49€) umfasst einen Design-Schnitt mit Waschen & Styling, professionelle Bartmodellage und Augenbrauen-Korrektur. Das perfekte Rundum-Paket für den modernen Mann.',
+      answer:
+        'Das Gentleman-Paket (49€) umfasst einen Design-Schnitt mit Waschen & Styling, professionelle Bartmodellage und Augenbrauen-Korrektur. Das perfekte Rundum-Paket für den modernen Mann.',
     },
     {
       question: 'Muss ich einen Termin vereinbaren?',
@@ -446,55 +440,67 @@ export const SERVICE_FAQS = {
     },
     {
       question: 'Was kostet Bartpflege in Hamburg Hamm?',
-      answer: 'Bart-Styling gibt es bei uns ab 8€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
+      answer:
+        'Bart-Styling gibt es bei uns ab 8€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
     },
   ],
   balayage: [
     {
       question: 'Was ist der Unterschied zwischen Balayage und Foliensträhnen?',
-      answer: 'Bei Balayage wird die Farbe frei mit dem Pinsel aufgetragen (handgemalt), was weichere, natürlichere Übergänge erzeugt. Foliensträhnen geben präzisere Helligkeitspunkte. Wir beraten Sie gerne, welche Technik zu Ihnen passt.',
+      answer:
+        'Bei Balayage wird die Farbe frei mit dem Pinsel aufgetragen (handgemalt), was weichere, natürlichere Übergänge erzeugt. Foliensträhnen geben präzisere Helligkeitspunkte. Wir beraten Sie gerne, welche Technik zu Ihnen passt.',
     },
     {
       question: 'Wie lange hält Balayage?',
-      answer: 'Balayage hält in der Regel 3-6 Monate, da es natürlich herauswächst ohne harte Ansätze. Das ist einer der großen Vorteile: weniger häufige Terminbesuche als bei klassischen Colorationen.',
+      answer:
+        'Balayage hält in der Regel 3-6 Monate, da es natürlich herauswächst ohne harte Ansätze. Das ist einer der großen Vorteile: weniger häufige Terminbesuche als bei klassischen Colorationen.',
     },
     {
       question: 'Was kostet Balayage in Hamburg Hamm?',
-      answer: 'Balayage inkl. Veredelung & Schnitt kostet bei uns ab 179€. Nur Balayage (ohne Schnitt) ab 129€. Ombre/Sombre ab 159€. Der genaue Preis hängt von der Haarlänge und dem gewünschten Ergebnis ab.',
+      answer:
+        'Balayage inkl. Veredelung & Schnitt kostet bei uns ab 179€. Nur Balayage (ohne Schnitt) ab 129€. Ombre/Sombre ab 159€. Der genaue Preis hängt von der Haarlänge und dem gewünschten Ergebnis ab.',
     },
     {
       question: 'Verwenden Sie Olaplex bei Balayage?',
-      answer: 'Ja, wir verwenden hochwertige Pflegeprodukte inklusive Olaplex-Behandlungen, um das Haar während und nach dem Färbeprozess optimal zu schützen und zu kräftigen.',
+      answer:
+        'Ja, wir verwenden hochwertige Pflegeprodukte inklusive Olaplex-Behandlungen, um das Haar während und nach dem Färbeprozess optimal zu schützen und zu kräftigen.',
     },
     {
       question: 'Ist Balayage schädlich für die Haare?',
-      answer: 'Bei uns nicht! Wir verwenden Olaplex und hochwertige Pflegeprodukte, um Ihr Haar während des gesamten Färbeprozesses zu schützen. Unsere erfahrenen Coloristinnen achten auf die Haargesundheit.',
+      answer:
+        'Bei uns nicht! Wir verwenden Olaplex und hochwertige Pflegeprodukte, um Ihr Haar während des gesamten Färbeprozesses zu schützen. Unsere erfahrenen Coloristinnen achten auf die Haargesundheit.',
     },
     {
       question: 'Kann ich Balayage auch bei dunklen Haaren machen lassen?',
-      answer: 'Absolut! Balayage funktioniert bei allen Haarfarben. Bei sehr dunklem Haar sind eventuell mehrere Sitzungen nötig, um das gewünschte Ergebnis schonend zu erreichen. Wir beraten Sie im Vorfeld ausführlich.',
+      answer:
+        'Absolut! Balayage funktioniert bei allen Haarfarben. Bei sehr dunklem Haar sind eventuell mehrere Sitzungen nötig, um das gewünschte Ergebnis schonend zu erreichen. Wir beraten Sie im Vorfeld ausführlich.',
     },
   ],
   haereFaerben: [
     {
       question: 'Was kostet Haare färben in Hamburg Hamm?',
-      answer: 'Ansatz färben gibt es bei uns ab 49€, Längen/Spitzen färben ab 29€, Coloration komplett inkl. Schnitt ab 87€, Foliensträhnen ab 85€ und Balayage inkl. Veredelung & Schnitt ab 179€.',
+      answer:
+        'Ansatz färben gibt es bei uns ab 49€, Längen/Spitzen färben ab 29€, Coloration komplett inkl. Schnitt ab 87€, Foliensträhnen ab 85€ und Balayage inkl. Veredelung & Schnitt ab 179€.',
     },
     {
       question: 'Wie lange dauert eine Coloration beim Friseur?',
-      answer: 'Eine einfache Ansatzfärbung dauert ca. 1-1,5 Stunden. Eine komplette Coloration mit Schnitt ca. 2 Stunden. Balayage-Behandlungen benötigen ca. 3-4 Stunden je nach Haarlänge und gewünschtem Ergebnis.',
+      answer:
+        'Eine einfache Ansatzfärbung dauert ca. 1-1,5 Stunden. Eine komplette Coloration mit Schnitt ca. 2 Stunden. Balayage-Behandlungen benötigen ca. 3-4 Stunden je nach Haarlänge und gewünschtem Ergebnis.',
     },
     {
       question: 'Welche Färbetechniken bieten Sie in Hamburg Hamm an?',
-      answer: 'Wir bieten das komplette Spektrum: Ansatz-/Komplett-Coloration, Foliensträhnen, Balayage, Ombre/Sombre sowie Herren-Coloration und Graue-Haare-Camouflage. Unsere Coloristinnen beraten Sie individuell.',
+      answer:
+        'Wir bieten das komplette Spektrum: Ansatz-/Komplett-Coloration, Foliensträhnen, Balayage, Ombre/Sombre sowie Herren-Coloration und Graue-Haare-Camouflage. Unsere Coloristinnen beraten Sie individuell.',
     },
     {
       question: 'Wie pflege ich gefärbte Haare richtig?',
-      answer: 'Verwenden Sie sulfatfreies Shampoo, waschen Sie Ihr Haar nicht zu heiß und nutzen Sie regelmäßig eine Farbschutz-Kur. Wir empfehlen zudem alle 6-8 Wochen eine Auffrischung. Gerne beraten wir Sie zu passenden Pflegeprodukten.',
+      answer:
+        'Verwenden Sie sulfatfreies Shampoo, waschen Sie Ihr Haar nicht zu heiß und nutzen Sie regelmäßig eine Farbschutz-Kur. Wir empfehlen zudem alle 6-8 Wochen eine Auffrischung. Gerne beraten wir Sie zu passenden Pflegeprodukten.',
     },
     {
       question: 'Ist Haare färben schädlich?',
-      answer: 'Mit professionellen Produkten und erfahrenen Stylisten ist das Risiko minimal. Wir verwenden Olaplex-Behandlungen zum Schutz der Haarstruktur und hochwertige Colorationen, die das Haar schonen.',
+      answer:
+        'Mit professionellen Produkten und erfahrenen Stylisten ist das Risiko minimal. Wir verwenden Olaplex-Behandlungen zum Schutz der Haarstruktur und hochwertige Colorationen, die das Haar schonen.',
     },
   ],
 };
