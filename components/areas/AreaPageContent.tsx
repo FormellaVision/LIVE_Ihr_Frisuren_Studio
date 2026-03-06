@@ -7,6 +7,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
+import { ServiceCards } from '@/components/shared/ServiceCards';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 
 export interface AreaData {
@@ -23,10 +24,10 @@ export interface AreaData {
 }
 
 const SERVICES = [
-  { href: '/damenfriseur-hamburg-hamm', label: 'Damenfriseur', desc: 'Waschen, Schneiden & Föhnen ab 43€' },
-  { href: '/herrenfriseur-hamburg-hamm', label: 'Herrenfriseur', desc: 'Maschinenschnitt ab 18€, Design-Schnitt 34€' },
-  { href: '/balayage-hamburg-hamm', label: 'Balayage', desc: 'Natürliche Highlights ab 179€ inkl. Schnitt' },
-  { href: '/leistungen', label: 'Kosmetik & Alle Leistungen', desc: 'Gesichtsbehandlung, Maniküre & mehr' },
+  { title: 'Damenfriseur', description: 'Waschen, Schneiden & Föhnen', href: '/damenfriseur-hamburg-hamm' },
+  { title: 'Herrenfriseur', description: 'Moderne Herrenschnitte & Bartpflege', href: '/herrenfriseur-hamburg-hamm' },
+  { title: 'Balayage', description: 'Natürliche Highlights mit modernen Techniken', href: '/balayage-hamburg-hamm' },
+  { title: 'Haare färben', description: 'Professionelle Colorationen & Strähnen', href: '/haare-faerben-hamburg-hamm' },
 ];
 
 interface Props {
@@ -182,33 +183,13 @@ export function AreaPageContent({ area }: Props) {
           </div>
 
           <AnimatedSection direction="up" hasScale>
-            <div className="max-w-5xl mx-auto mb-16">
-              <h2 className="font-playfair text-2xl font-bold text-center mb-8">
-                Unsere Leistungen für Kunden aus {area.name}
-              </h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {SERVICES.map((service, index) => {
-                  const directions: Array<'up' | 'right' | 'left' | 'down'> = ['up', 'right', 'left', 'down'];
-                  return (
-                  <ScrollAnimationCard
-                    key={service.href}
-                    direction={directions[index % 4]}
-                    delay={index * 0.1}
-                    hasScale
-                  >
-                    <Link
-                      href={service.href}
-                      className="group bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100"
-                    >
-                      <h3 className="font-playfair text-lg font-bold mb-2 text-gray-900 group-hover:text-teal-600 transition-colors">
-                        {service.label}
-                      </h3>
-                      <p className="text-sm text-gray-500">{service.desc}</p>
-                    </Link>
-                  </ScrollAnimationCard>
-                );
-                })}
-              </div>
+            <div className="mb-16">
+              <ServiceCards
+                title="Unsere Leistungen"
+                subtitle={`für Kunden aus ${area.name}`}
+                items={SERVICES}
+                columns={4}
+              />
             </div>
           </AnimatedSection>
 

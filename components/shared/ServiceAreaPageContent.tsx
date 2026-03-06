@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Check, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
-import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ServiceCards } from '@/components/shared/ServiceCards';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 interface ServiceAreaContentProps {
@@ -136,31 +136,35 @@ export function ServiceAreaPageContent({
             </div>
           </div>
 
-          <RelatedServices
-            title={`Weitere Services in ${area}`}
-            services={[
-              {
-                href: `/damenfriseur-hamburg-${areaSlug}`,
-                label: `Damenfriseur ${area}`,
-                description: 'Professionelle Damenhaarschnitte & Balayage',
-              },
-              {
-                href: `/herrenfriseur-hamburg-${areaSlug}`,
-                label: `Herrenfriseur ${area}`,
-                description: 'Moderne Herrenhaarschnitte & Bartpflege',
-              },
-              {
-                href: `/balayage-hamburg-${areaSlug}`,
-                label: `Balayage ${area}`,
-                description: 'Natürliche Highlights mit Spezialtechniken',
-              },
-              {
-                href: `/haare-faerben-hamburg-${areaSlug}`,
-                label: `Haare färben ${area}`,
-                description: 'Professionelle Colorationen & Strähnen',
-              },
-            ]}
-          />
+          <div className="mt-16">
+            <ServiceCards
+              title="Weitere Services"
+              subtitle={`in ${area}`}
+              items={[
+                {
+                  title: 'Damenfriseur',
+                  description: 'Professionelle Damenhaarschnitte & Balayage',
+                  href: `/damenfriseur-hamburg-${areaSlug}`,
+                },
+                {
+                  title: 'Herrenfriseur',
+                  description: 'Moderne Herrenhaarschnitte & Bartpflege',
+                  href: `/herrenfriseur-hamburg-${areaSlug}`,
+                },
+                {
+                  title: 'Balayage',
+                  description: 'Natürliche Highlights mit modernen Techniken',
+                  href: `/balayage-hamburg-${areaSlug}`,
+                },
+                {
+                  title: 'Haare färben',
+                  description: 'Professionelle Colorationen & Strähnen',
+                  href: `/haare-faerben-hamburg-${areaSlug}`,
+                },
+              ]}
+              columns={4}
+            />
+          </div>
         </div>
       </section>
 
