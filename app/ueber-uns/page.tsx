@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
-import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ServiceCards } from '@/components/shared/ServiceCards';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
@@ -14,19 +14,24 @@ import { HistorySection } from '@/components/about/HistorySection';
 
 const teamServices = [
   {
-    href: '/leistungen',
-    label: 'Alle Leistungen & Preise',
-    description: 'Das komplette Angebot: Damenfriseur, Herrenfriseur, Balayage, Kosmetik und mehr.',
-  },
-  {
+    title: 'Damenfriseur',
+    description: 'Professionelle Damenhaarschnitte & Balayage',
     href: '/damenfriseur-hamburg-hamm',
-    label: 'Damenfriseur Hamburg Hamm',
-    description: 'Unsere Spezialistinnen für Damen-Haarschnitte, Farbe und Styling.',
   },
   {
-    href: '/galerie',
-    label: 'Unsere Galerie',
-    description: 'Sehen Sie sich unsere Arbeiten an - Inspiration für Ihren nächsten Besuch.',
+    title: 'Herrenfriseur',
+    description: 'Moderne Herrenhaarschnitte & Bartpflege',
+    href: '/herrenfriseur-hamburg-hamm',
+  },
+  {
+    title: 'Balayage',
+    description: 'Natürliche Highlights mit modernen Techniken',
+    href: '/balayage-hamburg-hamm',
+  },
+  {
+    title: 'Haare färben',
+    description: 'Professionelle Colorationen & Strähnen',
+    href: '/haare-faerben-hamburg-hamm',
   },
 ];
 
@@ -195,10 +200,12 @@ export default function UeberUnsPage() {
       </section>
 
       <section className="section-padding">
-        <div className="container-custom max-w-6xl mx-auto">
-          <RelatedServices
-            services={teamServices}
+        <div className="container-custom">
+          <ServiceCards
             title="Was wir für Sie tun können"
+            subtitle="Entdecken Sie unsere Leistungen"
+            items={teamServices}
+            columns={4}
           />
         </div>
       </section>
