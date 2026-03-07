@@ -2,35 +2,55 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock, Instagram, Star, MessageCircle, ExternalLink } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Instagram,
+  Star,
+  MessageCircle,
+  ExternalLink,
+} from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
 import { CookieResetButton } from './CookieResetButton';
 
 function toWhatsAppNumber(raw: string) {
-  // wa.me requires digits only (no +, no spaces)
   return raw.replace(/\D/g, '');
 }
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const waNumber = toWhatsAppNumber(BUSINESS_INFO.whatsapp || BUSINESS_INFO.phoneFormatted || BUSINESS_INFO.phoneInternational);
+  const waNumber = toWhatsAppNumber(
+    BUSINESS_INFO.whatsapp ||
+      BUSINESS_INFO.phoneFormatted ||
+      BUSINESS_INFO.phoneInternational
+  );
 
   return (
-    <footer className="bg-gray-900 text-white" itemScope itemType="https://schema.org/LocalBusiness">
+    <footer
+      className="bg-gray-900 text-white"
+      itemScope
+      itemType="https://schema.org/LocalBusiness"
+    >
       <meta itemProp="name" content={BUSINESS_INFO.name} />
       <meta itemProp="telephone" content={BUSINESS_INFO.phoneInternational} />
       <meta itemProp="email" content={BUSINESS_INFO.email} />
 
       <div className="container-custom section-padding">
-        {/* Footer Action Bar (Conversion + Trust) */}
+        {/* Compact Trust + CTA Bar */}
         <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.04] px-6 py-6 backdrop-blur-sm">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 text-amber-400">
                 <Star className="h-5 w-5 fill-current" aria-hidden="true" />
-                <span className="font-semibold">{BUSINESS_INFO.reviews.rating} Sterne</span>
-                <span className="text-gray-300">({BUSINESS_INFO.reviews.count}+ Google Bewertungen)</span>
+                <span className="font-semibold">
+                  {BUSINESS_INFO.reviews.rating} Sterne
+                </span>
+                <span className="text-gray-300">
+                  ({BUSINESS_INFO.reviews.count}+ Google Bewertungen)
+                </span>
               </div>
 
               <a
@@ -42,7 +62,8 @@ export function Footer() {
               >
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <span className="text-sm leading-relaxed">
-                  {BUSINESS_INFO.address.street}, {BUSINESS_INFO.address.postalCode} {BUSINESS_INFO.address.city}-{BUSINESS_INFO.address.district}
+                  {BUSINESS_INFO.address.street}, {BUSINESS_INFO.address.postalCode}{' '}
+                  {BUSINESS_INFO.address.city}-{BUSINESS_INFO.address.district}
                 </span>
               </a>
             </div>
@@ -82,16 +103,24 @@ export function Footer() {
                 className="h-12 w-auto"
               />
               <div>
-                <span className="font-playfair text-xl font-bold">Ihr Frisuren-Studio</span>
-                <span className="block text-xs text-gray-400">Meisterbetrieb seit {BUSINESS_INFO.founded}</span>
+                <span className="font-playfair text-xl font-bold">
+                  Ihr Frisuren-Studio
+                </span>
+                <span className="block text-xs text-gray-400">
+                  Meisterbetrieb seit {BUSINESS_INFO.founded}
+                </span>
               </div>
             </div>
 
             <p className="text-gray-400 mb-5 text-sm leading-relaxed">
-              Premium Friseur in Hamburg Hamm. Damen, Herren, Balayage & Kosmetik. Mehrsprachiges Team. Meisterqualität seit 2004.
+              Premium Friseur in Hamburg Hamm. Damen, Herren, Balayage &amp; Kosmetik.
+              Mehrsprachiges Team. Meisterqualität seit 2004.
             </p>
 
-            <div className="flex items-center gap-2 text-amber-400" aria-label={`Bewertung: ${BUSINESS_INFO.reviews.rating} von 5 Sternen`}>
+            <div
+              className="flex items-center gap-2 text-amber-400"
+              aria-label={`Bewertung: ${BUSINESS_INFO.reviews.rating} von 5 Sternen`}
+            >
               <Star className="w-5 h-5 fill-current" aria-hidden="true" />
               <span className="font-semibold" aria-hidden="true">
                 {BUSINESS_INFO.reviews.rating} Sterne
@@ -182,11 +211,15 @@ export function Footer() {
               </li>
               <li className="flex justify-between gap-2 text-gray-300">
                 <span className="flex-shrink-0 min-w-0">Dienstag - Freitag</span>
-                <span className="whitespace-nowrap text-right">{OPENING_HOURS.tuesday.times}</span>
+                <span className="whitespace-nowrap text-right">
+                  {OPENING_HOURS.tuesday.times}
+                </span>
               </li>
               <li className="flex justify-between gap-2 text-gray-300">
                 <span className="flex-shrink-0">Samstag</span>
-                <span className="whitespace-nowrap text-right">{OPENING_HOURS.saturday.times}</span>
+                <span className="whitespace-nowrap text-right">
+                  {OPENING_HOURS.saturday.times}
+                </span>
               </li>
               <li className="flex justify-between gap-2 text-gray-400">
                 <span className="flex-shrink-0">Sonntag</span>
@@ -213,63 +246,93 @@ export function Footer() {
               Leistungen
             </h3>
 
-            <Link href="/leistungen" className="inline-flex text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors mb-5">
-              Alle Leistungen &amp; Preise
-            </Link>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/leistungen"
+                  className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
+                >
+                  Alle Leistungen &amp; Preise
+                </Link>
+              </li>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Damenfriseur</p>
-                <ul className="space-y-2">
-                  <li><Link href="/damenfriseur-hamburg-hamm" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamm</Link></li>
-                  <li><Link href="/damenfriseur-hamburg-borgfelde" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Borgfelde</Link></li>
-                  <li><Link href="/damenfriseur-hamburg-mitte" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamburg Mitte</Link></li>
-                  <li><Link href="/damenfriseur-hamburg-horn" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Horn</Link></li>
-                </ul>
-              </div>
+              {/* Only the core "Leistungsseiten" (no areas in the footer list) */}
+              <li className="pt-3">
+                <Link
+                  href="/damenfriseur-hamburg-hamm"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  Damenfriseur
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/herrenfriseur-hamburg-hamm"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  Herrenfriseur
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/balayage-hamburg-hamm"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  Balayage
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/haare-faerben-hamburg-hamm"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  Haare färben
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/leistungen#kosmetik"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  Kosmetik
+                </Link>
+              </li>
+            </ul>
 
-              <div>
-                <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Herrenfriseur</p>
-                <ul className="space-y-2">
-                  <li><Link href="/herrenfriseur-hamburg-hamm" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamm</Link></li>
-                  <li><Link href="/herrenfriseur-hamburg-borgfelde" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Borgfelde</Link></li>
-                  <li><Link href="/herrenfriseur-hamburg-mitte" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamburg Mitte</Link></li>
-                  <li><Link href="/herrenfriseur-hamburg-horn" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Horn</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Balayage</p>
-                <ul className="space-y-2">
-                  <li><Link href="/balayage-hamburg-hamm" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamm</Link></li>
-                  <li><Link href="/balayage-hamburg-borgfelde" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Borgfelde</Link></li>
-                  <li><Link href="/balayage-hamburg-mitte" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamburg Mitte</Link></li>
-                  <li><Link href="/balayage-hamburg-horn" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Horn</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Haare färben</p>
-                <ul className="space-y-2">
-                  <li><Link href="/haare-faerben-hamburg-hamm" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamm</Link></li>
-                  <li><Link href="/haare-faerben-hamburg-borgfelde" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Borgfelde</Link></li>
-                  <li><Link href="/haare-faerben-hamburg-mitte" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hamburg Mitte</Link></li>
-                  <li><Link href="/haare-faerben-hamburg-horn" className="text-sm text-gray-400 hover:text-teal-400 transition-colors">Horn</Link></li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-5 border-t border-gray-700">
-              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Einzugsgebiet</p>
+            {/* Einzugsgebiet: ONLY areas */}
+            <div className="mt-7 pt-6 border-t border-gray-700">
+              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">
+                Einzugsgebiet
+              </p>
               <p className="text-xs text-gray-400 mt-2 leading-relaxed">
                 Ein Standort in Hamburg-Hamm. Gut erreichbar für Kunden aus Borgfelde, Hamburg Mitte und Horn.
               </p>
 
               <div className="mt-4 space-y-1">
-                <Link href="/areas/hamm" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">Hamburg Hamm</Link>
-                <Link href="/areas/borgfelde" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">Borgfelde</Link>
-                <Link href="/areas/hamburg-mitte" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">Hamburg Mitte</Link>
-                <Link href="/areas/horn" className="block text-gray-500 hover:text-teal-400 transition-colors text-xs">Horn</Link>
+                <Link
+                  href="/areas/hamm"
+                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                >
+                  Hamburg Hamm
+                </Link>
+                <Link
+                  href="/areas/borgfelde"
+                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                >
+                  Borgfelde
+                </Link>
+                <Link
+                  href="/areas/hamburg-mitte"
+                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                >
+                  Hamburg Mitte
+                </Link>
+                <Link
+                  href="/areas/horn"
+                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                >
+                  Horn
+                </Link>
               </div>
 
               <a
@@ -295,7 +358,9 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>© {currentYear} {BUSINESS_INFO.name}. Alle Rechte vorbehalten.</p>
+            <p>
+              © {currentYear} {BUSINESS_INFO.name}. Alle Rechte vorbehalten.
+            </p>
 
             <div className="flex flex-wrap gap-4 sm:gap-6 justify-center md:justify-end">
               <Link href="/impressum" className="hover:text-gray-300 transition-colors whitespace-nowrap">
