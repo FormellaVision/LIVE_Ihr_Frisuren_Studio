@@ -246,6 +246,7 @@ export function Footer() {
               Leistungen
             </h3>
 
+            {/* Leistungen (no areas) */}
             <ul className="space-y-2">
               <li>
                 <Link
@@ -256,7 +257,6 @@ export function Footer() {
                 </Link>
               </li>
 
-              {/* Only the core "Leistungsseiten" (no areas in the footer list) */}
               <li className="pt-3">
                 <Link
                   href="/damenfriseur-hamburg-hamm"
@@ -299,37 +299,37 @@ export function Footer() {
               </li>
             </ul>
 
-            {/* Einzugsgebiet: ONLY areas */}
-            <div className="mt-7 pt-6 border-t border-gray-700">
+            {/* Einzugsgebiet integrated (no extra "row") */}
+            <div className="mt-6 pt-6 border-t border-white/10">
               <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">
                 Einzugsgebiet
               </p>
-              <p className="text-xs text-gray-400 mt-2 leading-relaxed">
-                Ein Standort in Hamburg-Hamm. Gut erreichbar für Kunden aus Borgfelde, Hamburg Mitte und Horn.
+              <p className="mt-2 text-xs text-gray-400 leading-relaxed">
+                Ein Standort in Hamburg-Hamm. Gut erreichbar aus:
               </p>
 
-              <div className="mt-4 space-y-1">
+              <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
                 <Link
                   href="/areas/hamm"
-                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
                 >
                   Hamburg Hamm
                 </Link>
                 <Link
                   href="/areas/borgfelde"
-                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
                 >
                   Borgfelde
                 </Link>
                 <Link
                   href="/areas/hamburg-mitte"
-                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
                 >
                   Hamburg Mitte
                 </Link>
                 <Link
                   href="/areas/horn"
-                  className="block text-gray-500 hover:text-teal-400 transition-colors text-xs"
+                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
                 >
                   Horn
                 </Link>
