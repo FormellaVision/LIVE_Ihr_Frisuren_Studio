@@ -19,7 +19,9 @@ export function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 id="faq-heading" className="heading-lg mb-4">Häufig gestellte Fragen</h2>
+          <h2 id="faq-heading" className="heading-lg mb-4">
+            Häufig gestellte Fragen
+          </h2>
           <p className="text-xl text-gray-600">
             Alles Wichtige zu Ihrem Friseurbesuch in Hamburg Hamm
           </p>
@@ -30,6 +32,7 @@ export function FAQSection() {
             const panelId = `faq-panel-${index}`;
             const buttonId = `faq-button-${index}`;
             const isOpen = openIndex === index;
+
             return (
               <motion.div
                 key={index}
@@ -45,11 +48,14 @@ export function FAQSection() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   className={cn(
-                    'w-full flex items-center justify-between p-6 text-left bg-white rounded-xl shadow-md transition-all duration-300',
+                    'w-full flex items-center justify-between gap-4 p-6 text-left bg-white rounded-xl shadow-md transition-all duration-300',
                     isOpen ? 'shadow-lg' : 'hover:shadow-lg'
                   )}
                 >
-                  <span className="font-semibold text-lg pr-4">{faq.question}</span>
+                  <span className="font-semibold text-lg">
+                    {faq.question}
+                  </span>
+
                   <ChevronDown
                     className={cn(
                       'w-5 h-5 text-teal-600 flex-shrink-0 transition-transform duration-300',
@@ -58,6 +64,7 @@ export function FAQSection() {
                     aria-hidden="true"
                   />
                 </button>
+
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
@@ -70,8 +77,13 @@ export function FAQSection() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 py-4 bg-gray-50 rounded-b-xl border-x border-b border-gray-100">
-                        <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                      <div className="bg-gray-50 rounded-b-xl border-x border-b border-gray-100">
+                        {/* Key fix: explicit text-left + consistent padding + full-width */}
+                        <div className="px-6 py-4 text-left">
+                          <p className="text-gray-700 leading-relaxed max-w-none">
+                            {faq.answer}
+                          </p>
+                        </div>
                       </div>
                     </motion.div>
                   )}
