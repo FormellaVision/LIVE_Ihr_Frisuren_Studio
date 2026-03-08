@@ -126,6 +126,11 @@ export default function LeistungenPage() {
                 label: 'Balayage Hamburg Hamm',
                 description: 'Natürliche Highlights mit modernen Färbetechniken',
               },
+              {
+                href: '/haare-faerben-hamburg-hamm',
+                label: 'Haare färben Hamburg Hamm',
+                description: 'Coloration, Balayage & Strähnen mit Olaplex-Schutz',
+              },
             ]}
           />
         </div>
