@@ -133,6 +133,11 @@ export default function HaareFaerbenPage() {
             description: 'Professionelle Damenhaarschnitte & Styling',
         },
         {
+            href: '/herrenfriseur-hamburg-hamm',
+            label: 'Herrenfriseur Hamburg Hamm',
+            description: 'Moderne Herrenhaarschnitte & Bartpflege',
+        },
+        {
             href: '/leistungen',
             label: 'Alle Leistungen & Preise',
             description: 'Komplettes Angebot: Damen, Herren & Kosmetik',
