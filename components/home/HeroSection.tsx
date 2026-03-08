@@ -121,7 +121,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.75, delay: 0.38 }}
-              className="mt-3 sm:mt-4"
+              className="mt-3 sm:mt-4 lg:mt-6 lg:mb-10 xl:mb-14"
             >
               <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white/60 px-4 py-2 text-[11px] text-gray-800 backdrop-blur-sm shadow-[0_8px_20px_rgba(0,0,0,0.03)] sm:text-sm">
                 <MapPin className="h-4 w-4 shrink-0 text-amber-500" />
