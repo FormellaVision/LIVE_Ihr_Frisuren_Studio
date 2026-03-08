@@ -87,7 +87,7 @@ export function AreaPageContent({ area }: Props) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto mb-10"
+              className="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto mb-10 text-shadow-soft"
             >
               {area.intro}
             </motion.p>

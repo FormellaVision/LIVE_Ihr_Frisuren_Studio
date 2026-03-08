@@ -61,7 +61,7 @@ export function KarriereHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.28 }}
-            className="text-white/75 text-sm sm:text-base max-w-lg mx-auto leading-relaxed mb-8"
+            className="text-white/75 text-sm sm:text-base max-w-lg mx-auto leading-relaxed mb-8 text-shadow-soft"
           >
             Werde Teil unseres familiären Teams und gestalte deinen Arbeitsalltag in einem Salon, der Wert auf Qualität, Menschlichkeit und Entwicklung legt.
           </motion.p>
