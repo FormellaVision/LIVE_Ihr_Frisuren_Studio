@@ -7,7 +7,10 @@ import { GoogleMap } from '@/components/shared/GoogleMap';
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
 };
 
 const itemVariants = {
@@ -34,20 +37,24 @@ export function LocationSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-          {/* LEFT: Map + Öffnungszeiten */}
-          <div className="space-y-6">
+        <div className="grid md:grid-cols-2 md:items-stretch gap-8 md:gap-12 max-w-6xl mx-auto">
+          {/* LEFT COLUMN: Map (flex-1) + Opening Hours (shrink-0) */}
+          <div className="h-full flex flex-col gap-6">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="flex-1 min-h-[320px] md:min-h-0"
             >
-              <GoogleMap
-                latitude={BUSINESS_INFO.coordinates.latitude}
-                longitude={BUSINESS_INFO.coordinates.longitude}
-                title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
-              />
+              {/* Ensure GoogleMap can stretch */}
+              <div className="h-full">
+                <GoogleMap
+                  latitude={BUSINESS_INFO.coordinates.latitude}
+                  longitude={BUSINESS_INFO.coordinates.longitude}
+                  title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
+                />
+              </div>
             </motion.div>
 
             <motion.div
@@ -55,7 +62,7 @@ export function LocationSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.06 }}
-              className="bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
+              className="shrink-0 bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
             >
               <div className="flex items-start gap-4">
                 <div
@@ -64,7 +71,6 @@ export function LocationSection() {
                 >
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-
                 <div className="flex-1">
                   <h3 className="font-bold text-xl mb-3">Öffnungszeiten</h3>
                   <div className="space-y-2 text-sm">
@@ -90,15 +96,15 @@ export function LocationSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Adresse + ÖPNV + Parkplätze */}
+          {/* RIGHT COLUMN: 3 cards (each flex-1 for equal height) */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6"
+            className="h-full flex flex-col gap-6"
           >
-            <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
+            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
                 <div
                   className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0"
@@ -119,7 +125,7 @@ export function LocationSection() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
+            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
                 <div
                   className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0"
@@ -143,7 +149,7 @@ export function LocationSection() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="bg-white p-6 rounded-xl shadow-lg">
+            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-start gap-4">
                 <div
                   className="w-12 h-12 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0"
