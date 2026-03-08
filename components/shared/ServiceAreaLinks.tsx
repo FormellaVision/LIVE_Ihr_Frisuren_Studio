@@ -22,17 +22,16 @@ const AREAS: Area[] = [
 
 function getAreaTitle(service: string, area: Area): string {
   if (area.slug === 'hamm') return `${service} Hamburg Hamm`;
-  return `${service} nahe ${area.name}`;
+  return `Leicht erreichbar aus ${area.name}`;
 }
 
 function getAreaSubtitle(area: Area): string {
   if (area.slug === 'hamm') return 'Unser Standort in Hamburg Hamm';
-  return `Für Kunden aus ${area.name}`;
+  return `Nur wenige Minuten von ${area.name} entfernt`;
 }
 
 function getAreaHref(serviceSlug: string, area: Area): string {
-  if (area.slug === 'hamm') return '/areas/hamm';
-  return `/${serviceSlug}-hamburg-${area.urlSlug}`;
+  return `/areas/${area.urlSlug}`;
 }
 
 export function ServiceAreaLinks({

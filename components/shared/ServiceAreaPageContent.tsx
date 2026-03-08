@@ -138,28 +138,28 @@ export function ServiceAreaPageContent({
 
           <div className="mt-16">
             <ServiceCards
-              title="Weitere Services"
-              subtitle={`in ${area}`}
+              title="Entdecken Sie weitere Leistungen"
+              subtitle="Unsere Services"
               items={[
                 {
                   title: 'Damenfriseur',
                   description: 'Professionelle Damenhaarschnitte & Balayage',
-                  href: `/damenfriseur-hamburg-${areaSlug}`,
+                  href: '/damenfriseur-hamburg-hamm',
                 },
                 {
                   title: 'Herrenfriseur',
                   description: 'Moderne Herrenhaarschnitte & Bartpflege',
-                  href: `/herrenfriseur-hamburg-${areaSlug}`,
+                  href: '/herrenfriseur-hamburg-hamm',
                 },
                 {
                   title: 'Balayage',
                   description: 'Natürliche Highlights mit modernen Techniken',
-                  href: `/balayage-hamburg-${areaSlug}`,
+                  href: '/balayage-hamburg-hamm',
                 },
                 {
                   title: 'Haare färben',
                   description: 'Professionelle Colorationen & Strähnen',
-                  href: `/haare-faerben-hamburg-${areaSlug}`,
+                  href: '/haare-faerben-hamburg-hamm',
                 },
               ]}
               columns={4}
