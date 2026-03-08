@@ -6,7 +6,6 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
-import { ServiceAreaLinks } from '@/components/shared/ServiceAreaLinks';
 import { SERVICES_HERREN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Scissors, Award } from 'lucide-react';
@@ -229,11 +228,6 @@ export default function HerrenfriseurPage() {
         faqs={SERVICE_FAQS.herren}
         title="Häufige Fragen zum Herrenfriseur"
         subtitle="Alles Wichtige zu Herrenhaarschnitten in Hamburg Hamm"
-      />
-
-      <ServiceAreaLinks
-        service="Herrenfriseur"
-        serviceSlug="herrenfriseur"
       />
 
       <section className="section-padding">

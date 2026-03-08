@@ -5,7 +5,6 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
-import { ServiceAreaLinks } from '@/components/shared/ServiceAreaLinks';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Clock } from 'lucide-react';
@@ -244,11 +243,6 @@ export default function BalayagePage() {
         faqs={SERVICE_FAQS.balayage}
         title="Häufige Fragen zu Balayage"
         subtitle="Alles Wichtige zur Balayage-Behandlung in Hamburg Hamm"
-      />
-
-      <ServiceAreaLinks
-        service="Balayage"
-        serviceSlug="balayage"
       />
 
       <section className="section-padding">

@@ -7,7 +7,6 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
-import { ServiceAreaLinks } from '@/components/shared/ServiceAreaLinks';
 import { SERVICES_DAMEN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Clock, Droplets, Shield } from 'lucide-react';
@@ -240,11 +239,6 @@ export default function HaareFaerbenPage() {
                 faqs={SERVICE_FAQS.haereFaerben}
                 title="Häufige Fragen zum Haare färben"
                 subtitle="Alles Wichtige zu Colorationen in Hamburg Hamm"
-            />
-
-            <ServiceAreaLinks
-                service="Haare färben"
-                serviceSlug="haare-faerben"
             />
 
             {/* Related Services */}
