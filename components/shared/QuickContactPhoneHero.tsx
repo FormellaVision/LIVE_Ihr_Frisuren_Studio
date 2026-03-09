@@ -87,7 +87,7 @@ export function QuickContactPhoneHero() {
 
             <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 flex items-center justify-center">
               <Image
-                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770241885/ihrfrisurenstudio_Logo_Wei%C3%9Fberbg_az4ghu.png"
+                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770246715/ihrfrisurenstudio_Logo_Wei%C3%9Fberbg_az4ghu.png"
                 alt="Ihr Frisuren-Studio Logo"
                 width={320}
                 height={320}
