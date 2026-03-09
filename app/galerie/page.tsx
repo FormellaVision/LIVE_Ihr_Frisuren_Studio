@@ -33,8 +33,8 @@ const relatedServices = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Galerie - Friseur Hamburg Hamm',
-  description: `Entdecken Sie unsere Arbeiten: Damenhaarschnitte, Balayage, Herrenhaarschnitte & mehr. Ihr Frisuren-Studio Hamburg Hamm. Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Galerie | Friseur Hamburg Hamm – Schnitte, Balayage & Styling',
+  description: `Galerie von Ihr Frisuren-Studio in Hamburg Hamm mit Eindrücken aus dem Salon sowie Beispielen für Haarschnitte, Balayage und Styling.`,
   keywords: ['friseur galerie hamburg', 'balayage vorher nachher', 'friseur fotos hamburg hamm'],
   openGraph: {
     title: 'Galerie - Friseur Hamburg Hamm | Ihr Frisuren-Studio',

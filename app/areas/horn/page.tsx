@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur nahe Horn – Ihr Frisuren-Studio in Hamburg Hamm',
-  description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
+  title: 'Friseur Horn | Ihr Frisuren-Studio nahe Horn',
+  description: `Friseur nahe Horn: Ihr Frisuren-Studio in Hamburg Hamm ist schnell erreichbar für Haarschnitte, Balayage, Coloration und Kosmetik.`,
   keywords: [
     'friseur horn',
     'friseur nahe horn',

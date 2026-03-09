@@ -31,8 +31,8 @@ const nextStepServices = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Bewertungen - Friseur Hamburg Hamm',
-  description: `Lesen Sie ${BUSINESS_INFO.reviews.count}+ echte Google-Bewertungen unserer zufriedenen Kunden. ${BUSINESS_INFO.reviews.rating} Sterne Durchschnitt. Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Bewertungen | Friseur Hamburg Hamm – Ihr Frisuren-Studio',
+  description: `Lesen Sie Bewertungen zu Ihr Frisuren-Studio in Hamburg Hamm. 4.9 Sterne und 245+ Kundenmeinungen zu Service, Qualität und Atmosphäre.`,
   keywords: ['friseur bewertungen hamburg', 'friseur erfahrungen hamburg hamm', 'bester friseur hamburg hamm'],
   openGraph: {
     title: `Bewertungen - Friseur Hamburg Hamm | ${BUSINESS_INFO.reviews.rating} Sterne`,

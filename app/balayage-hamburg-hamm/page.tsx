@@ -10,8 +10,8 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Palette, Sparkles, Award, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Balayage Hamburg Hamm - Professionelle Färbetechnik',
-  description: `Balayage-Spezialist in Hamburg Hamm ab 179€. Moderne Färbetechniken: Balayage, Ombre, Foliensträhnen. Meisterbetrieb Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Balayage Hamburg Hamm | Natürliche Highlights & Coloration',
+  description: `Balayage Hamburg Hamm mit professioneller Beratung, natürlichen Übergängen und hochwertigen Colorationen. Ihr Frisuren-Studio in Hamburg-Hamm.`,
   keywords: ['balayage hamburg hamm', 'balayage hamburg', 'ombre hamburg', 'foliensträhnen hamburg hamm', 'haare färben hamburg'],
   openGraph: {
     title: 'Balayage Hamburg Hamm - Professionelle Färbetechnik | Ihr Frisuren-Studio',

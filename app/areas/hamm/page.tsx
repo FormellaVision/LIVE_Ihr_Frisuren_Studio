@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur Hamburg Hamm – Standort & Leistungen',
-  description: `Ihr Friseur in Hamburg Hamm: Ihr Frisuren-Studio in der Hammer Landstraße 4 für Damen, Herren, Balayage und Haare färben. Meisterbetrieb seit 2004, persönlich und gut erreichbar.`,
+  title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio in 20537 Hamburg',
+  description: `Friseur Hamburg Hamm mit Damen-, Herren-, Balayage- und Kosmetikleistungen. Ihr Frisuren-Studio in 20537 Hamburg-Hamm, gut erreichbar und etabliert seit 2004.`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',

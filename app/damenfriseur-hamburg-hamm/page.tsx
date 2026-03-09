@@ -13,8 +13,8 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Sparkles, Palette, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Damenfriseur Hamburg Hamm - Premium Haarschnitte',
-  description: `Damenfriseur in Hamburg Hamm: Waschen, Schneiden & Föhnen ab 43€. Meisterbetrieb seit 2004. Balayage, Coloration, Dauerwelle. Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Damenfriseur Hamburg Hamm | Schnitt, Coloration & Styling',
+  description: `Damenfriseur Hamburg Hamm für Haarschnitte, Coloration, Styling und persönliche Beratung. Meisterbetrieb seit 2004 in 20537 Hamburg-Hamm.`,
   keywords: ['damenfriseur hamburg hamm', 'friseur damen hamburg', 'haarschnitt damen hamburg hamm', 'balayage hamburg', 'coloration hamburg'],
   openGraph: {
     title: 'Damenfriseur Hamburg Hamm - Premium Haarschnitte | Ihr Frisuren-Studio',

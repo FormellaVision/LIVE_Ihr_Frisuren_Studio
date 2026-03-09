@@ -12,8 +12,8 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Palette, Sparkles, Award, Clock, Droplets, Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Haare färben Hamburg Hamm - Coloration, Balayage & Strähnen',
-    description: `Haare färben in Hamburg Hamm: Ansatz ab 43€, Coloration komplett ab 87€, Balayage ab 179€. Meisterbetrieb seit ${BUSINESS_INFO.founded}. Olaplex-Schutz. Tel: ${BUSINESS_INFO.phone}`,
+    title: 'Haare färben Hamburg Hamm | Coloration, Strähnen & Balayage',
+    description: `Haare färben in Hamburg Hamm: professionelle Coloration, Strähnen und Balayage mit persönlicher Beratung und hochwertigen Ergebnissen.`,
     keywords: [
         'haare färben hamburg hamm',
         'coloration hamburg hamm',

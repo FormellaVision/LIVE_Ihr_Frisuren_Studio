@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur nahe Hamburg Mitte – Ihr Frisuren-Studio in Hamburg Hamm',
-  description: `Ihr Friseur nahe Hamburg Mitte: Unser Salon in Hamburg Hamm ist gut erreichbar für Kundinnen und Kunden aus Hamburg Mitte – für Damen, Herren, Balayage und Haare färben.`,
+  title: 'Friseur Hamburg Mitte | Ihr Frisuren-Studio nahe Hamburg Mitte',
+  description: `Friseur nahe Hamburg Mitte: Ihr Frisuren-Studio in Hamburg Hamm ist gut erreichbar für Damen, Herren, Balayage und Kosmetik.`,
   keywords: [
     'friseur hamburg mitte',
     'friseur nahe hamburg mitte',

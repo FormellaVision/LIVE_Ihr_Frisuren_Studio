@@ -11,8 +11,8 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Scissors, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Herrenfriseur Hamburg Hamm - Moderne Herrenhaarschnitte',
-  description: `Herrenfriseur in Hamburg Hamm: Haarschnitte ab 18€, Design-Schnitt 34€. Bartpflege & Gentleman-Paket. Meisterbetrieb Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Herrenfriseur Hamburg Hamm | Herrenhaarschnitt & Bartpflege',
+  description: `Herrenfriseur Hamburg Hamm für moderne Herrenhaarschnitte, Styling und Bartpflege. Ihr Frisuren-Studio in 20537 Hamburg-Hamm.`,
   keywords: ['herrenfriseur hamburg hamm', 'friseur herren hamburg', 'herrenhaarschnitt hamburg', 'bartpflege hamburg hamm'],
   openGraph: {
     title: 'Herrenfriseur Hamburg Hamm - Moderne Herrenhaarschnitte | Ihr Frisuren-Studio',

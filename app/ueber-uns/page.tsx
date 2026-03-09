@@ -36,8 +36,8 @@ const teamServices = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Team & Geschichte - Friseur Hamburg Hamm',
-  description: `Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm. Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch.`,
+  title: 'Team & Geschichte | Ihr Frisuren-Studio in Hamburg Hamm',
+  description: `Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit 2004 in Hamburg Hamm mit Erfahrung, Leidenschaft und persönlicher Beratung.`,
   keywords: ['friseur team hamburg', 'friseurmeister hamburg hamm', 'über uns friseur hamburg'],
   openGraph: {
     title: 'Team & Geschichte - Friseur Hamburg Hamm | Ihr Frisuren-Studio',

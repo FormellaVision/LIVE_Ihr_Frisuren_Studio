@@ -4,8 +4,8 @@ import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 
 export const metadata: Metadata = {
-  title: 'Friseur nahe Borgfelde | Ihr Frisuren-Studio in Hamburg-Hamm',
-  description: `Ihr Friseur nahe Borgfelde: Viele Kundinnen und Kunden aus Borgfelde besuchen Ihr Frisuren-Studio in Hamburg-Hamm für Damenhaarschnitte, Herrenhaarschnitte, Balayage und Haare färben.`,
+  title: 'Friseur Borgfelde | Ihr Frisuren-Studio nahe Borgfelde',
+  description: `Friseur nahe Borgfelde: Ihr Frisuren-Studio in Hamburg Hamm ist schnell erreichbar für Kunden aus Borgfelde – Damen, Herren, Balayage und Kosmetik.`,
   keywords: [
     'friseur borgfelde',
     'friseur nahe borgfelde',

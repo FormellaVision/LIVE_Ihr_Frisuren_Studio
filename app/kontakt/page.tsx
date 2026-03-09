@@ -31,8 +31,8 @@ const contactServices = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Kontakt - Friseur Hamburg Hamm',
-  description: `Kontaktieren Sie Ihr Frisuren-Studio in Hamburg Hamm. Tel: ${BUSINESS_INFO.phone}, WhatsApp, E-Mail. Hammer Landstraße 4, 20537 Hamburg.`,
+  title: 'Kontakt | Friseur Hamburg Hamm – Adresse, Telefon & Öffnungszeiten',
+  description: `Kontakt zu Ihr Frisuren-Studio in Hamburg Hamm: Adresse, Telefonnummer, WhatsApp, Öffnungszeiten und Anfahrt nach 20537 Hamburg-Hamm.`,
   keywords: ['friseur kontakt hamburg hamm', 'friseur hamburg hamm telefon', 'friseur hamburg hamm adresse'],
   openGraph: {
     title: 'Kontakt - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
