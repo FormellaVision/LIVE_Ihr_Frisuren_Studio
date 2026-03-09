@@ -37,15 +37,15 @@ const teamServices = [
 
 export const metadata: Metadata = {
   title: 'Team & Geschichte - Friseur Hamburg Hamm',
-  description: `Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm. Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch.`,
+  description: Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm. Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch.,
   keywords: ['friseur team hamburg', 'friseurmeister hamburg hamm', 'über uns friseur hamburg'],
   openGraph: {
     title: 'Team & Geschichte - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
-    description: `Lernen Sie unser Team kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm.`,
-    url: `${BUSINESS_INFO.website}/ueber-uns`,
+    description: Lernen Sie unser Team kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm.,
+    url: ${BUSINESS_INFO.website}/ueber-uns,
   },
   alternates: {
-    canonical: `${BUSINESS_INFO.website}/ueber-uns`,
+    canonical: ${BUSINESS_INFO.website}/ueber-uns,
   },
 };
 
@@ -75,7 +75,7 @@ const values = [
 export default function UeberUnsPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Über uns', url: `${BUSINESS_INFO.website}/ueber-uns` },
+    { name: 'Über uns', url: ${BUSINESS_INFO.website}/ueber-uns },
   ]);
   const personSchemas = getPersonSchemas();
 
