@@ -53,7 +53,7 @@ export function StickyMobileBar() {
         isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
     >
-      <div className="flex items-center justify-center gap-8 px-8">
+      <div className="flex items-center justify-center gap-4 px-4 sm:gap-6 sm:px-6">
         <a
           href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
           className="relative group"

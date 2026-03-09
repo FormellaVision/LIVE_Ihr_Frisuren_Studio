@@ -65,7 +65,9 @@ export function SwipeToAnswerSlider({
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
     const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
+      if (isDragging) {
+        e.preventDefault();
+      }
       handleMove(e.touches[0].clientX);
     };
     const handleMouseUp = () => handleEnd();

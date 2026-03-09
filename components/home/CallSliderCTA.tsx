@@ -51,7 +51,12 @@ export function CallSliderCTA() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
-    const handleTouchMove = (e: TouchEvent) => handleMove(e.touches[0].clientX);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging) {
+        e.preventDefault();
+      }
+      handleMove(e.touches[0].clientX);
+    };
     const handleMouseUp = () => handleEnd();
     const handleTouchEnd = () => handleEnd();
 
