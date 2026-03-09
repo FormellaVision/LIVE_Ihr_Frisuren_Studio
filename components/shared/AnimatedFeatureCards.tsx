@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { LucideIcon, Check } from 'lucide-react';
+import { Video as LucideIcon, Check } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 interface Feature {
