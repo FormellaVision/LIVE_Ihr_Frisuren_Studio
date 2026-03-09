@@ -23,6 +23,11 @@ const nextStepServices = [
     label: 'Balayage Hamburg Hamm',
     description: 'Natürliche Farbverläufe und strahlende Farbergebnisse vom Experten.',
   },
+  {
+    href: '/haare-faerben-hamburg-hamm',
+    label: 'Haare Färben Hamburg Hamm',
+    description: 'Professionelle Haarfärbungen und Colorationen nach Ihrem Wunsch.',
+  },
 ];
 
 export const metadata: Metadata = {

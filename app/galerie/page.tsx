@@ -25,6 +25,11 @@ const relatedServices = [
     label: 'Balayage Hamburg Hamm',
     description: 'Natürliche Farbtechniken für ein strahlendes, lebendiges Ergebnis.',
   },
+  {
+    href: '/haare-faerben-hamburg-hamm',
+    label: 'Haare Färben Hamburg Hamm',
+    description: 'Professionelle Haarfärbungen und Colorationen nach Ihrem Wunsch.',
+  },
 ];
 
 export const metadata: Metadata = {

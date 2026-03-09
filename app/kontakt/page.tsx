@@ -23,6 +23,11 @@ const contactServices = [
     label: 'Herrenfriseur Hamburg Hamm',
     description: 'Professionelle Herrenschnitte und Bartpflege in Hamburg Hamm.',
   },
+  {
+    href: '/balayage-hamburg-hamm',
+    label: 'Balayage Hamburg Hamm',
+    description: 'Natürliche Farbverläufe und strahlende Farbergebnisse vom Experten.',
+  },
 ];
 
 export const metadata: Metadata = {
