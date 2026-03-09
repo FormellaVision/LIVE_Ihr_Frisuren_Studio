@@ -10,6 +10,7 @@ interface ServicePageHeaderProps {
   subtitle: string;
   description: string;
   backgroundImage: string;
+  backgroundFit?: 'cover' | 'contain'; // NEW
 }
 
 export function ServicePageHeader({
@@ -17,14 +18,22 @@ export function ServicePageHeader({
   subtitle,
   description,
   backgroundImage,
+  backgroundFit = 'cover',
 }: ServicePageHeaderProps) {
+  const isContain = backgroundFit === 'contain';
+
   return (
-    <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
+    <section
+      className={`relative h-screen -mt-16 flex items-center overflow-hidden pt-20 ${
+        isContain ? 'bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]' : ''
+      }`}
+    >
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat"
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          backgroundPosition: 'center top',
+          backgroundPosition: isContain ? 'center center' : 'center top',
+          backgroundSize: isContain ? 'contain' : 'cover',
         }}
       />
 
