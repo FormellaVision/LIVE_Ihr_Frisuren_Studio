@@ -81,12 +81,13 @@ export default function UeberUnsPage() {
 
   return (
     <>
-      <ServicePageHeader
-        title="Unser Team"
-        subtitle={`Meisterbetrieb seit ${BUSINESS_INFO.founded}`}
-        description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
-        backgroundImage="https://res.cloudinary.com/dqkld61zu/image/upload/v1772474796/Teamfoto2_w3uxfj.webp"
-      />
+<ServicePageHeader
+  title="Unser Team"
+  subtitle={`Meisterbetrieb seit ${BUSINESS_INFO.founded}`}
+  description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
+  backgroundImage="https://res.cloudinary.com/dqkld61zu/image/upload/v1772474796/Teamfoto2_w3uxfj.webp"
+  backgroundFit="contain"
+/>
 
       <Breadcrumb />
 
