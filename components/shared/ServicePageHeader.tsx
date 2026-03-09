@@ -32,8 +32,8 @@ export function ServicePageHeader({
         className="absolute inset-0 bg-no-repeat"
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          backgroundPosition: isContain ? 'center center' : 'center top',
-          backgroundSize: isContain ? 'contain' : 'cover',
+          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
         }}
       />
 
