@@ -20,10 +20,14 @@ export function QuickContactPhoneHero() {
 
   const handleDecline = () => {
     sliderResetRef.current();
+    const nextSection = document.querySelector('section:not([aria-label="Schnellkontakt – Anruf von Ihr Frisuren-Studio"])');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section aria-label="Schnellkontakt – Anruf von Ihr Frisuren-Studio" className="relative h-screen flex items-center justify-center overflow-hidden -mt-16 md:mt-0">
+    <section aria-label="Schnellkontakt – Anruf von Ihr Frisuren-Studio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
       <div
@@ -85,14 +89,15 @@ export function QuickContactPhoneHero() {
               />
             </div>
 
-            <div className="relative w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+            <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 flex items-center justify-center">
               <Image
                 src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770246715/ihrfrisurenstudio_Logo_Wei%C3%9Fberbg_az4ghu.png"
                 alt="Ihr Frisuren-Studio Logo"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 priority
-                className="w-56 h-56 xs:w-64 xs:h-64 sm:w-72 sm:h-72 object-contain drop-shadow-lg"
+                unoptimized
+                className="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 object-contain drop-shadow-xl"
               />
             </div>
           </motion.div>
