@@ -121,22 +121,47 @@ export function ServiceAreaPageContent({
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-6">
+            <motion.div
+              className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: '-80px' }}
+            >
+              <motion.h2
+                className="font-playfair text-2xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true, margin: '-80px' }}
+              >
                 Warum {service} bei uns in {area}?
-              </h2>
+              </motion.h2>
               <ul className="space-y-4">
                 {benefits.map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <motion.li
+                    key={i}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                  >
                     <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{benefit}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="mt-16">
+          <motion.div
+            className="mt-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: '-80px' }}
+          >
             <ServiceCards
               title="Entdecken Sie weitere Leistungen"
               subtitle="Unsere Services"
@@ -164,7 +189,7 @@ export function ServiceAreaPageContent({
               ]}
               columns={4}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
