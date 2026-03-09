@@ -37,15 +37,15 @@ const teamServices = [
 
 export const metadata: Metadata = {
   title: 'Team & Geschichte - Friseur Hamburg Hamm',
-  description: Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm. Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch.,
+  description: `Lernen Sie das Team von Ihr Frisuren-Studio kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm. Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch.`,
   keywords: ['friseur team hamburg', 'friseurmeister hamburg hamm', 'über uns friseur hamburg'],
   openGraph: {
     title: 'Team & Geschichte - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
-    description: Lernen Sie unser Team kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm.,
-    url: ${BUSINESS_INFO.website}/ueber-uns,
+    description: `Lernen Sie unser Team kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm.`,
+    url: `${BUSINESS_INFO.website}/ueber-uns`,
   },
   alternates: {
-    canonical: ${BUSINESS_INFO.website}/ueber-uns,
+    canonical: `${BUSINESS_INFO.website}/ueber-uns`,
   },
 };
 
@@ -75,7 +75,7 @@ const values = [
 export default function UeberUnsPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Über uns', url: ${BUSINESS_INFO.website}/ueber-uns },
+    { name: 'Über uns', url: `${BUSINESS_INFO.website}/ueber-uns` },
   ]);
   const personSchemas = getPersonSchemas();
 
@@ -83,7 +83,7 @@ export default function UeberUnsPage() {
     <>
       <ServicePageHeader
         title="Unser Team"
-        subtitle={Meisterbetrieb seit ${BUSINESS_INFO.founded}}
+        subtitle={`Meisterbetrieb seit ${BUSINESS_INFO.founded}`}
         description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
         backgroundImage="https://res.cloudinary.com/dqkld61zu/image/upload/v1772474796/Teamfoto2_w3uxfj.webp"
       />
@@ -97,6 +97,7 @@ export default function UeberUnsPage() {
           <AnimatedSection direction="up" hasScale>
             <h2 className="heading-md mb-8 text-center">Das Team</h2>
           </AnimatedSection>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {TEAM_MEMBERS.map((member, index) => {
               const directions: Array<'left' | 'right' | 'up'> = ['left', 'right', 'up'];
@@ -118,10 +119,12 @@ export default function UeberUnsPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
+
                     <div className="p-8 flex flex-col flex-grow">
                       <h3 className="font-playfair text-2xl font-bold mb-2">{member.name}</h3>
                       <p className="text-teal-600 font-semibold mb-3 text-base">{member.role}</p>
                       <p className="text-gray-600 mb-4 flex-grow">{member.description}</p>
+
                       <div className="flex flex-wrap gap-2 mt-auto">
                         {member.languages.map((lang, idx) => (
                           <span
@@ -138,13 +141,11 @@ export default function UeberUnsPage() {
               );
             })}
 
-            <ScrollAnimationCard
-              direction="up"
-              delay={TEAM_MEMBERS.length * 0.1}
-              hasScale
-              hasRotation
-            >
-              <Link href="/karriere" className="group bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+            <ScrollAnimationCard direction="up" delay={TEAM_MEMBERS.length * 0.1} hasScale hasRotation>
+              <Link
+                href="/karriere"
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="aspect-square overflow-hidden relative bg-gradient-to-br from-teal-600 to-amber-500 flex items-center justify-center">
                   <Image
                     src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772473119/Name_wrzzyw.webp"
@@ -155,10 +156,13 @@ export default function UeberUnsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
+
                 <div className="p-8 flex flex-col flex-grow items-center text-center">
                   <h3 className="font-playfair text-2xl font-bold mb-2">Hier könnte dein Name stehen</h3>
                   <p className="text-teal-600 font-semibold mb-3 text-base">Bewerbung</p>
-                  <p className="text-gray-600 mb-6 flex-grow">Werde Teil unseres Teams und entdecke die Chance auf deine Traumposition</p>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    Werde Teil unseres Teams und entdecke die Chance auf deine Traumposition
+                  </p>
                   <span className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-full font-semibold text-sm group-hover:bg-teal-700 transition-colors">
                     Jetzt bewerben
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -175,25 +179,31 @@ export default function UeberUnsPage() {
           <AnimatedSection direction="up" hasScale>
             <h2 className="heading-md mb-12 text-center">Unsere Werte</h2>
           </AnimatedSection>
+
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map((value, index) => {
-              const directions: Array<'diagonal-up-left' | 'diagonal-up-right' | 'up' | 'down'> = ['diagonal-up-left', 'diagonal-up-right', 'up', 'down'];
+              const directions: Array<'diagonal-up-left' | 'diagonal-up-right' | 'up' | 'down'> = [
+                'diagonal-up-left',
+                'diagonal-up-right',
+                'up',
+                'down',
+              ];
               return (
-              <ScrollAnimationCard
-                key={index}
-                direction={directions[index % 4]}
-                delay={index * 0.12}
-                hasScale
-              >
-                <div className="text-center bg-white p-6 rounded-xl shadow-lg">
-                  <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-7 h-7 text-teal-600" />
+                <ScrollAnimationCard
+                  key={index}
+                  direction={directions[index % 4]}
+                  delay={index * 0.12}
+                  hasScale
+                >
+                  <div className="text-center bg-white p-6 rounded-xl shadow-lg">
+                    <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <value.icon className="w-7 h-7 text-teal-600" />
+                    </div>
+                    <h3 className="font-bold mb-2">{value.title}</h3>
+                    <p className="text-sm text-gray-600">{value.description}</p>
                   </div>
-                  <h3 className="font-bold mb-2">{value.title}</h3>
-                  <p className="text-sm text-gray-600">{value.description}</p>
-                </div>
-              </ScrollAnimationCard>
-            );
+                </ScrollAnimationCard>
+              );
             })}
           </div>
         </div>
