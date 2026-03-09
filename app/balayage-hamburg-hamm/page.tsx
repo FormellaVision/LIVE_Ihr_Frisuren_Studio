@@ -42,22 +42,22 @@ const balayageServices = [
 
 const features = [
   {
-    icon: Palette,
+    iconName: 'palette' as const,
     title: 'Natürliche Highlights',
     description: 'Handgemalte Technik für sonnendurchflutete Strähnen',
   },
   {
-    icon: Sparkles,
+    iconName: 'sparkles' as const,
     title: 'Pflegende Produkte',
     description: 'Olaplex & hochwertige Colorationsprodukte',
   },
   {
-    icon: Award,
+    iconName: 'award' as const,
     title: 'Expertise seit 2004',
     description: 'Colorations-Spezialistinnen im Team',
   },
   {
-    icon: Clock,
+    iconName: 'award' as const,
     title: 'Langanhaltend',
     description: 'Natürliches Herauswachsen ohne harte Kanten',
   },
@@ -123,9 +123,7 @@ export default function BalayagePage() {
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
             {features.map((feature, index) => (
               <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
-                <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-7 h-7 text-amber-600" />
-                </div>
+                <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"></div>
                 <h3 className="font-bold mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-600">{feature.description}</p>
               </div>

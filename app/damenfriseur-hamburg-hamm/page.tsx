@@ -36,17 +36,17 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: Sparkles,
+    iconName: 'sparkles' as const,
     title: 'Individuelle Beratung',
     description: 'Persönliche Typberatung für den perfekten Look',
   },
   {
-    icon: Palette,
+    iconName: 'palette' as const,
     title: 'Balayage-Spezialist',
     description: 'Natürliche Highlights mit modernsten Färbetechniken',
   },
   {
-    icon: Award,
+    iconName: 'award' as const,
     title: 'Meisterqualität',
     description: 'Über 20 Jahre Erfahrung in Premium-Haarschnitten',
   },
