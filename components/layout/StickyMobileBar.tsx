@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -8,7 +8,6 @@ import { BUSINESS_INFO } from '@/lib/constants';
 export function StickyMobileBar() {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -17,34 +16,28 @@ export function StickyMobileBar() {
       const heroHeight = window.innerHeight;
       const scrollThreshold = heroHeight * 1.6;
       const currentScroll = window.scrollY;
+      const footer = document.querySelector('footer');
 
-      setIsVisible(currentScroll > scrollThreshold);
+      if (!footer) {
+        setIsVisible(currentScroll > scrollThreshold);
+        return;
+      }
+
+      const footerTop = footer.getBoundingClientRect().top;
+      const isFooterVisible = footerTop <= window.innerHeight;
+
+      if (isFooterVisible) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(currentScroll > scrollThreshold);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(false);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(footer);
-
-    return () => {
-      observer.disconnect();
     };
   }, []);
 
