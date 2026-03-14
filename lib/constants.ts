@@ -86,13 +86,6 @@ export const TEAM_MEMBERS = [
     image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Mehtap_srb10k.webp',
   },
   {
-    name: 'Hossein Amiri',
-    role: 'Azubi',
-    description: 'Motivierter Friseur in Ausbildung mit großem Engagement und freundlichem Service',
-    languages: ['Deutsch', 'Türkisch'],
-    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772457719/Hossein_pe2p4l.webp',
-  },
-  {
     name: 'Geansever Osman',
     role: 'Gesellin',
     description: 'Hair & Make-up Artistin mit kreativer Expertise und leidenschaftlicher Kundenbetreuung',
