@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface HistorySectionProps {
   businessInfo: {
@@ -12,24 +12,32 @@ interface HistorySectionProps {
   };
 }
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8 },
+    transition: tween(0),
   },
 };
 
 export function HistorySection({ businessInfo }: HistorySectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   const historyItems = [
     {
       title: 'Der Anfang',
@@ -56,11 +64,12 @@ export function HistorySection({ businessInfo }: HistorySectionProps) {
     <section className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
           className="mb-12"
+          style={{ willChange: 'transform, opacity' }}
         >
           <h2 className="heading-md text-center">Unsere Geschichte</h2>
         </motion.div>
@@ -69,14 +78,16 @@ export function HistorySection({ businessInfo }: HistorySectionProps) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+          viewport={{ once: true, margin: '-20px' }}
           className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16"
+          style={{ willChange: 'transform, opacity' }}
         >
           {historyItems.map((item, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               className="bg-white rounded-2xl shadow-lg p-8 flex flex-col h-full hover:shadow-xl transition-shadow duration-500"
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="mb-4">
                 <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mb-4">

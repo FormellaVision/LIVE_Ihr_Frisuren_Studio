@@ -1,17 +1,26 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, MessageCircle, Clock, MapPin, Moon } from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function ServiceContactBlock() {
+    const prefersReducedMotion = useReducedMotion();
+
     return (
         <motion.section
-            initial={{ opacity: 0, y: 30 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={tween(0)}
             className="section-padding bg-warm-white"
+            style={{ willChange: 'transform, opacity' }}
         >
             <div className="container-custom">
                 <h2 className="heading-lg text-center mb-12">Jetzt Termin vereinbaren</h2>
@@ -77,11 +86,12 @@ export function ServiceContactBlock() {
 
                 {/* Afterwork Hinweis */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true, margin: '-20px' }}
+                    transition={tween(0.2)}
                     className="mt-8 max-w-2xl mx-auto"
+                    style={{ willChange: 'transform, opacity' }}
                 >
                     <div className="bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-xl p-4 flex items-center gap-4">
                         <div className="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center flex-shrink-0">

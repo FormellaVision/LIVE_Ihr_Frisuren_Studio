@@ -4,12 +4,10 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
 
-const springItem = (delay: number) => ({
-  type: 'spring' as const,
-  stiffness: 300,
-  damping: 28,
-  mass: 0.7,
+const tween = (delay: number) => ({
+  duration: 0.4,
   delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 });
 
 export function ReviewsSection() {
@@ -20,10 +18,11 @@ export function ReviewsSection() {
     <section id="bewertungen" aria-labelledby="reviews-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-teal-50 px-6 py-3 rounded-full mb-4">
@@ -42,10 +41,11 @@ export function ReviewsSection() {
           {displayReviews.map((review, index) => (
             <motion.article
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={springItem(index * 0.08)}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(index * 0.07)}
+              style={{ willChange: 'transform, opacity' }}
               aria-label={`Bewertung von ${review.author}`}
               className="bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
@@ -79,10 +79,11 @@ export function ReviewsSection() {
         </div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-30px' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.18 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0.15)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mt-12"
         >
           <a

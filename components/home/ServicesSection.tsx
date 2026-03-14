@@ -35,12 +35,10 @@ const serviceCategories = [
   },
 ];
 
-const springCard = (delay: number) => ({
-  type: 'spring' as const,
-  stiffness: 280,
-  damping: 26,
-  mass: 0.8,
+const tween = (delay: number) => ({
+  duration: 0.4,
   delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 });
 
 export function ServicesSection() {
@@ -50,10 +48,11 @@ export function ServicesSection() {
     <section id="leistungen" aria-labelledby="services-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="services-heading" className="heading-lg mb-4">Unsere Leistungen in Hamburg Hamm</h2>
@@ -64,10 +63,11 @@ export function ServicesSection() {
           {serviceCategories.map((category, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={springCard(index * 0.07)}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(index * 0.07)}
+              style={{ willChange: 'transform, opacity' }}
               className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0" aria-hidden="true">
@@ -99,10 +99,11 @@ export function ServicesSection() {
         </div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 32, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-30px' }}
-          transition={{ type: 'spring', stiffness: 260, damping: 28, delay: 0.1 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0.1)}
+          style={{ willChange: 'transform, opacity' }}
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">

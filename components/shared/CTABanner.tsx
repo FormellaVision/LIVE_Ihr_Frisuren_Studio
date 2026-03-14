@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, MessageCircle, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
@@ -9,17 +9,26 @@ interface CTABannerProps {
   description?: string;
 }
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function CTABanner({
   title = 'Jetzt Termin buchen',
   description = 'Wir freuen uns auf Ihren Besuch in Hamburg Hamm!',
 }: CTABannerProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 30 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={tween(0)}
       className="section-padding bg-gradient-to-br from-teal-600 to-teal-700"
+      style={{ willChange: 'transform, opacity' }}
     >
       <div className="container-custom text-center">
         <h2 className="heading-md text-white mb-4">{title}</h2>

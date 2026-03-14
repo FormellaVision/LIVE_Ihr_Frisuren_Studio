@@ -48,12 +48,10 @@ const features = [
   },
 ];
 
-const spring = (delay: number) => ({
-  type: 'spring' as const,
-  stiffness: 300,
-  damping: 28,
-  mass: 0.7,
+const tween = (delay: number) => ({
+  duration: 0.4,
   delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 });
 
 export function USPSection() {
@@ -63,10 +61,11 @@ export function USPSection() {
     <section id="usp-section" aria-labelledby="usp-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="usp-heading" className="heading-lg mb-4">
@@ -81,10 +80,11 @@ export function USPSection() {
           {usps.map((usp, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 40, scale: 0.94 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={spring(index * 0.09)}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(index * 0.08)}
+              style={{ willChange: 'transform, opacity' }}
               className="text-center bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
               <div
@@ -103,10 +103,11 @@ export function USPSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -30 : 30, scale: 0.96 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={spring(index * 0.07)}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(index * 0.07)}
+              style={{ willChange: 'transform, opacity' }}
               className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md card-hover"
             >
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -16,12 +16,19 @@ interface ServiceFAQSectionProps {
     subtitle?: string;
 }
 
+const tween = (delay: number) => ({
+    duration: 0.4,
+    delay,
+    ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function ServiceFAQSection({
     faqs,
     title = 'Häufig gestellte Fragen',
     subtitle,
 }: ServiceFAQSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const prefersReducedMotion = useReducedMotion();
 
     if (!faqs || faqs.length === 0) return null;
 
@@ -29,11 +36,12 @@ export function ServiceFAQSection({
         <section className="section-padding" aria-labelledby="service-faq-heading">
             <div className="container-custom">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, margin: '-20px' }}
+                    transition={tween(0)}
                     className="text-center mb-12"
+                    style={{ willChange: 'transform, opacity' }}
                 >
                     <h2 id="service-faq-heading" className="heading-lg mb-4">
                         {title}
@@ -51,11 +59,12 @@ export function ServiceFAQSection({
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.08 }}
+                                viewport={{ once: true, margin: '-20px' }}
+                                transition={tween(index * 0.08)}
                                 className="mb-4"
+                                style={{ willChange: 'transform, opacity' }}
                             >
                                 <button
                                     id={buttonId}

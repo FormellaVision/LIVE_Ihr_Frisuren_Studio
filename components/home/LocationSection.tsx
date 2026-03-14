@@ -1,32 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, Brain as Train, Car, Clock } from 'lucide-react';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { GoogleMap } from '@/components/shared/GoogleMap';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
 
 export function LocationSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section id="standort" aria-labelledby="location-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="location-heading" className="heading-lg mb-4">
@@ -38,16 +34,15 @@ export function LocationSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 md:items-stretch gap-8 md:gap-12 max-w-6xl mx-auto">
-          {/* LEFT COLUMN: Map (flex-1) + Opening Hours (shrink-0) */}
           <div className="h-full flex flex-col gap-6">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(0)}
+              style={{ willChange: 'transform, opacity' }}
               className="flex-1 min-h-[320px] md:min-h-0"
             >
-              {/* Ensure GoogleMap can stretch */}
               <div className="h-full">
                 <GoogleMap
                   latitude={BUSINESS_INFO.coordinates.latitude}
@@ -58,10 +53,11 @@ export function LocationSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.06 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={tween(0.06)}
+              style={{ willChange: 'transform, opacity' }}
               className="shrink-0 bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
             >
               <div className="flex items-start gap-4">
@@ -96,24 +92,13 @@ export function LocationSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN: 3 cards (each flex-1 for equal height) */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="h-full flex flex-col gap-6"
-          >
-            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">Adresse</h3>
+          <div className="h-full flex flex-col gap-6">
+            {[
+              {
+                icon: MapPin,
+                iconBg: 'bg-teal-600',
+                title: 'Adresse',
+                content: (
                   <p className="text-gray-700">
                     <strong>{BUSINESS_INFO.name}</strong>
                     <br />
@@ -121,20 +106,13 @@ export function LocationSection() {
                     <br />
                     {BUSINESS_INFO.address.postalCode} {BUSINESS_INFO.address.city}-{BUSINESS_INFO.address.district}
                   </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  <Train className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">Öffentliche Verkehrsmittel</h3>
+                ),
+              },
+              {
+                icon: Train,
+                iconBg: 'bg-amber-500',
+                title: 'Öffentliche Verkehrsmittel',
+                content: (
                   <div className="space-y-2 text-gray-700">
                     <p>
                       <strong>U-Bahn:</strong> U2, U4 - Haltestelle Burgstraße
@@ -145,27 +123,43 @@ export function LocationSection() {
                       <strong>Bus:</strong> Linien 25, 130, 160, 261, 609, 610
                     </p>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="flex-1 bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-12 h-12 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  <Car className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">Parkplätze</h3>
+                ),
+              },
+              {
+                icon: Car,
+                iconBg: 'bg-coral-500',
+                title: 'Parkplätze',
+                content: (
                   <p className="text-gray-700">
                     Parkplätze sind in der Umgebung der Hammer Landstraße verfügbar.
                   </p>
+                ),
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={tween(index * 0.07)}
+                style={{ willChange: 'transform, opacity' }}
+                className="flex-1 bg-white p-6 rounded-xl shadow-lg"
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`w-12 h-12 ${item.iconBg} rounded-full flex items-center justify-center flex-shrink-0`}
+                    aria-hidden="true"
+                  >
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+                    {item.content}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

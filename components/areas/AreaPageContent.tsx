@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, Phone, Clock, Check, Car, Brain as Train, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
@@ -9,6 +9,8 @@ import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ServiceCards } from '@/components/shared/ServiceCards';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
+
+const tween = (delay: number) => ({ duration: 0.4, delay, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] });
 
 export interface AreaData {
   name: string;
@@ -35,6 +37,8 @@ interface Props {
 }
 
 export function AreaPageContent({ area }: Props) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <>
       <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
@@ -52,9 +56,10 @@ export function AreaPageContent({ area }: Props) {
         <div className="relative z-10 container-custom w-full py-12">
           <div className="max-w-3xl mx-auto text-center px-4">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={tween(0)}
+              style={{ willChange: 'transform, opacity' }}
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2 rounded-full mb-7 shadow-lg"
             >
               <MapPin className="w-4 h-4 text-amber-400" />
@@ -64,38 +69,40 @@ export function AreaPageContent({ area }: Props) {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={tween(0.1)}
+              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)', willChange: 'transform, opacity' }}
               className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 break-words"
-              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)' }}
             >
               {area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`}
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={tween(0.2)}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)', willChange: 'transform, opacity' }}
               className="text-base sm:text-lg md:text-xl text-teal-300 font-semibold mb-4"
-              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}
             >
               Ihr Frisuren-Studio – Meisterbetrieb seit 2004
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={tween(0.3)}
+              style={{ willChange: 'transform, opacity' }}
               className="text-sm sm:text-base text-white break-words leading-relaxed max-w-xl mx-auto mb-10 text-shadow-soft font-medium"
             >
               {area.intro}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
+              transition={tween(0.45)}
+              style={{ willChange: 'transform, opacity' }}
               className="flex flex-col sm:flex-row gap-3 justify-center"
             >
               <a
@@ -120,7 +127,8 @@ export function AreaPageContent({ area }: Props) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
+          transition={tween(0.9)}
+          style={{ willChange: 'transform, opacity' }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
           aria-hidden="true"
         >
@@ -221,10 +229,11 @@ export function AreaPageContent({ area }: Props) {
                   {area.nearbyDistricts.map((district, index) => (
                     <motion.span
                       key={district}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true, margin: '-60px' }}
+                      initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={tween(index * 0.05)}
+                      viewport={{ once: true, margin: '-20px' }}
+                      style={{ willChange: 'transform, opacity' }}
                       className="px-4 py-2 bg-white rounded-full border border-gray-200 text-sm text-gray-600 shadow-sm"
                     >
                       {district}

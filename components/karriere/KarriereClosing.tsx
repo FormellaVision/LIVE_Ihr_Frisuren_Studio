@@ -1,19 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, MessageCircle } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function KarriereClosing() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="section-padding bg-gray-900 text-white">
       <div className="container-custom max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
           className="text-center"
+          style={{ willChange: 'transform, opacity' }}
         >
           <p className="text-sm font-semibold text-teal-400 uppercase tracking-widest mb-4">Noch Fragen?</p>
           <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-5">

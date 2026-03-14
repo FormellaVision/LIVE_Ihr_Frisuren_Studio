@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, Phone, Check, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
@@ -18,6 +18,12 @@ interface ServiceAreaContentProps {
   imageUrl: string;
 }
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function ServiceAreaPageContent({
   service,
   serviceSlug,
@@ -27,6 +33,8 @@ export function ServiceAreaPageContent({
   benefits,
   imageUrl,
 }: ServiceAreaContentProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <>
       <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
@@ -44,49 +52,52 @@ export function ServiceAreaPageContent({
         <div className="relative z-10 container-custom w-full h-full flex flex-col justify-center">
           <div className="max-w-3xl mx-auto text-center px-4 flex-1 flex flex-col justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={tween(0)}
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2 rounded-full mb-7 shadow-lg"
+              style={{ willChange: 'transform, opacity' }}
             >
               <MapPin className="w-4 h-4 text-amber-400" />
               <span className="text-sm font-semibold text-white">{service} in {area}</span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={tween(0.1)}
               className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 break-words"
-              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)' }}
+              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)', willChange: 'transform, opacity' }}
             >
               {service} {area}
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={tween(0.2)}
               className="text-base sm:text-lg md:text-xl text-teal-300 font-semibold mb-4"
-              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)', willChange: 'transform, opacity' }}
             >
               Ihr Frisuren-Studio – Meisterbetrieb seit 2004
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={tween(0.3)}
               className="text-sm sm:text-base text-white break-words leading-relaxed max-w-xl mx-auto mb-10 text-shadow-soft font-medium"
+              style={{ willChange: 'transform, opacity' }}
             >
               {description}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
+              transition={tween(0.4)}
               className="flex flex-col sm:flex-row gap-3 justify-center"
+              style={{ willChange: 'transform, opacity' }}
             >
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
@@ -106,11 +117,12 @@ export function ServiceAreaPageContent({
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={prefersReducedMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
+          transition={tween(0.9)}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
           aria-hidden="true"
+          style={{ willChange: 'transform, opacity' }}
         >
           <ChevronDown className="w-6 h-6 animate-bounce" />
         </motion.div>
@@ -123,17 +135,19 @@ export function ServiceAreaPageContent({
           <div className="max-w-3xl mx-auto mb-16">
             <motion.div
               className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8"
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: '-80px' }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={tween(0)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
                 className="font-playfair text-2xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true, margin: '-80px' }}
+                transition={tween(0.1)}
+                viewport={{ once: true, margin: '-20px' }}
+                style={{ willChange: 'transform, opacity' }}
               >
                 Warum {service} bei uns in {area}?
               </motion.h2>
@@ -142,10 +156,11 @@ export function ServiceAreaPageContent({
                   <motion.li
                     key={i}
                     className="flex items-start gap-3"
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                    viewport={{ once: true, margin: '-80px' }}
+                    transition={tween(0.15 + i * 0.08)}
+                    viewport={{ once: true, margin: '-20px' }}
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{benefit}</span>
@@ -157,10 +172,11 @@ export function ServiceAreaPageContent({
 
           <motion.div
             className="mt-16"
-            initial={{ opacity: 0 }}
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: '-80px' }}
+            transition={tween(0.2)}
+            viewport={{ once: true, margin: '-20px' }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <ServiceCards
               title="Weitere Leistungen in Ihrer Nähe"
@@ -209,10 +225,11 @@ export function ServiceAreaPageContent({
 
           <motion.div
             className="mt-12"
-            initial={{ opacity: 0 }}
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: '-80px' }}
+            transition={tween(0.2)}
+            viewport={{ once: true, margin: '-20px' }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <ServiceCards
               title={`${service} in Hamburg – alle Stadtteile`}

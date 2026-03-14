@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
 
@@ -9,7 +9,15 @@ interface KontaktContentProps {
   googleMap: ReactNode;
 }
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function KontaktContent({ googleMap }: KontaktContentProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="section-padding">
       <div className="container-custom">
@@ -17,10 +25,11 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
           <div className="space-y-6">
             <motion.h2
               className="heading-md mb-6"
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: '-80px' }}
+              transition={tween(0)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               Friseur Hamburg Hamm kontaktieren
             </motion.h2>
@@ -66,10 +75,11 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
                 className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow group"
-                initial={{ opacity: 0, y: 30 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true, margin: '-80px' }}
+                transition={tween(i * 0.1)}
+                viewport={{ once: true, margin: '-20px' }}
+                style={{ willChange: 'transform, opacity' }}
               >
                 <div className={`w-14 h-14 ${item.bg} rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
                   <item.icon className="w-6 h-6 text-white" />
@@ -86,10 +96,11 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
           <div className="space-y-6">
             <motion.div
               className="bg-white p-6 rounded-xl shadow-lg"
-              initial={{ opacity: 0, x: 30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true, margin: '-80px' }}
+              transition={tween(0.2)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -119,10 +130,11 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
 
             <motion.div
               className="bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
-              initial={{ opacity: 0, x: 30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true, margin: '-80px' }}
+              transition={tween(0.3)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
@@ -161,10 +173,11 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true, margin: '-80px' }}
+              transition={tween(0.4)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               {googleMap}
             </motion.div>

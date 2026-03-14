@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Scissors, GraduationCap, Sparkles, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
@@ -27,16 +27,25 @@ const PROFILES = [
   },
 ];
 
+const tween = (delay: number) => ({
+  duration: 0.4,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function KarriereWhoWeSeek() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={tween(0)}
+            style={{ willChange: 'transform, opacity' }}
           >
             <p className="text-sm font-semibold text-teal-600 uppercase tracking-widest mb-3">Wen wir suchen</p>
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-5">
@@ -54,20 +63,22 @@ export function KarriereWhoWeSeek() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={tween(0.1)}
             className="space-y-4"
+            style={{ willChange: 'transform, opacity' }}
           >
             {PROFILES.map(({ icon: Icon, title, text }, i) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={tween(i * 0.08)}
                 className="flex items-start gap-4 bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+                style={{ willChange: 'transform, opacity' }}
               >
                 <div className="flex-shrink-0 w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center">
                   <Icon className="w-5 h-5 text-teal-600" />

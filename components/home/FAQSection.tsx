@@ -6,6 +6,12 @@ import { ChevronDown } from 'lucide-react';
 import { DEFAULT_FAQS } from '@/lib/schema';
 import { cn } from '@/lib/utils';
 
+const tween = (delay: number) => ({
+  duration: 0.35,
+  delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+});
+
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const prefersReducedMotion = useReducedMotion();
@@ -14,10 +20,11 @@ export function FAQSection() {
     <section id="faq" aria-labelledby="faq-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={tween(0)}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="faq-heading" className="heading-lg mb-4">
@@ -37,15 +44,11 @@ export function FAQSection() {
             return (
               <motion.div
                 key={index}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 320,
-                  damping: 28,
-                  delay: index * 0.05,
-                }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-16px' }}
+                transition={tween(index * 0.04)}
+                style={{ willChange: 'transform, opacity' }}
                 className="mb-4"
               >
                 <button
@@ -64,7 +67,7 @@ export function FAQSection() {
 
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
                     <ChevronDown
                       className="w-5 h-5 text-teal-600 flex-shrink-0"
@@ -85,7 +88,7 @@ export function FAQSection() {
                       transition={
                         prefersReducedMotion
                           ? { duration: 0 }
-                          : { height: { type: 'spring', stiffness: 400, damping: 38 }, opacity: { duration: 0.2 } }
+                          : { height: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.2 } }
                       }
                       className="overflow-hidden"
                     >
