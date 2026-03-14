@@ -1,0 +1,199 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+  category: string;
+}
+
+interface GalleryLightboxProps {
+  images: GalleryImage[];
+}
+
+export function GalleryLightbox({ images }: GalleryLightboxProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+
+  const isOpen = activeIndex !== null;
+
+  const openLightbox = (index: number) => {
+    setActiveIndex(index);
+    setSlideDirection(null);
+  };
+
+  const closeLightbox = () => {
+    setActiveIndex(null);
+  };
+
+  const goTo = useCallback((index: number, direction: 'left' | 'right') => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setSlideDirection(direction);
+    setTimeout(() => {
+      setActiveIndex(index);
+      setSlideDirection(null);
+      setIsAnimating(false);
+    }, 200);
+  }, [isAnimating]);
+
+  const goPrev = useCallback(() => {
+    if (activeIndex === null) return;
+    const prev = (activeIndex - 1 + images.length) % images.length;
+    goTo(prev, 'right');
+  }, [activeIndex, images.length, goTo]);
+
+  const goNext = useCallback(() => {
+    if (activeIndex === null) return;
+    const next = (activeIndex + 1) % images.length;
+    goTo(next, 'left');
+  }, [activeIndex, images.length, goTo]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'ArrowRight') goNext();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [isOpen, goPrev, goNext]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+    setTouchStartX(null);
+  };
+
+  const directions: Array<'up' | 'down' | 'left' | 'right' | 'diagonal-up-left' | 'diagonal-up-right'> = [
+    'up', 'left', 'right', 'diagonal-up-left', 'diagonal-up-right', 'up', 'left', 'right', 'down',
+  ];
+
+  return (
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+        {images.map((image, index) => (
+          <ScrollAnimationCard
+            key={index}
+            direction={directions[index % directions.length]}
+            delay={index * 0.08}
+            hasScale
+          >
+            <button
+              onClick={() => openLightbox(index)}
+              className="relative group overflow-hidden rounded-xl shadow-lg aspect-square w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400"
+              aria-label={`Foto öffnen: ${image.alt}`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+                  <span className="text-white font-semibold text-sm">{image.category}</span>
+                  <span className="text-white/80 text-xs">Vergrößern</span>
+                </div>
+              </div>
+            </button>
+          </ScrollAnimationCard>
+        ))}
+      </div>
+
+      {isOpen && activeIndex !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Galerie"
+        >
+          <div
+            className="absolute inset-0 bg-black/95 backdrop-blur-sm"
+            onClick={closeLightbox}
+          />
+
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Schließen"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i, i > activeIndex ? 'left' : 'right')}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'}`}
+                aria-label={`Foto ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={goPrev}
+            className="absolute left-3 md:left-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Vorheriges Foto"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={goNext}
+            className="absolute right-3 md:right-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Nächstes Foto"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div
+            className="relative z-10 max-w-5xl w-full mx-4 md:mx-16 flex flex-col items-center"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="w-full transition-opacity duration-200"
+              style={{ opacity: slideDirection ? 0 : 1 }}
+            >
+              <img
+                src={images[activeIndex].src.replace('w=800', 'w=1400')}
+                alt={images[activeIndex].alt}
+                className="max-h-[80vh] w-full object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-3 text-center">
+                <span className="text-white/70 text-sm">{images[activeIndex].category}</span>
+                <span className="text-white/40 text-sm mx-2">·</span>
+                <span className="text-white/40 text-sm">{activeIndex + 1} / {images.length}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

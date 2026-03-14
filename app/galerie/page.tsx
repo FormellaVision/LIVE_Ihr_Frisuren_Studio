@@ -3,8 +3,8 @@ import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
-import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
+import { GalleryLightbox } from '@/components/galerie/GalleryLightbox';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Instagram } from 'lucide-react';
@@ -77,35 +77,7 @@ export default function GaleriePage() {
 
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {galleryImages.map((image, index) => {
-              const directions: Array<'up' | 'down' | 'left' | 'right' | 'diagonal-up-left' | 'diagonal-up-right'> = [
-                'up', 'left', 'right', 'diagonal-up-left', 'diagonal-up-right', 'up', 'left', 'right', 'down'
-              ];
-              return (
-                <ScrollAnimationCard
-                  key={index}
-                  direction={directions[index % directions.length]}
-                  delay={index * 0.08}
-                  hasScale
-                >
-                  <div className="relative group overflow-hidden rounded-xl shadow-lg aspect-square">
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <span className="text-white font-semibold">{image.category}</span>
-                      </div>
-                    </div>
-                  </div>
-                </ScrollAnimationCard>
-              );
-            })}
-          </div>
+          <GalleryLightbox images={galleryImages} />
 
           <AnimatedSection delay={0.6} hasScale>
             <div className="mt-16 text-center">
