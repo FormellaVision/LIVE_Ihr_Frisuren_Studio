@@ -7,7 +7,19 @@ import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
-import { Check, Palette, Sparkles, Award, Clock } from 'lucide-react';
+import { Check, Palette, Sparkles, Award, Timer, Droplets, Star, Scissors } from 'lucide-react';
+
+const iconMap = {
+  palette: Palette,
+  sparkles: Sparkles,
+  award: Award,
+  timer: Timer,
+  droplets: Droplets,
+  star: Star,
+  scissors: Scissors,
+} as const;
+
+type IconName = keyof typeof iconMap;
 
 export const metadata: Metadata = {
   title: 'Balayage Hamburg Hamm | Natürliche Highlights & Coloration',
@@ -40,24 +52,24 @@ const balayageServices = [
   { name: 'Color Refresh', price: 'ab 69€', description: 'Auffrischung bestehender Balayage' },
 ];
 
-const features = [
+const features: { iconName: IconName; title: string; description: string }[] = [
   {
-    iconName: 'palette' as const,
+    iconName: 'palette',
     title: 'Natürliche Highlights',
     description: 'Handgemalte Technik für sonnendurchflutete Strähnen',
   },
   {
-    iconName: 'sparkles' as const,
+    iconName: 'droplets',
     title: 'Pflegende Produkte',
     description: 'Olaplex & hochwertige Colorationsprodukte',
   },
   {
-    iconName: 'award' as const,
+    iconName: 'award',
     title: 'Expertise seit 2004',
     description: 'Colorations-Spezialistinnen im Team',
   },
   {
-    iconName: 'award' as const,
+    iconName: 'timer',
     title: 'Langanhaltend',
     description: 'Natürliches Herauswachsen ohne harte Kanten',
   },
@@ -121,13 +133,18 @@ export default function BalayagePage() {
         <div className="container-custom">
           <h2 className="sr-only">Unsere Balayage-Leistungen</h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
-                <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-                <h3 className="font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </div>
-            ))}
+            {features.map((feature, index) => {
+              const Icon = iconMap[feature.iconName];
+              return (
+                <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
+                  <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-7 h-7 text-amber-600" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-bold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
 
           <div className="max-w-3xl mx-auto">
