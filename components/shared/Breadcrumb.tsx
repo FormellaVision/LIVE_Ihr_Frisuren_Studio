@@ -75,7 +75,7 @@ export function Breadcrumb() {
 
   return (
     <nav aria-label="Breadcrumb" className="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-4">
         <ol
           className="flex items-center gap-2 py-3 md:py-4 overflow-x-auto text-sm list-none m-0 p-0"
           itemScope
@@ -96,11 +96,11 @@ export function Breadcrumb() {
               aria-label="Startseite"
             >
               <img
-                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg"
+                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
                 alt="Startseite"
-                width={28}
-                height={28}
-                className="w-7 h-7"
+                width={48}
+                height={48}
+                className="h-12 w-auto"
               />
             </Link>
           </li>
