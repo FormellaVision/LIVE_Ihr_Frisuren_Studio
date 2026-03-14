@@ -39,7 +39,6 @@
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     width: 100%;
     max-width: 100%;
     font-size: 16px;
@@ -50,6 +49,7 @@
   body {
     @apply bg-warm-white text-foreground font-montserrat antialiased;
     overflow-x: hidden;
+    overscroll-behavior-x: none;
     width: 100%;
     max-width: 100%;
     word-wrap: break-word;
