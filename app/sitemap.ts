@@ -1,11 +1,13 @@
 import { MetadataRoute } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 
+const BUILD_DATE = new Date().toISOString();
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BUSINESS_INFO.website;
 
   const mainRoutes = [
-    { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
+    { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
     { path: '/friseur-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/damenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/herrenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
@@ -15,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/termin-buchen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/schnellkontakt', priority: 0.5, changeFrequency: 'monthly' as const },
     { path: '/areas/hamm', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/areas/borgfelde', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/hamburg-mitte', priority: 0.7, changeFrequency: 'monthly' as const },
@@ -22,22 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/galerie', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/ueber-uns', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/karriere', priority: 0.5, changeFrequency: 'monthly' as const },
-    { path: '/schnellkontakt', priority: 0.5, changeFrequency: 'monthly' as const },
-    { path: '/barrierefreiheit', priority: 0.2, changeFrequency: 'yearly' as const },
-    { path: '/impressum', priority: 0.2, changeFrequency: 'yearly' as const },
-    { path: '/datenschutz', priority: 0.2, changeFrequency: 'yearly' as const },
   ];
 
-  const serviceAreas = [
-    'borgfelde', 'horn', 'mitte'
-  ];
+  const indexedServiceAreas = ['borgfelde', 'horn', 'mitte'];
 
-  const services = [
-    'damenfriseur', 'herrenfriseur', 'balayage', 'haare-faerben'
-  ];
+  const services = ['damenfriseur', 'herrenfriseur', 'balayage', 'haare-faerben'];
 
   const serviceAreaRoutes = services.flatMap(service =>
-    serviceAreas.map(area => ({
+    indexedServiceAreas.map(area => ({
       path: `/${service}-hamburg-${area}`,
       priority: 0.6,
       changeFrequency: 'monthly' as const,
@@ -48,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
+    lastModified: BUILD_DATE,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
