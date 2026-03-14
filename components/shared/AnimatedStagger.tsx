@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface AnimatedStaggerProps {
@@ -20,9 +20,9 @@ const containerVariants = (staggerDelay: number) => ({
 });
 
 const directionOffsets = {
-    up: { x: 0, y: 30 },
-    left: { x: -40, y: 0 },
-    right: { x: 40, y: 0 },
+    up: { x: 0, y: 24 },
+    left: { x: -30, y: 0 },
+    right: { x: 30, y: 0 },
 };
 
 export const staggerItemVariants = (direction: 'up' | 'left' | 'right' = 'up') => {
@@ -33,7 +33,12 @@ export const staggerItemVariants = (direction: 'up' | 'left' | 'right' = 'up') =
             opacity: 1,
             x: 0,
             y: 0,
-            transition: { duration: 0.5, ease: 'easeOut' as const },
+            transition: {
+                type: 'spring' as const,
+                stiffness: 300,
+                damping: 28,
+                mass: 0.7,
+            },
         },
     };
 };
@@ -41,15 +46,21 @@ export const staggerItemVariants = (direction: 'up' | 'left' | 'right' = 'up') =
 export function AnimatedStagger({
     children,
     className = '',
-    staggerDelay = 0.1,
+    staggerDelay = 0.07,
     direction = 'up',
 }: AnimatedStaggerProps) {
+    const prefersReducedMotion = useReducedMotion();
+
+    if (prefersReducedMotion) {
+        return <div className={className}>{children}</div>;
+    }
+
     return (
         <motion.div
             variants={containerVariants(staggerDelay)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '-40px' }}
             className={className}
         >
             {children}

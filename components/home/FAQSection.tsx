@@ -1,22 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { DEFAULT_FAQS, type FAQItem } from '@/lib/schema';
+import { DEFAULT_FAQS } from '@/lib/schema';
 import { cn } from '@/lib/utils';
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="faq" aria-labelledby="faq-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-16"
         >
           <h2 id="faq-heading" className="heading-lg mb-4">
@@ -36,10 +37,15 @@ export function FAQSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 320,
+                  damping: 28,
+                  delay: index * 0.05,
+                }}
                 className="mb-4"
               >
                 <button
@@ -48,7 +54,7 @@ export function FAQSection() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   className={cn(
-                    'w-full flex items-center justify-between gap-4 p-6 text-left bg-white rounded-xl shadow-md transition-all duration-300',
+                    'w-full flex items-center justify-between gap-4 p-6 text-left bg-white rounded-xl shadow-md transition-all duration-200',
                     isOpen ? 'shadow-lg' : 'hover:shadow-lg'
                   )}
                 >
@@ -56,16 +62,18 @@ export function FAQSection() {
                     {faq.question}
                   </span>
 
-                  <ChevronDown
-                    className={cn(
-                      'w-5 h-5 text-teal-600 flex-shrink-0 transition-transform duration-300',
-                      isOpen ? 'rotate-180' : ''
-                    )}
-                    aria-hidden="true"
-                  />
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  >
+                    <ChevronDown
+                      className="w-5 h-5 text-teal-600 flex-shrink-0"
+                      aria-hidden="true"
+                    />
+                  </motion.div>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       id={panelId}
@@ -74,7 +82,11 @@ export function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={
+                        prefersReducedMotion
+                          ? { duration: 0 }
+                          : { height: { type: 'spring', stiffness: 400, damping: 38 }, opacity: { duration: 0.2 } }
+                      }
                       className="overflow-hidden"
                     >
                       <div className="bg-gray-50 rounded-b-xl border-x border-b border-gray-100">

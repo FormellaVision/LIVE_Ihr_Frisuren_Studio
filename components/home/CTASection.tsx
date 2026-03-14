@@ -1,19 +1,21 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { Phone, MessageCircle, Calendar, Check, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 export function CTASection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section aria-labelledby="cta-heading" className="section-padding bg-gradient-to-br from-teal-600 to-teal-700 text-white">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
           className="text-center max-w-3xl mx-auto"
         >
           <h2 id="cta-heading" className="heading-lg mb-6">Bereit für Ihren neuen Look?</h2>

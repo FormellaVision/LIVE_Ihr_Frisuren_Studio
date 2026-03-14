@@ -1,19 +1,21 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Users } from 'lucide-react';
 
 export function TeamSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-12"
         >
           <h2 className="heading-lg mb-4">Unser Team in Hamburg Hamm</h2>
@@ -24,17 +26,17 @@ export function TeamSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ type: 'spring', stiffness: 260, damping: 28, delay: 0.08 }}
           className="max-w-4xl mx-auto"
         >
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="aspect-[4/3] sm:aspect-[2/1] overflow-hidden relative">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.4 }}
+                whileHover={prefersReducedMotion ? {} : { scale: 1.04 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 30 }}
                 className="w-full h-full relative"
               >
                 <Image
@@ -48,24 +50,44 @@ export function TeamSection() {
             </div>
 
             <div className="p-5 sm:p-8 md:p-12 text-center">
-              <h3 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+              <motion.h3
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.1 }}
+                className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4"
+              >
                 Lernen Sie uns kennen
-              </h3>
-              <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
+              </motion.h3>
+              <motion.p
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.16 }}
+                className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto"
+              >
                 Unser vielseitiges Team vereint jahrelange Erfahrung, Kreativität und
                 internationale Expertise. Wir sprechen Deutsch, Englisch, Türkisch und Persisch.
-              </p>
+              </motion.p>
 
-              <Link href="/ueber-uns">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:bg-teal-700 transition-colors"
-                >
-                  <Users className="w-5 h-5" />
-                  Team kennenlernen
-                </motion.button>
-              </Link>
+              <motion.div
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.22 }}
+              >
+                <Link href="/ueber-uns">
+                  <motion.button
+                    whileHover={prefersReducedMotion ? {} : { scale: 1.04 }}
+                    whileTap={prefersReducedMotion ? {} : { scale: 0.97 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+                    className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:bg-teal-700 transition-colors"
+                  >
+                    <Users className="w-5 h-5" />
+                    Team kennenlernen
+                  </motion.button>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </motion.div>

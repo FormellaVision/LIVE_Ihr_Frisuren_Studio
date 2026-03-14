@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface StaggeredCardGridProps {
@@ -13,16 +13,21 @@ interface StaggeredCardGridProps {
 export function StaggeredCardGrid({
   children,
   className = '',
-  staggerDelay = 0.1,
+  staggerDelay = 0.08,
   alternateDirections = true,
 }: StaggeredCardGridProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
       transition: {
         staggerChildren: staggerDelay,
-        delayChildren: 0.2,
+        delayChildren: 0.05,
       },
     },
   };
@@ -32,7 +37,7 @@ export function StaggeredCardGrid({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, margin: '-40px' }}
       className={className}
     >
       {children}
@@ -53,20 +58,28 @@ export function StaggeredCardItem({
   index = 0,
   alternateDirections = true,
 }: StaggeredCardItemProps) {
-  const direction = alternateDirections && index % 2 === 1 ? 'right' : 'left';
-  const offset = direction === 'left' ? 60 : -60;
+  const xOffset = alternateDirections
+    ? index % 2 === 1 ? -40 : 40
+    : 0;
 
   const itemVariants = {
-    hidden: { opacity: 0, x: offset, scale: 0.95 },
+    hidden: { opacity: 0, x: xOffset, y: xOffset === 0 ? 24 : 0, scale: 0.96 },
     visible: {
       opacity: 1,
       x: 0,
+      y: 0,
       scale: 1,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 300,
+        damping: 28,
+        mass: 0.7,
+      },
     },
   };
 
   return (
-    <motion.div variants={itemVariants} transition={{ duration: 0.6 }} className={className}>
+    <motion.div variants={itemVariants} className={className}>
       {children}
     </motion.div>
   );

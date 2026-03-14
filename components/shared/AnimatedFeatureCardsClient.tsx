@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Check, Sparkles, Palette, Award, Video } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { ReactNode } from 'react';
@@ -30,11 +30,21 @@ interface AnimatedFeatureCardsClientProps {
   children: ReactNode;
 }
 
+const spring = (delay: number) => ({
+  type: 'spring' as const,
+  stiffness: 300,
+  damping: 28,
+  mass: 0.7,
+  delay,
+});
+
 export function AnimatedFeatureCardsClient({
   features,
   processSteps,
   children,
 }: AnimatedFeatureCardsClientProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="section-padding bg-warm-white">
       <div className="container-custom">
@@ -45,10 +55,10 @@ export function AnimatedFeatureCardsClient({
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
-                viewport={{ once: true, margin: '-80px' }}
+                transition={spring(index * 0.08)}
+                viewport={{ once: true, margin: '-30px' }}
                 className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -63,17 +73,17 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="max-w-4xl mx-auto mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '-80px' }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          viewport={{ once: true, margin: '-40px' }}
         >
           <motion.h2
             className="font-playfair text-3xl font-bold text-center mb-10"
-            initial={{ opacity: 0, y: 20 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: '-80px' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            viewport={{ once: true, margin: '-40px' }}
           >
             Ihr Termin bei uns — So läuft es ab
           </motion.h2>
@@ -81,10 +91,10 @@ export function AnimatedFeatureCardsClient({
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
-                viewport={{ once: true, margin: '-80px' }}
+                transition={spring(index * 0.07)}
+                viewport={{ once: true, margin: '-30px' }}
                 className="relative bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
@@ -99,28 +109,28 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '-80px' }}
+          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+          viewport={{ once: true, margin: '-30px' }}
         >
           {children}
         </motion.div>
 
         <motion.div
           className="mt-12 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+          viewport={{ once: true, margin: '-30px' }}
         >
           <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
             <motion.h2
               className="font-playfair text-2xl font-bold mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true, margin: '-80px' }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              viewport={{ once: true, margin: '-30px' }}
             >
               Für wen ist unser Service ideal?
             </motion.h2>
@@ -135,10 +145,10 @@ export function AnimatedFeatureCardsClient({
                 <motion.li
                   key={index}
                   className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  viewport={{ once: true, margin: '-80px' }}
+                  transition={spring(index * 0.06)}
+                  viewport={{ once: true, margin: '-20px' }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -150,18 +160,18 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="mt-12 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, margin: '-80px' }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+          viewport={{ once: true, margin: '-30px' }}
         >
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <motion.h2
               className="font-playfair text-2xl font-bold mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true, margin: '-80px' }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              viewport={{ once: true, margin: '-30px' }}
             >
               Warum Ihr Frisuren-Studio?
             </motion.h2>
@@ -177,10 +187,10 @@ export function AnimatedFeatureCardsClient({
                 <motion.li
                   key={index}
                   className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  viewport={{ once: true, margin: '-80px' }}
+                  transition={spring(index * 0.06)}
+                  viewport={{ once: true, margin: '-20px' }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>

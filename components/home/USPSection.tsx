@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Award, Globe, Star, Check, MapPin, Clock, Palette, Sparkles } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Award, Globe, Star, MapPin, Clock, Palette, Sparkles } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 const usps = [
@@ -48,28 +48,25 @@ const features = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+const spring = (delay: number) => ({
+  type: 'spring' as const,
+  stiffness: 300,
+  damping: 28,
+  mass: 0.7,
+  delay,
+});
 
 export function USPSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section id="usp-section" aria-labelledby="usp-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-16"
         >
           <h2 id="usp-heading" className="heading-lg mb-4">
@@ -80,17 +77,14 @@ export function USPSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-16"
-        >
+        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-16">
           {usps.map((usp, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 40, scale: 0.94 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={spring(index * 0.09)}
               className="text-center bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
               <div
@@ -103,19 +97,16 @@ export function USPSection() {
               <p className="text-gray-600">{usp.description}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
-        >
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -30 : 30, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={spring(index * 0.07)}
               className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md card-hover"
             >
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">
@@ -127,7 +118,7 @@ export function USPSection() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

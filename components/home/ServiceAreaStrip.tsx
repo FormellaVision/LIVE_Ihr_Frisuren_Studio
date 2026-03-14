@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { MapPin, Brain as Train } from 'lucide-react';
 
@@ -11,17 +11,24 @@ const areas = [
   { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
-
 export function ServiceAreaStrip() {
+  const prefersReducedMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.07 } },
+  };
+
+  const itemVariants = {
+    hidden: prefersReducedMotion ? {} : { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { type: 'spring' as const, stiffness: 320, damping: 26 },
+    },
+  };
+
   return (
     <section
       aria-labelledby="service-area-heading"
@@ -29,10 +36,10 @@ export function ServiceAreaStrip() {
     >
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 bg-teal-600/20 border border-teal-500/30 px-4 py-2 rounded-full mb-4">
@@ -52,7 +59,7 @@ export function ServiceAreaStrip() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-30px' }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8"
         >
           {areas.map((area) => (
@@ -78,10 +85,10 @@ export function ServiceAreaStrip() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.15 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400"
         >
           <div className="flex items-center gap-2">

@@ -1,33 +1,29 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+const springItem = (delay: number) => ({
+  type: 'spring' as const,
+  stiffness: 300,
+  damping: 28,
+  mass: 0.7,
+  delay,
+});
 
 export function ReviewsSection() {
+  const prefersReducedMotion = useReducedMotion();
   const displayReviews = REVIEWS.slice(0, 3);
 
   return (
     <section id="bewertungen" aria-labelledby="reviews-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-teal-50 px-6 py-3 rounded-full mb-4">
@@ -42,17 +38,14 @@ export function ReviewsSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-        >
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {displayReviews.map((review, index) => (
             <motion.article
               key={index}
-              variants={itemVariants}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={springItem(index * 0.08)}
               aria-label={`Bewertung von ${review.author}`}
               className="bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
@@ -83,13 +76,13 @@ export function ReviewsSection() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.18 }}
           className="text-center mt-12"
         >
           <a
