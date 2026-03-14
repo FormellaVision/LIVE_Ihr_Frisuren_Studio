@@ -94,6 +94,7 @@ export function Breadcrumb() {
               href="/"
               className="inline-flex items-center justify-center hover:opacity-75 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
               aria-label="Startseite"
+              data-breadcrumb-logo
             >
               <img
                 src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"

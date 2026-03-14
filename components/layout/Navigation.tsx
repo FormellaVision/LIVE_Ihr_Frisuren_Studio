@@ -14,6 +14,7 @@ export function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileHeaderVisible, setIsMobileHeaderVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showNavLogo, setShowNavLogo] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -45,7 +46,9 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 0) {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
@@ -54,12 +57,20 @@ export function Navigation() {
       if (isMobile && isSchnellkontaktPage) {
         const heroHeight = window.innerHeight;
         const scrollThreshold = heroHeight * 0.8;
-        const currentScroll = window.scrollY;
-        setIsMobileHeaderVisible(currentScroll > scrollThreshold);
+        setIsMobileHeaderVisible(scrollY > scrollThreshold);
+      }
+
+      const breadcrumbLogoEl = document.querySelector('[data-breadcrumb-logo]');
+      if (breadcrumbLogoEl) {
+        const rect = breadcrumbLogoEl.getBoundingClientRect();
+        setShowNavLogo(rect.bottom <= 64);
+      } else {
+        setShowNavLogo(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile, isSchnellkontaktPage]);
 
@@ -88,24 +99,31 @@ export function Navigation() {
       >
         <nav className="max-w-7xl mx-auto px-4" role="navigation" aria-label="Hauptnavigation">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-3 z-10">
-              <Image
-                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
-                alt="Ihr Frisuren-Studio Logo"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
-                priority
-              />
-              <div className="hidden sm:block">
-                <span className="font-playfair text-xl font-bold text-gray-900">
-                  Ihr Frisuren-Studio
-                </span>
-                <span className="block text-xs text-gray-500">
-                  Hamburg Hamm | Seit 2004
-                </span>
-              </div>
-            </Link>
+            <motion.div
+              initial={false}
+              animate={{ opacity: showNavLogo ? 1 : 0, scale: showNavLogo ? 1 : 0.8 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              style={{ pointerEvents: showNavLogo ? 'auto' : 'none' }}
+            >
+              <Link href="/" className="flex items-center gap-3 z-10">
+                <Image
+                  src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
+                  alt="Ihr Frisuren-Studio Logo"
+                  width={48}
+                  height={48}
+                  className="h-12 w-auto"
+                  priority
+                />
+                <div className="hidden sm:block">
+                  <span className="font-playfair text-xl font-bold text-gray-900">
+                    Ihr Frisuren-Studio
+                  </span>
+                  <span className="block text-xs text-gray-500">
+                    Hamburg Hamm | Seit 2004
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
 
             <div className="hidden md:flex items-center gap-8">
               {NAV_LINKS.map((link) => (
