@@ -40,9 +40,9 @@ export function QuickContactPhoneHero() {
       <div className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-lg mx-auto px-4 sm:px-8 py-8 sm:py-12 md:pt-8">
 
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
           className="text-center space-y-2"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
@@ -56,9 +56,9 @@ export function QuickContactPhoneHero() {
         <div className="flex-1 flex flex-col items-center justify-center space-y-8">
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ scale: 0.92 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
             className="relative"
           >
             <div className="absolute inset-0 -m-12" aria-hidden="true">
@@ -103,9 +103,9 @@ export function QuickContactPhoneHero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center max-w-lg px-2 sm:px-4"
           >
             <p className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-2 break-words">
@@ -118,9 +118,9 @@ export function QuickContactPhoneHero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="w-full space-y-8"
         >
 

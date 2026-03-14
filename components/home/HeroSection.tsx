@@ -16,7 +16,7 @@ export function HeroSection() {
       className="relative min-h-[100svh] overflow-hidden flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]"
     >
       <Image
-        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=60"
         alt="Premium Friseursalon Ihr Frisuren-Studio in Hamburg Hamm"
         fill
         priority
@@ -30,8 +30,8 @@ export function HeroSection() {
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-full flex-col items-center justify-center text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ scale: 0.96, y: 8 }}
+              animate={{ scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
               className="mt-16 sm:mt-20 md:mt-24 lg:mt-28 mb-4 sm:mb-5 md:mb-6"
             >
@@ -48,9 +48,9 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.12, ease: [0.23, 1, 0.32, 1] }}
+              transition={{ duration: 0.6, delay: 0.05, ease: [0.23, 1, 0.32, 1] }}
               className="w-full max-w-5xl"
             >
               <h1
@@ -70,9 +70,9 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.22 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               className="mt-5 sm:mt-6 w-full"
             >
               <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -97,9 +97,9 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.22 }}
               className="mt-4 sm:mt-5"
             >
               <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -120,7 +120,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.75, delay: 0.38 }}
+              transition={{ duration: 0.5, delay: 0.28 }}
               className="mt-3 sm:mt-4 lg:mt-6 lg:mb-10 xl:mb-14"
             >
               <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white/60 px-4 py-2 text-[11px] text-gray-800 backdrop-blur-sm shadow-[0_8px_20px_rgba(0,0,0,0.03)] sm:text-sm">
