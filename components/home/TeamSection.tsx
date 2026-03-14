@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { TeamCoverImage } from '@/components/shared/TeamCoverImage';
+import Image from 'next/image';
 import { Users } from 'lucide-react';
 
 export function TeamSection() {
@@ -35,9 +35,15 @@ export function TeamSection() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
-                className="w-full h-full"
+                className="w-full h-full relative"
               >
-                <TeamCoverImage />
+                <Image
+                  src="https://res.cloudinary.com/dqkld61zu/image/upload/v1773015024/Teamfoto2_w3uxfj.webp"
+                  alt="Team Ihr Frisuren-Studio Hamburg Hamm"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  className="object-cover object-top"
+                />
               </motion.div>
             </div>
 
