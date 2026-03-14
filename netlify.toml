@@ -1,3 +1,9 @@
+[[redirects]]
+  from = "https://www.ihr-frisuren-studio.de/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
+  status = 301
+  force = true
+
 [build]
 command = "npx next build"
 publish = ".next"
