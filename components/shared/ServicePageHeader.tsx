@@ -33,7 +33,7 @@ export function ServicePageHeader({
         style={{
           backgroundImage: `url('${backgroundImage}')`,
           backgroundPosition: 'center top',
-          backgroundSize: 'cover',
+          backgroundSize: isContain ? 'auto 100%' : 'cover',
         }}
       />
 
