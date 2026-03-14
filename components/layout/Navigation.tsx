@@ -107,9 +107,9 @@ export function Navigation() {
           <div className="flex items-center justify-between h-16">
             <motion.div
               initial={false}
-              animate={{ opacity: showNavLogo ? 1 : 0, scale: showNavLogo ? 1 : 0.8 }}
+              animate={{ opacity: (isSchnellkontaktPage ? showNavLogo : true) ? 1 : 0, scale: (isSchnellkontaktPage ? showNavLogo : true) ? 1 : 0.8 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
-              style={{ pointerEvents: showNavLogo ? 'auto' : 'none' }}
+              style={{ pointerEvents: (isSchnellkontaktPage ? showNavLogo : true) ? 'auto' : 'none' }}
             >
               <Link href="/" className="flex items-center gap-3 z-10">
                 <Image
