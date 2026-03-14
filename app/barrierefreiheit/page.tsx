@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 
 export const metadata: Metadata = {
   title: 'Barrierefreiheit',
@@ -15,8 +16,11 @@ export default function BarrierefreiheitPage() {
     <div className="section-padding">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
-          <h1 className="heading-lg mb-8">Erklärung zur Barrierefreiheit</h1>
+          <AnimatedSection direction="up" delay={0}>
+            <h1 className="heading-lg mb-8">Erklärung zur Barrierefreiheit</h1>
+          </AnimatedSection>
 
+          <AnimatedSection direction="up" delay={0.1}>
           <div className="prose-body">
             <p>
               {BUSINESS_INFO.name} ist bemüht, seine Website im Einklang mit den nationalen
@@ -76,6 +80,7 @@ export default function BarrierefreiheitPage() {
               entsprechend vorbereiten können.
             </p>
           </div>
+          </AnimatedSection>
         </div>
       </div>
     </div>

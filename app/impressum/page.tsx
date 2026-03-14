@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -15,8 +16,11 @@ export default function ImpressumPage() {
     <div className="section-padding">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
-          <h1 className="heading-lg mb-8">Impressum</h1>
+          <AnimatedSection direction="up" delay={0}>
+            <h1 className="heading-lg mb-8">Impressum</h1>
+          </AnimatedSection>
 
+          <AnimatedSection direction="up" delay={0.1}>
           <div className="prose-body">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
@@ -122,6 +126,7 @@ export default function ImpressumPage() {
               Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
             </p>
           </div>
+          </AnimatedSection>
         </div>
       </div>
     </div>

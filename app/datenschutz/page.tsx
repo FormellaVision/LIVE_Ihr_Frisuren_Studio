@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CookieResetButton } from '@/components/layout/CookieResetButton';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 
 export const metadata: Metadata = {
   title: 'Datenschutz',
@@ -16,8 +17,11 @@ export default function DatenschutzPage() {
     <div className="section-padding">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
-          <h1 className="heading-lg mb-8">Datenschutzerklärung</h1>
+          <AnimatedSection direction="up" delay={0}>
+            <h1 className="heading-lg mb-8">Datenschutzerklärung</h1>
+          </AnimatedSection>
 
+          <AnimatedSection direction="up" delay={0.1}>
           <div className="prose-body">
             <h2>1. Datenschutz auf einen Blick</h2>
 
@@ -352,6 +356,7 @@ export default function DatenschutzPage() {
               </a>
             </p>
           </div>
+          </AnimatedSection>
         </div>
       </div>
     </div>

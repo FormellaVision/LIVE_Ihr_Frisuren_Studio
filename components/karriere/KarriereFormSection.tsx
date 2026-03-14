@@ -1,10 +1,11 @@
 import { KarriereForm } from './KarriereForm';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 
 export function KarriereFormSection() {
   return (
     <section id="bewerbung" className="section-padding bg-warm-white">
       <div className="container-custom max-w-2xl mx-auto">
-        <div className="text-center mb-10">
+        <AnimatedSection direction="up" delay={0} className="text-center mb-10">
           <p className="text-sm font-semibold text-teal-600 uppercase tracking-widest mb-3">Bewerbung</p>
           <h2 className="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             In einer Minute bewerben
@@ -12,11 +13,13 @@ export function KarriereFormSection() {
           <p className="text-gray-500 text-base leading-relaxed max-w-md mx-auto">
             Kein langer Bewerbungsprozess. Füll das Formular aus – wir melden uns persönlich bei dir.
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-8 overflow-hidden">
-          <KarriereForm />
-        </div>
+        <AnimatedSection direction="up" delay={0.12} hasScale>
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-8 overflow-hidden">
+            <KarriereForm />
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

@@ -6,6 +6,8 @@ import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Star, ExternalLink, Quote } from 'lucide-react';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 
 const nextStepServices = [
   {
@@ -63,7 +65,7 @@ export default function BewertungenPage() {
 
       <section className="section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto mb-12">
+          <AnimatedSection direction="up" delay={0} hasScale className="max-w-4xl mx-auto mb-12">
             <div className="bg-gradient-to-br from-teal-600 to-teal-700 rounded-2xl p-8 text-white text-center">
               <div className="flex justify-center gap-2 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -75,37 +77,41 @@ export default function BewertungenPage() {
                 Durchschnittliche Bewertung bei {BUSINESS_INFO.reviews.count}+ Google-Rezensionen
               </p>
             </div>
-          </div>
+          </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {REVIEWS.map((review, index) => (
-              <div
+              <ScrollAnimationCard
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg relative"
+                direction={index % 2 === 0 ? 'left' : 'right'}
+                delay={index * 0.08}
+                hasScale
               >
-                <Quote className="absolute top-6 right-6 w-10 h-10 text-gray-100" />
-                <div className="flex gap-1 text-amber-500 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic leading-relaxed relative z-10">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-xl font-bold text-teal-600">
-                    {review.initial}
+                <div className="bg-white p-8 rounded-2xl shadow-lg relative h-full">
+                  <Quote className="absolute top-6 right-6 w-10 h-10 text-gray-100" />
+                  <div className="flex gap-1 text-amber-500 mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-current" />
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-semibold">{review.author}</p>
-                    <p className="text-sm text-gray-500">{review.date}</p>
+                  <p className="text-gray-700 mb-6 italic leading-relaxed relative z-10">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-xl font-bold text-teal-600">
+                      {review.initial}
+                    </div>
+                    <div>
+                      <p className="font-semibold">{review.author}</p>
+                      <p className="text-sm text-gray-500">{review.date}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollAnimationCard>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <AnimatedSection direction="up" delay={0.1} className="text-center mt-12">
             <a
               href="https://www.google.com/search?sa=X&sca_esv=9be909eea5a29677&sxsrf=ANbL-n4KPqoMrrt9irghvZTEaAvHRMVS6w:1773500670280&q=Ihr+Frisuren-Studio+Rezensionen&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDM1NjczMTMyNTA2MbU0Mrc0ttjAyPiKUd4zo0jBrSizuLQoNU83uKQ0JTNfISi1KjWvODM_LzVvESshFQDI5zTeXwAAAA&rldimm=16537646250345927938&tbm=lcl&hl=de-DE&ved=2ahUKEwjc3Nfr1J-TAxW-SPEDHf78E2cQ9fQKegQIXBAG&biw=1904&bih=960&dpr=1#lkt=LocalPoiReviews"
               target="_blank"
@@ -115,9 +121,9 @@ export default function BewertungenPage() {
               <ExternalLink className="w-5 h-5" />
               Alle Bewertungen auf Google ansehen
             </a>
-          </div>
+          </AnimatedSection>
 
-          <div className="mt-16 max-w-3xl mx-auto text-center">
+          <AnimatedSection direction="up" delay={0.15} className="mt-16 max-w-3xl mx-auto text-center">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-8">
               <h2 className="font-playfair text-2xl font-bold mb-4">
                 Waren Sie zufrieden mit Ihrem Besuch?
@@ -136,7 +142,7 @@ export default function BewertungenPage() {
                 Bewertung abgeben
               </a>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
