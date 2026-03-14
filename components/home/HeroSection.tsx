@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 export function HeroSection() {
-  const reviewCount = BUSINESS_INFO?.reviews?.count ?? 245;
-  const reviewRating = BUSINESS_INFO?.reviews?.rating ?? '4,9';
+  const reviewCount = BUSINESS_INFO.reviews.count;
+  const reviewRating = BUSINESS_INFO.reviews.rating;
   const foundedYear = BUSINESS_INFO?.founded ?? 2004;
 
   return (

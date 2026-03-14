@@ -1,3 +1,5 @@
+import { BUSINESS_INFO } from '@/lib/constants';
+
 export interface ServiceAreaData {
   service: string;
   serviceSlug: string;
@@ -34,7 +36,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten',
       'U2/U4 zu Burgstraße oder Buslinien 25, 130',
       'Spezialisiert auf Damenschnitte und Colorationen',
-      '250+ Google-Bewertungen mit 4.9 Sternen',
+      `${BUSINESS_INFO.reviews.count}+ Google-Bewertungen mit ${BUSINESS_INFO.reviews.rating} Sternen`,
       'Entspannte Atmosphäre und individuelle Beratung',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -93,7 +95,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten mit U-Bahn',
       'Spezialisiert auf Herrenschnitte und Bartpflege',
-      '250+ zufriedene Kunden mit 4.9 Sternen',
+      `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden mit ${BUSINESS_INFO.reviews.rating} Sternen`,
       'Freundliches Team, keine Wartezeiten',
       'Gentleman-Paket inkl. Schnitt, Bart & Augenbrauen ab 49€',
     ],
@@ -290,7 +292,7 @@ const LEGACY_BENEFITS = [
   'Meisterbetrieb seit 2004 – zertifizierte Qualität',
   'Spezialisiert auf Balayage und moderne Techniken',
   'Mehrsprachiges Team (Deutsch, Englisch, Türkisch, Persisch)',
-  '290+ Google-Bewertungen mit 4.9 Sternen',
+  `${BUSINESS_INFO.reviews.count}+ Google-Bewertungen mit ${BUSINESS_INFO.reviews.rating} Sternen`,
   'Individuelle Beratung und maßgeschneiderte Haarkonzepte',
 ];
 
