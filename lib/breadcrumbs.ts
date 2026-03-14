@@ -16,6 +16,7 @@ export const SERVICE_LABELS: Record<string, string> = {
   'impressum': 'Impressum',
   'datenschutz': 'Datenschutz',
   'barrierefreiheit': 'Barrierefreiheit',
+  'karriere': 'Karriere',
 };
 
 export const AREA_LABELS: Record<string, string> = {
