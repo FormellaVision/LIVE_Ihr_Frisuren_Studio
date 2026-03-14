@@ -7,6 +7,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { SERVICES_DAMEN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Clock, Droplets, Shield } from 'lucide-react';
@@ -161,78 +162,90 @@ export default function HaareFaerbenPage() {
                     <h2 className="sr-only">Unsere Stärken beim Haare färben in Hamburg Hamm</h2>
                     <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
                         {features.map((feature, index) => (
-                            <div key={index} className="text-center bg-white p-8 rounded-2xl shadow-lg">
-                                <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <feature.icon className="w-8 h-8 text-teal-600" />
+                            <ScrollAnimationCard key={index} direction="up" delay={index * 0.07} hasScale>
+                                <div className="text-center bg-white p-8 rounded-2xl shadow-lg">
+                                    <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <feature.icon className="w-8 h-8 text-teal-600" />
+                                    </div>
+                                    <h3 className="font-playfair text-xl font-bold mb-2">{feature.title}</h3>
+                                    <p className="text-gray-600">{feature.description}</p>
                                 </div>
-                                <h3 className="font-playfair text-xl font-bold mb-2">{feature.title}</h3>
-                                <p className="text-gray-600">{feature.description}</p>
-                            </div>
+                            </ScrollAnimationCard>
                         ))}
                     </div>
 
                     {/* Ablauf */}
-                    <div className="max-w-4xl mx-auto mb-16">
-                        <h2 className="font-playfair text-3xl font-bold text-center mb-10">So läuft Ihre Färbebehandlung ab</h2>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {processSteps.map((step, index) => (
-                                <div key={index} className="relative bg-white p-6 rounded-2xl shadow-lg">
-                                    <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
-                                        {step.step}
-                                    </div>
-                                    <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                                    <p className="text-sm text-gray-600">{step.description}</p>
-                                </div>
-                            ))}
+                    <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+                        <div className="max-w-4xl mx-auto mb-16">
+                            <h2 className="font-playfair text-3xl font-bold text-center mb-10">So läuft Ihre Färbebehandlung ab</h2>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {processSteps.map((step, index) => (
+                                    <ScrollAnimationCard key={index} direction="up" delay={index * 0.06}>
+                                        <div className="relative bg-white p-6 rounded-2xl shadow-lg">
+                                            <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                                                {step.step}
+                                            </div>
+                                            <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                                            <p className="text-sm text-gray-600">{step.description}</p>
+                                        </div>
+                                    </ScrollAnimationCard>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    </ScrollAnimationCard>
 
                     {/* Preise */}
-                    <div className="max-w-3xl mx-auto mb-16">
-                        <PriceList title="Haare färben — Unsere Preise" services={colorationServices} />
-                    </div>
+                    <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+                        <div className="max-w-3xl mx-auto mb-16">
+                            <PriceList title="Haare färben — Unsere Preise" services={colorationServices} />
+                        </div>
+                    </ScrollAnimationCard>
 
                     {/* Für wen geeignet */}
-                    <div className="max-w-3xl mx-auto">
-                        <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
-                            <h2 className="font-playfair text-2xl font-bold mb-4">
-                                Für wen ist professionelles Haare färben geeignet?
-                            </h2>
-                            <ul className="space-y-3">
-                                {suitableFor.map((item, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                    <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+                        <div className="max-w-3xl mx-auto">
+                            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
+                                <h2 className="font-playfair text-2xl font-bold mb-4">
+                                    Für wen ist professionelles Haare färben geeignet?
+                                </h2>
+                                <ul className="space-y-3">
+                                    {suitableFor.map((item, index) => (
+                                        <li key={index} className="flex items-start gap-3">
+                                            <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </ScrollAnimationCard>
 
                     {/* Vertrauenselemente */}
-                    <div className="mt-12 max-w-3xl mx-auto">
-                        <div className="bg-white rounded-2xl p-8 shadow-lg">
-                            <h2 className="font-playfair text-2xl font-bold mb-4">
-                                Warum Ihr Frisuren-Studio für Haare färben in Hamburg Hamm?
-                            </h2>
-                            <ul className="space-y-3">
-                                {[
-                                    `Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm`,
-                                    'Erfahrene Coloristinnen mit Spezialisierung auf Balayage und Strähnen',
-                                    'Olaplex-Behandlung zum Schutz der Haarstruktur inklusive',
-                                    'Hochwertige Colorationsprodukte für langanhaltende Ergebnisse',
-                                    'Mehrsprachige Beratung (Deutsch, Englisch, Türkisch, Persisch)',
-                                    `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden (${BUSINESS_INFO.reviews.rating} Sterne bei Google)`,
-                                    'Afterwork-Termine nach 19:00 Uhr möglich',
-                                ].map((item, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                    <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+                        <div className="mt-12 max-w-3xl mx-auto">
+                            <div className="bg-white rounded-2xl p-8 shadow-lg">
+                                <h2 className="font-playfair text-2xl font-bold mb-4">
+                                    Warum Ihr Frisuren-Studio für Haare färben in Hamburg Hamm?
+                                </h2>
+                                <ul className="space-y-3">
+                                    {[
+                                        `Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm`,
+                                        'Erfahrene Coloristinnen mit Spezialisierung auf Balayage und Strähnen',
+                                        'Olaplex-Behandlung zum Schutz der Haarstruktur inklusive',
+                                        'Hochwertige Colorationsprodukte für langanhaltende Ergebnisse',
+                                        'Mehrsprachige Beratung (Deutsch, Englisch, Türkisch, Persisch)',
+                                        `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden (${BUSINESS_INFO.reviews.rating} Sterne bei Google)`,
+                                        'Afterwork-Termine nach 19:00 Uhr möglich',
+                                    ].map((item, index) => (
+                                        <li key={index} className="flex items-start gap-3">
+                                            <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </ScrollAnimationCard>
                 </div>
             </section>
 

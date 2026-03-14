@@ -5,6 +5,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Palette, Sparkles, Award, Timer, Droplets, Star, Scissors } from 'lucide-react';
@@ -136,119 +137,129 @@ export default function BalayagePage() {
             {features.map((feature, index) => {
               const Icon = iconMap[feature.iconName];
               return (
-                <div key={index} className="text-center bg-white p-6 rounded-xl shadow-lg">
-                  <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-7 h-7 text-amber-600" strokeWidth={1.5} />
+                <ScrollAnimationCard key={index} direction="up" delay={index * 0.07} hasScale>
+                  <div className="text-center bg-white p-6 rounded-xl shadow-lg">
+                    <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-7 h-7 text-amber-600" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-bold mb-2">{feature.title}</h3>
+                    <p className="text-sm text-gray-600">{feature.description}</p>
                   </div>
-                  <h3 className="font-bold mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
-                </div>
+                </ScrollAnimationCard>
               );
             })}
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-6 text-amber-600">
-                Balayage & Coloration Preise
-              </h2>
-              <div className="space-y-4">
-                {balayageServices.map((service, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-start py-3 border-b border-gray-100 last:border-0"
-                  >
-                    <div className="flex-1 pr-4">
-                      <span className="font-medium text-gray-900">{service.name}</span>
-                      <p className="text-sm text-gray-500 mt-1">{service.description}</p>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <h2 className="font-playfair text-2xl font-bold mb-6 text-amber-600">
+                  Balayage & Coloration Preise
+                </h2>
+                <div className="space-y-4">
+                  {balayageServices.map((service, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-start py-3 border-b border-gray-100 last:border-0"
+                    >
+                      <div className="flex-1 pr-4">
+                        <span className="font-medium text-gray-900">{service.name}</span>
+                        <p className="text-sm text-gray-500 mt-1">{service.description}</p>
+                      </div>
+                      <span className="font-bold text-amber-600 whitespace-nowrap">
+                        {service.price}
+                      </span>
                     </div>
-                    <span className="font-bold text-amber-600 whitespace-nowrap">
-                      {service.price}
-                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollAnimationCard>
+
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-4xl mx-auto">
+              <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
+                <h2 className="font-playfair text-2xl font-bold mb-6">
+                  Was ist Balayage?
+                </h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-gray-700 mb-4">
+                      Balayage (französisch für &quot;fegen&quot;) ist eine Freihand-Färbetechnik,
+                      bei der die Farbe mit einem Pinsel auf das Haar aufgetragen wird.
+                      Das Ergebnis: Natürlich aussehende, sonnendurchflutete Highlights.
+                    </p>
+                    <p className="text-gray-700">
+                      Im Gegensatz zu klassischen Foliensträhnen entstehen weichere Übergänge
+                      und ein natürlicheres Erscheinungsbild. Perfekt für alle, die einen
+                      pflegeleichten Look suchen.
+                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-6">
-                Was ist Balayage?
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p className="text-gray-700 mb-4">
-                    Balayage (französisch für &quot;fegen&quot;) ist eine Freihand-Färbetechnik,
-                    bei der die Farbe mit einem Pinsel auf das Haar aufgetragen wird.
-                    Das Ergebnis: Natürlich aussehende, sonnendurchflutete Highlights.
-                  </p>
-                  <p className="text-gray-700">
-                    Im Gegensatz zu klassischen Foliensträhnen entstehen weichere Übergänge
-                    und ein natürlicheres Erscheinungsbild. Perfekt für alle, die einen
-                    pflegeleichten Look suchen.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-3">Vorteile von Balayage</h3>
-                  <ul className="space-y-2">
-                    {[
-                      'Natürliches, sonnenverwöhntes Aussehen',
-                      'Weiche Übergänge ohne harte Ansätze',
-                      'Längere Abstände zwischen den Terminen',
-                      'Pflegeleicht beim Herauswachsen',
-                      'Individuell an Ihre Haarstruktur angepasst',
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <Check className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <h3 className="font-bold mb-3">Vorteile von Balayage</h3>
+                    <ul className="space-y-2">
+                      {[
+                        'Natürliches, sonnenverwöhntes Aussehen',
+                        'Weiche Übergänge ohne harte Ansätze',
+                        'Längere Abstände zwischen den Terminen',
+                        'Pflegeleicht beim Herauswachsen',
+                        'Individuell an Ihre Haarstruktur angepasst',
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <Check className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
 
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Unsere Balayage-Expertinnen
-              </h2>
-              <p className="text-gray-700 mb-4">
-                In unserem Team haben wir spezialisierte Coloristinnen, die regelmäßig
-                Fortbildungen in modernsten Färbetechniken besuchen. Nassrin Karimi ist
-                unsere Balayage- und Colorations-Spezialistin mit langjähriger Erfahrung.
-              </p>
-              <p className="text-gray-700">
-                Wir beraten Sie individuell, welche Technik und Farbgebung am besten zu
-                Ihrem Typ, Ihrer Haarstruktur und Ihrem Lifestyle passt.
-              </p>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h2 className="font-playfair text-2xl font-bold mb-4">
+                  Unsere Balayage-Expertinnen
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  In unserem Team haben wir spezialisierte Coloristinnen, die regelmäßig
+                  Fortbildungen in modernsten Färbetechniken besuchen. Nassrin Karimi ist
+                  unsere Balayage- und Colorations-Spezialistin mit langjähriger Erfahrung.
+                </p>
+                <p className="text-gray-700">
+                  Wir beraten Sie individuell, welche Technik und Farbgebung am besten zu
+                  Ihrem Typ, Ihrer Haarstruktur und Ihrem Lifestyle passt.
+                </p>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
 
           {/* Pflegetipps */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Pflegetipps nach der Balayage
-              </h2>
-              <ul className="space-y-3">
-                {[
-                  'Sulfatfreies Shampoo verwenden für langanhaltende Farbe',
-                  'Haare nicht zu heiß waschen — lauwarmes Wasser schont die Farbe',
-                  'Regelmäßig Farbschutz-Kur oder Olaplex anwenden',
-                  'UV-Schutz für die Haare im Sommer nutzen',
-                  'Auffrischung alle 3-6 Monate empfohlen',
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
+                <h2 className="font-playfair text-2xl font-bold mb-4">
+                  Pflegetipps nach der Balayage
+                </h2>
+                <ul className="space-y-3">
+                  {[
+                    'Sulfatfreies Shampoo verwenden für langanhaltende Farbe',
+                    'Haare nicht zu heiß waschen — lauwarmes Wasser schont die Farbe',
+                    'Regelmäßig Farbschutz-Kur oder Olaplex anwenden',
+                    'UV-Schutz für die Haare im Sommer nutzen',
+                    'Auffrischung alle 3-6 Monate empfohlen',
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
         </div>
       </section>
 

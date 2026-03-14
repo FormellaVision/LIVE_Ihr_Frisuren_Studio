@@ -6,6 +6,7 @@ import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 import { RelatedServices } from '@/components/sections/RelatedServices';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { SERVICES_HERREN, BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } from '@/lib/schema';
 import { Check, Scissors, Award } from 'lucide-react';
@@ -125,100 +126,114 @@ export default function HerrenfriseurPage() {
           <h2 className="sr-only">Unsere Stärken als Herrenfriseur Hamburg Hamm</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
             {features.map((feature, index) => (
-              <div key={index} className="text-center bg-white p-8 rounded-2xl shadow-lg">
-                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-8 h-8 text-white" />
+              <ScrollAnimationCard key={index} direction="up" delay={index * 0.07} hasScale>
+                <div className="text-center bg-white p-8 rounded-2xl shadow-lg">
+                  <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-playfair text-xl font-bold mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
-                <h3 className="font-playfair text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
+              </ScrollAnimationCard>
             ))}
           </div>
 
           {/* Ablauf */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="font-playfair text-3xl font-bold text-center mb-10">Ihr Termin — So läuft es ab</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {processSteps.map((step, index) => (
-                <div key={index} className="relative bg-white p-6 rounded-2xl shadow-lg">
-                  <div className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
-                    {step.step}
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600">{step.description}</p>
-                </div>
-              ))}
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="max-w-4xl mx-auto mb-16">
+              <h2 className="font-playfair text-3xl font-bold text-center mb-10">Ihr Termin — So läuft es ab</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {processSteps.map((step, index) => (
+                  <ScrollAnimationCard key={index} direction="up" delay={index * 0.06}>
+                    <div className="relative bg-white p-6 rounded-2xl shadow-lg">
+                      <div className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                        {step.step}
+                      </div>
+                      <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-600">{step.description}</p>
+                    </div>
+                  </ScrollAnimationCard>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
 
-          <div className="max-w-3xl mx-auto">
-            <PriceList title="Herren" services={SERVICES_HERREN} />
-          </div>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="max-w-3xl mx-auto">
+              <PriceList title="Herren" services={SERVICES_HERREN} />
+            </div>
+          </ScrollAnimationCard>
 
           {/* Gentleman-Paket Highlight */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Das Gentleman-Paket — Nur 49€
-              </h2>
-              <p className="text-gray-700 mb-4">
-                Unser Rundum-Sorglos-Paket für den modernen Mann:
-              </p>
-              <ul className="space-y-2">
-                {[
-                  'Design-Schnitt mit Waschen & Styling',
-                  'Professionelle Bartmodellage',
-                  'Augenbrauen-Korrektur',
-                  'Hochwertige Pflegeprodukte',
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8">
+                <h2 className="font-playfair text-2xl font-bold mb-4">
+                  Das Gentleman-Paket — Nur 49€
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  Unser Rundum-Sorglos-Paket für den modernen Mann:
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Design-Schnitt mit Waschen & Styling',
+                    'Professionelle Bartmodellage',
+                    'Augenbrauen-Korrektur',
+                    'Hochwertige Pflegeprodukte',
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
 
           {/* Für wen geeignet */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Für wen ist unser Herrenfriseur-Service ideal?
-              </h2>
-              <ul className="space-y-3">
-                {suitableFor.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
+                <h2 className="font-playfair text-2xl font-bold mb-4">
+                  Für wen ist unser Herrenfriseur-Service ideal?
+                </h2>
+                <ul className="space-y-3">
+                  {suitableFor.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
 
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 className="font-playfair text-2xl font-bold mb-4">
-                Warum Ihr Frisuren-Studio für Herren?
-              </h2>
-              <ul className="space-y-3">
-                {[
-                  'Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung',
-                  'Moderne Schnitt- und Styling-Techniken',
-                  'Professionelle Bartpflege und -beratung',
-                  'Entspannte Atmosphäre für den Mann von heute',
-                  'Afterwork-Termine auch nach 19:00 Uhr',
-                  `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden (${BUSINESS_INFO.reviews.rating} Sterne)`,
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <ScrollAnimationCard direction="up" delay={0.05} hasScale>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h2 className="font-playfair text-2xl font-bold mb-4">
+                  Warum Ihr Frisuren-Studio für Herren?
+                </h2>
+                <ul className="space-y-3">
+                  {[
+                    'Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung',
+                    'Moderne Schnitt- und Styling-Techniken',
+                    'Professionelle Bartpflege und -beratung',
+                    'Entspannte Atmosphäre für den Mann von heute',
+                    'Afterwork-Termine auch nach 19:00 Uhr',
+                    `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden (${BUSINESS_INFO.reviews.rating} Sterne)`,
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationCard>
         </div>
       </section>
 
