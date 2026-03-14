@@ -43,7 +43,7 @@ export default function HornPage() {
           travelIcon: 'train',
           highlights: [
             'Für Kundinnen und Kunden aus Horn – schnell erreichbar in 10 Minuten',
-            `Über ${BUSINESS_INFO.reviews.count} zufriedene Kunden – ${BUSINESS_INFO.reviews.rating} Sterne auf Google`,
+            `${BUSINESS_INFO.reviews.count}+ zufriedene Kunden – ${BUSINESS_INFO.reviews.rating} Sterne auf Google`,
             'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg Hamm',
             'Persönliche Beratung in unserem Salon in Hamburg Hamm',
             'Afterwork-Termine Di–Fr nach 19:00 Uhr – ideal für Berufstätige',

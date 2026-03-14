@@ -32,7 +32,7 @@ export function ReviewsSection() {
           </div>
           <h2 id="reviews-heading" className="heading-lg mb-4">Das sagen unsere Kunden</h2>
           <p className="text-xl text-gray-600">
-            Über {BUSINESS_INFO.reviews.count} zufriedene Kunden aus Hamburg Hamm & Umgebung
+            {BUSINESS_INFO.reviews.count}+ zufriedene Kunden aus Hamburg Hamm & Umgebung
           </p>
         </motion.div>
 
