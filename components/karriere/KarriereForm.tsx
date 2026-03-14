@@ -136,8 +136,8 @@ export function KarriereForm() {
   };
 
   return (
-    <form onSubmit={handleEmailApply} noValidate className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <form onSubmit={handleEmailApply} noValidate className="space-y-6 w-full min-w-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 min-w-0">
         <FormField
           label="Vorname"
           required
@@ -169,7 +169,7 @@ export function KarriereForm() {
         </FormField>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 min-w-0">
         <FormField
           label="Telefonnummer"
           required
@@ -229,7 +229,7 @@ export function KarriereForm() {
           Optionale Angaben
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 min-w-0">
           <FormField label="Berufserfahrung" icon={<Briefcase className="w-4 h-4" />}>
             <input
               type="text"
@@ -300,21 +300,21 @@ export function KarriereForm() {
         </Link>.
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-3 w-full">
         <button
           type="submit"
-          className="flex-1 inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-amber-200"
+          className="w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-white font-bold text-base px-4 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-amber-200"
         >
-          <Mail className="w-5 h-5" />
+          <Mail className="w-5 h-5 flex-shrink-0" />
           Per E-Mail bewerben
         </button>
 
         <button
           type="button"
           onClick={handleWhatsAppApply}
-          className="flex-1 inline-flex items-center justify-center gap-2.5 border border-gray-200 hover:border-teal-500 text-gray-700 hover:text-teal-700 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] bg-white"
+          className="w-full inline-flex items-center justify-center gap-2.5 border border-gray-200 hover:border-teal-500 text-gray-700 hover:text-teal-700 font-bold text-base px-4 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] bg-white"
         >
-          <Send className="w-5 h-5" />
+          <Send className="w-5 h-5 flex-shrink-0" />
           Per WhatsApp bewerben
         </button>
       </div>
@@ -323,7 +323,7 @@ export function KarriereForm() {
 }
 
 function fieldClass(hasError: boolean) {
-  return `w-full rounded-xl border px-4 py-3.5 text-gray-900 text-sm bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 transition-all duration-200 ${
+  return `w-full min-w-0 rounded-xl border px-4 py-3.5 text-gray-900 text-sm bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 transition-all duration-200 ${
     hasError
       ? 'border-red-300 focus:ring-red-200 focus:border-red-400'
       : 'border-gray-200 focus:ring-teal-100 focus:border-teal-500'
@@ -340,7 +340,7 @@ interface FormFieldProps {
 
 function FormField({ label, required, icon, error, children }: FormFieldProps) {
   return (
-    <div>
+    <div className="min-w-0 w-full">
       <label className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 mb-1.5">
         {icon && <span className="text-gray-400">{icon}</span>}
         {label}
