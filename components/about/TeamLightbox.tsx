@@ -94,7 +94,7 @@ export function TeamLightbox() {
               >
                 <Image
                   src={member.image}
-                  alt={member.name}
+                  alt={`${member.name} – ${member.role} bei Ihr Frisuren-Studio Hamburg Hamm`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -208,7 +208,7 @@ export function TeamLightbox() {
               <div className="relative w-full aspect-square max-h-[70vh] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src={TEAM_MEMBERS[activeIndex].image}
-                  alt={TEAM_MEMBERS[activeIndex].name}
+                  alt={`${TEAM_MEMBERS[activeIndex].name} – ${TEAM_MEMBERS[activeIndex].role} bei Ihr Frisuren-Studio Hamburg Hamm`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 90vw, 500px"

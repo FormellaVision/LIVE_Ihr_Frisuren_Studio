@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 
 interface GalleryImage {
@@ -107,11 +108,12 @@ export function GalleryLightbox({ images }: GalleryLightboxProps) {
               className="relative group overflow-hidden rounded-xl shadow-lg aspect-square w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400"
               aria-label={`Foto öffnen: ${image.alt}`}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -184,6 +186,7 @@ export function GalleryLightbox({ images }: GalleryLightboxProps) {
               <img
                 src={images[activeIndex].src.replace('w=800', 'w=1400')}
                 alt={images[activeIndex].alt}
+                decoding="async"
                 className="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl"
               />
               <div className="mt-3 text-center">

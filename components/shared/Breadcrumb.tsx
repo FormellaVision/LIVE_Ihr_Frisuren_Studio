@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { SERVICE_LABELS, AREA_LABELS, AREA_HREFS } from '@/lib/breadcrumbs';
 
 interface BreadcrumbItem {
@@ -96,9 +97,9 @@ export function Breadcrumb() {
               aria-label="Startseite"
               data-breadcrumb-logo
             >
-              <img
+              <Image
                 src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
-                alt="Startseite"
+                alt="Ihr Frisuren-Studio – zur Startseite"
                 width={48}
                 height={48}
                 className="h-12 w-auto"

@@ -96,7 +96,6 @@ export function QuickContactPhoneHero() {
                 width={400}
                 height={400}
                 priority
-                unoptimized
                 className="w-56 h-56 xs:w-64 xs:h-64 sm:w-72 sm:h-72 object-cover rounded-full drop-shadow-2xl"
               />
             </div>
