@@ -34,7 +34,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten',
       'U2/U4 zu Burgstraße oder Buslinien 25, 130',
       'Spezialisiert auf Damenschnitte und Colorationen',
-      '245+ Google-Bewertungen mit 4.9 Sternen',
+      '250+ Google-Bewertungen mit 4.9 Sternen',
       'Entspannte Atmosphäre und individuelle Beratung',
     ],
     image: 'https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -93,7 +93,7 @@ export const SERVICE_AREAS: ServiceAreaData[] = [
     benefits: [
       'Kurze Anfahrt aus Borgfelde – ca. 5-10 Minuten mit U-Bahn',
       'Spezialisiert auf Herrenschnitte und Bartpflege',
-      '245+ zufriedene Kunden mit 4.9 Sternen',
+      '250+ zufriedene Kunden mit 4.9 Sternen',
       'Freundliches Team, keine Wartezeiten',
       'Gentleman-Paket inkl. Schnitt, Bart & Augenbrauen ab 49€',
     ],

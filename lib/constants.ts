@@ -28,7 +28,7 @@ export const BUSINESS_INFO = {
     longitude: 10.0412498,
   },
   reviews: {
-    count: 245,
+    count: 250,
     rating: 4.9,
   },
 } as const;
