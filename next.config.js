@@ -34,6 +34,11 @@ const nextConfig = {
         destination: '/leistungen',
         permanent: true,
       },
+      {
+        source: '/schnellkontakt',
+        destination: '/kontakt',
+        permanent: true,
+      },
     ];
   },
   async headers() {

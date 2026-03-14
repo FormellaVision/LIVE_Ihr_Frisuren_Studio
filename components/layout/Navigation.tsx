@@ -74,7 +74,6 @@ function useFocusTrap(isActive: boolean, onEscape?: () => void) {
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [isMobileHeaderVisible, setIsMobileHeaderVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showNavLogo, setShowNavLogo] = useState(false);
   const pathname = usePathname();
@@ -107,8 +106,6 @@ export function Navigation() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const isSchnellkontaktPage = pathname === '/schnellkontakt';
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -117,12 +114,6 @@ export function Navigation() {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
-      }
-
-      if (isMobile && isSchnellkontaktPage) {
-        const heroHeight = window.innerHeight;
-        const scrollThreshold = heroHeight * 0.8;
-        setIsMobileHeaderVisible(scrollY > scrollThreshold);
       }
 
       const heroSection = document.querySelector('[data-hero-section]');
@@ -143,13 +134,13 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile, isSchnellkontaktPage]);
+  }, [isMobile]);
 
   return (
     <>
       <motion.header
         initial={{ y: -80 }}
-        animate={{ y: isMobile && isSchnellkontaktPage ? (isMobileHeaderVisible ? 0 : -80) : 0 }}
+        animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
@@ -170,9 +161,8 @@ export function Navigation() {
           <div className="flex items-center justify-between h-16">
             <motion.div
               initial={false}
-              animate={{ opacity: (isSchnellkontaktPage ? showNavLogo : true) ? 1 : 0, scale: (isSchnellkontaktPage ? showNavLogo : true) ? 1 : 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
-              style={{ pointerEvents: (isSchnellkontaktPage ? showNavLogo : true) ? 'auto' : 'none' }}
             >
               <Link href="/" className="flex items-center gap-3 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded">
                 <Image
@@ -327,15 +317,15 @@ export function Navigation() {
                     </span>
                   </a>
                   <Link
-                    href="/schnellkontakt"
+                    href="/kontakt"
                     onClick={closeMenu}
                     className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-teal-500/50 hover:from-teal-600 hover:to-teal-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-                    aria-label="Schnellkontakt"
+                    aria-label="Kontakt"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                     <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                       <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                      <span className="break-words">Schnellkontakt</span>
+                      <span className="break-words">Kontakt</span>
                     </span>
                   </Link>
                   <a

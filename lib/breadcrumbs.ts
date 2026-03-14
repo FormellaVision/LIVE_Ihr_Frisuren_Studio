@@ -11,7 +11,6 @@ export const SERVICE_LABELS: Record<string, string> = {
   'kontakt': 'Kontakt',
   'ueber-uns': 'Über Uns',
   'termin-buchen': 'Termin Buchen',
-  'schnellkontakt': 'Schnellkontakt',
   'impressum': 'Impressum',
   'datenschutz': 'Datenschutz',
   'barrierefreiheit': 'Barrierefreiheit',

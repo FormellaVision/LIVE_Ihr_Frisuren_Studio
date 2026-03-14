@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/termin-buchen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/schnellkontakt', priority: 0.5, changeFrequency: 'monthly' as const },
     { path: '/areas/hamm', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/areas/borgfelde', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/hamburg-mitte', priority: 0.7, changeFrequency: 'monthly' as const },
