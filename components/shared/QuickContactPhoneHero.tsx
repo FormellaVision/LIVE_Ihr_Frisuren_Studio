@@ -89,15 +89,15 @@ export function QuickContactPhoneHero() {
               />
             </div>
 
-            <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+            <div className="relative w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 flex items-center justify-center">
               <Image
                 src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770246715/ihrfrisurenstudio_Logo_Wei%C3%9Ferbg_az4ghu.png"
                 alt="Ihr Frisuren-Studio Logo"
-                width={300}
-                height={300}
+                width={400}
+                height={400}
                 priority
                 unoptimized
-                className="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 object-cover rounded-full drop-shadow-2xl"
+                className="w-56 h-56 xs:w-64 xs:h-64 sm:w-72 sm:h-72 object-cover rounded-full drop-shadow-2xl"
               />
             </div>
           </motion.div>
