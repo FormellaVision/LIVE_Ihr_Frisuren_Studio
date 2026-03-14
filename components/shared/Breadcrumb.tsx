@@ -92,15 +92,15 @@ export function Breadcrumb() {
             <meta itemProp="item" content="/" />
             <Link
               href="/"
-              className="inline-flex items-center justify-center w-8 h-8 bg-gray-800 hover:bg-teal-700 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600"
+              className="inline-flex items-center justify-center hover:opacity-75 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
               aria-label="Startseite"
             >
               <img
                 src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg"
                 alt="Startseite"
-                width={18}
-                height={18}
-                className="w-[18px] h-[18px]"
+                width={28}
+                height={28}
+                className="w-7 h-7"
               />
             </Link>
           </li>
