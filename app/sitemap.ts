@@ -4,7 +4,7 @@ import { BUSINESS_INFO } from '@/lib/constants';
 const BUILD_DATE = new Date().toISOString();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = BUSINESS_INFO.website;
+  const baseUrl = 'https://ihr-frisuren-studio.de';
 
   const mainRoutes = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
