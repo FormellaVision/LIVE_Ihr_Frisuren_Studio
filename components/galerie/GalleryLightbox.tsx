@@ -114,9 +114,8 @@ export function GalleryLightbox({ images }: GalleryLightboxProps) {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+                <div className="absolute bottom-0 left-0 right-0 p-4">
                   <span className="text-white font-semibold text-sm">{image.category}</span>
-                  <span className="text-white/80 text-xs">Vergrößern</span>
                 </div>
               </div>
             </button>
@@ -138,52 +137,54 @@ export function GalleryLightbox({ images }: GalleryLightboxProps) {
 
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="absolute top-4 right-4 z-[110] w-10 h-10 rounded-full bg-black/60 border border-white/20 hover:bg-black/80 flex items-center justify-center text-white transition-colors shadow-lg"
             aria-label="Schließen"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i, i > activeIndex ? 'left' : 'right')}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'}`}
+                className={`rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-white w-3 h-3' : 'bg-white/40 hover:bg-white/70 w-2 h-2'}`}
                 aria-label={`Foto ${i + 1}`}
               />
             ))}
           </div>
 
           <button
-            onClick={goPrev}
-            className="absolute left-3 md:left-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full bg-black/60 border border-white/20 hover:bg-black/80 flex items-center justify-center text-white transition-colors shadow-xl"
             aria-label="Vorheriges Foto"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-7 h-7" />
           </button>
 
           <button
-            onClick={goNext}
-            className="absolute right-3 md:right-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full bg-black/60 border border-white/20 hover:bg-black/80 flex items-center justify-center text-white transition-colors shadow-xl"
             aria-label="Nächstes Foto"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-7 h-7" />
           </button>
 
           <div
-            className="relative z-10 max-w-5xl w-full mx-4 md:mx-16 flex flex-col items-center"
+            className="relative z-[105] w-full h-full flex items-center justify-center px-16 md:px-20"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onClick={closeLightbox}
           >
             <div
-              className="w-full transition-opacity duration-200"
+              className="flex flex-col items-center max-w-5xl w-full transition-opacity duration-200"
               style={{ opacity: slideDirection ? 0 : 1 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={images[activeIndex].src.replace('w=800', 'w=1400')}
                 alt={images[activeIndex].alt}
-                className="max-h-[80vh] w-full object-contain rounded-lg shadow-2xl"
+                className="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl"
               />
               <div className="mt-3 text-center">
                 <span className="text-white/70 text-sm">{images[activeIndex].category}</span>
