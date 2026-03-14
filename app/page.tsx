@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     'balayage hamburg hamm',
     'damenfriseur hamburg hamm',
     'herrenfriseur hamburg hamm',
+    'kosmetik hamburg hamm',
+    'gesichtsbehandlung hamburg hamm',
   ],
   openGraph: {
     title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio Meisterbetrieb',

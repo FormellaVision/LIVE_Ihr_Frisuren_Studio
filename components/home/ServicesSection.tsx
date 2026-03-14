@@ -27,7 +27,7 @@ const serviceCategories = [
   {
     title: 'Kosmetik',
     icon: Sparkles,
-    description: 'Gesichtsbehandlungen, Maniküre & Fußpflege in Hamburg-Hamm',
+    description: 'Kosmetik Hamburg Hamm: Gesichtsbehandlung, Maniküre & med. Fußpflege',
     services: SERVICES_KOSMETIK.slice(0, 5),
     href: '/leistungen#kosmetik',
     gradient: 'from-amber-500 to-amber-600',

@@ -159,7 +159,13 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function getFAQSchema(faqs: { question: string; answer: string }[]) {
+export type FAQItem = {
+  question: string;
+  answer: string;
+  bullets?: string[];
+};
+
+export function getFAQSchema(faqs: FAQItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -168,7 +174,9 @@ export function getFAQSchema(faqs: { question: string; answer: string }[]) {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: faq.bullets
+          ? `${faq.answer} ${faq.bullets.join(', ')}`
+          : faq.answer,
       },
     })),
   };
@@ -356,7 +364,12 @@ function getOpeningHoursSpecification() {
 export const DEFAULT_FAQS = [
   {
     question: 'Wo befindet sich Ihr Frisuren-Studio in Hamburg Hamm?',
-    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}. Gut erreichbar mit U-Bahn U2/U4 Haltestelle Burgstraße (5 Min. zu Fuß) und Buslinien 25, 130, 160, 261, 609, 610. Parkplätze sind in der Nähe vorhanden.`,
+    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}.`,
+    bullets: [
+      'U-Bahn U2/U4 Haltestelle Burgstraße – nur 5 Minuten zu Fuß',
+      'Buslinien 25, 130, 160, 261, 609 und 610 in der Nähe',
+      'Parkplätze in der unmittelbaren Umgebung vorhanden',
+    ],
   },
   {
     question: 'Was kostet ein Damenhaarschnitt bei Ihr Frisuren-Studio?',
@@ -374,7 +387,13 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Was zeichnet Ihr Frisuren-Studio in Hamburg Hamm aus?',
-    answer: `Als zertifizierter Meisterbetrieb seit ${BUSINESS_INFO.founded} bieten wir höchste Qualität in Hamburg Hamm. Mit über ${BUSINESS_INFO.reviews.count} Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne Durchschnitt) und einem mehrsprachigen Team (Deutsch, Englisch, Türkisch, Persisch) ist Ihr Frisuren-Studio ein erfahrener Partner für Haarschnitte, Balayage und Kosmetik.`,
+    answer: 'Ihr Frisuren-Studio hebt sich durch mehrere Stärken ab:',
+    bullets: [
+      `Zertifizierter Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
+      `${BUSINESS_INFO.reviews.rating} Sterne bei ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen`,
+      'Mehrsprachiges Team: Deutsch, Englisch, Türkisch, Persisch',
+      'Spezialisierung auf Haarschnitte, Balayage und Kosmetik',
+    ],
   },
   {
     question: 'Welche Sprachen sprechen Sie?',
@@ -383,7 +402,13 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Was ist der Afterwork Spezialcut?',
-    answer: `Der Afterwork Spezialcut ist unser Service nach Feierabend. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag.`,
+    answer: 'Der Afterwork Spezialcut ist unser exklusiver Service nach Feierabend – ideal für Berufstätige:',
+    bullets: [
+      `Verfügbar ${OPENING_HOURS.afterwork.weekdays}`,
+      `Samstags ${OPENING_HOURS.afterwork.saturday}`,
+      `Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag`,
+      '1-zu-1 Behandlung in ruhiger, persönlicher Atmosphäre',
+    ],
   },
   {
     question: 'Bedient ihr auch Kunden aus Borgfelde und Hamburg Mitte?',

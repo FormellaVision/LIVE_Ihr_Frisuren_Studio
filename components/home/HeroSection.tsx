@@ -66,7 +66,7 @@ export function HeroSection() {
               <p
                 className="mx-auto mt-3 sm:mt-4 max-w-[32rem] text-balance text-[0.96rem] leading-relaxed text-gray-700 sm:text-base md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl"
               >
-                Ihr Frisuren-Studio für Premium-Haarschnitte, Balayage und Kosmetik in Hamburg Hamm.
+                Meisterbetrieb mit {reviewRating} Sternen – für Haarschnitte, Balayage und Kosmetik in Hamburg Hamm.
               </p>
             </motion.div>
 

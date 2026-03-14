@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { DEFAULT_FAQS } from '@/lib/schema';
+import { DEFAULT_FAQS, type FAQItem } from '@/lib/schema';
 import { cn } from '@/lib/utils';
 
 export function FAQSection() {
@@ -78,11 +78,20 @@ export function FAQSection() {
                       className="overflow-hidden"
                     >
                       <div className="bg-gray-50 rounded-b-xl border-x border-b border-gray-100">
-                        {/* Key fix: explicit text-left + consistent padding + full-width */}
                         <div className="px-6 py-4 text-left">
                           <p className="text-gray-700 leading-relaxed max-w-none">
                             {faq.answer}
                           </p>
+                          {faq.bullets && faq.bullets.length > 0 && (
+                            <ul className="mt-3 space-y-1.5">
+                              {faq.bullets.map((bullet, i) => (
+                                <li key={i} className="flex items-start gap-2 text-gray-700">
+                                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-teal-600 flex-shrink-0" aria-hidden="true" />
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                     </motion.div>

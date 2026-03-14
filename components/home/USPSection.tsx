@@ -44,7 +44,7 @@ const features = [
   {
     icon: Sparkles,
     title: 'Kosmetik-Services',
-    description: 'Gesichtsbehandlungen, Maniküre, Fußpflege - alles aus einer Hand.',
+    description: 'Kosmetik in Hamburg Hamm: Gesichtsbehandlung, Maniküre & med. Fußpflege – alles unter einem Dach.',
   },
 ];
 

@@ -12,8 +12,8 @@ import { getBreadcrumbSchema, getAfterworkOfferSchema, getServiceSchema } from '
 
 export const metadata: Metadata = {
   title: 'Leistungen beim Friseur Hamburg Hamm | Damen, Herren, Balayage & Kosmetik',
-  description: `Alle Leistungen von Ihr Frisuren-Studio in Hamburg Hamm: Damenfriseur, Herrenfriseur, Balayage, Haare färben und Kosmetik – transparent und professionell.`,
-  keywords: ['friseur preise hamburg', 'haarschnitt preise hamburg hamm', 'balayage preis hamburg', 'friseur leistungen hamburg'],
+  description: `Friseur Preise Hamburg Hamm: Damenhaarschnitt ab 43€, Herrenhaarschnitt ab 28€, Balayage ab 179€, Kosmetik ab 26€. Alle Leistungen im Meisterbetrieb – transparent & professionell.`,
+  keywords: ['friseur preise hamburg', 'haarschnitt preise hamburg hamm', 'balayage preis hamburg', 'friseur leistungen hamburg', 'kosmetik hamburg hamm', 'gesichtsbehandlung hamburg hamm'],
   openGraph: {
     title: 'Leistungen & Preise - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
     description: 'Alle Leistungen & Preise: Damen ab 33€, Herren ab 18€, Balayage ab 179€, Kosmetik. Transparent & fair.',
