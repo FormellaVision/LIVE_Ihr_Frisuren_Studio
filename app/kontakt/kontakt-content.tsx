@@ -22,7 +22,7 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: '-80px' }}
             >
-              Kontaktieren Sie uns
+              Friseur Hamburg Hamm kontaktieren
             </motion.h2>
 
             {[

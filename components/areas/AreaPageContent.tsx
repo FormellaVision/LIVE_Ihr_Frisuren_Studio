@@ -141,7 +141,7 @@ export function AreaPageContent({ area }: Props) {
                   ) : (
                     <Car className="w-6 h-6 text-teal-600" />
                   )}
-                  <h2 className="font-playfair text-xl font-bold">Anfahrt aus {area.name}</h2>
+                  <h3 className="font-playfair text-xl font-bold">Anfahrt aus {area.name}</h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-3">{area.travelInfo}</p>
                 <div className="inline-flex items-center gap-2 bg-teal-50 px-4 py-2 rounded-full">
@@ -155,7 +155,7 @@ export function AreaPageContent({ area }: Props) {
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <Clock className="w-6 h-6 text-teal-600" />
-                  <h2 className="font-playfair text-xl font-bold">Öffnungszeiten</h2>
+                  <h3 className="font-playfair text-xl font-bold">Öffnungszeiten</h3>
                 </div>
                 <ul className="space-y-2 text-sm">
                   <li className="flex justify-between text-gray-500">
@@ -214,9 +214,9 @@ export function AreaPageContent({ area }: Props) {
           {area.nearbyDistricts.length > 0 && (
             <AnimatedSection direction="up">
               <div className="max-w-3xl mx-auto mt-12">
-                <h2 className="font-playfair text-xl font-bold mb-4 text-center">
+                <h3 className="font-playfair text-xl font-bold mb-4 text-center">
                   Auch für Kunden aus der Umgebung
-                </h2>
+                </h3>
                 <div className="flex flex-wrap gap-3 justify-center">
                   {area.nearbyDistricts.map((district, index) => (
                     <motion.span

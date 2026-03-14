@@ -108,12 +108,13 @@ export function QuickContactPhoneHero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center max-w-lg px-2 sm:px-4"
           >
+            <h1 className="sr-only">Schnellkontakt – Friseur Hamburg Hamm</h1>
             <p className="text-2xl xs:text-3xl sm:text-4xl font-light text-white leading-tight mb-2 break-words">
               Haare sind Vertrauenssache.
             </p>
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
+            <p className="text-2xl xs:text-3xl sm:text-4xl bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text text-transparent leading-tight font-light tracking-tight break-words">
               Überlass sie nicht dem Zufall.
-            </h1>
+            </p>
           </motion.div>
         </div>
 

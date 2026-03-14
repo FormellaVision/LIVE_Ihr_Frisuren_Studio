@@ -36,7 +36,7 @@ export default function SchnellkontaktPage() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div className="space-y-6">
-              <h2 className="heading-md mb-6">Kontaktieren Sie uns</h2>
+              <h2 className="heading-md mb-6">Friseur Hamburg Hamm kontaktieren</h2>
 
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
