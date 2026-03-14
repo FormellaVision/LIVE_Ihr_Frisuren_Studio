@@ -60,16 +60,6 @@ export function Navigation() {
         setIsMobileHeaderVisible(scrollY > scrollThreshold);
       }
 
-      const footerLogoEl = document.querySelector('[data-footer-logo]');
-      const footerLogoVisible = footerLogoEl
-        ? footerLogoEl.getBoundingClientRect().top < window.innerHeight
-        : false;
-
-      if (footerLogoVisible) {
-        setShowNavLogo(false);
-        return;
-      }
-
       const heroSection = document.querySelector('[data-hero-section]');
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect();
