@@ -62,7 +62,7 @@ export default function KontaktPage() {
 
       <Breadcrumb />
 
-      <KontaktContent googleMap={<GoogleMap latitude={BUSINESS_INFO.coordinates.latitude} longitude={BUSINESS_INFO.coordinates.longitude} title="Ihr Frisuren-Studio Hamburg Hamm - Standort" />} />
+      <KontaktContent googleMap={<GoogleMap title="Ihr Frisuren-Studio Hamburg Hamm - Standort" />} />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom max-w-6xl mx-auto">

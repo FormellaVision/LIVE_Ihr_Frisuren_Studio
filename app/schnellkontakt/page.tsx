@@ -162,11 +162,7 @@ export default function SchnellkontaktPage() {
                 </div>
               </div>
 
-              <GoogleMap
-                latitude={BUSINESS_INFO.coordinates.latitude}
-                longitude={BUSINESS_INFO.coordinates.longitude}
-                title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
-              />
+              <GoogleMap title="Ihr Frisuren-Studio Hamburg Hamm - Standort" />
             </div>
           </div>
         </div>

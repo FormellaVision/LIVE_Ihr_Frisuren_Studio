@@ -42,11 +42,7 @@ export function LocationSection() {
               className="flex-1 min-h-[320px] md:min-h-0"
             >
               <div className="h-full">
-                <GoogleMap
-                  latitude={BUSINESS_INFO.coordinates.latitude}
-                  longitude={BUSINESS_INFO.coordinates.longitude}
-                  title="Ihr Frisuren-Studio Hamburg Hamm - Standort"
-                />
+                <GoogleMap title="Ihr Frisuren-Studio Hamburg Hamm - Standort" />
               </div>
             </motion.div>
 

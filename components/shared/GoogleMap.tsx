@@ -6,31 +6,16 @@ import { MapEmbed } from './MapEmbed';
 import { MapPlaceholder } from './MapPlaceholder';
 
 interface GoogleMapProps {
-  latitude?: number;
-  longitude?: number;
-  zoom?: number;
   title?: string;
-  description?: string;
 }
 
-export function GoogleMap({
-  title = 'Google Maps',
-  description = 'Um die Karte zu sehen, aktivieren Sie bitte Marketing-Cookies in unseren Cookie-Einstellungen.',
-}: GoogleMapProps) {
+export function GoogleMap({ title = 'Google Maps' }: GoogleMapProps) {
   const { consent, isLoaded } = useConsent();
 
-  if (!isLoaded) {
+  if (!isLoaded || !consent?.marketing) {
     return (
       <MapEmbed>
-        <MapPlaceholder title={title} description={description} />
-      </MapEmbed>
-    );
-  }
-
-  if (!consent?.marketing) {
-    return (
-      <MapEmbed>
-        <MapPlaceholder title={title} description={description} />
+        <MapPlaceholder title={title} />
       </MapEmbed>
     );
   }

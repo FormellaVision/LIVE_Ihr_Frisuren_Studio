@@ -1,27 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import { useConsent } from '@/hooks/useConsent';
-import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
-import { CookieSettings } from '@/components/layout/CookieSettings';
 
 interface MapPlaceholderProps {
   title?: string;
-  description?: string;
 }
 
-export function MapPlaceholder({
-  title = 'Google Maps',
-  description = 'Um die Karte zu sehen und unseren Standort zu finden, aktivieren Sie bitte die Marketing-Cookies. Dabei werden Daten an Google in die USA übertragen. Sie können diese Auswahl jederzeit in den Cookie-Einstellungen ändern.',
-}: MapPlaceholderProps) {
-  const { consent, isLoaded } = useConsent();
-  const [showSettings, setShowSettings] = useState(false);
+export function MapPlaceholder({ title = 'Google Maps' }: MapPlaceholderProps) {
+  const { consent, isLoaded, updateConsent } = useConsent();
 
   if (!isLoaded || !consent) {
-    return (
-      <div className="w-full h-full bg-gray-200 animate-pulse" />
-    );
+    return <div className="w-full h-full bg-gray-200 animate-pulse" />;
   }
 
   if (consent.marketing) {
@@ -32,25 +22,29 @@ export function MapPlaceholder({
     );
   }
 
-  return (
-    <>
-      <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center gap-4 border border-gray-300">
-        <MapPin className="w-12 h-12 text-gray-400" />
-        <h3 className="text-lg font-semibold text-gray-700 text-center px-4">
-          {title}
-        </h3>
-        <p className="text-sm text-gray-600 text-center max-w-xs px-4">
-          {description}
-        </p>
-        <Button
-          onClick={() => setShowSettings(true)}
-          className="mt-4 bg-teal-600 hover:bg-teal-700 text-white"
-        >
-          Cookies aktualisieren
-        </Button>
-      </div>
+  const handleLoad = () => {
+    updateConsent({ ...consent, marketing: true });
+  };
 
-      <CookieSettings open={showSettings} onOpenChange={setShowSettings} />
-    </>
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-stone-100 to-stone-200 flex flex-col items-center justify-center gap-4 border border-stone-300 rounded-2xl px-6">
+      <MapPin className="w-10 h-10 text-stone-400" />
+      <div className="text-center">
+        <h3 className="text-base font-semibold text-stone-700 mb-1">{title}</h3>
+        <p className="text-sm text-stone-500 max-w-xs leading-relaxed">
+          Durch das Laden der Karte werden Daten (inkl. Ihrer IP-Adresse) an Google in die USA übertragen.
+        </p>
+      </div>
+      <button
+        onClick={handleLoad}
+        className="mt-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
+      >
+        Karte laden
+      </button>
+      <p className="text-xs text-stone-400 text-center">
+        Mit dem Klick stimmen Sie der Verarbeitung gemäß unserer{' '}
+        <a href="/datenschutz" className="underline hover:text-stone-600">Datenschutzerklärung</a> zu.
+      </p>
+    </div>
   );
 }

@@ -75,13 +75,66 @@ export default function DatenschutzPage() {
               Aufsichtsbehörde zu.
             </p>
 
-            <h2>2. Hosting</h2>
+            <h2>2. Auftragsverarbeiter (Art. 28 DSGVO)</h2>
             <p>
-              Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die
-              personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern
-              des Hosters gespeichert. Hierbei kann es sich v.a. um IP-Adressen, Kontaktanfragen,
-              Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und
-              sonstige Daten, die über eine Website generiert werden, handeln.
+              Wir setzen für den Betrieb dieser Website externe Dienstleister ein, die in unserem
+              Auftrag personenbezogene Daten verarbeiten (Auftragsverarbeiter gem. Art. 28 DSGVO).
+              Mit jedem dieser Dienstleister besteht ein Auftragsverarbeitungsvertrag (AVV).
+            </p>
+
+            <h3>Netlify (Hosting &amp; Deployment)</h3>
+            <p>
+              <strong>Anbieter:</strong> Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA.<br />
+              <strong>Zweck:</strong> Hosting, Auslieferung und Deployment dieser Website. Bei jedem Seitenaufruf
+              verarbeitet Netlify technische Verbindungsdaten.<br />
+              <strong>Verarbeitete Datenkategorien:</strong> IP-Adressen, HTTP-Request-Metadaten (Browsertyp,
+              Betriebssystem, Referrer URL, Zeitstempel), Formulardaten sofern über Netlify Forms übertragen.<br />
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem
+              sicheren und zuverlässigen Websitebetrieb).<br />
+              <strong>Drittlandübermittlung:</strong> USA. Netlify nutzt Standardvertragsklauseln (SCCs) gemäß
+              Art. 46 Abs. 2 lit. c DSGVO.<br />
+              <strong>Datenschutzinformationen:</strong>{' '}
+              <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                https://www.netlify.com/privacy/
+              </a>
+            </p>
+
+            <h3>Supabase (Formulardaten &amp; Datenbankdienst)</h3>
+            <p>
+              <strong>Anbieter:</strong> Supabase, Inc., 970 Toa Payoh North, #07-04, Singapore 318992.<br />
+              <strong>Zweck:</strong> Speicherung und Verarbeitung von Bewerbungsdaten (Karriere-Formular).
+              Über das Karriereformular übermittelte Daten (Name, E-Mail, Nachricht, Bewerbungsunterlagen)
+              werden in einer Supabase-Datenbank gespeichert.<br />
+              <strong>Verarbeitete Datenkategorien:</strong> Name, E-Mail-Adresse, Nachrichteninhalt,
+              ggf. Lebenslauf und Bewerbungsunterlagen.<br />
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen /
+              Bearbeitung der Bewerbung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+              strukturierten Verwaltung von Bewerbungsdaten).<br />
+              <strong>Drittlandübermittlung:</strong> Daten werden auf Servern in der EU (Frankfurt, AWS eu-central-1)
+              gespeichert. Eine Übermittlung in Drittländer ist nicht vorgesehen.<br />
+              <strong>Datenschutzinformationen:</strong>{' '}
+              <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                https://supabase.com/privacy
+              </a>
+            </p>
+
+            <h3>Cloudinary (Bild-CDN)</h3>
+            <p>
+              <strong>Anbieter:</strong> Cloudinary Ltd., Sunrise Technology Park, Herzliya, Israel
+              (Niederlassung USA: 3400 Central Expressway, Suite 110, Santa Clara, CA 95051).<br />
+              <strong>Zweck:</strong> Optimierung, Transformation und Auslieferung von Bildern dieser Website
+              über ein Content Delivery Network (CDN). Alle auf dieser Website angezeigten Fotos (Team,
+              Galerie, Hero-Bilder) werden über Cloudinary ausgeliefert.<br />
+              <strong>Verarbeitete Datenkategorien:</strong> IP-Adresse, HTTP-Request-Metadaten (Browsertyp,
+              Zeitstempel, angeforderte Bild-URL).<br />
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+              schnellen, optimierten und barrierefreien Bildauslieferung).<br />
+              <strong>Drittlandübermittlung:</strong> USA und Israel. Cloudinary nutzt Standardvertragsklauseln
+              (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO.<br />
+              <strong>Datenschutzinformationen:</strong>{' '}
+              <a href="https://cloudinary.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                https://cloudinary.com/privacy
+              </a>
             </p>
 
             <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
@@ -158,16 +211,27 @@ export default function DatenschutzPage() {
               Limited, Gordon House, Barrow Street, Dublin 4, Irland.
             </p>
             <p>
+              Google Maps wird auf dieser Website erst nach Ihrer ausdrücklichen Einwilligung geladen
+              (Prior Blocking). Vor Ihrer Zustimmung wird anstelle der Karte ein Platzhalter mit einem
+              „Karte laden"-Button angezeigt. Es werden keinerlei Daten an Google übertragen, solange
+              Sie nicht aktiv auf diesen Button klicken oder die Marketing-Kategorie in den
+              Cookie-Einstellungen aktivieren.
+            </p>
+            <p>
               Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu
               speichern. Diese Informationen werden in der Regel an einen Server von Google in den
               USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf
               diese Datenübertragung.
             </p>
             <p>
-              Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung
-              unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der
-              Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6
-              Abs. 1 lit. f DSGVO dar.
+              Die Nutzung von Google Maps erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6
+              Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie{' '}
+              <CookieResetButton /> anklicken und die Einstellung für „Marketing &amp; externe Services"
+              deaktivieren.
+            </p>
+            <p>
+              <strong>Drittlandübermittlung:</strong> USA. Google LLC ist unter dem EU-US Data Privacy
+              Framework zertifiziert (Art. 45 DSGVO).
             </p>
             <p>
               Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung
@@ -250,27 +314,6 @@ export default function DatenschutzPage() {
                 className="text-teal-600 hover:underline"
               >
                 https://support.google.com/analytics/answer/6004245
-              </a>
-            </p>
-
-            <h3>Cloudinary (Bildverwaltung)</h3>
-            <p>
-              Diese Website verwendet Cloudinary zur Optimierung und Bereitstellung von Bildern.
-              Anbieter ist die Cloudinary Ltd., 3400 Central Expressway, Suite 110, Santa Clara, CA
-              95051, USA. Beim Laden von Bildern werden Ihre IP-Adresse sowie technische Metadaten
-              an Server von Cloudinary übertragen. Die Übertragung erfolgt auf Grundlage von Art. 6
-              Abs. 1 lit. f DSGVO (berechtigtes Interesse an der schnellen und optimierten
-              Bildauslieferung).
-            </p>
-            <p>
-              Weitere Informationen:{' '}
-              <a
-                href="https://cloudinary.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-600 hover:underline"
-              >
-                https://cloudinary.com/privacy
               </a>
             </p>
 
