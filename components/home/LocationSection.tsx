@@ -20,9 +20,8 @@ export function LocationSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="location-heading" className="heading-lg mb-4">
@@ -38,9 +37,8 @@ export function LocationSection() {
             <motion.div
               initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(0)}
-              style={{ willChange: 'transform, opacity' }}
               className="flex-1 min-h-[320px] md:min-h-0"
             >
               <div className="h-full">
@@ -55,9 +53,8 @@ export function LocationSection() {
             <motion.div
               initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(0.06)}
-              style={{ willChange: 'transform, opacity' }}
               className="shrink-0 bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
             >
               <div className="flex items-start gap-4">
@@ -140,9 +137,8 @@ export function LocationSection() {
                 key={item.title}
                 initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={tween(index * 0.07)}
-                style={{ willChange: 'transform, opacity' }}
                 className="flex-1 bg-white p-6 rounded-xl shadow-lg"
               >
                 <div className="flex items-start gap-4">

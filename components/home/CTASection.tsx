@@ -14,7 +14,7 @@ export function CTASection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ type: 'spring', stiffness: 280, damping: 28 }}
           className="text-center max-w-3xl mx-auto"
         >

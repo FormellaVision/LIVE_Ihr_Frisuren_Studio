@@ -74,10 +74,9 @@ export function ScrollAnimationCard({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-20px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={transition}
       className={className}
-      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

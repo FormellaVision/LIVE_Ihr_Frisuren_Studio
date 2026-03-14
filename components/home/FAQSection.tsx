@@ -22,9 +22,8 @@ export function FAQSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="faq-heading" className="heading-lg mb-4">
@@ -46,9 +45,8 @@ export function FAQSection() {
                 key={index}
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-16px' }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={tween(index * 0.04)}
-                style={{ willChange: 'transform, opacity' }}
                 className="mb-4"
               >
                 <button

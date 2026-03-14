@@ -63,9 +63,8 @@ export function USPSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="usp-heading" className="heading-lg mb-4">
@@ -82,9 +81,8 @@ export function USPSection() {
               key={index}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(index * 0.08)}
-              style={{ willChange: 'transform, opacity' }}
               className="text-center bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
               <div
@@ -105,9 +103,8 @@ export function USPSection() {
               key={index}
               initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(index * 0.07)}
-              style={{ willChange: 'transform, opacity' }}
               className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md card-hover"
             >
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">

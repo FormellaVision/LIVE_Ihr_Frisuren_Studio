@@ -14,7 +14,7 @@ export function TeamSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-12"
         >
@@ -28,7 +28,7 @@ export function TeamSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.96 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-30px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 28, delay: 0.08 }}
           className="max-w-4xl mx-auto"
         >
@@ -53,7 +53,7 @@ export function TeamSection() {
               <motion.h3
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.1 }}
                 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4"
               >
@@ -62,7 +62,7 @@ export function TeamSection() {
               <motion.p
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.16 }}
                 className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto"
               >
@@ -73,7 +73,7 @@ export function TeamSection() {
               <motion.div
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.22 }}
               >
                 <Link href="/ueber-uns">

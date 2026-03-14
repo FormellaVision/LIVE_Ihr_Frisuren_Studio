@@ -20,9 +20,8 @@ export function ReviewsSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-teal-50 px-6 py-3 rounded-full mb-4">
@@ -43,9 +42,8 @@ export function ReviewsSection() {
               key={index}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(index * 0.07)}
-              style={{ willChange: 'transform, opacity' }}
               aria-label={`Bewertung von ${review.author}`}
               className="bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
@@ -81,9 +79,8 @@ export function ReviewsSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0.15)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mt-12"
         >
           <a

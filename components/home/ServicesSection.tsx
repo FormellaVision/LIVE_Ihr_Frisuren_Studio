@@ -50,9 +50,8 @@ export function ServicesSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0)}
-          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 id="services-heading" className="heading-lg mb-4">Unsere Leistungen in Hamburg Hamm</h2>
@@ -65,9 +64,8 @@ export function ServicesSection() {
               key={index}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={tween(index * 0.07)}
-              style={{ willChange: 'transform, opacity' }}
               className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0" aria-hidden="true">
@@ -101,9 +99,8 @@ export function ServicesSection() {
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={tween(0.1)}
-          style={{ willChange: 'transform, opacity' }}
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">

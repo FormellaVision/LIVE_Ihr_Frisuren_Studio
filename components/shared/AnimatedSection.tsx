@@ -68,10 +68,9 @@ export function AnimatedSection({
                 ...(hasScale && { scale: 1 }),
                 ...(hasRotation && { rotate: 0 }),
             }}
-            viewport={{ once: true, margin: '-20px' }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={transition}
             className={className}
-            style={{ willChange: 'transform, opacity' }}
         >
             {children}
         </Component>

@@ -56,8 +56,7 @@ export function AnimatedFeatureCardsClient({
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={tween(index * 0.07)}
-                viewport={{ once: true, margin: '-20px' }}
-                style={{ willChange: 'transform, opacity' }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -75,16 +74,14 @@ export function AnimatedFeatureCardsClient({
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={tween(0)}
-          viewport={{ once: true, margin: '-20px' }}
-          style={{ willChange: 'transform, opacity' }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <motion.h2
             className="font-playfair text-3xl font-bold text-center mb-10"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={tween(0)}
-            viewport={{ once: true, margin: '-20px' }}
-            style={{ willChange: 'transform, opacity' }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             Ihr Termin bei uns — So läuft es ab
           </motion.h2>
@@ -95,8 +92,7 @@ export function AnimatedFeatureCardsClient({
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={tween(index * 0.06)}
-                viewport={{ once: true, margin: '-20px' }}
-                style={{ willChange: 'transform, opacity' }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="relative bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
@@ -114,8 +110,7 @@ export function AnimatedFeatureCardsClient({
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={tween(0)}
-          viewport={{ once: true, margin: '-20px' }}
-          style={{ willChange: 'transform, opacity' }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {children}
         </motion.div>
@@ -125,8 +120,7 @@ export function AnimatedFeatureCardsClient({
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={tween(0)}
-          viewport={{ once: true, margin: '-20px' }}
-          style={{ willChange: 'transform, opacity' }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
             <motion.h2
@@ -134,8 +128,7 @@ export function AnimatedFeatureCardsClient({
               initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={tween(0)}
-              viewport={{ once: true, margin: '-20px' }}
-              style={{ willChange: 'transform, opacity' }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               Für wen ist unser Service ideal?
             </motion.h2>
@@ -153,8 +146,7 @@ export function AnimatedFeatureCardsClient({
                   initial={prefersReducedMotion ? false : { opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={tween(index * 0.05)}
-                  viewport={{ once: true, margin: '-16px' }}
-                  style={{ willChange: 'transform, opacity' }}
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -169,8 +161,7 @@ export function AnimatedFeatureCardsClient({
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={tween(0)}
-          viewport={{ once: true, margin: '-20px' }}
-          style={{ willChange: 'transform, opacity' }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <motion.h2
@@ -178,8 +169,7 @@ export function AnimatedFeatureCardsClient({
               initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={tween(0)}
-              viewport={{ once: true, margin: '-20px' }}
-              style={{ willChange: 'transform, opacity' }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               Warum Ihr Frisuren-Studio?
             </motion.h2>
@@ -198,8 +188,7 @@ export function AnimatedFeatureCardsClient({
                   initial={prefersReducedMotion ? false : { opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={tween(index * 0.05)}
-                  viewport={{ once: true, margin: '-16px' }}
-                  style={{ willChange: 'transform, opacity' }}
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
