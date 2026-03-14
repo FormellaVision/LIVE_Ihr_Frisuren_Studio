@@ -113,7 +113,7 @@ export default function BewertungenPage() {
 
           <AnimatedSection direction="up" delay={0.1} className="text-center mt-12">
             <a
-              href="https://www.google.com/search?sa=X&sca_esv=9be909eea5a29677&sxsrf=ANbL-n4KPqoMrrt9irghvZTEaAvHRMVS6w:1773500670280&q=Ihr+Frisuren-Studio+Rezensionen&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDM1NjczMTMyNTA2MbU0Mrc0ttjAyPiKUd4zo0jBrSizuLQoNU83uKQ0JTNfISi1KjWvODM_LzVvESshFQDI5zTeXwAAAA&rldimm=16537646250345927938&tbm=lcl&hl=de-DE&ved=2ahUKEwjc3Nfr1J-TAxW-SPEDHf78E2cQ9fQKegQIXBAG&biw=1904&bih=960&dpr=1#lkt=LocalPoiReviews"
+              href="https://www.google.com/search?sca_esv=53f9ef8ad52bf813&sxsrf=ANbL-n7wtq05pqHV_w3nIoBUs5SHrciZqw:1773511578393&q=ihr+frisuren-studio+rezensionen&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xzusQ4-hKiZyijZmCmVGeW9hjTRxZB0UswrtwUzbWhrC440O5a3tfwqPU069AIWbzH8-nOs%3D&uds=ALYpb_mVCDtJE7tUaAp18ol_X8XU-xWLUEqHxWZr2ypjn4p3Jg1Q84aPRgbH25qzUdgqUTgD2iQ104Z6wfwUjpz81BG_goHTA-QYeL5aopOSutjd05LcQDSPggWNDOD5-tgABes2qx-y&sa=X&sqi=2&ved=2ahUKEwiPiIq9_Z-TAxVGBdsEHaoEM5EQ3PALegQILRAF&biw=1904&bih=960&dpr=1"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

@@ -84,7 +84,7 @@ export function ReviewsSection() {
           className="text-center mt-12"
         >
           <a
-            href="https://www.google.com/search?q=Ihr+Frisuren-Studio+Hamburg+Rezensionen"
+            href="https://www.google.com/search?sca_esv=53f9ef8ad52bf813&sxsrf=ANbL-n7wtq05pqHV_w3nIoBUs5SHrciZqw:1773511578393&q=ihr+frisuren-studio+rezensionen&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xzusQ4-hKiZyijZmCmVGeW9hjTRxZB0UswrtwUzbWhrC440O5a3tfwqPU069AIWbzH8-nOs%3D&uds=ALYpb_mVCDtJE7tUaAp18ol_X8XU-xWLUEqHxWZr2ypjn4p3Jg1Q84aPRgbH25qzUdgqUTgD2iQ104Z6wfwUjpz81BG_goHTA-QYeL5aopOSutjd05LcQDSPggWNDOD5-tgABes2qx-y&sa=X&sqi=2&ved=2ahUKEwiPiIq9_Z-TAxVGBdsEHaoEM5EQ3PALegQILRAF&biw=1904&bih=960&dpr=1"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Alle ${BUSINESS_INFO.reviews.count}+ Bewertungen auf Google ansehen (öffnet in neuem Tab)`}
