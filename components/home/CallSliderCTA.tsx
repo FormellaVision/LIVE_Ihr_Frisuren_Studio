@@ -12,6 +12,7 @@ export function CallSliderCTA() {
   const startXRef = useRef(0);
 
   const maxPosition = trackRef.current ? trackRef.current.offsetWidth - 64 : 0;
+  const ARROW_STEP = 20;
 
   const handleStart = (clientX: number) => {
     setIsDragging(true);
@@ -83,6 +84,8 @@ export function CallSliderCTA() {
 
       <div
         ref={trackRef}
+        role="group"
+        aria-label="Anruf-Slider"
         className="relative h-16 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 overflow-hidden"
         style={{
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
@@ -114,13 +117,27 @@ export function CallSliderCTA() {
           onMouseDown={(e) => handleStart(e.clientX)}
           onTouchStart={(e) => handleStart(e.touches[0].clientX)}
           onClick={handleClick}
-          aria-label="Termin vereinbaren – Anruf starten"
-          role="button"
+          role="slider"
+          aria-label="Nach rechts schieben zum Anrufen"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={maxPosition > 0 ? Math.round((position / maxPosition) * 100) : 0}
+          aria-valuetext={`${maxPosition > 0 ? Math.round((position / maxPosition) * 100) : 0}% – nach rechts schieben oder Pfeiltaste drücken`}
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
               handleComplete();
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              const newPos = Math.min(position + ARROW_STEP, maxPosition);
+              setPosition(newPos);
+              if (newPos >= maxPosition * 0.85) {
+                handleComplete();
+              }
+            } else if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              setPosition(Math.max(0, position - ARROW_STEP));
             }
           }}
         >

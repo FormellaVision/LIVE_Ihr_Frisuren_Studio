@@ -22,6 +22,7 @@ export function SwipeToAnswerSlider({
 
   const maxPosition = trackRef.current ? trackRef.current.offsetWidth - 56 : 0;
   const TRIGGER_THRESHOLD = 0.85;
+  const ARROW_STEP = 20;
 
   const resetSlider = useCallback(() => {
     setPosition(0);
@@ -91,6 +92,8 @@ export function SwipeToAnswerSlider({
   return (
     <div
       ref={trackRef}
+      role="group"
+      aria-label="Anruf-Slider"
       className="relative w-full h-16 rounded-full bg-gradient-to-r from-white/5 to-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group"
     >
       <motion.div
@@ -127,10 +130,25 @@ export function SwipeToAnswerSlider({
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             onAnswer();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            const newPos = Math.min(position + ARROW_STEP, maxPosition);
+            setPosition(newPos);
+            if (newPos >= maxPosition * TRIGGER_THRESHOLD) {
+              setHasAnswered(true);
+              onAnswer();
+            }
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            setPosition(Math.max(0, position - ARROW_STEP));
           }
         }}
-        aria-label="Schieben oder Enter drücken zum Anrufen"
-        role="button"
+        role="slider"
+        aria-label="Nach rechts schieben zum Anrufen"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={maxPosition > 0 ? Math.round((position / maxPosition) * 100) : 0}
+        aria-valuetext={hasAnswered ? 'Anruf gestartet' : `${maxPosition > 0 ? Math.round((position / maxPosition) * 100) : 0}% – nach rechts schieben oder Pfeiltaste zum Anrufen`}
         tabIndex={0}
       >
         <Phone className="w-5 h-5 text-white" />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useConsent } from '@/hooks/useConsent';
 import { CookieSettings } from './CookieSettings';
 import { Button } from '@/components/ui/button';
@@ -10,12 +10,19 @@ export function CookieBanner() {
   const { consent, isLoaded, acceptAll, rejectAll, hasUserDecided } = useConsent();
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const firstButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (isLoaded) {
       setShowBanner(!hasUserDecided);
     }
   }, [isLoaded, hasUserDecided]);
+
+  useEffect(() => {
+    if (showBanner) {
+      setTimeout(() => firstButtonRef.current?.focus(), 100);
+    }
+  }, [showBanner]);
 
   useEffect(() => {
     const handleOpenBanner = () => {
@@ -33,7 +40,12 @@ export function CookieBanner() {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-2xl animate-in slide-in-from-bottom duration-300">
+      <div
+        role="region"
+        aria-label="Cookie-Einstellungen"
+        aria-live="polite"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-2xl animate-in slide-in-from-bottom duration-300"
+      >
         <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
           <div className="flex flex-col gap-6">
             <div className="flex justify-between items-start gap-4">
@@ -69,6 +81,7 @@ export function CookieBanner() {
 
             <div className="flex flex-col md:flex-row gap-3">
               <Button
+                ref={firstButtonRef}
                 onClick={() => {
                   acceptAll();
                   setShowBanner(false);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,68 @@ import { Menu, X, Phone, MessageCircle, Zap } from 'lucide-react';
 import { NAV_LINKS, BUSINESS_INFO } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
+function useFocusTrap(isActive: boolean, onEscape?: () => void) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isActive) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement;
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const getFocusable = () =>
+      Array.from(
+        container.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+
+    const closeBtn = container.querySelector<HTMLElement>('button[aria-label="Menü schließen"]');
+    setTimeout(() => closeBtn?.focus(), 50);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onEscape?.();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      const focusable = getFocusable();
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isActive, onEscape]);
+
+  useEffect(() => {
+    if (!isActive && previousFocusRef.current) {
+      const el = previousFocusRef.current;
+      previousFocusRef.current = null;
+      setTimeout(() => el.focus(), 50);
+    }
+  }, [isActive]);
+
+  return containerRef;
+}
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -16,6 +78,9 @@ export function Navigation() {
   const [isMobile, setIsMobile] = useState(false);
   const [showNavLogo, setShowNavLogo] = useState(false);
   const pathname = usePathname();
+
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+  const menuRef = useFocusTrap(isOpen, closeMenu);
 
   useEffect(() => {
     if (isOpen) {
@@ -80,8 +145,6 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile, isSchnellkontaktPage]);
 
-  const closeMenu = () => setIsOpen(false);
-
   return (
     <>
       <motion.header
@@ -111,7 +174,7 @@ export function Navigation() {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               style={{ pointerEvents: (isSchnellkontaktPage ? showNavLogo : true) ? 'auto' : 'none' }}
             >
-              <Link href="/" className="flex items-center gap-3 z-10">
+              <Link href="/" className="flex items-center gap-3 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded">
                 <Image
                   src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
                   alt="Ihr Frisuren-Studio Logo"
@@ -138,7 +201,7 @@ export function Navigation() {
                   href={link.href}
                   aria-current={pathname === link.href ? 'page' : undefined}
                   className={cn(
-                    'relative text-base font-medium transition-all duration-300 py-1',
+                    'relative text-base font-medium transition-all duration-300 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded',
                     pathname === link.href
                       ? 'text-gray-900 font-semibold'
                       : 'text-gray-700 hover:text-gray-900',
@@ -157,7 +220,7 @@ export function Navigation() {
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
                 aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                 <Phone className="w-4 h-4 lg:w-5 lg:h-5 relative z-10 flex-shrink-0" aria-hidden="true" />
@@ -167,10 +230,11 @@ export function Navigation() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden min-w-[44px] min-h-[44px] p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 rounded-lg bg-white/50 hover:bg-white/80"
+              className="md:hidden min-w-[44px] min-h-[44px] p-2 text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 transition-all duration-300 rounded-lg bg-white/50 hover:bg-white/80"
               aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
+              aria-haspopup="dialog"
             >
               <Menu className="w-6 h-6" aria-hidden="true" />
             </button>
@@ -181,6 +245,7 @@ export function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={menuRef}
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
@@ -188,7 +253,7 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 z-[100] bg-gray-900/96 backdrop-blur-2xl flex flex-col items-center justify-center px-8 space-y-5"
             onClick={(e) => {
               if (e.target === e.currentTarget) closeMenu();
@@ -196,97 +261,100 @@ export function Navigation() {
           >
             <button
               onClick={closeMenu}
-              className="absolute top-4 right-4 z-[101] min-w-[44px] min-h-[44px] p-3 bg-white/90 backdrop-blur-sm border-2 border-gray-200 rounded-xl text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 shadow-xl transition-all duration-300"
+              className="absolute top-4 right-4 z-[101] min-w-[44px] min-h-[44px] p-3 bg-white/90 backdrop-blur-sm border-2 border-gray-200 rounded-xl text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 shadow-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               aria-label="Menü schließen"
             >
               <X className="w-6 h-6" aria-hidden="true" />
             </button>
 
-            <motion.div
-              className="w-full max-w-md space-y-5"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                    delayChildren: 0.2
+            <nav aria-label="Mobilnavigation" className="w-full max-w-md">
+              <motion.ul
+                className="list-none p-0 m-0 space-y-5"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.07,
+                      delayChildren: 0.1
+                    }
                   }
-                }
-              }}
-            >
-              {NAV_LINKS.map((link) => (
-                <motion.div
-                  key={link.href}
+                }}
+              >
+                {NAV_LINKS.map((link) => (
+                  <motion.li
+                    key={link.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 16 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      aria-current={pathname === link.href ? 'page' : undefined}
+                      className={cn(
+                        'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                        pathname === link.href
+                          ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
+                          : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.li>
+                ))}
+
+                <motion.li
                   variants={{
-                    hidden: { opacity: 0, y: 20 },
+                    hidden: { opacity: 0, y: 16 },
                     visible: { opacity: 1, y: 0 }
                   }}
+                  className="pt-4 flex flex-col gap-3"
                 >
-                  <Link
-                    href={link.href}
+                  <a
+                    href={`tel:${BUSINESS_INFO.phoneInternational}`}
                     onClick={closeMenu}
-                    className={cn(
-                      'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words',
-                      pathname === link.href
-                        ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
-                        : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
-                    )}
+                    aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                   >
-                    {link.label}
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                      <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+                      <span className="break-words">Jetzt anrufen</span>
+                    </span>
+                  </a>
+                  <Link
+                    href="/schnellkontakt"
+                    onClick={closeMenu}
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-teal-500/50 hover:from-teal-600 hover:to-teal-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    aria-label="Schnellkontakt"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                      <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+                      <span className="break-words">Schnellkontakt</span>
+                    </span>
                   </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                className="pt-4 space-y-3"
-              >
-                <a
-                  href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                  onClick={closeMenu}
-                  aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300"
-                >
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
-                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                    <span className="break-words">Jetzt anrufen</span>
-                  </span>
-                </a>
-                <Link
-                  href="/schnellkontakt"
-                  onClick={closeMenu}
-                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-teal-500/50 hover:from-teal-600 hover:to-teal-700 hover:scale-105 active:scale-95 transition-all duration-300"
-                  aria-label="Schnellkontakt"
-                >
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
-                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                    <span className="break-words">Schnellkontakt</span>
-                  </span>
-                </Link>
-                <a
-                  href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
-                  onClick={closeMenu}
-                  aria-label="Termin via WhatsApp vereinbaren (öffnet in neuem Tab)"
-                  className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
-                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                    <span className="break-words">Termin vereinbaren</span>
-                  </span>
-                </a>
-              </motion.div>
-            </motion.div>
+                  <a
+                    href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
+                    onClick={closeMenu}
+                    aria-label="Termin via WhatsApp vereinbaren (öffnet in neuem Tab)"
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                      <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+                      <span className="break-words">Termin vereinbaren</span>
+                    </span>
+                  </a>
+                </motion.li>
+              </motion.ul>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
