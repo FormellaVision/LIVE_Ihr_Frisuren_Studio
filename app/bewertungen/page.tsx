@@ -107,13 +107,13 @@ export default function BewertungenPage() {
 
           <div className="text-center mt-12">
             <a
-              href="https://www.google.com/search?q=Ihr+Frisuren-Studio+Hamburg+Rezensionen"
+              href="https://www.google.com/search?sa=X&sca_esv=9be909eea5a29677&sxsrf=ANbL-n4KPqoMrrt9irghvZTEaAvHRMVS6w:1773500670280&q=Ihr+Frisuren-Studio+Rezensionen&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDM1NjczMTMyNTA2MbU0Mrc0ttjAyPiKUd4zo0jBrSizuLQoNU83uKQ0JTNfISi1KjWvODM_LzVvESshFQDI5zTeXwAAAA&rldimm=16537646250345927938&tbm=lcl&hl=de-DE&ved=2ahUKEwjc3Nfr1J-TAxW-SPEDHf78E2cQ9fQKegQIXBAG&biw=1904&bih=960&dpr=1#lkt=LocalPoiReviews"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
             >
               <ExternalLink className="w-5 h-5" />
-              Alle Bewertungen auf Google lesen
+              Alle Bewertungen auf Google ansehen
             </a>
           </div>
 
@@ -127,7 +127,7 @@ export default function BewertungenPage() {
                 und anderen Kunden bei ihrer Entscheidung.
               </p>
               <a
-                href={BUSINESS_INFO.googleMaps}
+                href="https://g.page/r/CQKV8PykhYHlEAE/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
