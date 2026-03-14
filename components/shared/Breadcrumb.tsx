@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, Home } from 'lucide-react';
+import { ChevronRight, Chrome as Home } from 'lucide-react';
 import { SERVICE_LABELS, AREA_LABELS, AREA_HREFS } from '@/lib/breadcrumbs';
 
 interface BreadcrumbItem {
@@ -19,9 +19,23 @@ export function Breadcrumb() {
     const segments = pathname.split('/').filter(Boolean);
     const items: BreadcrumbItem[] = [];
 
-    // /leistungen, /kontakt, etc.
+    // /leistungen, /kontakt, etc. — or flat service-area slugs like /damenfriseur-hamburg-hamm
     if (segments.length === 1) {
       const segment = segments[0];
+
+      // detect pattern: <service>-hamburg-<area>
+      const serviceAreaMatch = segment.match(/^([a-z-]+?)-hamburg-(.+)$/);
+      if (serviceAreaMatch) {
+        const serviceSlug = serviceAreaMatch[1];
+        const areaSlug = serviceAreaMatch[2];
+        const serviceLabel = SERVICE_LABELS[serviceSlug] || formatLabel(serviceSlug);
+        const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
+        const areaHref = AREA_HREFS[areaSlug] || `/areas/${areaSlug}`;
+        items.push({ label: areaLabel, href: areaHref });
+        items.push({ label: serviceLabel, href: undefined });
+        return items;
+      }
+
       const label = SERVICE_LABELS[segment] || formatLabel(segment);
       items.push({ label, href: undefined });
       return items;

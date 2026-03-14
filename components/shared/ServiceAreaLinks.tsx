@@ -31,7 +31,9 @@ function getAreaSubtitle(area: Area): string {
 }
 
 function getAreaHref(serviceSlug: string, area: Area): string {
-  return `/areas/${area.urlSlug}`;
+  if (area.slug === 'hamm') return `/${serviceSlug}-hamburg-hamm`;
+  if (area.slug === 'mitte') return `/${serviceSlug}-hamburg-mitte`;
+  return `/${serviceSlug}-hamburg-${area.urlSlug}`;
 }
 
 export function ServiceAreaLinks({

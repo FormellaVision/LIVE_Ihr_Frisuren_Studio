@@ -163,31 +163,67 @@ export function ServiceAreaPageContent({
             viewport={{ once: true, margin: '-80px' }}
           >
             <ServiceCards
-              title="Entdecken Sie weitere Leistungen"
-              subtitle="Unsere Services"
+              title="Weitere Leistungen in Ihrer Nähe"
+              subtitle={`Unser Angebot für ${area}`}
               items={[
                 {
                   title: 'Damenfriseur',
                   description: 'Professionelle Damenhaarschnitte & Balayage',
-                  href: '/damenfriseur-hamburg-hamm',
+                  href: areaSlug === 'hamm'
+                    ? '/damenfriseur-hamburg-hamm'
+                    : areaSlug === 'mitte'
+                    ? '/damenfriseur-hamburg-mitte'
+                    : `/damenfriseur-hamburg-${areaSlug}`,
                 },
                 {
                   title: 'Herrenfriseur',
                   description: 'Moderne Herrenhaarschnitte & Bartpflege',
-                  href: '/herrenfriseur-hamburg-hamm',
+                  href: areaSlug === 'hamm'
+                    ? '/herrenfriseur-hamburg-hamm'
+                    : areaSlug === 'mitte'
+                    ? '/herrenfriseur-hamburg-mitte'
+                    : `/herrenfriseur-hamburg-${areaSlug}`,
                 },
                 {
                   title: 'Balayage',
                   description: 'Natürliche Highlights mit modernen Techniken',
-                  href: '/balayage-hamburg-hamm',
+                  href: areaSlug === 'hamm'
+                    ? '/balayage-hamburg-hamm'
+                    : areaSlug === 'mitte'
+                    ? '/balayage-hamburg-mitte'
+                    : `/balayage-hamburg-${areaSlug}`,
                 },
                 {
                   title: 'Haare färben',
                   description: 'Professionelle Colorationen & Strähnen',
-                  href: '/haare-faerben-hamburg-hamm',
+                  href: areaSlug === 'hamm'
+                    ? '/haare-faerben-hamburg-hamm'
+                    : areaSlug === 'mitte'
+                    ? '/haare-faerben-hamburg-mitte'
+                    : `/haare-faerben-hamburg-${areaSlug}`,
                 },
               ]}
               columns={4}
+            />
+          </motion.div>
+
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <ServiceCards
+              title={`${service} in Hamburg – alle Stadtteile`}
+              subtitle="Unser Salon ist gut erreichbar aus den umliegenden Stadtteilen"
+              items={[
+                { title: `${service} Hamburg Hamm`, description: 'Unser Standort – Hammer Landstraße 4', href: `/${serviceSlug}-hamburg-hamm` },
+                { title: `${service} Borgfelde`, description: 'Nur 5–10 Minuten entfernt', href: `/${serviceSlug}-hamburg-borgfelde` },
+                { title: `${service} Horn`, description: 'Ca. 10 Minuten von Horn', href: `/${serviceSlug}-hamburg-horn` },
+                { title: `${service} Hamburg Mitte`, description: 'Ca. 10–15 Minuten vom Zentrum', href: `/${serviceSlug}-hamburg-mitte` },
+              ].filter(item => !item.href.includes(`-hamburg-${areaSlug}`) && !(areaSlug === 'mitte' && item.href.endsWith('-hamburg-mitte')))}
+              columns={3}
             />
           </motion.div>
         </div>
