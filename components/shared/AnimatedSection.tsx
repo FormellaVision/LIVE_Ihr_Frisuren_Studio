@@ -16,21 +16,21 @@ interface AnimatedSectionProps {
 }
 
 const directionOffsets = {
-    up: { x: 0, y: 28 },
-    down: { x: 0, y: -28 },
-    left: { x: -36, y: 0 },
-    right: { x: 36, y: 0 },
-    'diagonal-up-left': { x: -36, y: 28 },
-    'diagonal-up-right': { x: 36, y: 28 },
-    'diagonal-down-left': { x: -36, y: -28 },
-    'diagonal-down-right': { x: 36, y: -28 },
+    up: { x: 0, y: 20 },
+    down: { x: 0, y: -20 },
+    left: { x: -24, y: 0 },
+    right: { x: 24, y: 0 },
+    'diagonal-up-left': { x: -24, y: 20 },
+    'diagonal-up-right': { x: 24, y: 20 },
+    'diagonal-down-left': { x: -24, y: -20 },
+    'diagonal-down-right': { x: 24, y: -20 },
 };
 
 export function AnimatedSection({
     children,
     direction = 'up',
     delay = 0,
-    duration = 0.5,
+    duration = 0.45,
     className = '',
     as = 'div',
     hasScale = false,
@@ -46,18 +46,11 @@ export function AnimatedSection({
         return <Tag className={className}>{children}</Tag>;
     }
 
-    const isSpring = easing === 'spring';
-    const transition = isSpring
-        ? { type: 'spring' as const, stiffness: 300, damping: 30, mass: 0.7, delay }
-        : {
-            duration,
-            delay,
-            ease: easing === 'easeOut'
-                ? ([0.23, 1, 0.32, 1] as [number, number, number, number])
-                : easing === 'easeInOut'
-                ? ([0.42, 0, 0.58, 1] as [number, number, number, number])
-                : ([0.17, 0.67, 0.83, 0.67] as [number, number, number, number]),
-        };
+    const transition = {
+        duration,
+        delay,
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    };
 
     return (
         <Component
@@ -65,8 +58,8 @@ export function AnimatedSection({
                 opacity: 0,
                 x: offset.x,
                 y: offset.y,
-                ...(hasScale && { scale: 0.96 }),
-                ...(hasRotation && { rotate: direction.includes('left') ? 2 : -2 }),
+                ...(hasScale && { scale: 0.97 }),
+                ...(hasRotation && { rotate: direction.includes('left') ? 1.5 : -1.5 }),
             }}
             whileInView={{
                 opacity: 1,
@@ -75,9 +68,10 @@ export function AnimatedSection({
                 ...(hasScale && { scale: 1 }),
                 ...(hasRotation && { rotate: 0 }),
             }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: '-20px' }}
             transition={transition}
             className={className}
+            style={{ willChange: 'transform, opacity' }}
         >
             {children}
         </Component>

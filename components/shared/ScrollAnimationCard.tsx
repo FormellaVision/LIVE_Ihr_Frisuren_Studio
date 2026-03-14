@@ -17,14 +17,14 @@ interface ScrollAnimationCardProps {
 }
 
 const directionOffsets: Record<AnimationDirection, { x: number; y: number }> = {
-  up: { x: 0, y: 28 },
-  down: { x: 0, y: -28 },
-  left: { x: 36, y: 0 },
-  right: { x: -36, y: 0 },
-  'diagonal-up-left': { x: 36, y: 28 },
-  'diagonal-up-right': { x: -36, y: 28 },
-  'diagonal-down-left': { x: 36, y: -28 },
-  'diagonal-down-right': { x: -36, y: -28 },
+  up: { x: 0, y: 20 },
+  down: { x: 0, y: -20 },
+  left: { x: 24, y: 0 },
+  right: { x: -24, y: 0 },
+  'diagonal-up-left': { x: 24, y: 20 },
+  'diagonal-up-right': { x: -24, y: 20 },
+  'diagonal-down-left': { x: 24, y: -20 },
+  'diagonal-down-right': { x: -24, y: -20 },
 };
 
 export function ScrollAnimationCard({
@@ -32,7 +32,7 @@ export function ScrollAnimationCard({
   className = '',
   direction = 'up',
   delay = 0,
-  duration = 0.5,
+  duration = 0.45,
   hasScale = true,
   hasRotation = false,
   hasBlur = false,
@@ -49,9 +49,9 @@ export function ScrollAnimationCard({
       opacity: 0,
       x: offset.x,
       y: offset.y,
-      ...(hasScale && { scale: 0.94 }),
-      ...(hasRotation && { rotate: direction.includes('left') ? 3 : -3 }),
-      ...(hasBlur && { filter: 'blur(8px)' }),
+      ...(hasScale && { scale: 0.97 }),
+      ...(hasRotation && { rotate: direction.includes('left') ? 2 : -2 }),
+      ...(hasBlur && { filter: 'blur(6px)' }),
     },
     visible: {
       opacity: 1,
@@ -63,18 +63,10 @@ export function ScrollAnimationCard({
     },
   };
 
-  const springTransition = {
-    type: 'spring' as const,
-    stiffness: 300,
-    damping: 28,
-    mass: 0.7,
-    delay,
-  };
-
-  const tweenTransition = {
+  const transition = {
     duration,
     delay,
-    ease: [0.23, 1, 0.32, 1] as [number, number, number, number],
+    ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
   };
 
   return (
@@ -82,9 +74,10 @@ export function ScrollAnimationCard({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-40px' }}
-      transition={hasBlur ? tweenTransition : springTransition}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={transition}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

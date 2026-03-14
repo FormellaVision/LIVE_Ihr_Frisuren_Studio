@@ -20,9 +20,9 @@ const containerVariants = (staggerDelay: number) => ({
 });
 
 const directionOffsets = {
-    up: { x: 0, y: 24 },
-    left: { x: -30, y: 0 },
-    right: { x: 30, y: 0 },
+    up: { x: 0, y: 18 },
+    left: { x: -20, y: 0 },
+    right: { x: 20, y: 0 },
 };
 
 export const staggerItemVariants = (direction: 'up' | 'left' | 'right' = 'up') => {
@@ -34,10 +34,8 @@ export const staggerItemVariants = (direction: 'up' | 'left' | 'right' = 'up') =
             x: 0,
             y: 0,
             transition: {
-                type: 'spring' as const,
-                stiffness: 300,
-                damping: 28,
-                mass: 0.7,
+                duration: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
             },
         },
     };
@@ -60,8 +58,9 @@ export function AnimatedStagger({
             variants={containerVariants(staggerDelay)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: '-20px' }}
             className={className}
+            style={{ willChange: 'transform, opacity' }}
         >
             {children}
         </motion.div>
@@ -80,7 +79,11 @@ export function StaggerItem({
     direction = 'up',
 }: StaggerItemProps) {
     return (
-        <motion.div variants={staggerItemVariants(direction)} className={className}>
+        <motion.div
+            variants={staggerItemVariants(direction)}
+            className={className}
+            style={{ willChange: 'transform, opacity' }}
+        >
             {children}
         </motion.div>
     );

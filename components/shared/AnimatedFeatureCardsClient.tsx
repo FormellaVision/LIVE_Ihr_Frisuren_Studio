@@ -30,12 +30,10 @@ interface AnimatedFeatureCardsClientProps {
   children: ReactNode;
 }
 
-const spring = (delay: number) => ({
-  type: 'spring' as const,
-  stiffness: 300,
-  damping: 28,
-  mass: 0.7,
+const tween = (delay: number) => ({
+  duration: 0.4,
   delay,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 });
 
 export function AnimatedFeatureCardsClient({
@@ -55,10 +53,11 @@ export function AnimatedFeatureCardsClient({
             return (
               <motion.div
                 key={index}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={spring(index * 0.08)}
-                viewport={{ once: true, margin: '-30px' }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={tween(index * 0.07)}
+                viewport={{ once: true, margin: '-20px' }}
+                style={{ willChange: 'transform, opacity' }}
                 className="text-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -73,17 +72,19 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="max-w-4xl mx-auto mb-16"
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          viewport={{ once: true, margin: '-40px' }}
+          transition={tween(0)}
+          viewport={{ once: true, margin: '-20px' }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <motion.h2
             className="font-playfair text-3xl font-bold text-center mb-10"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            viewport={{ once: true, margin: '-40px' }}
+            transition={tween(0)}
+            viewport={{ once: true, margin: '-20px' }}
+            style={{ willChange: 'transform, opacity' }}
           >
             Ihr Termin bei uns — So läuft es ab
           </motion.h2>
@@ -91,10 +92,11 @@ export function AnimatedFeatureCardsClient({
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={spring(index * 0.07)}
-                viewport={{ once: true, margin: '-30px' }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={tween(index * 0.06)}
+                viewport={{ once: true, margin: '-20px' }}
+                style={{ willChange: 'transform, opacity' }}
                 className="relative bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
@@ -109,28 +111,31 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="max-w-3xl mx-auto mb-12"
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-          viewport={{ once: true, margin: '-30px' }}
+          transition={tween(0)}
+          viewport={{ once: true, margin: '-20px' }}
+          style={{ willChange: 'transform, opacity' }}
         >
           {children}
         </motion.div>
 
         <motion.div
           className="mt-12 max-w-3xl mx-auto"
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-          viewport={{ once: true, margin: '-30px' }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={tween(0)}
+          viewport={{ once: true, margin: '-20px' }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8">
             <motion.h2
               className="font-playfair text-2xl font-bold mb-4"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              viewport={{ once: true, margin: '-30px' }}
+              transition={tween(0)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               Für wen ist unser Service ideal?
             </motion.h2>
@@ -145,10 +150,11 @@ export function AnimatedFeatureCardsClient({
                 <motion.li
                   key={index}
                   className="flex items-start gap-3"
-                  initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={spring(index * 0.06)}
-                  viewport={{ once: true, margin: '-20px' }}
+                  transition={tween(index * 0.05)}
+                  viewport={{ once: true, margin: '-16px' }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -160,18 +166,20 @@ export function AnimatedFeatureCardsClient({
 
         <motion.div
           className="mt-12 max-w-3xl mx-auto"
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-          viewport={{ once: true, margin: '-30px' }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={tween(0)}
+          viewport={{ once: true, margin: '-20px' }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <motion.h2
               className="font-playfair text-2xl font-bold mb-4"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              viewport={{ once: true, margin: '-30px' }}
+              transition={tween(0)}
+              viewport={{ once: true, margin: '-20px' }}
+              style={{ willChange: 'transform, opacity' }}
             >
               Warum Ihr Frisuren-Studio?
             </motion.h2>
@@ -187,10 +195,11 @@ export function AnimatedFeatureCardsClient({
                 <motion.li
                   key={index}
                   className="flex items-start gap-3"
-                  initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={spring(index * 0.06)}
-                  viewport={{ once: true, margin: '-20px' }}
+                  transition={tween(index * 0.05)}
+                  viewport={{ once: true, margin: '-16px' }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Check className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
