@@ -1,16 +1,15 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { ServiceCards } from '@/components/shared/ServiceCards';
-import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
-import { BUSINESS_INFO, TEAM_MEMBERS } from '@/lib/constants';
+import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
+import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getPersonSchemas } from '@/lib/schema';
-import { Award, Users, Heart, Globe, ArrowRight } from 'lucide-react';
+import { Award, Users, Heart, Globe } from 'lucide-react';
 import { HistorySection } from '@/components/about/HistorySection';
+import { TeamLightbox } from '@/components/about/TeamLightbox';
 
 const teamServices = [
   {
@@ -99,79 +98,7 @@ export default function UeberUnsPage() {
             <h2 className="heading-md mb-8 text-center">Das Team</h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {TEAM_MEMBERS.map((member, index) => {
-              const directions: Array<'left' | 'right' | 'up'> = ['left', 'right', 'up'];
-              return (
-                <ScrollAnimationCard
-                  key={index}
-                  direction={directions[index % directions.length]}
-                  delay={index * 0.1}
-                  hasScale
-                  hasRotation
-                >
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
-                    <div className="aspect-square overflow-hidden relative">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </div>
-
-                    <div className="p-8 flex flex-col flex-grow">
-                      <h3 className="font-playfair text-2xl font-bold mb-2">{member.name}</h3>
-                      <p className="text-teal-600 font-semibold mb-3 text-base">{member.role}</p>
-                      <p className="text-gray-600 mb-4 flex-grow">{member.description}</p>
-
-                      <div className="flex flex-wrap gap-2 mt-auto">
-                        {member.languages.map((lang, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"
-                          >
-                            {lang}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </ScrollAnimationCard>
-              );
-            })}
-
-            <ScrollAnimationCard direction="up" delay={TEAM_MEMBERS.length * 0.1} hasScale hasRotation>
-              <Link
-                href="/karriere"
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="aspect-square overflow-hidden relative bg-gradient-to-br from-teal-600 to-amber-500 flex items-center justify-center">
-                  <Image
-                    src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772473119/Name_wrzzyw.webp"
-                    alt="Karriere bei Ihr Frisuren-Studio"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                <div className="p-8 flex flex-col flex-grow items-center text-center">
-                  <h3 className="font-playfair text-2xl font-bold mb-2">Hier könnte dein Name stehen</h3>
-                  <p className="text-teal-600 font-semibold mb-3 text-base">Bewerbung</p>
-                  <p className="text-gray-600 mb-6 flex-grow">
-                    Werde Teil unseres Teams und entdecke die Chance auf deine Traumposition
-                  </p>
-                  <span className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-2 rounded-full font-semibold text-sm group-hover:bg-teal-700 transition-colors">
-                    Jetzt bewerben
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-            </ScrollAnimationCard>
-          </div>
+          <TeamLightbox />
         </div>
       </section>
 
