@@ -40,11 +40,6 @@ export default function BillstedtPage() {
       { '@type': 'Neighborhood', name: 'Billstedt', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
       { '@type': 'Neighborhood', name: 'Hamm', containedInPlace: { '@type': 'City', name: 'Hamburg' } },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(BUSINESS_INFO.reviews.rating),
-      reviewCount: String(BUSINESS_INFO.reviews.count),
-    },
   };
 
   return (
