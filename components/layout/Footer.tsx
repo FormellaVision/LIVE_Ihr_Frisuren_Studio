@@ -301,7 +301,7 @@ export function Footer() {
 
             {/* Einzugsgebiet integrated (no extra "row") */}
             <div className="mt-6 pt-6 border-t border-white/10">
-              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">
+              <p className="text-xs text-gray-400 font-medium uppercase tracking-wider">
                 Einzugsgebiet
               </p>
               <p className="mt-2 text-xs text-gray-400 leading-relaxed">
@@ -311,25 +311,25 @@ export function Footer() {
               <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
                 <Link
                   href="/areas/hamm"
-                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Hamburg Hamm
                 </Link>
                 <Link
                   href="/areas/borgfelde"
-                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Borgfelde
                 </Link>
                 <Link
                   href="/areas/hamburg-mitte"
-                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Hamburg Mitte
                 </Link>
                 <Link
                   href="/areas/horn"
-                  className="text-xs text-gray-500 hover:text-teal-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Horn
                 </Link>
@@ -357,7 +357,7 @@ export function Footer() {
             <PaymentBadges variant="dark" showLabel={true} />
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <p>
               © {currentYear} {BUSINESS_INFO.name}. Alle Rechte vorbehalten.
             </p>
@@ -377,7 +377,7 @@ export function Footer() {
           </div>
 
           <div className="mt-6 pt-6 border-t border-gray-800 flex justify-center">
-            <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <p className="text-sm text-gray-400 flex items-center justify-center gap-2">
               <span className="text-gray-400">Erstellt mit</span>
               <a
                 href="https://formellavision.de"

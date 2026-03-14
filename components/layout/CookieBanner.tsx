@@ -48,7 +48,7 @@ export function CookieBanner() {
                   widerrufen. Mehr erfahren Sie in unserer{' '}
                   <a
                     href="/datenschutz"
-                    className="text-teal-600 hover:text-teal-700 underline"
+                    className="text-teal-700 hover:text-teal-800 underline"
                   >
                     Datenschutzerklärung
                   </a>

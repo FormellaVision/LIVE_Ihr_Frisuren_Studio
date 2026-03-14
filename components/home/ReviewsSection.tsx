@@ -58,6 +58,7 @@ export function ReviewsSection() {
             >
               <div
                 className="flex gap-1 text-amber-500 mb-4"
+                role="img"
                 aria-label={`${review.rating} von 5 Sternen`}
               >
                 {[...Array(review.rating)].map((_, i) => (

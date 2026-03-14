@@ -8,7 +8,7 @@ export function CookieResetButton() {
   return (
     <button
       onClick={handleReset}
-      className="text-gray-500 hover:text-gray-300 transition-colors whitespace-nowrap"
+      className="text-gray-400 hover:text-gray-300 transition-colors whitespace-nowrap"
     >
       Cookie-Einstellungen
     </button>
