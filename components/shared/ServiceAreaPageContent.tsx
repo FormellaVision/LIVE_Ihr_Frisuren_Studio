@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, Phone, Check, ChevronDown } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
@@ -38,12 +39,14 @@ export function ServiceAreaPageContent({
   return (
     <>
       <section className="relative h-screen -mt-16 flex items-center overflow-hidden pt-20">
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{
-            backgroundImage: `url('${imageUrl}')`,
-            backgroundPosition: 'center 35%',
-          }}
+        <Image
+          src={imageUrl}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: 'center 35%' }}
         />
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />

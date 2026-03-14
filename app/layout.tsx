@@ -111,6 +111,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           fetchPriority="high"
         />
         <link
+          rel="preload"
+          as="image"
+          href="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=60"
+          fetchPriority="high"
+        />
+        <link
           rel="icon"
           href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg"
           type="image/svg+xml"

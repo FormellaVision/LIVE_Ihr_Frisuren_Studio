@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Award, Star, Phone, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 
@@ -28,13 +29,14 @@ export function ServicePageHeader({
         isContain ? 'bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]' : ''
       }`}
     >
-      <div
-        className="absolute inset-0 bg-no-repeat"
-        style={{
-          backgroundImage: `url('${backgroundImage}')`,
-          backgroundPosition: '50% 64px',
-          backgroundSize: 'cover',
-        }}
+      <Image
+        src={backgroundImage}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        style={{ objectPosition: '50% 64px' }}
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />

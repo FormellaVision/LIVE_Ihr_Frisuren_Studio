@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Award, Users, Clock, Phone, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 
@@ -14,12 +15,13 @@ const TRUST_POINTS = [
 export function KarriereHero() {
   return (
     <section className="relative min-h-[90vh] -mt-16 flex items-center overflow-hidden pt-16">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&cs=tinysrgb&w=1600')",
-        }}
+      <Image
+        src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />

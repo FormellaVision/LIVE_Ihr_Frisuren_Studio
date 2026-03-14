@@ -85,17 +85,16 @@ export function ServiceFAQSection({
                                         aria-hidden="true"
                                     />
                                 </button>
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                     {isOpen && (
                                         <motion.div
                                             id={panelId}
                                             role="region"
                                             aria-labelledby={buttonId}
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: 'auto', opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="overflow-hidden"
+                                            initial={{ opacity: 0, y: -4 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -4 }}
+                                            transition={{ duration: 0.2 }}
                                         >
                                             <div className="px-6 py-4 bg-gray-50 rounded-b-xl border-x border-b border-gray-100">
                                                 <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
