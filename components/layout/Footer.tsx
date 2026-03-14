@@ -101,6 +101,7 @@ export function Footer() {
                 width={48}
                 height={48}
                 className="h-12 w-auto"
+                data-footer-logo
               />
               <div>
                 <span className="font-playfair text-xl font-bold">
