@@ -307,7 +307,7 @@ Add links when reviews mention specific services:
 npm install -D linkinator
 
 # Run link check
-npx linkinator https://www.ihr-frisuren-studio.de --recursive --skip-mailto
+npx linkinator https://ihr-frisuren-studio.de --recursive --skip-mailto
 
 # SEO analysis with Screaming Frog (GUI tool)
 # https://www.screamingfrog.co.uk/seo-spider/

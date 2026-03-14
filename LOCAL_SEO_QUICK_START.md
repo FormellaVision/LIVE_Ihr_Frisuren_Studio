@@ -194,7 +194,7 @@ console.log(BUSINESS_INFO.appleMaps);      // Apple Maps URL
 
 **Test 1: Schema Validation**
 1. Go to: https://search.google.com/structured-data/testing-tool
-2. Enter: https://www.ihr-frisuren-studio.de
+2. Enter: https://ihr-frisuren-studio.de
 3. Look for ✓ under BeautySalon, Organization, ContactPoint
 4. Expected: No errors
 
@@ -375,7 +375,7 @@ Every month, do this:
 - Address: Hammer Landstraße 4, 20537 Hamburg-Hamm
 - Phone: 040 2509029 (International: +49 40 2509029)
 - Email: ihr.frisuren.studio.hamburg@gmail.com
-- Website: https://www.ihr-frisuren-studio.de
+- Website: https://ihr-frisuren-studio.de
 - Rating: 4.9/5 (215+ reviews)
 - Hours: Tue-Fri 9-19, Sat 8-14, Closed Sun-Mon
 

@@ -143,7 +143,7 @@ closes: 19:00 (HH:MM format)
 | Phone | 040 2509029 |
 | Phone (International) | +49 40 2509029 |
 | Email | ihr.frisuren.studio.hamburg@gmail.com |
-| Website | https://www.ihr-frisuren-studio.de |
+| Website | https://ihr-frisuren-studio.de |
 | Coordinates | 53.5553174, 10.0412498 |
 
 ---

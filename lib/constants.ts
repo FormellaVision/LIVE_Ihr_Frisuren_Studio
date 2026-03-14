@@ -15,7 +15,7 @@ export const BUSINESS_INFO = {
   phoneFormatted: '+49402509029',
   whatsapp: '+49402509029',
   email: 'ihr.frisuren.studio.hamburg@gmail.com',
-  website: 'https://www.ihr-frisuren-studio.de',
+  website: 'https://ihr-frisuren-studio.de',
   founded: '2004',
   taxId: 'DE235319231',
   instagram: '@ihrfrisurenstudio',

@@ -58,7 +58,7 @@ The organization schema identifies core business information:
 {
   "@type": "Organization",
   "name": "Ihr Frisuren-Studio",
-  "url": "https://www.ihr-frisuren-studio.de",
+  "url": "https://ihr-frisuren-studio.de",
   "address": {...},
   "contactPoint": {
     "telephone": "+49 40 2509029",
@@ -268,7 +268,7 @@ Your business is registered with:
 - ✓ Business name: Correct
 - ✓ Address: Correct with postal code
 - ✓ Phone: Correct formatting
-- ✓ Website: https://www.ihr-frisuren-studio.de
+- ✓ Website: https://ihr-frisuren-studio.de
 - ✓ Categories: Primary: Hair Salon
 - ✓ Hours: Regular + special
 - ✓ Photos: Minimum 10 high-quality images
@@ -297,7 +297,7 @@ Your business is registered with:
 
 ```html
 <!-- In layout.tsx -->
-<meta property="og:url" content="https://www.ihr-frisuren-studio.de" />
+<meta property="og:url" content="https://ihr-frisuren-studio.de" />
 <meta property="og:type" content="business.business" />
 <meta property="og:site_name" content="Ihr Frisuren-Studio" />
 ```
