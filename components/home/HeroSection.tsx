@@ -12,6 +12,7 @@ export function HeroSection() {
 
   return (
     <section
+      data-hero-section
       aria-label="Friseur Hamburg Hamm – Ihr Frisuren-Studio"
       className="relative min-h-[100svh] overflow-hidden flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]"
     >

@@ -60,12 +60,18 @@ export function Navigation() {
         setIsMobileHeaderVisible(scrollY > scrollThreshold);
       }
 
-      const breadcrumbLogoEl = document.querySelector('[data-breadcrumb-logo]');
-      if (breadcrumbLogoEl) {
-        const rect = breadcrumbLogoEl.getBoundingClientRect();
-        setShowNavLogo(rect.bottom <= 64);
+      const heroSection = document.querySelector('[data-hero-section]');
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        setShowNavLogo(rect.bottom <= 0);
       } else {
-        setShowNavLogo(true);
+        const breadcrumbLogoEl = document.querySelector('[data-breadcrumb-logo]');
+        if (breadcrumbLogoEl) {
+          const rect = breadcrumbLogoEl.getBoundingClientRect();
+          setShowNavLogo(rect.bottom <= 64);
+        } else {
+          setShowNavLogo(true);
+        }
       }
     };
 
