@@ -27,6 +27,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/preise',
+        destination: '/leistungen',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

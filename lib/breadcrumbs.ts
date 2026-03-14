@@ -6,7 +6,6 @@ export const SERVICE_LABELS: Record<string, string> = {
   'balayage': 'Balayage',
   'haare-faerben': 'Haare Färben',
   'leistungen': 'Leistungen',
-  'preise': 'Preise',
   'galerie': 'Galerie',
   'bewertungen': 'Bewertungen',
   'kontakt': 'Kontakt',
