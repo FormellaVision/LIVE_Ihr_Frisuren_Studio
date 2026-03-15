@@ -7,6 +7,8 @@ import { MapPlaceholder } from './MapPlaceholder';
 
 interface GoogleMapProps {
   title?: string;
+  latitude?: number;
+  longitude?: number;
 }
 
 export function GoogleMap({ title = 'Google Maps' }: GoogleMapProps) {
