@@ -23,10 +23,10 @@ const montserrat = Montserrat({
 
 // Absolute OG image (1200x630 recommended) for previews on Google/Facebook/X/Slack.
 const OG_IMAGE_URL =
-  'https://res.cloudinary.com/dqkld61zu/image/upload/v1772734032/Ihr-Frisuren-Studio_meta_fnn7mj.webp';
+  'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BUSINESS_INFO.website),
+  metadataBase: new URL('https://ihr-frisuren-studio.de'),
   title: {
     default: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
     template: '%s | Ihr Frisuren-Studio',
@@ -64,14 +64,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Friseur Hamburg Hamm - Ihr Frisuren-Studio | Meisterbetrieb seit 2004',
     description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
-    url: BUSINESS_INFO.website,
+    url: 'https://ihr-frisuren-studio.de/',
     siteName: 'Ihr Frisuren-Studio Hamburg Hamm',
     images: [
       {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'Ihr Frisuren-Studio - Premium Friseur in Hamburg Hamm',
+        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
       },
     ],
     locale: 'de_DE',
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     images: [OG_IMAGE_URL],
   },
   alternates: {
-    canonical: BUSINESS_INFO.website,
+    canonical: 'https://ihr-frisuren-studio.de/',
   },
   other: {
     'geo.region': 'DE-HH',
