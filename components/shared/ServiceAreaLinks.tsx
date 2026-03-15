@@ -13,39 +13,28 @@ interface ServiceAreaLinksProps {
   areas?: Area[];
 }
 
-const AREAS: Area[] = [
-  { name: 'Hamburg Hamm', slug: 'hamm', urlSlug: 'hamm' },
+const NEARBY_AREAS: Area[] = [
   { name: 'Borgfelde', slug: 'borgfelde', urlSlug: 'borgfelde' },
-  { name: 'Hamburg Mitte', slug: 'mitte', urlSlug: 'mitte' },
+  { name: 'Hamburg Mitte', slug: 'hamburg-mitte', urlSlug: 'hamburg-mitte' },
   { name: 'Horn', slug: 'horn', urlSlug: 'horn' },
 ];
-
-function getAreaTitle(service: string, area: Area): string {
-  if (area.slug === 'hamm') return `${service} Hamburg Hamm`;
-  return `Leicht erreichbar aus ${area.name}`;
-}
-
-function getAreaSubtitle(area: Area): string {
-  if (area.slug === 'hamm') return 'Unser Standort in Hamburg Hamm';
-  return `Nur wenige Minuten von ${area.name} entfernt`;
-}
-
-function getAreaHref(serviceSlug: string, area: Area): string {
-  if (area.slug === 'hamm') return `/${serviceSlug}-hamburg-hamm`;
-  if (area.slug === 'mitte') return `/${serviceSlug}-hamburg-mitte`;
-  return `/${serviceSlug}-hamburg-${area.urlSlug}`;
-}
 
 export function ServiceAreaLinks({
   service,
   serviceSlug,
-  areas = AREAS,
 }: ServiceAreaLinksProps) {
-  const items: ServiceCard[] = areas.map((area) => ({
-    title: getAreaTitle(service, area),
-    description: getAreaSubtitle(area),
-    href: getAreaHref(serviceSlug, area),
-  }));
+  const items: ServiceCard[] = [
+    {
+      title: `${service} Hamburg Hamm`,
+      description: 'Unser Standort – Hammer Landstraße 4',
+      href: `/${serviceSlug}-hamburg-hamm`,
+    },
+    ...NEARBY_AREAS.map((area) => ({
+      title: `Gut erreichbar aus ${area.name}`,
+      description: `Nur wenige Minuten von ${area.name} entfernt`,
+      href: `/areas/${area.urlSlug}`,
+    })),
+  ];
 
   return (
     <section className="section-padding bg-gradient-to-br from-teal-50 to-blue-50">

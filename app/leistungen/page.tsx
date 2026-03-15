@@ -153,7 +153,7 @@ export default function LeistungenPage() {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
               {[
-                { name: 'Hamburg Hamm', href: '/areas/hamm' },
+                { name: 'Hamburg Hamm', href: '/friseur-hamburg-hamm' },
                 { name: 'Borgfelde', href: '/areas/borgfelde' },
                 { name: 'Hamburg Mitte', href: '/areas/hamburg-mitte' },
                 { name: 'Horn', href: '/areas/horn' },

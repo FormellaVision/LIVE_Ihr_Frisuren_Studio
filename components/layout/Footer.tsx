@@ -313,7 +313,7 @@ export function Footer() {
 
               <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
                 <Link
-                  href="/areas/hamm"
+                  href="/friseur-hamburg-hamm"
                   className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Hamburg Hamm

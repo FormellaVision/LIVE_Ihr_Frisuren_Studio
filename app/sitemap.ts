@@ -18,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/einzugsgebiet', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/areas/hamm', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/areas/borgfelde', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/hamburg-mitte', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/horn', priority: 0.7, changeFrequency: 'monthly' as const },
@@ -27,19 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/karriere', priority: 0.5, changeFrequency: 'monthly' as const },
   ];
 
-  const indexedServiceAreas = ['borgfelde', 'horn', 'mitte'];
-
-  const services = ['damenfriseur', 'herrenfriseur', 'balayage', 'haare-faerben'];
-
-  const serviceAreaRoutes = services.flatMap(service =>
-    indexedServiceAreas.map(area => ({
-      path: `/${service}-hamburg-${area}`,
-      priority: 0.6,
-      changeFrequency: 'monthly' as const,
-    }))
-  );
-
-  const allRoutes = [...mainRoutes, ...serviceAreaRoutes];
+  const allRoutes = [...mainRoutes];
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,

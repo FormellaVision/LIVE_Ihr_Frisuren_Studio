@@ -18,6 +18,89 @@
   status = 301
   force = true
 
+# /areas/hamm cannibalization consolidation -> canonical service page
+[[redirects]]
+  from = "/areas/hamm"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Damenfriseur service×area -> Hamm canonical
+[[redirects]]
+  from = "/damenfriseur-hamburg-borgfelde"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-horn"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-mitte"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Herrenfriseur service×area -> Hamm canonical
+[[redirects]]
+  from = "/herrenfriseur-hamburg-borgfelde"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-horn"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-mitte"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Balayage service×area -> Hamm canonical
+[[redirects]]
+  from = "/balayage-hamburg-borgfelde"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-horn"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-mitte"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+# Haare färben service×area -> Hamm canonical
+[[redirects]]
+  from = "/haare-faerben-hamburg-borgfelde"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-horn"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-mitte"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
 [build]
 command = "npx next build"
 publish = ".next"

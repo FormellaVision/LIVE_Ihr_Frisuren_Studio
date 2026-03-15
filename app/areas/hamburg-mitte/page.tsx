@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function HamburgMittePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/areas/hamm` },
+    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm` },
     { name: 'Für Kunden aus Hamburg Mitte', url: `${BUSINESS_INFO.website}/areas/hamburg-mitte` },
   ]);
 

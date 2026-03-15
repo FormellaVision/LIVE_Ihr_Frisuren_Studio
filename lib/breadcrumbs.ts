@@ -26,7 +26,7 @@ export const AREA_LABELS: Record<string, string> = {
 };
 
 export const AREA_HREFS: Record<string, string> = {
-  'hamm': '/areas/hamm',
+  'hamm': '/friseur-hamburg-hamm',
   'borgfelde': '/areas/borgfelde',
   'horn': '/areas/horn',
   'mitte': '/areas/hamburg-mitte',
