@@ -36,13 +36,13 @@ export function HeroSection() {
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
               className="mt-16 sm:mt-20 md:mt-24 lg:mt-28 mb-4 sm:mb-5 md:mb-6"
             >
-              <div data-breadcrumb-logo className="relative mx-auto aspect-square w-[245px] xs:w-[265px] sm:w-[305px] md:w-[345px] lg:w-[390px] xl:w-[435px]">
+              <div data-breadcrumb-logo className="relative mx-auto aspect-square w-[300px] xs:w-[320px] sm:w-[305px] md:w-[345px] lg:w-[390px] xl:w-[435px]">
                 <Image
                   src="https://res.cloudinary.com/dqkld61zu/image/upload/v1772399060/2face_Logo_zczbdd.svg"
                   alt="Ihr Frisuren-Studio Logo"
                   fill
                   priority
-                  sizes="(max-width: 475px) 245px, (max-width: 640px) 265px, (max-width: 768px) 305px, (max-width: 1024px) 345px, (max-width: 1280px) 390px, 435px"
+                  sizes="(max-width: 475px) 300px, (max-width: 640px) 320px, (max-width: 768px) 305px, (max-width: 1024px) 345px, (max-width: 1280px) 390px, 435px"
                   className="object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 />
               </div>
