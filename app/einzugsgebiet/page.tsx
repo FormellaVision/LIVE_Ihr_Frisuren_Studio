@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Brain as Train, Clock, Phone, ChevronRight, Star } from 'lucide-react';
-import { BUSINESS_INFO } from '@/lib/constants';
+import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
@@ -214,7 +214,7 @@ export default function EinzugsgebietPage() {
                   <Clock className="w-6 h-6 text-teal-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Öffnungszeiten</h3>
-                <p className="text-sm text-gray-600">Di–Fr 09:00–19:00 Uhr (Afterwork bis 20:30 Uhr), Sa 09:00–16:00 Uhr. Mo + So geschlossen.</p>
+                <p className="text-sm text-gray-600">Di–Fr {OPENING_HOURS.tuesday.times} Uhr (Afterwork {OPENING_HOURS.afterwork.weekdays}), Sa {OPENING_HOURS.saturday.times} Uhr. Mo + So geschlossen.</p>
               </div>
             </div>
 
