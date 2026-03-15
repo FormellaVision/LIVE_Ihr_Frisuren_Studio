@@ -29,18 +29,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Balayage Hamburg Hamm - Professionelle Färbetechnik | Ihr Frisuren-Studio',
     description: 'Balayage-Spezialist in Hamburg Hamm ab 179€. Natürliche Highlights & strahlende Farben.',
-    url: `${BUSINESS_INFO.website}/balayage-hamburg-hamm`,
+    url: 'https://ihr-frisuren-studio.de/balayage-hamburg-hamm',
     images: [
       {
-        url: `${BUSINESS_INFO.website}/og-balayage.jpg`,
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
         width: 1200,
         height: 630,
-        alt: 'Balayage Hamburg Hamm - Ihr Frisuren-Studio',
+        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
+  },
   alternates: {
-    canonical: `${BUSINESS_INFO.website}/balayage-hamburg-hamm`,
+    canonical: 'https://ihr-frisuren-studio.de/balayage-hamburg-hamm',
   },
 };
 

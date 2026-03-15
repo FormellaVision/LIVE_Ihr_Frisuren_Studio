@@ -22,10 +22,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
     description: `Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
-    url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm`,
+    url: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
   },
   alternates: {
-    canonical: `${BUSINESS_INFO.website}/friseur-hamburg-hamm`,
+    canonical: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
   },
 };
 

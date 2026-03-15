@@ -18,18 +18,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Herrenfriseur Hamburg Hamm - Moderne Herrenhaarschnitte | Ihr Frisuren-Studio',
     description: 'Professionelle Herrenhaarschnitte in Hamburg Hamm ab 18€. Bartpflege-Spezialist.',
-    url: `${BUSINESS_INFO.website}/herrenfriseur-hamburg-hamm`,
+    url: 'https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm',
     images: [
       {
-        url: `${BUSINESS_INFO.website}/og-herren.jpg`,
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
         width: 1200,
         height: 630,
-        alt: 'Herrenfriseur Hamburg Hamm - Ihr Frisuren-Studio',
+        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
+  },
   alternates: {
-    canonical: `${BUSINESS_INFO.website}/herrenfriseur-hamburg-hamm`,
+    canonical: 'https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm',
   },
 };
 
