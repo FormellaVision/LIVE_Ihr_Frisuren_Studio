@@ -1,18 +1,105 @@
-# robots.txt hardening for Google: serve robots.txt on www without a redirect hop (must stay first)
-[[redirects]]
-  from = "https://www.ihr-frisuren-studio.de/robots.txt"
-  to = "https://ihr-frisuren-studio.de/robots.txt"
-  status = 200
-  force = true
-
-# www -> non-www canonical redirect (must stay second)
+# www -> non-www canonical redirect (must stay first)
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"
   to = "https://ihr-frisuren-studio.de/:splat"
   status = 301
   force = true
 
-# Legacy URL redirects (old site -> new site)
+# ------------------------------------------------------------
+# 404 Cleanup Redirects (legacy URLs that currently return 404)
+# ------------------------------------------------------------
+
+# Old English URLs (no EN version now) -> map to closest DE equivalents
+[[redirects]]
+  from = "/en/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/ueber-uns"
+  to = "/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/philosophie"
+  to = "/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/faq"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/herrenfriseur-hamburg-hamm"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Fallback for any other /en/* URLs -> drop /en and keep path (safe fallback)
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Old "preise-leistungen" structure -> canonical /leistungen
+[[redirects]]
+  from = "/preise-leistungen"
+  to = "/leistungen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/"
+  to = "/leistungen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/*"
+  to = "/leistungen"
+  status = 301
+  force = true
+
+# Old utility URLs
+[[redirects]]
+  from = "/anfahrt"
+  to = "/kontakt"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/anfahrt/"
+  to = "/kontakt"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/"
+  to = "/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/booking"
+  to = "/termin-buchen"
+  status = 301
+  force = true
+
+# ------------------------------------------------------------
+# Existing Legacy URL redirects (old site -> new site)
+# ------------------------------------------------------------
 [[redirects]]
   from = "/faq"
   to = "/friseur-hamburg-hamm"
@@ -108,21 +195,27 @@
   status = 301
   force = true
 
+# ------------------------------------------------------------
+# Netlify build setup
+# ------------------------------------------------------------
 [build]
-command = "npx next build"
-publish = ".next"
+  command = "npx next build"
+  publish = ".next"
 
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+  package = "@netlify/plugin-nextjs"
 
+# ------------------------------------------------------------
+# Preview environments must be noindex (avoid staging indexation)
+# ------------------------------------------------------------
 [context.deploy-preview]
-[[context.deploy-preview.headers]]
-  for = "/*"
-  [context.deploy-preview.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+  [[context.deploy-preview.headers]]
+    for = "/*"
+    [context.deploy-preview.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
 
 [context.branch-deploy]
-[[context.branch-deploy.headers]]
-  for = "/*"
-  [context.branch-deploy.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+  [[context.branch-deploy.headers]]
+    for = "/*"
+    [context.branch-deploy.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
