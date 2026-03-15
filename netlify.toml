@@ -1,6 +1,20 @@
+# www -> non-www canonical redirect (must stay first)
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"
   to = "https://ihr-frisuren-studio.de/:splat"
+  status = 301
+  force = true
+
+# Legacy URL redirects (old site -> new site)
+[[redirects]]
+  from = "/faq"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/philosophie"
+  to = "/ueber-uns"
   status = 301
   force = true
 
