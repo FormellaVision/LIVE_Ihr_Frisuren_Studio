@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { PriceList } from '@/components/shared/PriceList';
@@ -133,6 +135,45 @@ export default function LeistungenPage() {
               },
             ]}
           />
+        </div>
+      </section>
+
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 px-4 py-2 rounded-full mb-4">
+              <MapPin className="w-4 h-4 text-teal-600" />
+              <span className="text-sm text-teal-700 font-medium">Einzugsgebiet</span>
+            </div>
+            <h2 className="font-playfair text-2xl md:text-3xl font-bold mb-3">
+              Gut erreichbar aus Hamburg Hamm & Umgebung
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Unser Salon in der Hammer Landstraße 4 ist bequem per U2/U4 erreichbar für Kunden aus Hamburg Hamm, Borgfelde, Hamburg Mitte und Horn.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              {[
+                { name: 'Hamburg Hamm', href: '/areas/hamm' },
+                { name: 'Borgfelde', href: '/areas/borgfelde' },
+                { name: 'Hamburg Mitte', href: '/areas/hamburg-mitte' },
+                { name: 'Horn', href: '/areas/horn' },
+              ].map((area) => (
+                <Link
+                  key={area.href}
+                  href={area.href}
+                  className="bg-white border border-gray-200 hover:border-teal-400 rounded-xl px-4 py-3 text-sm font-medium text-gray-700 hover:text-teal-700 transition-all duration-200 hover:shadow-md text-center"
+                >
+                  {area.name}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/einzugsgebiet"
+              className="inline-flex items-center gap-1.5 text-teal-600 hover:text-teal-700 font-semibold text-sm transition-colors"
+            >
+              Anfahrt & alle Stadtteile ansehen →
+            </Link>
+          </div>
         </div>
       </section>
 

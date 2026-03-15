@@ -301,9 +301,12 @@ export function Footer() {
 
             {/* Einzugsgebiet integrated (no extra "row") */}
             <div className="mt-6 pt-6 border-t border-white/10">
-              <p className="text-xs text-gray-400 font-medium uppercase tracking-wider">
+              <Link
+                href="/einzugsgebiet"
+                className="text-xs text-gray-400 font-medium uppercase tracking-wider hover:text-teal-400 transition-colors"
+              >
                 Einzugsgebiet
-              </p>
+              </Link>
               <p className="mt-2 text-xs text-gray-400 leading-relaxed">
                 Ein Standort in Hamburg-Hamm. Gut erreichbar aus:
               </p>

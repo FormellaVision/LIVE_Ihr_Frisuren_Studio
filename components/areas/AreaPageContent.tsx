@@ -27,10 +27,10 @@ export interface AreaData {
 }
 
 const SERVICES = [
-  { title: 'Damenfriseur', description: 'Waschen, Schneiden & Föhnen', href: '/damenfriseur-hamburg-hamm' },
-  { title: 'Herrenfriseur', description: 'Moderne Herrenschnitte & Bartpflege', href: '/herrenfriseur-hamburg-hamm' },
-  { title: 'Balayage', description: 'Natürliche Highlights mit modernen Techniken', href: '/balayage-hamburg-hamm' },
-  { title: 'Haare färben', description: 'Professionelle Colorationen & Strähnen', href: '/haare-faerben-hamburg-hamm' },
+  { title: 'Damenfriseur Hamburg Hamm', description: 'Waschen, Schneiden & Föhnen', href: '/damenfriseur-hamburg-hamm' },
+  { title: 'Herrenfriseur Hamburg Hamm', description: 'Moderne Herrenschnitte & Bartpflege', href: '/herrenfriseur-hamburg-hamm' },
+  { title: 'Balayage Hamburg Hamm', description: 'Natürliche Highlights mit modernen Techniken', href: '/balayage-hamburg-hamm' },
+  { title: 'Haare färben Hamburg Hamm', description: 'Professionelle Colorationen & Strähnen', href: '/haare-faerben-hamburg-hamm' },
 ];
 
 interface Props {
@@ -257,7 +257,7 @@ export function AreaPageContent({ area }: Props) {
               <p className="text-gray-600 mb-6">
                 Rufen Sie uns direkt an oder schreiben Sie uns per WhatsApp. Wir freuen uns auf Ihren Besuch aus {area.name}.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
                   className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
@@ -270,6 +270,12 @@ export function AreaPageContent({ area }: Props) {
                   className="inline-flex items-center justify-center gap-2 border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
                 >
                   Kontakt & Anfahrt
+                </Link>
+                <Link
+                  href="/leistungen"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-gray-300 text-gray-600 hover:border-teal-600 hover:text-teal-600 font-medium px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+                >
+                  Alle Leistungen & Preise
                 </Link>
               </div>
             </div>
