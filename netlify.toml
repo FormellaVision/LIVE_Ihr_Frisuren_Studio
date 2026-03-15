@@ -1,4 +1,11 @@
-# www -> non-www canonical redirect (must stay first)
+# robots.txt hardening for Google: serve robots.txt on www without a redirect hop (must stay first)
+[[redirects]]
+  from = "https://www.ihr-frisuren-studio.de/robots.txt"
+  to = "https://ihr-frisuren-studio.de/robots.txt"
+  status = 200
+  force = true
+
+# www -> non-www canonical redirect (must stay second)
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"
   to = "https://ihr-frisuren-studio.de/:splat"
