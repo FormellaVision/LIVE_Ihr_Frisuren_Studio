@@ -11,6 +11,22 @@ function normalizeTime(value: string) {
   return v.startsWith('T') ? v.slice(1) : v;
 }
 
+/**
+ * Converts relative URLs/paths to absolute URLs for BreadcrumbList.
+ */
+function toAbsoluteURL(id: string): string {
+  const baseUrl = BUSINESS_INFO.website;
+  if (!id) return baseUrl;
+  if (id.startsWith('http')) return id;
+  
+  // Handle root or relative paths
+  try {
+    return new URL(id, baseUrl).toString();
+  } catch (e) {
+    return id.startsWith('/') ? `${baseUrl}${id}` : `${baseUrl}/${id}`;
+  }
+}
+
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -154,7 +170,7 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: item.url,
+      item: toAbsoluteURL(item.url),
     })),
   };
 }

@@ -5,6 +5,22 @@ import { usePathname } from 'next/navigation';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { SERVICE_LABELS, AREA_LABELS, AREA_HREFS } from '@/lib/breadcrumbs';
+import { BUSINESS_INFO } from '@/lib/constants';
+
+/**
+ * Converts relative URLs/paths to absolute URLs for BreadcrumbList.
+ */
+function toAbsoluteURL(id: string): string {
+  const baseUrl = BUSINESS_INFO.website;
+  if (!id) return baseUrl;
+  if (id.startsWith('http')) return id;
+  
+  try {
+    return new URL(id, baseUrl).toString();
+  } catch (e) {
+    return id.startsWith('/') ? `${baseUrl}${id}` : `${baseUrl}/${id}`;
+  }
+}
 
 interface BreadcrumbItem {
   label: string;
@@ -90,7 +106,7 @@ export function Breadcrumb() {
           >
             <meta itemProp="position" content="1" />
             <meta itemProp="name" content="Start" />
-            <meta itemProp="item" content="/" />
+            <meta itemProp="item" content={BUSINESS_INFO.website} />
             <Link
               href="/"
               className="inline-flex items-center justify-center hover:opacity-75 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
@@ -120,7 +136,7 @@ export function Breadcrumb() {
               >
                 <meta itemProp="position" content={String(index + 2)} />
                 <meta itemProp="name" content={item.label} />
-                <meta itemProp="item" content={item.href || pathname} />
+                <meta itemProp="item" content={toAbsoluteURL(item.href || pathname)} />
 
                 <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
 
