@@ -106,7 +106,7 @@ export function ServicePageHeader({
             </a>
             <Link
               href="/termin-buchen"
-              className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-black/30"
             >
               Termin buchen
             </Link>

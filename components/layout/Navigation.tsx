@@ -207,15 +207,13 @@ export function Navigation() {
             </div>
 
             <div className="hidden md:flex items-center gap-3">
-              <a
-                href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-amber-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
+              <Link
+                href="/termin-buchen"
+                className="group relative overflow-hidden bg-teal-600 px-4 lg:px-6 py-2.5 rounded-full font-medium text-white shadow-lg shadow-teal-600/20 hover:bg-teal-500 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
-                <Phone className="w-4 h-4 lg:w-5 lg:h-5 relative z-10 flex-shrink-0" aria-hidden="true" />
-                <span className="relative z-10 text-sm lg:text-base whitespace-nowrap">Termin: {BUSINESS_INFO.phone}</span>
-              </a>
+                <span className="relative z-10 text-sm lg:text-base whitespace-nowrap">Termin buchen</span>
+              </Link>
             </div>
 
             <button
