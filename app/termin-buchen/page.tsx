@@ -4,6 +4,7 @@ import { Phone, MessageCircle, Mail, Clock, MapPin, Star, Award, Check, Moon, Ca
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { getBreadcrumbSchema } from '@/lib/schema';
+import { RelatedServices } from '@/components/sections/RelatedServices';
 
 export const metadata: Metadata = {
   title: 'Termin buchen - Ihr Frisuren-Studio Hamburg Hamm',
@@ -34,7 +35,7 @@ const contactOptions = [
     icon: MessageCircle,
     title: 'WhatsApp',
     description: 'Nachricht senden — wir antworten zeitnah',
-    value: 'WhatsApp schreiben',
+    value: BUSINESS_INFO.phone,
     href: `https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`,
     cta: 'WhatsApp öffnen',
     color: 'emerald',
@@ -170,7 +171,7 @@ export default function TerminBuchenPage() {
           </div>
         </section>
 
-        <section className="section-padding" aria-labelledby="hours-heading">
+        <section className="pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-0" aria-labelledby="hours-heading">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-teal-600 to-teal-700 text-white rounded-2xl p-8">
@@ -251,7 +252,7 @@ export default function TerminBuchenPage() {
           </div>
         </section>
 
-        <section className="section-padding bg-warm-white" aria-labelledby="services-overview-heading">
+        <section className="pt-10 sm:pt-12 md:pt-16 pb-0 bg-warm-white" aria-labelledby="services-overview-heading">
           <div className="container-custom">
             <h2 id="services-overview-heading" className="font-playfair text-3xl font-bold text-center mb-4">
               Termindauer & Preise
@@ -283,13 +284,42 @@ export default function TerminBuchenPage() {
                 Alle Leistungen & Preise ansehen
               </Link>
             </div>
+
+            <div className="mt-8 pt-4">
+              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wider text-center">Oder direkt Deinen Service auswählen</p>
+              <RelatedServices
+                title="Entdecken Sie weitere Leistungen"
+                services={[
+                  {
+                    href: '/damenfriseur-hamburg-hamm',
+                    label: 'Damenfriseur Hamburg Hamm',
+                    description: 'Professionelle Damenhaarschnitte & Styling',
+                  },
+                  {
+                    href: '/herrenfriseur-hamburg-hamm',
+                    label: 'Herrenfriseur Hamburg Hamm',
+                    description: 'Moderne Herrenhaarschnitte & Bartpflege',
+                  },
+                  {
+                    href: '/balayage-hamburg-hamm',
+                    label: 'Balayage Hamburg Hamm',
+                    description: 'Natürliche Highlights mit modernen Färbetechniken',
+                  },
+                  {
+                    href: '/haare-faerben-hamburg-hamm',
+                    label: 'Haare färben Hamburg Hamm',
+                    description: 'Coloration, Balayage & Strähnen mit Olaplex-Schutz',
+                  },
+                ]}
+              />
+            </div>
           </div>
         </section>
 
-        <section className="section-padding bg-gray-900 text-white">
+        <section className="pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24 bg-warm-white">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
-              <h2 className="font-playfair text-2xl font-bold text-center mb-8">
+              <h2 className="font-playfair text-3xl font-bold text-center mb-8 text-gray-900">
                 Warum Kunden uns vertrauen
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -299,15 +329,16 @@ export default function TerminBuchenPage() {
                   { icon: Clock, text: 'Afterwork-Termine möglich' },
                   { icon: Check, text: 'Mehrsprachiges Team' },
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
-                    <item.icon className="w-5 h-5 text-teal-400 flex-shrink-0" />
-                    <span className="text-sm text-white/90">{item.text}</span>
+                  <div key={index} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                    <item.icon className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{item.text}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
+
       </div>
 
       <script

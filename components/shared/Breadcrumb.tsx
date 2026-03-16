@@ -95,18 +95,10 @@ export function Breadcrumb() {
       <div className="max-w-7xl mx-auto px-4">
         <ol
           className="flex items-center gap-2 py-3 md:py-4 overflow-x-auto text-sm list-none m-0 p-0"
-          itemScope
-          itemType="https://schema.org/BreadcrumbList"
         >
           <li
             className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0"
-            itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/ListItem"
           >
-            <meta itemProp="position" content="1" />
-            <meta itemProp="name" content="Start" />
-            <meta itemProp="item" content={BUSINESS_INFO.website} />
             <Link
               href="/"
               className="inline-flex items-center justify-center hover:opacity-75 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
@@ -130,13 +122,7 @@ export function Breadcrumb() {
               <li
                 key={`${item.label}-${index}`}
                 className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0"
-                itemProp="itemListElement"
-                itemScope
-                itemType="https://schema.org/ListItem"
               >
-                <meta itemProp="position" content={String(index + 2)} />
-                <meta itemProp="name" content={item.label} />
-                <meta itemProp="item" content={toAbsoluteURL(item.href || pathname)} />
 
                 <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
 
