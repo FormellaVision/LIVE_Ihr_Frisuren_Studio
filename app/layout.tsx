@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { StickyMobileBar } from '@/components/layout/StickyMobileBar';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { AnalyticsScript } from '@/components/layout/AnalyticsScript';
-import { getOrganizationSchema } from '@/lib/schema';
+import { getOrganizationSchema, getBrandOrganizationSchema } from '@/lib/schema';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 const playfair = Playfair_Display({
@@ -96,6 +96,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = getOrganizationSchema();
+  const brandSchema = getBrandOrganizationSchema();
 
   return (
     <html lang="de" className={`${playfair.variable} ${montserrat.variable}`}>
@@ -160,6 +161,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }}
         />
       </body>
     </html>
