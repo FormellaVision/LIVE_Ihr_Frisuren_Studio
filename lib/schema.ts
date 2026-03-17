@@ -27,10 +27,31 @@ function toAbsoluteURL(id: string): string {
   }
 }
 
+export function getBrandOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${BUSINESS_INFO.website}/#organization`,
+    name: BUSINESS_INFO.name,
+    url: BUSINESS_INFO.website,
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png',
+      width: 400,
+      height: 120,
+    },
+    sameAs: [
+      BUSINESS_INFO.instagramUrl,
+      BUSINESS_INFO.googleMaps,
+      BUSINESS_INFO.appleMaps,
+    ],
+  };
+}
+
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'HairSalon',
+    '@type': ['HairSalon', 'LocalBusiness'],
     '@id': BUSINESS_ID,
     name: BUSINESS_INFO.name,
     alternateName: 'Ihr Frisuren-Studio Hamburg Hamm',
