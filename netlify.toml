@@ -1,3 +1,123 @@
+# 1-hop fix for /areas/hamm multi-hop chain (www + http -> final canonical)
+[[redirects]]
+  from = "https://www.ihr-frisuren-studio.de/areas/hamm"
+  to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://ihr-frisuren-studio.de/areas/hamm"
+  to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Removed satellite service-area pages -> Hamm canonical (1-hop, excludes -hamm itself)
+# These must be above the en/* and www redirects to avoid multi-hop chains
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-bergedorf"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-billstedt"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-eilbek"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/damenfriseur-hamburg-wandsbek"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-bergedorf"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-billstedt"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-eilbek"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/herrenfriseur-hamburg-wandsbek"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-bergedorf"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-billstedt"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-eilbek"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balayage-hamburg-wandsbek"
+  to = "/balayage-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-bergedorf"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-billstedt"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-eilbek"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haare-faerben-hamburg-wandsbek"
+  to = "/haare-faerben-hamburg-hamm"
+  status = 301
+  force = true
+
+# 1-hop cleanup for legacy English URLs (specific routes above wildcard fallback)
+
+[[redirects]]
+  from = "https://www.ihr-frisuren-studio.de/en/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
+  status = 301
+  force = true
+
 # www -> non-www canonical redirect (must stay first)
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"

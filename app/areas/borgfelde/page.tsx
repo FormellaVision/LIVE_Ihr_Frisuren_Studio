@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 export default function BorgfeldePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm` },
-    { name: 'Für Kunden aus Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
+    { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
+    { name: 'Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
   ]);
 
   return (
