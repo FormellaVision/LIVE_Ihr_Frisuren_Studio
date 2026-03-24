@@ -1,15 +1,17 @@
-# 1-hop fix for /areas/hamm multi-hop chain (www + http -> final canonical)
+# 1-hop fix for /areas/hamm and /en/* multi-hop chains (www -> final canonical)
 [[redirects]]
-  from = "https://www.ihr-frisuren-studio.de/areas/hamm"
+  from = "/areas/hamm"
   to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
   status = 301
   force = true
+  conditions = { Host = ["www.ihr-frisuren-studio.de"] }
 
 [[redirects]]
-  from = "http://ihr-frisuren-studio.de/areas/hamm"
-  to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
+  from = "/en/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
   status = 301
   force = true
+  conditions = { Host = ["www.ihr-frisuren-studio.de"] }
 
 # Removed satellite service-area pages -> Hamm canonical (1-hop, excludes -hamm itself)
 # These must be above the en/* and www redirects to avoid multi-hop chains
@@ -112,13 +114,8 @@
 
 # 1-hop cleanup for legacy English URLs (specific routes above wildcard fallback)
 
-[[redirects]]
-  from = "https://www.ihr-frisuren-studio.de/en/*"
-  to = "https://ihr-frisuren-studio.de/:splat"
-  status = 301
-  force = true
 
-# www -> non-www canonical redirect (must stay first)
+# www -> non-www canonical redirect (must stay below specific 1-hop rules above)
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"
   to = "https://ihr-frisuren-studio.de/:splat"

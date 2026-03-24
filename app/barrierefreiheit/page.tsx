@@ -12,21 +12,22 @@ export const metadata: Metadata = {
 export default function BarrierefreiheitPage() {
   return (
     <>
-    <Breadcrumb />
-    <div className="section-padding">
-      <div className="container-custom">
-        <div className="max-w-3xl mx-auto">
-          <AnimatedSection direction="up" delay={0}>
-            <h1 className="heading-lg mb-8">Erklärung zur Barrierefreiheit</h1>
-          </AnimatedSection>
+    <div className="pt-16 sm:pt-20">
+      <div className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <Breadcrumb variant="minimal" />
+            <AnimatedSection direction="up" delay={0}>
+              <h1 className="heading-lg mb-8 mt-4">Erklärung zur Barrierefreiheit</h1>
+            </AnimatedSection>
 
-          <AnimatedSection direction="up" delay={0.1}>
-          <div className="prose-body">
-            <p>
-              {BUSINESS_INFO.name} ist bemüht, seine Website im Einklang mit den nationalen
-              Rechtsvorschriften zur Umsetzung der Richtlinie (EU) 2016/2102 des Europäischen
-              Parlaments und des Rates barrierefrei zugänglich zu machen.
-            </p>
+            <AnimatedSection direction="up" delay={0.1}>
+            <div className="prose-body">
+              <p>
+                {BUSINESS_INFO.name} ist bemüht, seine Website im Einklang mit den nationalen
+                Rechtsvorschriften zur Umsetzung der Richtlinie (EU) 2016/2102 des Europäischen
+                Parlaments und des Rates barrierefrei zugänglich zu machen.
+              </p>
 
             <h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
             <p>
@@ -82,6 +83,7 @@ export default function BarrierefreiheitPage() {
           </div>
           </AnimatedSection>
         </div>
+      </div>
       </div>
     </div>
     </>
