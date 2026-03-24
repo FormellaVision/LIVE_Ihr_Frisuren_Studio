@@ -6,7 +6,7 @@ import { MapPin, Brain as Train } from 'lucide-react';
 
 const areas = [
   { name: 'Hamburg Hamm', plz: '20537', href: '/friseur-hamburg-hamm', primary: true },
-  { name: 'Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
+  { name: 'Friseur Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
   { name: 'Hamburg Mitte', plz: '20099', href: '/areas/hamburg-mitte', primary: false },
   { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
 ];
@@ -47,7 +47,7 @@ export function ServiceAreaStrip() {
             <span className="text-sm text-teal-300 font-medium">Einzugsgebiet</span>
           </div>
           <h2 id="service-area-heading" className="font-playfair text-3xl md:text-4xl font-bold mb-4">
-            Ihr Friseur für Hamburg Hamm & Umgebung
+            Ihr Friseur für Hamburg Hamm, Borgfelde & Umgebung
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Wir bedienen Kunden aus Hamburg-Hamm (PLZ 20537), Borgfelde (20535) und den

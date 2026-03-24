@@ -6,6 +6,7 @@ import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
 
 export const metadata: Metadata = {
   title: 'Einzugsgebiet | Friseur Hamburg Hamm & Umgebung – Ihr Frisuren-Studio',
@@ -80,51 +81,12 @@ export default function EinzugsgebietPage() {
 
   return (
     <>
-      <section className="relative min-h-[55vh] -mt-16 flex items-center overflow-hidden pt-16 bg-gray-900">
-        <Image
-          src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition: 'center 40%' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/75" />
-
-        <div className="relative z-10 container-custom w-full py-20">
-          <div className="max-w-2xl mx-auto text-center px-4">
-            <div className="inline-flex items-center gap-2 bg-teal-600/20 border border-teal-500/30 px-4 py-2 rounded-full mb-6">
-              <MapPin className="w-4 h-4 text-teal-400" />
-              <span className="text-sm text-teal-300 font-medium">Einzugsgebiet</span>
-            </div>
-            <h1
-              className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-5"
-              style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)' }}
-            >
-              Ihr Friseur für Hamburg Hamm & Umgebung
-            </h1>
-            <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-8 max-w-xl mx-auto">
-              Unser Salon in der Hammer Landstraße 4 ist gut erreichbar für Kundinnen und Kunden aus Hamburg Hamm, Borgfelde, Hamburg Mitte und Horn.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-black/30"
-              >
-                <Phone className="w-4 h-4" />
-                {BUSINESS_INFO.phone}
-              </a>
-              <Link
-                href="/termin-buchen"
-                className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105"
-              >
-                Termin buchen
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicePageHeader
+        title="Ihr Friseur für Hamburg Hamm & Umgebung"
+        subtitle="Einzugsgebiet & Anfahrt"
+        description="Unser Salon in der Hammer Landstraße 4 ist gut erreichbar für Kundinnen und Kunden aus Hamburg Hamm, Borgfelde, Hamburg Mitte und Horn."
+        backgroundImage="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      />
 
       <Breadcrumb />
 

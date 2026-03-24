@@ -449,7 +449,7 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Bedient ihr auch Kunden aus Borgfelde und Hamburg Mitte?',
-    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist gut erreichbar aus Borgfelde, Horn und Hamburg Mitte. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt.`,
+    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist gut erreichbar aus Borgfelde, Horn und Hamburg Mitte. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt. Als Friseur Borgfelde sind wir aus Borgfelde (20535) in wenigen Minuten erreichbar.`,
   },
 ];
 
