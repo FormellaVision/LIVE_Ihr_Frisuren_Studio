@@ -33,6 +33,28 @@ export function Breadcrumb() {
   const getBreadcrumbItems = (): BreadcrumbItem[] => {
     if (!pathname || pathname === '/') return [];
 
+    // Explicit overrides for area pages — ensures exact UI trail
+    const AREA_OVERRIDES: Record<string, BreadcrumbItem[]> = {
+      '/friseur-hamburg-hamm': [
+        { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
+        { label: 'Hamburg Hamm' },
+      ],
+      '/areas/borgfelde': [
+        { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
+        { label: 'Borgfelde' },
+      ],
+      '/areas/horn': [
+        { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
+        { label: 'Horn' },
+      ],
+      '/areas/hamburg-mitte': [
+        { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
+        { label: 'Hamburg Mitte' },
+      ],
+    };
+
+    if (AREA_OVERRIDES[pathname]) return AREA_OVERRIDES[pathname];
+
     const segments = pathname.split('/').filter(Boolean);
     const items: BreadcrumbItem[] = [];
 
@@ -48,8 +70,14 @@ export function Breadcrumb() {
         const serviceLabel = SERVICE_LABELS[serviceSlug] || formatLabel(serviceSlug);
         const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
         const areaHref = AREA_HREFS[areaSlug] || `/areas/${areaSlug}`;
+        
         items.push({ label: areaLabel, href: areaHref });
-        items.push({ label: serviceLabel, href: undefined });
+        
+        // Skip 'Friseur' crumb for the main location page to match area page structure
+        if (serviceSlug !== 'friseur') {
+          items.push({ label: serviceLabel, href: undefined });
+        }
+        
         return items;
       }
 

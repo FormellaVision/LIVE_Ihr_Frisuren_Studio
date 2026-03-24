@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 export default function HornPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm` },
-    { name: 'Für Kunden aus Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
+    { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
+    { name: 'Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
   ]);
 
   return (

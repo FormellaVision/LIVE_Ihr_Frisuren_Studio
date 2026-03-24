@@ -6,6 +6,7 @@ import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from '@/lib/schema';
 import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { CTABanner } from '@/components/shared/CTABanner';
+import { Breadcrumb } from '@/components/shared/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
@@ -81,7 +82,8 @@ const faqs = [
 export default function FriseurHamburgHammPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Friseur Hamburg Hamm', url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm` },
+    { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
+    { name: 'Hamburg Hamm', url: `${BUSINESS_INFO.website}/friseur-hamburg-hamm` },
   ]);
 
   const serviceSchema = getServiceSchema(
@@ -151,6 +153,8 @@ export default function FriseurHamburgHammPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb />
 
         <section className="section-padding bg-warm-white" aria-labelledby="services-friseur-heading">
           <div className="container-custom">
