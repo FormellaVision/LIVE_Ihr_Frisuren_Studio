@@ -27,7 +27,11 @@ interface BreadcrumbItem {
   href?: string;
 }
 
-export function Breadcrumb() {
+interface BreadcrumbProps {
+  variant?: 'default' | 'minimal';
+}
+
+export function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
   const pathname = usePathname();
 
   const getBreadcrumbItems = (): BreadcrumbItem[] => {
@@ -117,6 +121,55 @@ export function Breadcrumb() {
 
   const items = getBreadcrumbItems();
   if (items.length === 0) return null;
+
+  if (variant === 'minimal') {
+    return (
+      <nav aria-label="Breadcrumb" className="py-2">
+        <ol className="flex items-center gap-2 overflow-x-auto text-xs sm:text-sm list-none m-0 p-0">
+          <li className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center hover:opacity-75 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
+              aria-label="Startseite"
+            >
+              <Image
+                src="https://res.cloudinary.com/dqkld61zu/image/upload/v1770245111/Ihr-Frisuren-Studio_transparent_obd4aa.png"
+                alt="Ihr Frisuren-Studio – zur Startseite"
+                width={32}
+                height={32}
+                className="h-8 w-auto"
+              />
+            </Link>
+          </li>
+
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1;
+
+            return (
+              <li
+                key={`${item.label}-${index}`}
+                className="flex items-center gap-2 whitespace-nowrap list-none m-0 p-0"
+              >
+                <ChevronRight className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                {isLast ? (
+                  <span className="text-gray-400" aria-current="page">
+                    {item.label}
+                  </span>
+                ) : (
+                  <Link
+                    href={item.href || '/'}
+                    className="text-gray-500 hover:text-teal-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-600 rounded"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+    );
+  }
 
   return (
     <nav aria-label="Breadcrumb" className="bg-white/80 backdrop-blur-sm border-b border-gray-200">

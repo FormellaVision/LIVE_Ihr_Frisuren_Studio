@@ -13,16 +13,17 @@ export const metadata: Metadata = {
 export default function DatenschutzPage() {
   return (
     <>
-    <Breadcrumb />
-    <div className="section-padding">
-      <div className="container-custom">
-        <div className="max-w-3xl mx-auto">
-          <AnimatedSection direction="up" delay={0}>
-            <h1 className="heading-lg mb-8">Datenschutzerklärung</h1>
-          </AnimatedSection>
+    <div className="pt-16 sm:pt-20">
+      <div className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <Breadcrumb variant="minimal" />
+            <AnimatedSection direction="up" delay={0}>
+              <h1 className="heading-lg mb-8 mt-4">Datenschutzerklärung</h1>
+            </AnimatedSection>
 
-          <AnimatedSection direction="up" delay={0.1}>
-          <div className="prose-body">
+            <AnimatedSection direction="up" delay={0.1}>
+            <div className="prose-body">
             <h2>1. Datenschutz auf einen Blick</h2>
 
             <h3>Allgemeine Hinweise</h3>
@@ -401,6 +402,7 @@ export default function DatenschutzPage() {
           </div>
           </AnimatedSection>
         </div>
+      </div>
       </div>
     </div>
     </>
