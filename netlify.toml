@@ -1,4 +1,26 @@
 [[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 405
+  force = true
+  methods = ["POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+  [redirects.headers]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex"
+    Allow = "GET, HEAD, OPTIONS"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 405
+  force = true
+  methods = ["POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+  [redirects.headers]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex"
+    Allow = "GET, HEAD, OPTIONS"
+
+[[redirects]]
   from = "/areas/hamm"
   to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
   status = 301
