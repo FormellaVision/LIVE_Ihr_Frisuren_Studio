@@ -3,11 +3,14 @@ import type { NextRequest } from 'next/server';
 
 export const config = {
   matcher: [
-    // Apply middleware to all paths except:
-    // - Next internals (_next)
-    // - API routes (api)
-    // - static assets (images/fonts/css/js/maps)
-    '/((?!api|_next|.*\\.(?:png|jpg|jpeg|webp|gif|svg|ico|css|js|map|woff|woff2|ttf|otf)$).*)',
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next (Next.js internals like static files and image optimization)
+     * - robots.txt, sitemap.xml (metadata files handled via netlify.toml)
+     * - static assets (images/fonts/css/js/maps)
+     */
+    '/((?!api|_next|robots\\.txt|sitemap\\.xml|.*\\.(?:png|jpg|jpeg|webp|gif|svg|ico|css|js|map|woff|woff2|ttf|otf)$).*)',
   ],
 };
 
