@@ -10,7 +10,7 @@ export const config = {
      * - robots.txt, sitemap.xml (metadata files handled via netlify.toml)
      * - static assets (images/fonts/css/js/maps)
      */
-    '/((?!api|_next|.*\\.(?:png|jpg|jpeg|webp|gif|svg|ico|css|js|map|woff|woff2|ttf|otf)$).*)',
+    '/((?!api|_next|robots\\.txt|sitemap\\.xml|.*\\.(?:png|jpg|jpeg|webp|gif|svg|ico|css|js|map|woff|woff2|ttf|otf)$).*)',
   ],
 };
 
