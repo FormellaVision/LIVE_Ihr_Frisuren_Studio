@@ -1,9 +1,9 @@
 [[redirects]]
   from = "/robots.txt"
-  to = "/robots.txt"
+  to = "/"
   status = 405
   force = true
-  methods = ["POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+  methods = ["POST", "PUT", "PATCH", "DELETE"]
   [redirects.headers]
     Cache-Control = "no-store"
     X-Robots-Tag = "noindex"
@@ -11,10 +11,10 @@
 
 [[redirects]]
   from = "/sitemap.xml"
-  to = "/sitemap.xml"
+  to = "/"
   status = 405
   force = true
-  methods = ["POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+  methods = ["POST", "PUT", "PATCH", "DELETE"]
   [redirects.headers]
     Cache-Control = "no-store"
     X-Robots-Tag = "noindex"
