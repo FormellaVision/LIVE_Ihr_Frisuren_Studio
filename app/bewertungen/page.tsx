@@ -4,7 +4,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { RelatedServices } from '@/components/sections/RelatedServices';
 import { BUSINESS_INFO, REVIEWS } from '@/lib/constants';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbSchema, getOrganizationSchema, getReviewSchema } from '@/lib/schema';
 import { Star, ExternalLink, Quote } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
@@ -47,6 +47,8 @@ export const metadata: Metadata = {
 };
 
 export default function BewertungenPage() {
+  const organizationSchema = getOrganizationSchema();
+  const reviewPageSchema = getReviewSchema();
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Bewertungen', url: `${BUSINESS_INFO.website}/bewertungen` },
@@ -160,6 +162,14 @@ export default function BewertungenPage() {
         description="Werden Sie Teil unserer zufriedenen Stammkunden!"
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewPageSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

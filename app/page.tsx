@@ -13,7 +13,7 @@ import { DEFAULT_FAQS } from '@/lib/schema';
 import { BUSINESS_INFO } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 250+ Bewertungen in deiner Nähe',
+  title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 270+ Bewertungen in deiner Nähe',
   description: `Friseur Hamburg Hamm: Damen, Herren, Balayage & Kosmetik in 20537 Hamburg-Hamm. Meisterbetrieb seit 2004 mit 4.9 Sternen und ${BUSINESS_INFO.reviews.count}+ Bewertungen.`,
   keywords: [
     'friseur hamburg hamm',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'gesichtsbehandlung hamburg hamm',
   ],
   openGraph: {
-    title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 250+ Bewertungen in deiner Nähe',
+    title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 270+ Bewertungen in deiner Nähe',
     description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
     url: 'https://ihr-frisuren-studio.de',
     images: [
