@@ -12,12 +12,12 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Scissors, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Herrenfriseur Hamburg Hamm | Herrenhaarschnitt & Bartpflege',
-  description: `Herrenfriseur Hamburg Hamm für moderne Herrenhaarschnitte, Styling und Bartpflege. Ihr Frisuren-Studio in 20537 Hamburg-Hamm.`,
+  title: 'Herrenfriseur Hamburg Hamm | Barbier & Meisterbetrieb · ab 19€',
+  description: `Herrenfriseur Hamburg Hamm ✓ Haarschnitt ab 19€ ✓ Bartpflege ✓ Gentleman-Paket 49€ ✓ Meisterbetrieb ✓ 270+ Bewertungen 4,9★ ☎ 040 2509029`,
   keywords: ['herrenfriseur hamburg hamm', 'friseur herren hamburg', 'herrenhaarschnitt hamburg', 'bartpflege hamburg hamm'],
   openGraph: {
-    title: 'Herrenfriseur Hamburg Hamm - Moderne Herrenhaarschnitte | Ihr Frisuren-Studio',
-    description: 'Professionelle Herrenhaarschnitte in Hamburg Hamm ab 18€. Bartpflege-Spezialist.',
+    title: 'Herrenfriseur Hamburg Hamm – Haarschnitt & Bartpflege | Ihr Frisuren-Studio',
+    description: 'Professionelle Herrenhaarschnitte in Hamburg Hamm ab 19€. Bartpflege-Spezialist. Gentleman-Paket 49€.',
     url: 'https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm',
     images: [
       {
@@ -82,11 +82,13 @@ export default function HerrenfriseurPage() {
     'Herrenhaarschnitte Hamburg Hamm',
     'Professionelle Herrenhaarschnitte in Hamburg Hamm. Vom Maschinenschnitt bis zum Design-Schnitt, inkl. Bartpflege.',
     `${BUSINESS_INFO.website}/herrenfriseur-hamburg-hamm`,
-    SERVICES_HERREN.slice(0, 5).map((s) => ({
-      name: s.name,
-      description: s.name,
-      price: s.price,
-    }))
+    [
+      { name: 'Maschinenschnitt', description: 'Ganzer Kopf mit Maschine', price: '19' },
+      { name: 'Klassischer Schnitt trocken', description: 'Kurzhaarhaarschnitt', price: '28' },
+      { name: 'Design-Schnitt inkl. Waschen & Styling', description: 'Moderner Herrenhaarschnitt', price: '34' },
+      { name: 'Gentleman-Paket', description: 'Schnitt + Bart + Augenbrauen', price: '49' },
+      { name: 'Barttrimmen', description: 'Professionelles Bart-Styling', price: '8' },
+    ]
   );
 
   const faqSchema = getFAQSchema(SERVICE_FAQS.herren);
@@ -117,7 +119,7 @@ export default function HerrenfriseurPage() {
   return (
     <>
       <ServicePageHeader
-        title="Herrenfriseur Hamburg Hamm"
+        title="Herrenfriseur Hamburg Hamm – Haarschnitt & Bartpflege"
         subtitle="Moderne Herrenhaarschnitte & Bartpflege"
         description="Professionelle Herrenhaarschnitte, Bartmodellage und Gentleman-Service von erfahrenen Stylisten"
         backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"

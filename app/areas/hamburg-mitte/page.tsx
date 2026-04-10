@@ -9,7 +9,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Mitte | Meisterbetrieb · Ihr Frisuren-Studio',
-  description: `Ihr Friseur für Hamburg Mitte – Ihr Frisuren-Studio in Hamburg Hamm, nur Minuten entfernt. Meisterbetrieb seit 2004. 270+ Bewertungen ★4,9. ☎ 040 2509029`,
+  description: 'Friseur Hamburg Mitte ✓ Meisterbetrieb – 10 Min. vom HBF ✓ 270+ Bewertungen 4,9★ ✓ Damen ab 33€ · Herren ab 19€ ✓ Balayage ☎ 040 2509029',
   keywords: [
     'friseur hamburg mitte',
     'friseur nahe hamburg mitte',
@@ -76,7 +76,10 @@ export default function HamburgMittePage() {
     '@id': 'https://ihr-frisuren-studio.de/#business',
     'name': 'Ihr Frisuren-Studio',
     'url': 'https://ihr-frisuren-studio.de',
+    'image': 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
     'telephone': '+49402509029',
+    'email': 'ihr.frisuren.studio.hamburg@gmail.com',
+    'priceRange': '€€',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Hammer Landstraße 4',

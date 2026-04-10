@@ -454,7 +454,7 @@ export const SERVICE_FAQS = {
     {
       question: 'Was kostet ein Damenhaarschnitt in Hamburg Hamm?',
       answer:
-        'Damenhaarschnitte (Waschen, Schneiden & Föhnen) kosten ab 43€ für kurzes, ab 47€ für mittellanges und ab 49€ für langes Haar. Trockenherrschnitt (Cut & Go) ab 33€.',
+        'Bei Ihr Frisuren-Studio in Hamburg Hamm beginnen Damenhaarschnitte ab 33€ (Cut & Go) bzw. ab 43€ (Waschen, Schneiden, Föhnen). Balayage ist ab 179€ erhältlich.',
     },
     {
       question: 'Bieten Sie Balayage für Damen an?',
@@ -471,12 +471,22 @@ export const SERVICE_FAQS = {
       answer:
         'Wir verwenden hochwertige Produkte wie Olaplex für die Veredelung und Pflegebehandlungen. Alle Produkte sind auf verschiedene Haartypen abgestimmt.',
     },
+    {
+      question: 'Ist eine Terminbuchung beim Damenfriseur Hamburg Hamm nötig?',
+      answer:
+        'Wir empfehlen eine Terminbuchung per Telefon (040 2509029) oder WhatsApp, besonders für Balayage und Colorationen. Spontanbesuche sind nach Verfügbarkeit möglich.',
+    },
+    {
+      question: 'Macht ihr auch Kosmetikbehandlungen für Damen in Hamburg Hamm?',
+      answer:
+        'Ja! Über unsere Haarleistungen hinaus bieten wir Gesichtsbehandlungen, Maniküre und medizinische Fußpflege an. Bitte für Kosmetiktermine telefonisch unter 040 2509029 anfragen.',
+    },
   ],
   herren: [
     {
       question: 'Was kostet ein Herrenhaarschnitt in Hamburg Hamm?',
       answer:
-        'Herrenhaarschnitte beginnen bei 19€ (Maschinenschnitt). Der Design-Schnitt kostet 34€, Waschen, Schneiden & Föhnen 33€. Das Gentleman-Paket (Schnitt + Bart + Augenbrauen) nur 49€.',
+        'Herrenhaarschnitte bei Ihr Frisuren-Studio beginnen ab 19€ (Maschinenschnitt) oder 28€ (klassischer Schnitt trocken). Das beliebte Gentleman-Paket (Schnitt + Bart + Augenbrauen) kostet 49€.',
     },
     {
       question: 'Bieten Sie Bart-Styling an?',

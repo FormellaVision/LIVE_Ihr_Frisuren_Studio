@@ -53,7 +53,10 @@ export default function HammPage() {
     '@id': 'https://ihr-frisuren-studio.de/#business',
     'name': 'Ihr Frisuren-Studio',
     'url': 'https://ihr-frisuren-studio.de',
+    'image': 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
     'telephone': '+49402509029',
+    'email': 'ihr.frisuren.studio.hamburg@gmail.com',
+    'priceRange': '€€',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Hammer Landstraße 4',

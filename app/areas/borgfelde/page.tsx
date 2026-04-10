@@ -9,7 +9,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Borgfelde (20535) | Meisterbetrieb · Ihr Frisuren-Studio',
-  description: 'Kein Friseur in Borgfelde? Ihr Frisuren-Studio in Hamburg Hamm ist Ihr Meisterbetrieb – 5 Min. von Borgfelde (20535). 270+ Bewertungen ★4,9. ☎ 040 2509029',
+  description: 'Friseur Borgfelde (20535) ✓ Meisterbetrieb in Hamburg Hamm – nur 5 Min. entfernt ✓ 270+ Bewertungen 4,9★ ✓ Damen, Herren, Balayage ☎ 040 2509029',
   keywords: [
     'friseur borgfelde',
     'friseur nahe borgfelde',
@@ -84,7 +84,10 @@ export default function BorgfeldePage() {
     '@id': 'https://ihr-frisuren-studio.de/#business',
     'name': 'Ihr Frisuren-Studio',
     'url': 'https://ihr-frisuren-studio.de',
+    'image': 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
     'telephone': '+49402509029',
+    'email': 'ihr.frisuren.studio.hamburg@gmail.com',
+    'priceRange': '€€',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Hammer Landstraße 4',
