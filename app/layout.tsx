@@ -103,8 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link rel="preconnect" href="https://images.pexels.com" />
-        <link rel="dns-prefetch" href="https://images.pexels.com" />
+
         <link
           rel="preload"
           as="image"
@@ -114,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="preload"
           as="image"
-          href="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto/f_auto/v1775838345/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.avif"
+          href="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
           fetchPriority="high"
         />
         <link
