@@ -16,13 +16,13 @@ export function HeroSection() {
       aria-label="Friseur Hamburg Hamm – Ihr Frisuren-Studio"
       className="relative min-h-[100svh] overflow-hidden flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]"
     >
-      <Image
-        src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto/f_auto/v1775838345/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.avif"
+      <img
+        src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
         alt="Premium Friseursalon Ihr Frisuren-Studio in Hamburg Hamm"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center opacity-[0.16]"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.16]"
+        fetchPriority="high"
+        loading="eager"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.20)_0%,rgba(229,224,218,0.10)_45%,rgba(0,0,0,0.06)_100%)]" />
