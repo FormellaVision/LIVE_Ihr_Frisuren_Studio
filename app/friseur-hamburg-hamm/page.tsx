@@ -11,7 +11,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
-  description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen ab 33€, Herren ab 19€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
+  description: `Friseur Hamburg Hamm ✓ Meisterbetrieb seit 2004 ✓ ${BUSINESS_INFO.reviews.count}+ Bewertungen ${BUSINESS_INFO.reviews.rating}★ ✓ Haarschnitte, Balayage & Kosmetik ✓ Afterwork-Termine nach 19 Uhr ☎ ${BUSINESS_INFO.phone}`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
-    description: `Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
+    description: `Friseur Hamburg Hamm ✓ Meisterbetrieb seit 2004 ✓ ${BUSINESS_INFO.reviews.count}+ Bewertungen ${BUSINESS_INFO.reviews.rating}★ ✓ Haarschnitte, Balayage & Kosmetik ✓ Afterwork-Termine nach 19 Uhr ☎ ${BUSINESS_INFO.phone}`,
     url: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
     images: [
       {
@@ -104,6 +104,30 @@ export default function FriseurHamburgHammPage() {
   );
 
   const faqSchema = getFAQSchema(faqs);
+
+  const hammLocalSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HairSalon',
+    '@id': 'https://ihr-frisuren-studio.de/#business',
+    'name': 'Ihr Frisuren-Studio',
+    'url': 'https://ihr-frisuren-studio.de',
+    'image': 'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
+    'telephone': '+49402509029',
+    'email': 'ihr.frisuren.studio.hamburg@gmail.com',
+    'priceRange': '€€',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'Hammer Landstraße 4',
+      'addressLocality': 'Hamburg',
+      'postalCode': '20537',
+      'addressCountry': 'DE'
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Hamburg Hamm',
+      'postalCode': '20537'
+    }
+  };
 
   return (
     <>
@@ -332,6 +356,10 @@ export default function FriseurHamburgHammPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hammLocalSchema) }}
       />
     </>
   );
