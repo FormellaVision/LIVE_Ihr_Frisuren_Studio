@@ -125,7 +125,7 @@ export function getOrganizationSchema() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '250',
+      reviewCount: '270',
       bestRating: '5',
       worstRating: '1',
     },
@@ -280,13 +280,6 @@ export function getReviewSchema() {
     name: 'Bewertungen | Ihr Frisuren-Studio',
     url: `${BUSINESS_INFO.website}/bewertungen`,
     about: { '@id': BUSINESS_ID },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '250',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
 

@@ -8,7 +8,7 @@ import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Borgfelde (20535) | Meisterbetrieb · Ihr Frisuren-Studio',
-  description: 'Kein Friseur in Borgfelde? Ihr Frisuren-Studio in Hamburg Hamm ist Ihr Meisterbetrieb – 5 Min. von Borgfelde (20535). 250+ Bewertungen ★4,9. ☎ 040 2509029',
+  description: 'Kein Friseur in Borgfelde? Ihr Frisuren-Studio in Hamburg Hamm ist Ihr Meisterbetrieb – 5 Min. von Borgfelde (20535). 270+ Bewertungen ★4,9. ☎ 040 2509029',
   keywords: [
     'friseur borgfelde',
     'friseur nahe borgfelde',
@@ -105,7 +105,7 @@ export default function BorgfeldePage() {
           name: 'Borgfelde',
           slug: 'borgfelde',
           isMainLocation: true,
-          intro: `Sie suchen einen erstklassigen Friseur in Borgfelde (20535)? Auch wenn sich kein Salon direkt im Stadtteil befindet, ist Ihr Frisuren-Studio in Hamburg Hamm (20537) die ideale Adresse für Sie. Als zertifizierter Meisterbetrieb seit 2004 sind wir nur 2 U-Bahn-Stationen (U2/U4 via Berliner Tor bis Burgstraße) entfernt. Über 250 Kunden bewerten uns mit 4,9 Sternen für exzellente Haarschnitte, Balayage und professionelle Beratung. Erleben Sie Premium-Qualität in Ihrer direkten Nachbarschaft.`,
+          intro: `Sie suchen einen erstklassigen Friseur in Borgfelde (20535)? Auch wenn sich kein Salon direkt im Stadtteil befindet, ist Ihr Frisuren-Studio in Hamburg Hamm (20537) die ideale Adresse für Sie. Als zertifizierter Meisterbetrieb seit 2004 sind wir nur 2 U-Bahn-Stationen (U2/U4 via Berliner Tor bis Burgstraße) entfernt. Über 270 Kunden bewerten uns mit 4,9 Sternen für exzellente Haarschnitte, Balayage und professionelle Beratung. Erleben Sie Premium-Qualität in Ihrer direkten Nachbarschaft.`,
           distance: 'ca. 5–10 Minuten bis Hamburg Hamm',
           travelInfo: `Von Borgfelde zum Friseur in Hamburg Hamm: Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß entlang der Hammer Landstraße. Alternativ mit den Buslinien 25 oder 130 direkt bis zum Salon in der Hammer Landstraße 4.`,
           travelIcon: 'train',

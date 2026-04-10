@@ -181,6 +181,7 @@ export function Footer() {
                     <span itemProp="addressLocality">{BUSINESS_INFO.address.city}</span>
                     {'-'}
                     <span itemProp="addressRegion">{BUSINESS_INFO.address.district}</span>
+                    <meta itemProp="addressCountry" content="DE" />
                   </span>
                 </a>
               </li>
