@@ -122,10 +122,13 @@ export function getOrganizationSchema() {
 
     hasMap: BUSINESS_INFO.googleMaps,
 
-    // IMPORTANT: Remove review/aggregateRating from JSON-LD to avoid Rich Results invalid items
-    // Keep ratings visible on the page UI, but not in structured data.
-    // aggregateRating: REMOVED
-    // review: REMOVED
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '250',
+      bestRating: '5',
+      worstRating: '1',
+    },
 
     sameAs: [
       BUSINESS_INFO.instagramUrl,
@@ -269,13 +272,6 @@ export function getServiceSchema(
   };
 }
 
-/**
- * IMPORTANT:
- * We do NOT output Review / AggregateRating schema to avoid "zusammengefasste Bewertungen"
- * invalid items in Google Rich Results test.
- *
- * Keep this function as a harmless placeholder so imports don't break.
- */
 export function getReviewSchema() {
   return {
     '@context': 'https://schema.org',
@@ -284,6 +280,13 @@ export function getReviewSchema() {
     name: 'Bewertungen | Ihr Frisuren-Studio',
     url: `${BUSINESS_INFO.website}/bewertungen`,
     about: { '@id': BUSINESS_ID },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '250',
+      bestRating: '5',
+      worstRating: '1',
+    },
   };
 }
 
