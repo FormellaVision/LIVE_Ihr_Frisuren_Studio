@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
+import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Horn | Ihr Frisuren-Studio nahe Horn',
@@ -53,6 +54,8 @@ export default function HornPage() {
           image: 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920',
         }}
       />
+
+      <ServiceCardsSection title="Unsere Leistungen für Kunden aus Horn" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </>
   );

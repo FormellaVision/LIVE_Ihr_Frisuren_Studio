@@ -5,6 +5,7 @@ import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
 import { PriceList } from '@/components/shared/PriceList';
 import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
+import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Borgfelde (20535) | Meisterbetrieb · Ihr Frisuren-Studio',
@@ -122,6 +123,8 @@ export default function BorgfeldePage() {
         }}
       />
 
+      <ServiceCardsSection title="Unsere Leistungen für Kunden aus Borgfelde" />
+
       {/* Services and Pricing Section */}
       <section className="section-padding bg-warm-white" aria-labelledby="borgfelde-prices-heading">
         <div className="container-custom">
@@ -137,34 +140,7 @@ export default function BorgfeldePage() {
         </div>
       </section>
 
-      {/* Service Links for Borgfelde */}
-      <section className="py-12 bg-white" aria-labelledby="borgfelde-services-heading">
-        <div className="container-custom">
-          <h2 id="borgfelde-services-heading" className="font-playfair text-2xl font-bold text-center mb-8">
-            Exklusive Friseur-Services für Sie
-          </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/damenfriseur-hamburg-hamm"
-              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
-            >
-              Damenfriseur Borgfelde
-            </Link>
-            <Link
-              href="/herrenfriseur-hamburg-hamm"
-              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
-            >
-              Herrenfriseur Borgfelde
-            </Link>
-            <Link
-              href="/balayage-hamburg-hamm"
-              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
-            >
-              Balayage Borgfelde
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Borgfelde FAQ Section */}
       <ServiceFAQSection 

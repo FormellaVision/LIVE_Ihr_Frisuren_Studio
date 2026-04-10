@@ -114,7 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="preload"
           as="image"
-          href="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=60"
+          href="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto/f_auto/v1775838345/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.avif"
           fetchPriority="high"
         />
         <link

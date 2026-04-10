@@ -17,7 +17,7 @@ export function HeroSection() {
       className="relative min-h-[100svh] overflow-hidden flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]"
     >
       <Image
-        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=60"
+        src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto/f_auto/v1775838345/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.avif"
         alt="Premium Friseursalon Ihr Frisuren-Studio in Hamburg Hamm"
         fill
         priority

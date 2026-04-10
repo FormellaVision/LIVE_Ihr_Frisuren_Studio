@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
+import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Hamm | Ihr Frisuren-Studio in 20537 Hamburg',
@@ -53,6 +54,8 @@ export default function HammPage() {
           image: 'https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=1920',
         }}
       />
+
+      <ServiceCardsSection title="Unsere Leistungen in Hamburg Hamm" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </>
   );
