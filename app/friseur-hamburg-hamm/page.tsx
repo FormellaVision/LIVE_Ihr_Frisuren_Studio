@@ -7,10 +7,11 @@ import { ServiceContactBlock } from '@/components/shared/ServiceContactBlock';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServicePageHeader } from '@/components/shared/ServicePageHeader';
+import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
-  title: 'Friseur Hamburg Hamm – Leistungen, Öffnungszeiten & Anfahrt',
-  description: `Friseur Hamburg Hamm: Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen ab 33€, Herren ab 19€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
+  title: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
+  description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004 in der Hammer Landstraße 4. Damen ab 33€, Herren ab 19€, Balayage ab 179€. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -77,6 +78,10 @@ const faqs = [
     question: 'Bedient ihr auch Kunden aus PLZ 20535 (Borgfelde)?',
     answer: `Ja! Borgfelde (20535) liegt direkt neben unserem Salon in Hamburg-Hamm (20537). Sie erreichen uns bequem in wenigen Minuten.`,
   },
+  {
+    question: 'Was macht Ihr Frisuren-Studio zum besten Friseur in Hamburg Hamm?',
+    answer: 'Als zertifizierter Meisterbetrieb seit 2004 verbinden wir 20 Jahre Erfahrung mit modernsten Techniken. 270+ Kunden bewerten uns mit 4,9 Sternen. Unser Team spricht Deutsch, Englisch, Türkisch und Persisch — für alle Kulturen und Haartypen.',
+  },
 ];
 
 export default function FriseurHamburgHammPage() {
@@ -110,6 +115,8 @@ export default function FriseurHamburgHammPage() {
       />
 
       <Breadcrumb />
+
+      <ServiceCardsSection title="Unsere Leistungen in Hamburg Hamm" />
 
       <section className="section-padding bg-warm-white" aria-labelledby="services-friseur-heading">
         <div className="container-custom">

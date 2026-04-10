@@ -28,10 +28,10 @@ const OG_IMAGE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL('https://ihr-frisuren-studio.de'),
   title: {
-    default: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 270+ Bewertungen in deiner Nähe',
+    default: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
     template: '%s | Ihr Frisuren-Studio',
   },
-  description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}) Tel: ${BUSINESS_INFO.phone}`,
+  description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating}). Tel: ${BUSINESS_INFO.phone}`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     apple: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1772417125/2face_Favicon_white_qxrwom.svg',
   },
   openGraph: {
-    title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 270+ Bewertungen in deiner Nähe',
-    description: `Premium Friseur in Hamburg Hamm seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
+    title: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
+    description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004. Damen, Herren, Balayage, Kosmetik. ${BUSINESS_INFO.reviews.count}+ Top-Bewertungen (${BUSINESS_INFO.reviews.rating})`,
     url: 'https://ihr-frisuren-studio.de/',
     siteName: 'Ihr Frisuren-Studio Hamburg Hamm',
     images: [
@@ -79,8 +79,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bester Friseur Hamburg Hamm | Ihr Frisuren-Studio mit 270+ Bewertungen in deiner Nähe',
-    description: `Premium Friseur in Hamburg Hamm seit 2004 Tel: ${BUSINESS_INFO.phone}`,
+    title: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
+    description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004 Tel: ${BUSINESS_INFO.phone}`,
     images: [OG_IMAGE_URL],
   },
   alternates: {
@@ -114,7 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="preload"
           as="image"
-          href="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=60"
+          href="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto/f_auto/v1775838345/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.avif"
           fetchPriority="high"
         />
         <link
