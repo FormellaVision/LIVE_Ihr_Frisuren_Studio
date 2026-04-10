@@ -281,6 +281,34 @@ export default function FriseurHamburgHammPage() {
         </div>
       </section>
 
+      <section className="section-padding bg-gray-50" aria-labelledby="surrounding-areas-heading">
+        <div className="container-custom">
+          <h2 id="surrounding-areas-heading" className="font-playfair text-2xl md:text-3xl font-bold text-center mb-10">
+            Auch für Kunden aus der Umgebung
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-6 text-center">
+            <p className="text-gray-700 text-lg leading-relaxed">
+              In nur 2 U-Bahn-Stationen oder 5 Minuten Fahrtzeit erreichen Sie uns als Ihr{' '}
+              <Link href="/areas/borgfelde" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+                Friseur Borgfelde
+              </Link>.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Direkt vom Hauptbahnhof oder der City sind wir Ihr schnell erreichbarer{' '}
+              <Link href="/areas/hamburg-mitte" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+                Friseur Hamburg Mitte
+              </Link>.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Aus dem Hamburger Osten kommen Kunden in ca. 10 Minuten zu uns als ihr{' '}
+              <Link href="/areas/horn" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+                Friseur Horn
+              </Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <CTABanner
         title="Termin beim Friseur in Hamburg Hamm buchen"
         description="Meisterbetrieb seit 2004. Damen ab 33€ · Herren ab 19€ · Balayage ab 179€"

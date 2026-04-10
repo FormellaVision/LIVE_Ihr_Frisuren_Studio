@@ -20,19 +20,50 @@
     X-Robots-Tag = "noindex"
     Allow = "GET, HEAD, OPTIONS"
 
+# ------------------------------------------------------------
+# Legacy HTML Page Redirects (old site structures)
+# ------------------------------------------------------------
+[[redirects]]
+  from = "/marzena.html"
+  to = "https://ihr-frisuren-studio.de/areas/borgfelde"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "https://ihr-frisuren-studio.de/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/impressum.html"
+  to = "https://ihr-frisuren-studio.de/impressum"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/herren"
+  to = "https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/herren/"
+  to = "https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/areas/hamm"
   to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
   status = 301
   force = true
-  conditions = { Host = ["www.ihr-frisuren-studio.de"] }
 
 [[redirects]]
   from = "/en/*"
   to = "https://ihr-frisuren-studio.de/:splat"
   status = 301
   force = true
-  conditions = { Host = ["www.ihr-frisuren-studio.de"] }
 
 # Removed satellite service-area pages -> Hamm canonical (1-hop, excludes -hamm itself)
 # These must be above the en/* and www redirects to avoid multi-hop chains

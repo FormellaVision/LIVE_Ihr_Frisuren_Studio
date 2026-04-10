@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
+import { PriceList } from '@/components/shared/PriceList';
+import { ServiceFAQSection } from '@/components/shared/ServiceFAQSection';
 
 export const metadata: Metadata = {
-  title: 'Friseur Borgfelde | Ihr Frisuren-Studio – Nähe 20535',
-  description: `Friseur Borgfelde (20535): Ihr Frisuren-Studio in Hamburg Hamm – Meisterbetrieb seit 2004. Nur 2 U-Bahn-Stationen entfernt. Damen, Herren, Balayage & Haare färben. Jetzt Termin vereinbaren!`,
+  title: 'Friseur Borgfelde (20535) | Meisterbetrieb · Ihr Frisuren-Studio',
+  description: 'Kein Friseur in Borgfelde? Ihr Frisuren-Studio in Hamburg Hamm ist Ihr Meisterbetrieb – 5 Min. von Borgfelde (20535). 250+ Bewertungen ★4,9. ☎ 040 2509029',
   keywords: [
     'friseur borgfelde',
     'friseur nahe borgfelde',
@@ -26,7 +28,28 @@ export const metadata: Metadata = {
   },
 };
 
+const SERVICES_DAMEN = [
+  { name: 'Cut & Go', price: '33€', description: 'Trockenhaarschnitt für die schnelle Auffrischung' },
+  { name: 'Waschen, Schneiden, Föhnen', price: 'ab 43€', description: 'Inkl. Typberatung und Styling' },
+  { name: 'Ansatzfarbe', price: '49€', description: 'Professionelle Farbauffrischung' },
+  { name: 'Balayage', price: 'ab 179€', description: 'Natürliche Highlights inkl. Veredelung & Schnitt' },
+];
+
+const SERVICES_HERREN = [
+  { name: 'Maschinenschnitt', price: '19€', description: 'Ganzer Kopf mit Maschine' },
+  { name: 'Klassischer Haarschnitt', price: '28€', description: 'Trockenhaarschnitt oder Kurzhaarschnitt' },
+  { name: 'Gentleman-Paket', price: '49€', description: 'Schnitt, Bartpflege & Augenbrauen' },
+];
+
 const borgfeldeFaqs = [
+  {
+    question: 'Gibt es einen Friseur direkt in Borgfelde?',
+    answer: 'Es gibt keinen Friseursalon direkt in Borgfelde (20535). Der nächste Meisterbetrieb mit Bestbewertungen ist Ihr Frisuren-Studio in Hamburg Hamm – nur 5-10 Minuten entfernt mit U2/U4.',
+  },
+  {
+    question: 'Welche Friseur-Services sind in Borgfelde besonders gefragt?',
+    answer: 'Kunden aus Borgfelde buchen vor allem Damenhaarschnitte, Balayage und das Gentleman-Paket. Als Meisterbetrieb seit 2004 bieten wir alle Services für Damen und Herren aus Borgfelde.',
+  },
   {
     question: 'Wie schnell erreiche ich euch aus Borgfelde (20535)?',
     answer: `Von Borgfelde (20535) sind wir in unter 10 Minuten erreichbar. Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Alternativ mit den Buslinien 25 oder 130 direkt vor den Salon.`,
@@ -51,7 +74,29 @@ export default function BorgfeldePage() {
     { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
     { name: 'Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
   ]);
+
   const faqSchema = getFAQSchema(borgfeldeFaqs);
+
+  const borgfeldeLocalSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HairSalon',
+    '@id': 'https://ihr-frisuren-studio.de/#business',
+    'name': 'Ihr Frisuren-Studio',
+    'url': 'https://ihr-frisuren-studio.de',
+    'telephone': '+49402509029',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'Hammer Landstraße 4',
+      'addressLocality': 'Hamburg',
+      'postalCode': '20537',
+      'addressCountry': 'DE'
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Borgfelde',
+      'postalCode': '20535'
+    }
+  };
 
   return (
     <>
@@ -60,7 +105,7 @@ export default function BorgfeldePage() {
           name: 'Borgfelde',
           slug: 'borgfelde',
           isMainLocation: true,
-          intro: `Kunden aus Borgfelde (20535) erreichen Ihr Frisuren-Studio in Hamburg Hamm in nur wenigen Minuten – 2 U-Bahn-Stationen via U2/U4 Burgstraße. Als Meisterbetrieb seit 2004 bieten wir Damen und Herren aus Borgfelde professionelle Haarschnitte, Balayage und Colorationen.`,
+          intro: `Sie suchen einen erstklassigen Friseur in Borgfelde (20535)? Auch wenn sich kein Salon direkt im Stadtteil befindet, ist Ihr Frisuren-Studio in Hamburg Hamm (20537) die ideale Adresse für Sie. Als zertifizierter Meisterbetrieb seit 2004 sind wir nur 2 U-Bahn-Stationen (U2/U4 via Berliner Tor bis Burgstraße) entfernt. Über 250 Kunden bewerten uns mit 4,9 Sternen für exzellente Haarschnitte, Balayage und professionelle Beratung. Erleben Sie Premium-Qualität in Ihrer direkten Nachbarschaft.`,
           distance: 'ca. 5–10 Minuten bis Hamburg Hamm',
           travelInfo: `Von Borgfelde zum Friseur in Hamburg Hamm: Mit der U2 oder U4 ab Berliner Tor bis Burgstraße (2 Stationen), dann 5 Minuten zu Fuß entlang der Hammer Landstraße. Alternativ mit den Buslinien 25 oder 130 direkt bis zum Salon in der Hammer Landstraße 4.`,
           travelIcon: 'train',
@@ -77,60 +122,60 @@ export default function BorgfeldePage() {
         }}
       />
 
-      {/* Services for Borgfelde – compact CTA section */}
-      <section className="py-10 bg-white border-t border-gray-100" aria-labelledby="borgfelde-services-heading">
+      {/* Services and Pricing Section */}
+      <section className="section-padding bg-warm-white" aria-labelledby="borgfelde-prices-heading">
         <div className="container-custom">
-          <h2 id="borgfelde-services-heading" className="font-playfair text-2xl font-bold text-center mb-6">
-            Unsere Leistungen für Borgfelde (20535)
+          <div className="max-w-4xl mx-auto">
+            <h2 id="borgfelde-prices-heading" className="heading-lg text-center mb-12">
+              Leistungen & Preise für Borgfelde
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <PriceList title="Damen" services={SERVICES_DAMEN} />
+              <PriceList title="Herren" services={SERVICES_HERREN} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Links for Borgfelde */}
+      <section className="py-12 bg-white" aria-labelledby="borgfelde-services-heading">
+        <div className="container-custom">
+          <h2 id="borgfelde-services-heading" className="font-playfair text-2xl font-bold text-center mb-8">
+            Exklusive Friseur-Services für Sie
           </h2>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/damenfriseur-hamburg-hamm"
-              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
+              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
             >
-              Damenfriseur
+              Damenfriseur Borgfelde
             </Link>
             <Link
               href="/herrenfriseur-hamburg-hamm"
-              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
+              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
             >
-              Herrenfriseur
+              Herrenfriseur Borgfelde
             </Link>
             <Link
               href="/balayage-hamburg-hamm"
-              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
+              className="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
             >
-              Balayage
-            </Link>
-            <Link
-              href="/haare-faerben-hamburg-hamm"
-              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-teal-600/20"
-            >
-              Haare färben
+              Balayage Borgfelde
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Borgfelde FAQ */}
-      <section className="section-padding bg-warm-white" aria-labelledby="borgfelde-faq-heading">
-        <div className="container-custom">
-          <h2 id="borgfelde-faq-heading" className="font-playfair text-2xl md:text-3xl font-bold text-center mb-10">
-            Häufige Fragen – Friseur Borgfelde
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {borgfeldeFaqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-md p-6">
-                <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Borgfelde FAQ Section */}
+      <ServiceFAQSection 
+        faqs={borgfeldeFaqs} 
+        title="FAQ – Friseur Borgfelde" 
+        subtitle="Häufige Fragen unserer Kunden aus Borgfelde (20535)"
+      />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(borgfeldeLocalSchema) }} />
     </>
   );
 }

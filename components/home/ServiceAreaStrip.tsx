@@ -101,6 +101,22 @@ export function ServiceAreaStrip() {
             <span>U2/U4 Burgstraße · 5 Min. zu Fuß</span>
           </div>
         </motion.div>
+
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-gray-300 max-w-xl mx-auto leading-relaxed">
+            Kunden aus Borgfelde (20535) erreichen uns in 5-10 Minuten. Ihr{' '}
+            <Link href="/areas/borgfelde" className="text-teal-400 hover:text-teal-300 font-bold underline underline-offset-4 decoration-teal-400/30 hover:decoration-teal-400">
+              Friseur Borgfelde
+            </Link>{' '}
+            wartet auf Sie.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

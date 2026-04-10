@@ -41,7 +41,7 @@ const AREAS = [
     name: 'Borgfelde',
     plz: '20535',
     href: '/areas/borgfelde',
-    description: 'Nur 2 U-Bahn-Stationen entfernt – schnell und bequem erreichbar.',
+    description: 'Ihr Friseur Borgfelde (20535) ist nur 2 U-Bahn-Stationen via U2/U4 von uns entfernt. Bequem erreichbar in 5-10 Minuten.',
     travel: 'U2/U4 ab Berliner Tor – 2 Stationen',
     isMain: false,
     image: 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=800',
