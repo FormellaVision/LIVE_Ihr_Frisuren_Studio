@@ -292,7 +292,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/leistungen#kosmetik"
+                  href="/kosmetik-hamburg-hamm"
                   className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Kosmetik

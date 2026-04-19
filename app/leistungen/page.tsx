@@ -133,6 +133,11 @@ export default function LeistungenPage() {
                 label: 'Haare färben Hamburg Hamm',
                 description: 'Coloration, Balayage & Strähnen mit Olaplex-Schutz',
               },
+              {
+                href: '/kosmetik-hamburg-hamm',
+                label: 'Kosmetik Hamburg Hamm',
+                description: 'Gesichtsbehandlung, Maniküre & med. Fußpflege',
+              },
             ]}
           />
         </div>
