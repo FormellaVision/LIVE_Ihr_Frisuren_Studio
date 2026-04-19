@@ -27,6 +27,9 @@ export const BUSINESS_INFO = {
     latitude: 53.5553174,
     longitude: 10.0412498,
   },
+  // ⚠️ MONATLICH AKTUALISIEREN: reviewCount + rating mit GBP-Werten abgleichen
+  // GBP aufrufen: https://business.google.com → Bewertungen
+  // Zuletzt aktualisiert: April 2026
   reviews: {
     count: 270,
     rating: 4.9,
@@ -189,4 +192,13 @@ export const SERVICES_KOSMETIK = [
   { name: 'Augenbrauen zupfen', price: '12€' },
   { name: 'Augenbrauen färben', price: '10€' },
   { name: 'Wimpern färben', price: '12€' },
+] as const;
+
+export const SERVICES_BALAYAGE = [
+  { name: 'Balayage inkl. Veredelung & Schnitt', price: 'ab 179€' },
+  { name: 'Balayage (nur Farbe)', price: 'ab 129€' },
+  { name: 'Foliensträhnen', price: 'ab 85€' },
+  { name: 'Ombre/Sombre', price: 'ab 159€' },
+  { name: 'Babylights', price: 'ab 149€' },
+  { name: 'Color Refresh', price: 'ab 69€' },
 ] as const;

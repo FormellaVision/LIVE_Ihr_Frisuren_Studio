@@ -45,6 +45,10 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/marzena.html',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, noarchive' }],
+      },
+      {
         source: '/:path*',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },

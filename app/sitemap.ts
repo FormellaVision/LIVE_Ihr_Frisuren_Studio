@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/herrenfriseur-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/balayage-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/haare-faerben-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/kosmetik-hamburg-hamm', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/leistungen', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/termin-buchen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },

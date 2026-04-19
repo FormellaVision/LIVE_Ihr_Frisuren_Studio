@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
-import { Sparkles, Scissors, Moon, Phone } from 'lucide-react';
-import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
+import { Sparkles, Scissors, Moon, Phone, Palette } from 'lucide-react';
+import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, SERVICES_BALAYAGE, BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 
 interface ServiceCardsSectionProps {
   title?: string;
@@ -34,7 +34,7 @@ const serviceCategories = [
     icon: Sparkles,
     description: 'Kosmetik Hamburg Hamm: Gesichtsbehandlung, Maniküre & med. Fußpflege',
     services: SERVICES_KOSMETIK.slice(0, 5),
-    href: '/leistungen#kosmetik',
+    href: '/kosmetik-hamburg-hamm',
     gradient: 'from-amber-500 to-amber-600',
     buttonText: 'text-amber-600',
   },

@@ -397,7 +397,7 @@ function getOpeningHoursSpecification() {
 export const DEFAULT_FAQS = [
   {
     question: 'Wo befindet sich Ihr Frisuren-Studio in Hamburg Hamm?',
-    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}.`,
+    answer: `Ihr Frisuren-Studio befindet sich in der ${BUSINESS_INFO.address.street}, ${BUSINESS_INFO.address.postalCode} ${BUSINESS_INFO.address.city}-${BUSINESS_INFO.address.district}. Der Salon ist ideal erreichbar mit der U-Bahn U2 oder U4 bis Haltestelle Burgstraße – von dort nur 5 Minuten zu Fuß entlang der Hammer Landstraße. Wer mit dem Bus kommt, nutzt die Linien 25, 130, 160, 261, 609 oder 610. Parkplätze sind in der unmittelbaren Umgebung der Hammer Landstraße verfügbar, meist kostenlos. Kunden aus Borgfelde (20535) erreichen uns in unter 10 Minuten.`,
     bullets: [
       'U-Bahn U2/U4 Haltestelle Burgstraße – nur 5 Minuten zu Fuß',
       'Buslinien 25, 130, 160, 261, 609 und 610 in der Nähe',
@@ -407,20 +407,20 @@ export const DEFAULT_FAQS = [
   {
     question: 'Was kostet ein Damenhaarschnitt bei Ihr Frisuren-Studio?',
     answer:
-      'Ein professioneller Damenhaarschnitt (Waschen, Schneiden & Föhnen inkl. Festiger und Spray) kostet bei uns ab 43€ für kurzes Haar, ab 47€ für mittellanges und ab 49€ für langes Haar.',
+      'Ein professioneller Damenhaarschnitt (Waschen, Schneiden & Föhnen inkl. Festiger und Spray) kostet bei uns ab 43€ für kurzes Haar, ab 47€ für mittellanges und ab 49€ für langes Haar. Wer es schnell braucht, wählt den Cut & Go (nur Schneiden, ohne Waschen) ab 33€. Für besondere Anlässe wie Hochzeiten oder Events bieten wir Hochsteckfrisuren ab 55€ und Brautstyling auf Anfrage. Alle Preise sind transparent – keine versteckten Aufschläge.',
   },
   {
     question: 'Bietet Ihr Frisuren-Studio auch Balayage in Hamburg Hamm an?',
     answer:
-      'Ja, als spezialisierter Friseur in Hamburg Hamm bieten wir professionelle Balayage-Behandlungen ab 179€ an. Das Paket beinhaltet Balayage, Veredelung, Schnitt sowie alle Styling- und Finishprodukte.',
+      'Ja, als spezialisierter Friseur in Hamburg Hamm bieten wir professionelle Balayage-Behandlungen ab 179€ an. Das Paket beinhaltet Balayage, Veredelung mit hochwertigen Pflegeprodukten, Schnitt sowie alle Styling- und Finishprodukte. Unsere Coloristin Nassrin Karimi ist zertifizierte Balayage-Expertin mit langjähriger Spezialisierung auf natürliche Farbverläufe und moderne Färbetechniken. Wir verwenden Olaplex zum Schutz der Haarstruktur während des gesamten Färbeprozesses. Eine persönliche Farbberatung vor dem Termin ist selbstverständlich inklusive.',
   },
   {
     question: 'Wie kann ich einen Termin buchen?',
-    answer: `Sie können telefonisch unter ${BUSINESS_INFO.phone}, per WhatsApp unter ${BUSINESS_INFO.phone} oder persönlich im Salon einen Termin vereinbaren. Für Afterwork-Termine nach 19:00 Uhr rufen Sie uns bitte direkt an.`,
+    answer: `Sie können auf drei Wegen einen Termin vereinbaren: telefonisch unter ${BUSINESS_INFO.phone}, per WhatsApp an dieselbe Nummer, oder persönlich im Salon in der Hammer Landstraße 4. Für Standardtermine reicht in der Regel ein Anruf am selben Tag. Für Balayage, Colorationen oder Hochsteckfrisuren empfehlen wir, mindestens 2-3 Tage im Voraus zu buchen. Afterwork-Termine nach 19:00 Uhr (Di-Fr) und ab 14:00 Uhr (Sa) bitte immer telefonisch anfragen – diese sind begrenzt verfügbar und werden schnell gebucht.`,
   },
   {
     question: 'Was zeichnet Ihr Frisuren-Studio in Hamburg Hamm aus?',
-    answer: 'Ihr Frisuren-Studio hebt sich durch mehrere Stärken ab:',
+    answer: `Ihr Frisuren-Studio hebt sich durch die Kombination aus Meisterbetrieb-Qualität, echter Erfahrung und persönlichem Service ab. Inhaber Serbay Eskici ist ausgebildeter Friseurmeister und führt den Salon seit ${BUSINESS_INFO.founded} in Hamburg-Hamm. Das Team aus sieben Fachkräften – darunter zwei Meisterinnen und spezialisierte Gesellinnen – deckt das gesamte Spektrum von Damenschnitten über Balayage bis Kosmetik ab. ${BUSINESS_INFO.reviews.count}+ Kunden bewerten uns mit ${BUSINESS_INFO.reviews.rating} Sternen auf Google. Termine nach Feierabend und mehrsprachige Beratung machen uns einzigartig im Stadtteil.`,
     bullets: [
       `Zertifizierter Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
       `${BUSINESS_INFO.reviews.rating} Sterne bei ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen`,
@@ -431,11 +431,11 @@ export const DEFAULT_FAQS = [
   {
     question: 'Welche Sprachen sprechen Sie?',
     answer:
-      'Unser mehrsprachiges Team bietet Beratung in Deutsch, Englisch, Türkisch und Persisch. So können wir Kunden aus verschiedenen Kulturen optimal beraten.',
+      'Unser Team in Hamburg-Hamm bietet Beratung auf Deutsch, Englisch, Türkisch und Persisch. Inhaber Serbay Eskici spricht Deutsch und Türkisch, Nassrin Karimi berät auf Persisch und Englisch, Mehtap Aydin auf Türkisch und Geansever Osman auf Rumänisch und Türkisch. Damit sind wir einer der wenigen Friseursalons in Hamburg, der Kunden aus vier Sprachräumen ohne Sprachbarriere betreuen kann – mit echtem Fachwissen und individueller Beratung statt Standard-Übersetzungen.',
   },
   {
     question: 'Was ist der Afterwork Spezialcut?',
-    answer: 'Der Afterwork Spezialcut ist unser exklusiver Service nach Feierabend – ideal für Berufstätige:',
+    answer: `Der Afterwork Spezialcut ist unser exklusiver Service für Menschen, die tagsüber arbeiten und abends flexible Termine brauchen. Verfügbar Dienstag bis Freitag ab 19:00 Uhr und samstags ab 14:00 Uhr – mit einem Aufschlag von nur ${OPENING_HOURS.afterwork.surcharge} auf den regulären Preis. Der Service bietet eine 1-zu-1 Behandlung in ruhiger, persönlicher Atmosphäre, da der Salon nach den regulären Öffnungszeiten exklusiv für Sie geöffnet ist. Terminvereinbarung ausschließlich telefonisch unter ${BUSINESS_INFO.phone}.`,
     bullets: [
       `Verfügbar ${OPENING_HOURS.afterwork.weekdays}`,
       `Samstags ${OPENING_HOURS.afterwork.saturday}`,
@@ -445,9 +445,24 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Bedient ihr auch Kunden aus Borgfelde und Hamburg Mitte?',
-    answer: `Ja, selbstverständlich! Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist gut erreichbar aus Borgfelde, Horn und Hamburg Mitte. Mit der U2/U4 Haltestelle Burgstraße sind wir nur wenige Minuten entfernt. Als Friseur Borgfelde sind wir aus Borgfelde (20535) in wenigen Minuten erreichbar.`,
+    answer: `Ja, selbstverständlich. Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist optimal erreichbar aus Borgfelde (20535), Hamburg Mitte, Horn und St. Georg. Aus Borgfelde sind es mit der U2 oder U4 ab Berliner Tor nur zwei Stationen bis Burgstraße – unter 10 Minuten Gesamtweg. Vom Hamburger Hauptbahnhof (Hamburg Mitte) dauert die Fahrt ebenfalls ca. 10 Minuten. Viele unserer Stammkunden kommen gezielt aus diesen Stadtteilen, weil Meisterbetrieb-Qualität mit 270+ Bewertungen in der Nähe schwer zu finden ist.`,
   },
 ];
+
+export function getWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${BUSINESS_INFO.website}/#website`,
+    url: BUSINESS_INFO.website,
+    name: BUSINESS_INFO.name,
+    description: 'Premium Friseur in Hamburg Hamm – Meisterbetrieb seit 2004. Damen, Herren, Balayage & Kosmetik.',
+    publisher: {
+      '@id': `${BUSINESS_INFO.website}/#business`,
+    },
+    inLanguage: 'de-DE',
+  };
+}
 
 export const SERVICE_FAQS = {
   damen: [
