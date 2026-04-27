@@ -216,16 +216,35 @@ export function Navigation() {
               </Link>
             </div>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              animate={!isOpen ? {
+                scale: [1, 1.06, 1],
+                boxShadow: [
+                  '0 0 0 0px rgba(13, 148, 136, 0)',
+                  '0 0 0 8px rgba(13, 148, 136, 0.15)',
+                  '0 0 0 0px rgba(13, 148, 136, 0)'
+                ]
+              } : {}}
+              transition={!isOpen ? {
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              } : {}}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden min-w-[44px] min-h-[44px] p-2 text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 transition-all duration-300 rounded-lg bg-white/50 hover:bg-white/80"
+              className="md:hidden relative z-50 min-w-[44px] min-h-[44px] p-2.5 text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 transition-all duration-300 rounded-xl bg-white shadow-md border border-gray-200 hover:bg-gray-50 active:bg-gray-100 flex items-center justify-center"
               aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-haspopup="dialog"
             >
-              <Menu className="w-6 h-6" aria-hidden="true" />
-            </button>
+              <Menu className="w-6 h-6 text-teal-800" aria-hidden="true" />
+              {/* Subtle notification dot to attract eye */}
+              <span className="absolute top-1 right-1 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+              </span>
+            </motion.button>
           </div>
         </nav>
       </motion.header>
@@ -247,13 +266,14 @@ export function Navigation() {
               if (e.target === e.currentTarget) closeMenu();
             }}
           >
-            <button
+            <motion.button
+              whileTap={{ scale: 0.9 }}
               onClick={closeMenu}
-              className="absolute top-4 right-4 z-[101] min-w-[44px] min-h-[44px] p-3 bg-white/90 backdrop-blur-sm border-2 border-gray-200 rounded-xl text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 shadow-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+              className="absolute top-[10px] right-4 z-[101] min-w-[44px] min-h-[44px] p-2.5 bg-white backdrop-blur-sm border border-gray-200 rounded-xl text-gray-900 hover:bg-gray-50 shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent flex items-center justify-center"
               aria-label="Menü schließen"
             >
-              <X className="w-6 h-6" aria-hidden="true" />
-            </button>
+              <X className="w-6 h-6 text-teal-800" aria-hidden="true" />
+            </motion.button>
 
             <nav aria-label="Mobilnavigation" className="w-full max-w-md">
               <motion.ul

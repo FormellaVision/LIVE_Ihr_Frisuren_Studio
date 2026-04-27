@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     'balayage horn',
     'haare färben horn',
   ],
-  alternates: { canonical: `${BUSINESS_INFO.website}/areas/horn` },
+  alternates: { canonical: `${BUSINESS_INFO.website}/einzugsgebiet/horn` },
   openGraph: {
     title: 'Friseur nahe Horn – Ihr Frisuren-Studio in Hamburg Hamm',
     description: `Ihr Friseur nahe Horn: Viele Kundinnen und Kunden aus Horn besuchen Ihr Frisuren-Studio in Hamburg Hamm für moderne Schnitte, Balayage, Colorationen und persönliche Beratung.`,
-    url: `${BUSINESS_INFO.website}/areas/horn`,
+    url: `${BUSINESS_INFO.website}/einzugsgebiet/horn`,
   },
 };
 
@@ -31,7 +31,7 @@ export default function HornPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
-    { name: 'Horn', url: `${BUSINESS_INFO.website}/areas/horn` },
+    { name: 'Horn', url: `${BUSINESS_INFO.website}/einzugsgebiet/horn` },
   ]);
 
   const hornFaqs = [
@@ -42,6 +42,22 @@ export default function HornPage() {
     {
       question: 'Wie komme ich aus Horn zu Ihrem Salon?',
       answer: 'Von Horn erreichen Sie uns mit der U2 Richtung Niendorf Nord bis Burgstraße (ca. 4 Stationen), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Alternativ mit dem Bus direkt bis Hamburg Hamm.',
+    },
+    {
+      question: 'Bietet der Friseur für Horn auch Balayage an?',
+      answer: 'Ja, wir sind spezialisiert auf moderne Techniken wie Balayage, Ombré und professionelle Colorationen. Viele Kundinnen aus Horn besuchen uns genau für diese spezialisierten Leistungen, die wir als Meisterbetrieb in höchster Präzision ausführen.',
+    },
+    {
+      question: 'Gibt es Parkmöglichkeiten für Kunden aus Horn?',
+      answer: 'Ja, wenn Sie mit dem Auto aus Horn kommen, finden Sie in der Hammer Landstraße und den umliegenden Seitenstraßen meist kostenlose Parkmöglichkeiten direkt in der Nähe des Salons.',
+    },
+    {
+      question: 'Kann ich aus Horn auch kurzfristig einen Termin bekommen?',
+      answer: 'Termine sind oft kurzfristig möglich. Rufen Sie uns am besten direkt unter 040 2509029 an oder nutzen Sie unsere Online-Terminbuchung auf der Website.',
+    },
+    {
+      question: 'Welche Sprachen spricht das Team?',
+      answer: 'Unser Team ist mehrsprachig und berät Sie gerne auf Deutsch, Englisch, Türkisch, Persisch oder Rumänisch. So stellen wir sicher, dass Ihre Wünsche präzise verstanden und umgesetzt werden.',
     },
   ];
 

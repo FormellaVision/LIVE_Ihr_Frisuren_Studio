@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
@@ -21,11 +20,11 @@ export const metadata: Metadata = {
     'friseur 20095',
     'friseur 20099',
   ],
-  alternates: { canonical: `${BUSINESS_INFO.website}/areas/hamburg-mitte` },
+  alternates: { canonical: `${BUSINESS_INFO.website}/einzugsgebiet/hamburg-mitte` },
   openGraph: {
     title: 'Friseur Hamburg Mitte | Ihr Frisuren-Studio – Meisterbetrieb seit 2004',
     description: `Friseur Hamburg Mitte: Ihr Frisuren-Studio in Hamburg-Hamm ist für Kundinnen und Kunden aus Hamburg Mitte (20095, 20099) in ca. 10 Minuten erreichbar. Damen, Herren, Balayage & Haare färben.`,
-    url: `${BUSINESS_INFO.website}/areas/hamburg-mitte`,
+    url: `${BUSINESS_INFO.website}/einzugsgebiet/hamburg-mitte`,
   },
 };
 
@@ -59,13 +58,21 @@ const hamburgMitteFaqs = [
     question: 'Welche Leistungen sind besonders gefragt bei Kunden aus Hamburg Mitte?',
     answer: `Unsere Kunden aus Hamburg Mitte schätzen besonders unsere Expertise bei Balayage und modernen Herrenhaarschnitten (Fades). Als Meisterbetrieb führen wir alle Leistungen für Damen und Herren in höchster Qualität aus.`,
   },
+  {
+    question: 'Kann ich aus Hamburg Mitte auch Termine für Kosmetik buchen?',
+    answer: 'Ja, unser Salon in Hamburg Hamm bietet neben Friseurdienstleistungen auch professionelle Kosmetikbehandlungen an. Das ist für Kunden aus Hamburg Mitte besonders praktisch, da man beide Termine in einem Besuch kombinieren kann.',
+  },
+  {
+    question: 'Wie sind die Preise für Kunden aus Hamburg Mitte?',
+    answer: 'Unsere Preise sind transparent und fair. Ein Herrenhaarschnitt beginnt bei 19 €, ein Damenschnitt ab 33 €. Trotz der Nähe zum Stadtzentrum bieten wir Meisterqualität zu attraktiven Konditionen.',
+  },
 ];
 
 export default function HamburgMittePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
-    { name: 'Hamburg Mitte', url: `${BUSINESS_INFO.website}/areas/hamburg-mitte` },
+    { name: 'Hamburg Mitte', url: `${BUSINESS_INFO.website}/einzugsgebiet/hamburg-mitte` },
   ]);
 
   const faqSchema = getFAQSchema(hamburgMitteFaqs);
@@ -107,7 +114,7 @@ export default function HamburgMittePage() {
           travelIcon: 'train',
           highlights: [
             'Für Kundinnen und Kunden aus Hamburg Mitte – gut erreichbar in 10 Minuten',
-            `Meisterbetrieb seit ${BUSINESS_INFO.founded} with ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} ★)`,
+            `Meisterbetrieb seit ${BUSINESS_INFO.founded} mit ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} ★)`,
             'Zentrale Lage in Hamburg Hamm – kurze Wege, persönliche Atmosphäre',
             'Damenfriseur, Herrenfriseur, Balayage und Haare färben in Hamburg Hamm',
             'Mehrsprachig: Deutsch, Englisch, Türkisch, Persisch',
@@ -134,8 +141,6 @@ export default function HamburgMittePage() {
           </div>
         </div>
       </section>
-
-
 
       {/* Hamburg Mitte FAQ Section */}
       <ServiceFAQSection 

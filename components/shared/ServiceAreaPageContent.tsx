@@ -223,10 +223,10 @@ export function ServiceAreaPageContent({
               subtitle="Unser Salon ist gut erreichbar aus den umliegenden Stadtteilen"
               items={[
                 { title: `${service} Hamburg Hamm`, description: 'Unser Standort – Hammer Landstraße 4', href: `/${serviceSlug}-hamburg-hamm` },
-                { title: 'Friseur nahe Borgfelde', description: 'Nur 5–10 Minuten entfernt', href: '/areas/borgfelde' },
-                { title: 'Friseur nahe Horn', description: 'Ca. 10 Minuten von Horn', href: '/areas/horn' },
-                { title: 'Friseur nahe Hamburg Mitte', description: 'Ca. 10–15 Minuten vom Zentrum', href: '/areas/hamburg-mitte' },
-              ].filter(item => item.href !== `/areas/${areaSlug}` && !(areaSlug === 'mitte' && item.href === '/areas/hamburg-mitte'))}
+                { title: 'Friseur nahe Borgfelde', description: 'Nur 5–10 Minuten entfernt', href: '/einzugsgebiet/borgfelde' },
+                { title: 'Friseur nahe Horn', description: 'Ca. 10 Minuten von Horn', href: '/einzugsgebiet/horn' },
+                { title: 'Friseur nahe Hamburg Mitte', description: 'Ca. 10–15 Minuten vom Zentrum', href: '/einzugsgebiet/hamburg-mitte' },
+              ].filter(item => item.href !== `/einzugsgebiet/${areaSlug}` && !(areaSlug === 'mitte' && item.href === '/einzugsgebiet/hamburg-mitte'))}
               columns={3}
             />
           </motion.div>

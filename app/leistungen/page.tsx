@@ -20,6 +20,18 @@ export const metadata: Metadata = {
     title: 'Leistungen & Preise - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
     description: 'Alle Leistungen & Preise: Damen ab 33€, Herren ab 18€, Balayage ab 179€, Kosmetik. Transparent & fair.',
     url: `${BUSINESS_INFO.website}/leistungen`,
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Leistungen & Preise – Ihr Frisuren-Studio Hamburg-Hamm',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
   },
   alternates: {
     canonical: `${BUSINESS_INFO.website}/leistungen`,
@@ -159,9 +171,9 @@ export default function LeistungenPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
               {[
                 { name: 'Hamburg Hamm', href: '/friseur-hamburg-hamm' },
-                { name: 'Borgfelde', href: '/areas/borgfelde' },
-                { name: 'Hamburg Mitte', href: '/areas/hamburg-mitte' },
-                { name: 'Horn', href: '/areas/horn' },
+                { name: 'Borgfelde', href: '/einzugsgebiet/borgfelde' },
+                { name: 'Hamburg Mitte', href: '/einzugsgebiet/hamburg-mitte' },
+                { name: 'Horn', href: '/einzugsgebiet/horn' },
               ].map((area) => (
                 <Link
                   key={area.href}

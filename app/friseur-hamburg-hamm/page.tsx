@@ -27,16 +27,16 @@ export const metadata: Metadata = {
     url: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
     images: [
       {
-        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
         width: 1200,
         height: 630,
-        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
+        alt: 'Friseur Hamburg-Hamm – Ihr Frisuren-Studio Meisterbetrieb seit 2004',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp'],
   },
   alternates: {
     canonical: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
@@ -320,19 +320,19 @@ export default function FriseurHamburgHammPage() {
           <div className="max-w-3xl mx-auto space-y-6 text-center">
             <p className="text-gray-700 text-lg leading-relaxed">
               In nur 2 U-Bahn-Stationen oder 5 Minuten Fahrtzeit erreichen Sie uns als Ihr{' '}
-              <Link href="/areas/borgfelde" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+              <Link href="/einzugsgebiet/borgfelde" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
                 Friseur Borgfelde
               </Link>.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed">
               Direkt vom Hauptbahnhof oder der City sind wir Ihr schnell erreichbarer{' '}
-              <Link href="/areas/hamburg-mitte" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+              <Link href="/einzugsgebiet/hamburg-mitte" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
                 Friseur Hamburg Mitte
               </Link>.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed">
               Aus dem Hamburger Osten kommen Kunden in ca. 10 Minuten zu uns als ihr{' '}
-              <Link href="/areas/horn" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
+              <Link href="/einzugsgebiet/horn" className="text-teal-600 font-semibold hover:text-teal-700 hover:underline underline-offset-4 decoration-teal-600/30">
                 Friseur Horn
               </Link>.
             </p>

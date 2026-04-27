@@ -32,7 +32,7 @@ export function ServiceAreaLinks({
     ...NEARBY_AREAS.map((area) => ({
       title: `Gut erreichbar aus ${area.name}`,
       description: `Nur wenige Minuten von ${area.name} entfernt`,
-      href: `/areas/${area.urlSlug}`,
+      href: `/einzugsgebiet/${area.urlSlug}`,
     })),
   ];
 

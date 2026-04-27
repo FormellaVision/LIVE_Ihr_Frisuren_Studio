@@ -181,6 +181,45 @@
   status = 301
   force = true
 
+# Area URL Migration → Einzugsgebiet
+[[redirects]]
+  from = "/areas/hamm"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Einzugsgebiet/hamm → canonical Standortseite
+[[redirects]]
+  from = "/einzugsgebiet/hamm"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/areas/borgfelde"
+  to = "/einzugsgebiet/borgfelde"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/areas/horn"
+  to = "/einzugsgebiet/horn"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/areas/hamburg-mitte"
+  to = "/einzugsgebiet/hamburg-mitte"
+  status = 301
+  force = true
+
+# Wildcard-Fallback für alle weiteren /areas/* URLs
+[[redirects]]
+  from = "/areas/*"
+  to = "/einzugsgebiet/:splat"
+  status = 301
+  force = true
+
 # ------------------------------------------------------------
 # 404 Cleanup Redirects (legacy URLs that currently return 404)
 # ------------------------------------------------------------

@@ -43,15 +43,15 @@ export function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Hamburg Hamm' },
       ],
-      '/areas/borgfelde': [
+      '/einzugsgebiet/borgfelde': [
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Borgfelde' },
       ],
-      '/areas/horn': [
+      '/einzugsgebiet/horn': [
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Horn' },
       ],
-      '/areas/hamburg-mitte': [
+      '/einzugsgebiet/hamburg-mitte': [
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Hamburg Mitte' },
       ],
@@ -73,7 +73,7 @@ export function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
         const areaSlug = serviceAreaMatch[2];
         const serviceLabel = SERVICE_LABELS[serviceSlug] || formatLabel(serviceSlug);
         const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
-        const areaHref = AREA_HREFS[areaSlug] || `/areas/${areaSlug}`;
+        const areaHref = AREA_HREFS[areaSlug] || `/einzugsgebiet/${areaSlug}`;
         
         items.push({ label: areaLabel, href: areaHref });
         
@@ -90,8 +90,8 @@ export function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
       return items;
     }
 
-    // /areas/<slug>
-    if (segments[0] === 'areas' && segments[1]) {
+    // /einzugsgebiet/<slug>
+    if (segments[0] === 'einzugsgebiet' && segments[1]) {
       const areaSlug = segments[1];
       const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
       items.push({ label: areaLabel, href: undefined });
@@ -250,7 +250,7 @@ function extractAreaLabel(segments: string[]): string {
 function extractAreaHref(segments: string[]): string {
   for (let i = segments.length - 1; i >= 0; i--) {
     const part = segments[i];
-    if (AREA_LABELS[part]) return AREA_HREFS[part] || `/areas/${part}`;
+    if (AREA_LABELS[part]) return AREA_HREFS[part] || `/einzugsgebiet/${part}`;
   }
   return '/';
 }
