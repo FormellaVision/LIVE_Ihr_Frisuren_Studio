@@ -42,6 +42,18 @@ export const metadata: Metadata = {
     title: 'Team & Geschichte - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
     description: `Lernen Sie unser Team kennen. Meisterbetrieb seit ${BUSINESS_INFO.founded} in Hamburg Hamm.`,
     url: `${BUSINESS_INFO.website}/ueber-uns`,
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773015024/Teamfoto2_w3uxfj.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Team – Ihr Frisuren-Studio Hamburg-Hamm | Meisterbetrieb seit 2004',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773015024/Teamfoto2_w3uxfj.webp'],
   },
   alternates: {
     canonical: `${BUSINESS_INFO.website}/ueber-uns`,

@@ -38,6 +38,18 @@ export const metadata: Metadata = {
     title: 'Kontakt - Friseur Hamburg Hamm | Ihr Frisuren-Studio',
     description: `Kontaktieren Sie uns: Tel. ${BUSINESS_INFO.phone}. ${BUSINESS_INFO.address.full}`,
     url: `${BUSINESS_INFO.website}/kontakt`,
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Kontakt & Anfahrt – Ihr Frisuren-Studio Hamburg-Hamm',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
   },
   alternates: {
     canonical: `${BUSINESS_INFO.website}/kontakt`,

@@ -27,16 +27,16 @@ export const metadata: Metadata = {
     url: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',
     images: [
       {
-        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+        url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
         width: 1200,
         height: 630,
-        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
+        alt: 'Friseur Hamburg-Hamm – Ihr Frisuren-Studio Meisterbetrieb seit 2004',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
+    images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp'],
   },
   alternates: {
     canonical: 'https://ihr-frisuren-studio.de/friseur-hamburg-hamm',

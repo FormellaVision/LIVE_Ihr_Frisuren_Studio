@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, Star, MessageCircle, MapPin, Award } from 'lucide-react';
 import Image from 'next/image';
 import { BUSINESS_INFO } from '@/lib/constants';
+import { OpeningStatusBadge } from '@/components/shared/OpeningStatusBadge';
 
 export function HeroSection() {
   const reviewCount = BUSINESS_INFO.reviews.count;
@@ -14,7 +15,7 @@ export function HeroSection() {
     <section
       data-hero-section
       aria-label="Friseur Hamburg Hamm – Ihr Frisuren-Studio"
-      className="relative min-h-[100svh] overflow-hidden flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA]"
+      className="relative min-h-[100svh] flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA] overflow-x-hidden"
     >
       <img
         src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
@@ -29,7 +30,7 @@ export function HeroSection() {
 
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-full flex-col items-center justify-center text-center">
+          <div className="flex min-h-full flex-col items-center justify-center py-12 sm:py-16 md:py-20 lg:py-0 text-center">
             <motion.div
               initial={{ scale: 0.96, y: 8 }}
               animate={{ scale: 1, y: 0 }}
@@ -46,6 +47,15 @@ export function HeroSection() {
                   className="object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 />
               </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mb-8"
+            >
+              <OpeningStatusBadge />
             </motion.div>
 
             <motion.div

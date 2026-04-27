@@ -30,16 +30,16 @@ export const metadata: Metadata = {
         url: 'https://ihr-frisuren-studio.de/haare-faerben-hamburg-hamm',
         images: [
             {
-                url: 'https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
+                url: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
                 width: 1200,
                 height: 630,
-                alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
+                alt: 'Haare färben Hamburg-Hamm – Colorationen & Strähnen | Ihr Frisuren-Studio',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        images: ['https://res.cloudinary.com/dqkld61zu/image/upload/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
+        images: ['https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp'],
     },
     alternates: {
         canonical: 'https://ihr-frisuren-studio.de/haare-faerben-hamburg-hamm',
