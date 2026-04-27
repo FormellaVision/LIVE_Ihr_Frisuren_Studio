@@ -8,7 +8,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Hamm | Meisterbetrieb seit 2004 · Ihr Frisuren-Studio',
-  description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004. 270+ Bewertungen ★4,9. Damen, Herren, Balayage & Kosmetik. Hammer Landstraße 4. ☎ 040 2509029`,
+  description: `Ihr Friseur in Hamburg Hamm – Meisterbetrieb seit 2004. 277+ Bewertungen ★4,9. Damen, Herren, Balayage & Kosmetik. Hammer Landstraße 4. ☎ 040 2509029`,
   keywords: [
     'friseur hamburg hamm',
     'friseur hamm',
@@ -35,14 +35,38 @@ export default function HammPage() {
   ]);
 
   const hammFaqs = [
-    {
-      question: 'Warum ist Ihr Frisuren-Studio der beste Friseur in Hamburg Hamm?',
-      answer: 'Als einziger zertifizierter Meisterbetrieb in Hamburg Hamm mit 270+ Google-Bewertungen (4,9 ★) bieten wir seit 2004 höchste Qualität für Damen und Herren. Unser mehrsprachiges Team (Deutsch, Englisch, Türkisch, Persisch) und Afterwork-Termine nach 19 Uhr machen uns einzigartig.',
-    },
-    {
-      question: 'Wo genau befindet sich Ihr Frisuren-Studio in Hamburg Hamm?',
-      answer: 'Wir befinden uns in der Hammer Landstraße 4, 20537 Hamburg-Hamm. Direkt erreichbar mit U2/U4 Haltestelle Burgstraße (5 Min. zu Fuß) sowie den Buslinien 25, 130, 160, 261, 609 und 610. Parkplätze sind in der Umgebung verfügbar.',
-    },
+  {
+    question: "Warum ist Ihr Frisuren-Studio der beste Friseur in Hamburg-Hamm?",
+    answer: "Ihr Frisuren-Studio ist seit 2004 als Meisterbetrieb in Hamburg-Hamm tätig. Inhaber Serbay Eskici ist ausgebildeter Friseurmeister. Das Studio hat über 277 Google-Bewertungen mit 4,9 Sternen — die stärkste Bewertungsquote unter allen Friseuren in Hamburg-Hamm. Das 7-köpfige Team bietet Damen- und Herrenschnitte, Balayage, Colorationen und Kosmetik unter einem Dach. Die Hammer Landstraße 4 ist zentral gelegen zwischen Borgfelde und Hamburg-Mitte.",
+  },
+  {
+    question: "Welche Öffnungszeiten hat der Friseur in Hamburg-Hamm?",
+    answer: "Ihr Frisuren-Studio in Hamburg-Hamm ist dienstags bis freitags von 09:00 bis 19:00 Uhr geöffnet, samstags von 08:00 bis 14:00 Uhr. Montags und sonntags ist das Studio geschlossen. Besonders beliebt sind die Afterwork-Termine dienstags bis freitags — für Kunden die nach der Arbeit noch einen Termin wahrnehmen möchten, ohne extra Urlaub nehmen zu müssen.",
+  },
+  {
+    question: "Kann ich einen Friseurtermin in Hamburg-Hamm auch kurzfristig bekommen?",
+    answer: "Termine in Hamburg-Hamm are kurzfristig möglich — oft auch noch am selben oder nächsten Tag. Am einfachsten buchen Sie online über die Website oder rufen direkt an unter 040 2509029. Das Studio bietet außerdem Afterwork-Termine bis 19:00 Uhr, sodass auch Berufstätige flexibel einen Termin finden. Für aufwändigere Leistungen wie Balayage empfehlen wir eine Woche Vorlaufzeit.",
+  },
+  {
+    question: "Bietet der Friseur in Hamburg-Hamm auch Kosmetik-Leistungen an?",
+    answer: "Ja, Ihr Frisuren-Studio in Hamburg-Hamm bietet Kosmetik direkt im Salon an. Das Angebot umfasst Gesichtsbehandlungen (Basic, Classic, Deluxe), Maniküre, Fußpflege, Medizinische Fußpflege sowie Retinol-Peeling und Aknebehandlung. Friseur- und Kosmetik-Termin lassen sich in einem Besuch kombinieren — das spart Zeit und ist für Kunden aus Hamm, Borgfelde und Horn besonders praktisch.",
+  },
+  {
+    question: "Spricht das Team im Friseur Hamburg-Hamm auch andere Sprachen?",
+    answer: "Das 7-köpfige Team von Ihr Frisuren-Studio in Hamburg-Hamm ist mehrsprachig: Deutsch, Englisch, Türkisch, Persisch und Rumänisch. Das macht das Studio besonders für internationale Kunden aus Hamburg-Hamm und den umliegenden Stadtteilen attraktiv. Kunden können ihr Anliegen in ihrer bevorzugten Sprache schildern — Beratung und Abstimmung funktionieren so präzise und ohne Missverständnisse.",
+  },
+  {
+    question: "Was kostet ein Haarschnitt beim Friseur in Hamburg-Hamm?",
+    answer: "Die Preise bei Ihr Frisuren-Studio in Hamburg-Hamm beginnen bei 19 € für einen Herrenhaarschnitt und ab 33 € für einen Damenschnitt. Balayage ist ab 179 € erhältlich. Alle aktuellen Preise finden Sie auf der Leistungsseite der Website. Das Studio bietet Meisterqualität zu fairen Preisen — und mit über 277 Google-Bewertungen bei 4,9 Sternen ist das Preis-Leistungs-Verhältnis durch echte Kundenstimmen belegt.",
+  },
+  {
+    question: "Ist der Friseur in Hamburg-Hamm barrierefrei zugänglich?",
+    answer: "Ja, Ihr Frisuren-Studio in Hamburg-Hamm ist vollständig barrierefrei. Der Eingang ist rollstuhlgerecht, es gibt rollstuhlgerechte Sitzgelegenheiten, ein rollstuhlgerechtes WC, rollstuhlgerechte Parkplätze sowie eine induktive Höranlage. Das Studio ist außerdem LGBTQ+-freundlich und ein sicherer Ort für alle Kunden.",
+  },
+  {
+    question: "Wie erreiche ich den Friseur an der Hammer Landstraße 4 in Hamburg-Hamm?",
+    answer: "Ihr Frisuren-Studio befindet sich an der Hammer Landstraße 4, 20537 Hamburg. Mit dem ÖPNV erreichen Sie das Studio bequem über die nahegelegenen Bushaltestellen. Kostenlose Parkplätze an der Straße sind vorhanden. Das Studio liegt zentral zwischen Hamburg-Mitte, Borgfelde und Horn — gut erreichbar für Kunden aus dem gesamten östlichen Hamburg.",
+  },
   ];
 
   const faqSchema = getFAQSchema(hammFaqs);
@@ -78,7 +102,7 @@ export default function HammPage() {
           name: 'Hamburg Hamm',
           slug: 'hamm',
           isMainLocation: true,
-          intro: `Willkommen in Ihrem Frisuren-Studio – Ihr Friseur in Hamburg Hamm seit 2004. Direkt vor Ort in der Hammer Landstraße 4 bieten wir Ihnen erstklassige Friseurdienstleistungen ohne lange Anfahrtswege. Als zertifizierter Meisterbetrieb garantieren wir höchste Qualität für Damen, Herren und Kinder. Ob moderner Haarschnitt, brillante Coloration oder trendiges Balayage – unser Team verbindet jahrelange Erfahrung mit aktuellen Trends. Über 270 zufriedene Kunden bewerten uns mit 4,9 Sternen auf Google. Sie erreichen uns bequem zu Fuß, mit dem Fahrrad oder der U2/U4 Haltestelle Burgstraße.`,
+          intro: `Willkommen in Ihrem Frisuren-Studio – Ihr Friseur in Hamburg Hamm seit 2004. Direkt vor Ort in der Hammer Landstraße 4 bieten wir Ihnen erstklassige Friseurdienstleistungen ohne lange Anfahrtswege. Als zertifizierter Meisterbetrieb garantieren wir höchste Qualität für Damen, Herren und Kinder. Ob moderner Haarschnitt, brillante Coloration oder trendiges Balayage – unser Team verbindet jahrelange Erfahrung mit aktuellen Trends. Über 277 zufriedene Kunden bewerten uns mit 4,9 Sternen auf Google. Sie erreichen uns bequem zu Fuß, mit dem Fahrrad oder der U2/U4 Haltestelle Burgstraße.`,
           distance: 'Direkter Standort – Hammer Landstraße 4',
           travelInfo: `Unser Salon befindet sich zentral in Hamburg Hamm, Hammer Landstraße 4. Mit der U2 oder U4 bis Haltestelle Burgstraße, dann 5 Minuten zu Fuß. Buslinien 25, 130, 160 und 261 halten in unmittelbarer Nähe. Parkmöglichkeiten in der Hammer Landstraße vorhanden. Auch gut erreichbar aus Borgfelde, Hamburg Mitte und Horn.`,
           travelIcon: 'train',

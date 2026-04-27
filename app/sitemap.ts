@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/areas/borgfelde', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/hamburg-mitte', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/areas/horn', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/areas/hamm', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/galerie', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/ueber-uns', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/karriere', priority: 0.5, changeFrequency: 'monthly' as const },

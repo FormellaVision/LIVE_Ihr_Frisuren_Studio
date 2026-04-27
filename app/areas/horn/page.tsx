@@ -8,7 +8,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Horn | Meisterbetrieb · Ihr Frisuren-Studio',
-  description: `Ihr Friseur für Hamburg Horn – Ihr Frisuren-Studio in Hamburg Hamm, nur Minuten entfernt. Meisterbetrieb seit 2004. 270+ Bewertungen ★4,9. ☎ 040 2509029`,
+  description: `Ihr Friseur für Hamburg Horn – Ihr Frisuren-Studio in Hamburg Hamm, nur Minuten entfernt. Meisterbetrieb seit 2004. 277+ Bewertungen ★4,9. ☎ 040 2509029`,
   keywords: [
     'friseur horn',
     'friseur nahe horn',
@@ -37,7 +37,7 @@ export default function HornPage() {
   const hornFaqs = [
     {
       question: 'Gibt es einen Meisterbetrieb-Friseur in Horn?',
-      answer: 'In Horn gibt es keinen Friseursalon mit Meisterbetrieb-Status in dieser Qualität. Ihr Frisuren-Studio in Hamburg Hamm ist in ca. 10-15 Minuten erreichbar – mit 270+ Google-Bewertungen (4,9 ★) die beste Wahl für Kunden aus Horn.',
+      answer: 'In Horn gibt es keinen Friseursalon mit Meisterbetrieb-Status in dieser Qualität. Ihr Frisuren-Studio in Hamburg Hamm ist in ca. 10-15 Minuten erreichbar – mit 277+ Google-Bewertungen (4,9 ★) die beste Wahl für Kunden aus Horn.',
     },
     {
       question: 'Wie komme ich aus Horn zu Ihrem Salon?',
@@ -77,7 +77,7 @@ export default function HornPage() {
         area={{
           name: 'Horn',
           slug: 'horn',
-          intro: `Sie suchen einen erstklassigen Friseur in Horn (22111)? Auch wenn sich kein Salon direkt im Stadtteil befindet, ist Ihr Frisuren-Studio in Hamburg Hamm (20537) die ideale Adresse für Sie. Als zertifizierter Meisterbetrieb seit 2004 sind wir nur ca. 10 Minuten Fahrtweg entfernt. Von Horn aus erreichen Sie uns bequem mit der U2 über die Haltestelle Burgstraße oder direkt mit dem Fahrrad. Über 270 Kunden bewerten uns mit 4,9 Sternen für exzellente Haarschnitte, Balayage und professionelle Beratung. Erleben Sie Premium-Qualität in Ihrer Nähe – ob Damen, Herren oder Kinder.`,
+          intro: `Sie suchen einen erstklassigen Friseur in Horn (22111)? Auch wenn sich kein Salon direkt im Stadtteil befindet, ist Ihr Frisuren-Studio in Hamburg Hamm (20537) die ideale Adresse für Sie. Als zertifizierter Meisterbetrieb seit 2004 sind wir nur ca. 10 Minuten Fahrtweg entfernt. Von Horn aus erreichen Sie uns bequem mit der U2 über die Haltestelle Burgstraße oder direkt mit dem Fahrrad. Über 277 Kunden bewerten uns mit 4,9 Sternen für exzellente Haarschnitte, Balayage und professionelle Beratung. Erleben Sie Premium-Qualität in Ihrer Nähe – ob Damen, Herren oder Kinder.`,
           distance: 'ca. 10 Minuten bis Hamburg Hamm',
           travelInfo: `Von Horn zum Friseur in Hamburg Hamm: Mit der U2 ab Rauhes Haus oder Horn bis Burgstraße (4–5 Minuten Fahrzeit), dann 5 Minuten zu Fuß zur Hammer Landstraße 4. Per Fahrrad ca. 10–12 Minuten. Mit dem Auto über die Horner Rennbahn in ca. 8 Minuten.`,
           travelIcon: 'train',

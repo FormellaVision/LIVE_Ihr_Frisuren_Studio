@@ -71,7 +71,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'Ihr Frisuren-Studio – Friseur Hamburg Hamm',
+        alt: 'Ihr Frisuren-Studio Hamburg-Hamm – Friseursalon & Meisterbetrieb seit 2004',
       },
     ],
     locale: 'de_DE',

@@ -31,7 +31,7 @@ export const BUSINESS_INFO = {
   // GBP aufrufen: https://business.google.com → Bewertungen
   // Zuletzt aktualisiert: April 2026
   reviews: {
-    count: 270,
+    count: 277,
     rating: 4.9,
   },
 } as const;

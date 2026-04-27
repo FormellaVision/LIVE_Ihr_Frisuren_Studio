@@ -51,7 +51,7 @@ export function getBrandOrganizationSchema() {
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['HairSalon', 'LocalBusiness'],
+    '@type': 'HairSalon',
     '@id': BUSINESS_ID,
     name: BUSINESS_INFO.name,
     alternateName: 'Ihr Frisuren-Studio Hamburg Hamm',
@@ -62,9 +62,7 @@ export function getOrganizationSchema() {
       width: 400,
       height: 120,
     },
-    image: [
-      'https://res.cloudinary.com/dqkld61zu/image/upload/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp',
-    ],
+    image: 'https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1773616648/Ihr_Frisuren-Studio_Hamburg-Hamm_Meta_OG_ulwtpc.webp',
     description:
       'Premium Friseur in Hamburg Hamm - Meisterbetrieb seit 2004. Spezialisiert auf Damenhaarschnitte, Herrenhaarschnitte, Balayage, Colorationen und Kosmetik.',
     telephone: BUSINESS_INFO.phoneInternational,
@@ -125,7 +123,7 @@ export function getOrganizationSchema() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '270',
+      reviewCount: '277',
       bestRating: '5',
       worstRating: '1',
     },
@@ -307,38 +305,33 @@ export function getPersonSchemas() {
 export function getAfterworkOfferSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Offer',
+    '@type': 'Service',
     name: 'Afterwork Spezialcut',
     description: `Exklusiver Afterwork-Termin nach Feierabend. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}.`,
-    priceCurrency: 'EUR',
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      description: `${OPENING_HOURS.afterwork.surcharge} Aufschlag auf den regulären Preis`,
-    },
-    seller: {
+    provider: {
       '@type': 'HairSalon',
       '@id': BUSINESS_ID,
-      name: BUSINESS_INFO.name,
-      url: BUSINESS_INFO.website,
-      telephone: BUSINESS_INFO.phoneInternational,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: BUSINESS_INFO.address.street,
-        addressLocality: BUSINESS_INFO.address.city,
-        postalCode: BUSINESS_INFO.address.postalCode,
-        addressCountry: 'DE',
-      },
     },
-    eligibleRegion: { '@type': 'City', name: 'Hamburg' },
-    availableAtOrFrom: {
-      '@type': 'Place',
-      name: BUSINESS_INFO.name,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: BUSINESS_INFO.address.street,
-        addressLocality: BUSINESS_INFO.address.city,
-        postalCode: BUSINESS_INFO.address.postalCode,
-        addressCountry: 'DE',
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        description: `${OPENING_HOURS.afterwork.surcharge} Aufschlag auf den regulären Preis`,
+      },
+      seller: {
+        '@type': 'HairSalon',
+        '@id': BUSINESS_ID,
+        name: BUSINESS_INFO.name,
+        url: BUSINESS_INFO.website,
+        telephone: BUSINESS_INFO.phoneInternational,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: BUSINESS_INFO.address.street,
+          addressLocality: BUSINESS_INFO.address.city,
+          postalCode: BUSINESS_INFO.address.postalCode,
+          addressCountry: 'DE',
+        },
       },
     },
   };
@@ -445,7 +438,7 @@ export const DEFAULT_FAQS = [
   },
   {
     question: 'Bedient ihr auch Kunden aus Borgfelde und Hamburg Mitte?',
-    answer: `Ja, selbstverständlich. Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist optimal erreichbar aus Borgfelde (20535), Hamburg Mitte, Horn und St. Georg. Aus Borgfelde sind es mit der U2 oder U4 ab Berliner Tor nur zwei Stationen bis Burgstraße – unter 10 Minuten Gesamtweg. Vom Hamburger Hauptbahnhof (Hamburg Mitte) dauert die Fahrt ebenfalls ca. 10 Minuten. Viele unserer Stammkunden kommen gezielt aus diesen Stadtteilen, weil Meisterbetrieb-Qualität mit 270+ Bewertungen in der Nähe schwer zu finden ist.`,
+    answer: `Ja, selbstverständlich. Unser Frisuren-Studio in der ${BUSINESS_INFO.address.street} (PLZ 20537) ist optimal erreichbar aus Borgfelde (20535), Hamburg Mitte, Horn und St. Georg. Aus Borgfelde sind es mit der U2 oder U4 ab Berliner Tor nur zwei Stationen bis Burgstraße – unter 10 Minuten Gesamtweg. Vom Hamburger Hauptbahnhof (Hamburg Mitte) dauert die Fahrt ebenfalls ca. 10 Minuten. Viele unserer Stammkunden kommen gezielt aus diesen Stadtteilen, weil Meisterbetrieb-Qualität mit ${BUSINESS_INFO.reviews.count}+ Bewertungen in der Nähe schwer zu finden ist.`,
   },
 ];
 
@@ -499,32 +492,28 @@ export const SERVICE_FAQS = {
   ],
   herren: [
     {
-      question: 'Was kostet ein Herrenhaarschnitt in Hamburg Hamm?',
-      answer:
-        'Herrenhaarschnitte bei Ihr Frisuren-Studio beginnen ab 19€ (Maschinenschnitt) oder 28€ (klassischer Schnitt trocken). Das beliebte Gentleman-Paket (Schnitt + Bart + Augenbrauen) kostet 49€.',
+      question: "Was kostet ein Herrenhaarschnitt in Hamburg-Hamm?",
+      answer: "Ein Herrenhaarschnitt bei Ihr Frisuren-Studio in Hamburg-Hamm kostet ab 19 €. Der Preis hängt von Technik und Aufwand ab: Maschinenschnitt, Trockenschnitt und Designerschnitte variieren im Preis. Alle Preise sind transparent auf der Website einsehbar. Das Paket Gentlemen umfasst Waschen, Schneiden und Föhnen sowie Bartpflege als Komplettpaket.",
     },
     {
-      question: 'Bieten Sie Bart-Styling an?',
-      answer:
-        'Ja, wir sind Bartpflege-Spezialisten. Bart-Styling ab 8€, Bartmodellage ab 15€. Unser Inhaber Serbay Eskici ist Herrenspezialist mit über 20 Jahren Erfahrung.',
+      question: "Bietet der Herrenfriseur in Hamburg-Hamm auch Bartpflege an?",
+      answer: "Ja, Ihr Frisuren-Studio in Hamburg-Hamm bietet professionelle Bartpflege an: Bart trimmen, Bart schneiden und das vollständige Paket Gentlemen mit Rasur. Das Team ist spezialisiert auf moderne Herrenschnitte — vom klassischen Kurzhaarschnitt über Fade Cuts bis zu Designerhaarschnitten. Afterwork-Termine bis 19 Uhr ermöglichen den Besuch auch nach der Arbeit.",
     },
     {
-      question: 'Was beinhaltet das Gentleman-Paket?',
-      answer:
-        'Das Gentleman-Paket (49€) umfasst einen Design-Schnitt mit Waschen & Styling, professionelle Bartmodellage und Augenbrauen-Korrektur. Das perfekte Rundum-Paket für den modernen Mann.',
+      question: "Welche Herrenfriseur-Leistungen gibt es in Hamburg-Hamm?",
+      answer: "Das Angebot für Herren bei Ihr Frisuren-Studio in Hamburg-Hamm umfasst: Maschinenschnitt, Trockenhaarschnitt, Designerhaarschnitt, Waschen/Schneiden/Föhnen, Strähnen und Colorationen für Herren, Bart trimmen, Bart schneiden sowie das Paket Gentlemen. Fade Cuts und moderne Schnitte gehören ebenso zum Repertoire. Alle Leistungen werden von ausgebildeten Friseurmeistern durchgeführt.",
     },
     {
-      question: 'Muss ich einen Termin vereinbaren?',
-      answer: `Terminvereinbarung ist empfohlen, um Wartezeiten zu vermeiden. Rufen Sie uns unter ${BUSINESS_INFO.phone} an oder schreiben Sie per WhatsApp. Wir bieten auch Afterwork-Termine nach 19:00 Uhr an.`,
+      question: "Hat der Herrenfriseur Hamburg-Hamm Afterwork-Termine?",
+      answer: "Ja, Ihr Frisuren-Studio bietet Afterwork-Termine speziell für Berufstätige an. Dienstags bis freitags ist das Studio bis 19:00 Uhr geöffnet. Termine können online oder telefonisch unter 040 2509029 gebucht werden. Das Studio liegt an der Hammer Landstraße 4 in Hamburg-Hamm — gut erreichbar aus Hamburg-Mitte, Borgfelde, Horn und Rothenburgsort.",
     },
     {
-      question: 'Bieten Sie Afterwork-Termine für Herren an?',
-      answer: `Ja! Unser Afterwork-Service ist ideal für Berufstätige. Verfügbar ${OPENING_HOURS.afterwork.weekdays} und ${OPENING_HOURS.afterwork.saturday}. Regulärer Preis ${OPENING_HOURS.afterwork.surcharge} Aufschlag. Rufen Sie uns an unter ${BUSINESS_INFO.phone}.`,
+      question: "Ist eine Terminvereinbarung beim Herrenfriseur Hamburg-Hamm nötig?",
+      answer: "Termine werden empfohlen, sind aber nicht zwingend erforderlich. Spontanbesuche sind möglich, je nach Auslastung. Für eine garantierte Wartezeit empfiehlt sich die Online-Buchung über die Website. Kurzfristige Termine sind oft noch am selben oder nächsten Tag verfügbar. Das Studio hat über 277 Google-Bewertungen bei 4,9 Sternen — Kunden schätzen besonders die Flexibilität und Freundlichkeit des Teams.",
     },
     {
-      question: 'Was kostet Bartpflege in Hamburg Hamm?',
-      answer:
-        'Bart-Styling gibt es bei uns ab 8€, eine professionelle Bartmodellage ab 15€. Im beliebten Gentleman-Paket (49€) ist die Bartmodellage bereits inklusive.',
+      question: "Welcher Herrenfriseur in Hamburg-Hamm hat die besten Bewertungen?",
+      answer: "Ihr Frisuren-Studio an der Hammer Landstraße 4 in Hamburg-Hamm ist der meistbewertete Friseur in der Umgebung: über 277 Google-Bewertungen mit 4,9 Sternen Durchschnitt. Als Meisterbetrieb seit 2004 kombiniert das Studio handwerkliche Qualität mit modernen Schnitttechniken. Das mehrsprachige Team spricht Deutsch, Englisch, Türkisch, Persisch und Rumänisch.",
     },
   ],
   balayage: [

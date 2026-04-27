@@ -9,7 +9,7 @@ import { ServiceCardsSection } from '@/components/sections/ServiceCardsSection';
 
 export const metadata: Metadata = {
   title: 'Friseur Hamburg Mitte | Meisterbetrieb · Ihr Frisuren-Studio',
-  description: 'Friseur Hamburg Mitte ✓ Meisterbetrieb – 10 Min. vom HBF ✓ 270+ Bewertungen 4,9★ ✓ Damen ab 33€ · Herren ab 19€ ✓ Balayage ☎ 040 2509029',
+  description: 'Friseur Hamburg Mitte ✓ Meisterbetrieb – 10 Min. vom HBF ✓ 277+ Bewertungen 4,9★ ✓ Damen ab 33€ · Herren ab 19€ ✓ Balayage ☎ 040 2509029',
   keywords: [
     'friseur hamburg mitte',
     'friseur nahe hamburg mitte',
@@ -45,7 +45,7 @@ const SERVICES_HERREN = [
 const hamburgMitteFaqs = [
   {
     question: 'Gibt es einen guten Friseur in Hamburg Mitte?',
-    answer: 'In Hamburg Mitte gibt es mehrere Salons, aber nur wenige mit Meisterbetrieb-Status. Ihr Frisuren-Studio in Hamburg Hamm ist in wenigen Minuten erreichbar – mit 270+ Google-Bewertungen (4,9 ★) und Meisterqualität seit 2004 die erste Wahl für Kunden aus Hamburg Mitte.',
+    answer: 'In Hamburg Mitte gibt es mehrere Salons, aber nur wenige mit Meisterbetrieb-Status. Ihr Frisuren-Studio in Hamburg Hamm ist in wenigen Minuten erreichbar – mit 277+ Google-Bewertungen (4,9 ★) und Meisterqualität seit 2004 die erste Wahl für Kunden aus Hamburg Mitte.',
   },
   {
     question: 'Wie komme ich aus Hamburg Mitte zu Ihrem Salon?',
@@ -101,7 +101,7 @@ export default function HamburgMittePage() {
           name: 'Hamburg Mitte',
           slug: 'mitte',
           isMainLocation: true,
-          intro: `Suchen Sie einen exzellenten Friseur in Hamburg Mitte (20095, 20099)? Auch wenn unser Salon in Hamburg Hamm (20537) liegt, sind wir für Kunden aus Hamburg Mitte die erste Adresse für Meisterqualität. In nur 10 Minuten erreichen Sie unser Frisuren-Studio direkt ab Hauptbahnhof mit der U2 oder U4 (Haltestelle Burgstraße). Als zertifizierter Meisterbetrieb seit 2004 bieten wir Ihnen höchste Präzision bei Haarschnitten, Balayage und Colorationen. Über 270 Kunden bewerten uns mit 4,9 Sternen für unsere persönliche Beratung und erstklassigen Service in entspannter Atmosphäre.`,
+          intro: `Suchen Sie einen exzellenten Friseur in Hamburg Mitte (20095, 20099)? Auch wenn unser Salon in Hamburg Hamm (20537) liegt, sind wir für Kunden aus Hamburg Mitte die erste Adresse für Meisterqualität. In nur 10 Minuten erreichen Sie unser Frisuren-Studio direkt ab Hauptbahnhof mit der U2 oder U4 (Haltestelle Burgstraße). Als zertifizierter Meisterbetrieb seit 2004 bieten wir Ihnen höchste Präzision bei Haarschnitten, Balayage und Colorationen. Über 277 Kunden bewerten uns mit 4,9 Sternen für unsere persönliche Beratung und erstklassigen Service in entspannter Atmosphäre.`,
           distance: 'ca. 10 Minuten bis Hamburg Hamm',
           travelInfo: `Von Hamburg Mitte zum Friseur in Hamburg Hamm: Mit der U2 oder U4 ab Hauptbahnhof direkt zur Haltestelle Burgstraße – von dort 5 Minuten zu Fuß zur Hammer Landstraße 4. Alternativ: S-Bahn bis Berliner Tor, dann Bus 25 direkt zum Salon.`,
           travelIcon: 'train',
