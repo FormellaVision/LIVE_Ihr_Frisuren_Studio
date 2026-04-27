@@ -30,6 +30,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Legacy URL redirects
       {
         source: '/preise',
         destination: '/leistungen',
@@ -38,6 +39,38 @@ const nextConfig = {
       {
         source: '/schnellkontakt',
         destination: '/kontakt',
+        permanent: true,
+      },
+      // /areas/* → /einzugsgebiet/* (301) — lokal + Netlify
+      {
+        source: '/areas/hamm',
+        destination: '/friseur-hamburg-hamm',
+        permanent: true,
+      },
+      {
+        source: '/areas/borgfelde',
+        destination: '/einzugsgebiet/borgfelde',
+        permanent: true,
+      },
+      {
+        source: '/areas/horn',
+        destination: '/einzugsgebiet/horn',
+        permanent: true,
+      },
+      {
+        source: '/areas/hamburg-mitte',
+        destination: '/einzugsgebiet/hamburg-mitte',
+        permanent: true,
+      },
+      {
+        source: '/areas/:splat*',
+        destination: '/einzugsgebiet/:splat*',
+        permanent: true,
+      },
+      // /einzugsgebiet/hamm → /friseur-hamburg-hamm (301)
+      {
+        source: '/einzugsgebiet/hamm',
+        destination: '/friseur-hamburg-hamm',
         permanent: true,
       },
     ];

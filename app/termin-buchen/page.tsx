@@ -51,6 +51,16 @@ const contactOptions = [
     color: 'amber',
     recommended: false,
   },
+  {
+    icon: Calendar,
+    title: 'Online buchen',
+    description: 'Service auswählen & Termin direkt online buchen',
+    value: 'treatwell.de',
+    href: BUSINESS_INFO.treatwell,
+    cta: 'Jetzt online buchen',
+    color: 'violet',
+    recommended: false,
+  },
 ];
 
 const appointmentServices = [
@@ -114,7 +124,7 @@ export default function TerminBuchenPage() {
               Wählen Sie die für Sie bequemste Art, einen Termin zu vereinbaren.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {contactOptions.map((option, index) => (
                 <div
                   key={index}
@@ -135,6 +145,8 @@ export default function TerminBuchenPage() {
                         ? 'bg-teal-100'
                         : option.color === 'emerald'
                         ? 'bg-emerald-100'
+                        : option.color === 'violet'
+                        ? 'bg-violet-100'
                         : 'bg-amber-100'
                     }`}
                   >
@@ -144,6 +156,8 @@ export default function TerminBuchenPage() {
                           ? 'text-teal-600'
                           : option.color === 'emerald'
                           ? 'text-emerald-600'
+                          : option.color === 'violet'
+                          ? 'text-violet-600'
                           : 'text-amber-600'
                       }`}
                     />
@@ -160,6 +174,8 @@ export default function TerminBuchenPage() {
                         ? 'bg-teal-600 hover:bg-teal-700 text-white'
                         : option.color === 'emerald'
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                        : option.color === 'violet'
+                        ? 'bg-violet-600 hover:bg-violet-700 text-white'
                         : 'bg-amber-500 hover:bg-amber-600 text-white'
                     }`}
                   >

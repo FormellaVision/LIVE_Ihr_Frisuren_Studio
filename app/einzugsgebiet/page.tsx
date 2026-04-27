@@ -31,8 +31,8 @@ const AREAS = [
   {
     name: 'Hamburg Hamm',
     plz: '20537',
-    href: '/einzugsgebiet/hamm',
-    description: 'Unser Standort – direkt in Hamburg-Hamm, Hammer Landstraße 4.',
+    href: '/friseur-hamburg-hamm',
+    description: 'Unser Standort – direkt in Hamburg-Hamm, Hammer Landstraße 4. Meisterbetrieb seit 2004.',
     travel: 'U2/U4 Burgstraße – 5 Min. zu Fuß',
     isMain: true,
     image: 'https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800',

@@ -34,6 +34,7 @@ export const BUSINESS_INFO = {
     count: 277,
     rating: 4.9,
   },
+  treatwell: 'https://www.treatwell.de/ort/ihr-frisuren-studio/',
 } as const;
 
 export const OPENING_HOURS = {

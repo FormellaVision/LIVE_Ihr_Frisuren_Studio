@@ -273,4 +273,20 @@
       transform: translateY(-10px);
     }
   }
+
+  /* Used for SSR H1 in AreaHeroAnimations — replaces motion.h1 */
+  .animate-hero-heading {
+    animation: hero-heading-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
+  }
+
+  @keyframes hero-heading-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

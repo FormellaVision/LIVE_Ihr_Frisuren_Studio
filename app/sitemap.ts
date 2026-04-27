@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/bewertungen', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/kontakt', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/einzugsgebiet', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/einzugsgebiet/hamm', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/einzugsgebiet/borgfelde', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/einzugsgebiet/horn', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/einzugsgebiet/hamburg-mitte', priority: 0.7, changeFrequency: 'monthly' as const },

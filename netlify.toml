@@ -184,7 +184,14 @@
 # Area URL Migration → Einzugsgebiet
 [[redirects]]
   from = "/areas/hamm"
-  to = "/einzugsgebiet/hamm"
+  to = "/friseur-hamburg-hamm"
+  status = 301
+  force = true
+
+# Einzugsgebiet/hamm → canonical Standortseite
+[[redirects]]
+  from = "/einzugsgebiet/hamm"
+  to = "/friseur-hamburg-hamm"
   status = 301
   force = true
 

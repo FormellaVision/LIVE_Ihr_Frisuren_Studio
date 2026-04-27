@@ -43,10 +43,6 @@ export function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Hamburg Hamm' },
       ],
-      '/einzugsgebiet/hamm': [
-        { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
-        { label: 'Hamburg Hamm' },
-      ],
       '/einzugsgebiet/borgfelde': [
         { label: 'Einzugsgebiet', href: '/einzugsgebiet' },
         { label: 'Borgfelde' },
