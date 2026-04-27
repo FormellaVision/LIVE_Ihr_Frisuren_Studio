@@ -6,9 +6,9 @@ import { MapPin, Brain as Train } from 'lucide-react';
 
 const areas = [
   { name: 'Hamburg Hamm', plz: '20537', href: '/friseur-hamburg-hamm', primary: true },
-  { name: 'Friseur Borgfelde', plz: '20535', href: '/areas/borgfelde', primary: true },
-  { name: 'Hamburg Mitte', plz: '20099', href: '/areas/hamburg-mitte', primary: false },
-  { name: 'Horn', plz: '22111', href: '/areas/horn', primary: false },
+  { name: 'Friseur Borgfelde', plz: '20535', href: '/einzugsgebiet/borgfelde', primary: true },
+  { name: 'Hamburg Mitte', plz: '20099', href: '/einzugsgebiet/hamburg-mitte', primary: false },
+  { name: 'Horn', plz: '22111', href: '/einzugsgebiet/horn', primary: false },
 ];
 
 export function ServiceAreaStrip() {
@@ -111,7 +111,7 @@ export function ServiceAreaStrip() {
         >
           <p className="text-gray-300 max-w-xl mx-auto leading-relaxed">
             Kunden aus Borgfelde (20535) erreichen uns in 5-10 Minuten. Ihr{' '}
-            <Link href="/areas/borgfelde" className="text-teal-400 hover:text-teal-300 font-bold underline underline-offset-4 decoration-teal-400/30 hover:decoration-teal-400">
+            <Link href="/einzugsgebiet/borgfelde" className="text-teal-400 hover:text-teal-300 font-bold underline underline-offset-4 decoration-teal-400/30 hover:decoration-teal-400">
               Friseur Borgfelde
             </Link>{' '}
             wartet auf Sie.

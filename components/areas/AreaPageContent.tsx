@@ -16,6 +16,7 @@ const tween = (delay: number) => ({ duration: 0.4, delay, ease: [0.25, 0.46, 0.4
 export interface AreaData {
   name: string;
   slug: string;
+  h1Title?: string; // NEW: Optional title for H1 to avoid cannibalization
   isMainLocation?: boolean;
   intro: string;
   distance: string;
@@ -39,6 +40,9 @@ interface Props {
 
 export function AreaPageContent({ area }: Props) {
   const prefersReducedMotion = useReducedMotion();
+
+  // Determine the display title for Badge and H1
+  const displayTitle = area.h1Title || (area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`);
 
   return (
     <>
@@ -67,7 +71,7 @@ export function AreaPageContent({ area }: Props) {
             >
               <MapPin className="w-4 h-4 text-amber-400" />
               <span className="text-sm font-semibold text-white">
-                {area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`}
+                {displayTitle}
               </span>
             </motion.div>
 
@@ -78,7 +82,7 @@ export function AreaPageContent({ area }: Props) {
               style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55)', willChange: 'transform, opacity' }}
               className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 break-words"
             >
-              {area.isMainLocation ? `Friseur ${area.name}` : `Friseur nahe ${area.name}`}
+              {displayTitle}
             </motion.h1>
 
             <motion.p

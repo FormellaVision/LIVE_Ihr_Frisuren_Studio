@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 import { AreaPageContent } from '@/components/areas/AreaPageContent';
@@ -21,11 +20,11 @@ export const metadata: Metadata = {
     'balayage borgfelde',
     'haare färben borgfelde',
   ],
-  alternates: { canonical: `${BUSINESS_INFO.website}/areas/borgfelde` },
+  alternates: { canonical: `${BUSINESS_INFO.website}/einzugsgebiet/borgfelde` },
   openGraph: {
     title: 'Friseur Borgfelde | Ihr Frisuren-Studio – Meisterbetrieb seit 2004',
     description: `Friseur Borgfelde: Ihr Frisuren-Studio in Hamburg-Hamm ist für Kundinnen und Kunden aus Borgfelde (20535) in nur 2 U-Bahn-Stationen erreichbar. Damen, Herren, Balayage & Haare färben.`,
-    url: `${BUSINESS_INFO.website}/areas/borgfelde`,
+    url: `${BUSINESS_INFO.website}/einzugsgebiet/borgfelde`,
   },
 };
 
@@ -73,7 +72,7 @@ export default function BorgfeldePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
     { name: 'Einzugsgebiet', url: `${BUSINESS_INFO.website}/einzugsgebiet` },
-    { name: 'Borgfelde', url: `${BUSINESS_INFO.website}/areas/borgfelde` },
+    { name: 'Borgfelde', url: `${BUSINESS_INFO.website}/einzugsgebiet/borgfelde` },
   ]);
 
   const faqSchema = getFAQSchema(borgfeldeFaqs);
@@ -142,8 +141,6 @@ export default function BorgfeldePage() {
           </div>
         </div>
       </section>
-
-
 
       {/* Borgfelde FAQ Section */}
       <ServiceFAQSection 

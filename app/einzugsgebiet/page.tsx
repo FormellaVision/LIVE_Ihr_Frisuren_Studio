@@ -31,7 +31,7 @@ const AREAS = [
   {
     name: 'Hamburg Hamm',
     plz: '20537',
-    href: '/friseur-hamburg-hamm',
+    href: '/einzugsgebiet/hamm',
     description: 'Unser Standort – direkt in Hamburg-Hamm, Hammer Landstraße 4.',
     travel: 'U2/U4 Burgstraße – 5 Min. zu Fuß',
     isMain: true,
@@ -40,7 +40,7 @@ const AREAS = [
   {
     name: 'Borgfelde',
     plz: '20535',
-    href: '/areas/borgfelde',
+    href: '/einzugsgebiet/borgfelde',
     description: 'Ihr Friseur Borgfelde (20535) ist nur 2 U-Bahn-Stationen via U2/U4 von uns entfernt. Bequem erreichbar in 5-10 Minuten.',
     travel: 'U2/U4 ab Berliner Tor – 2 Stationen',
     isMain: false,
@@ -49,7 +49,7 @@ const AREAS = [
   {
     name: 'Hamburg Mitte',
     plz: '20099',
-    href: '/areas/hamburg-mitte',
+    href: '/einzugsgebiet/hamburg-mitte',
     description: 'Direkt vom Hauptbahnhof erreichbar – ca. 10 Minuten mit der U-Bahn.',
     travel: 'U2/U4 ab Hauptbahnhof – direkt',
     isMain: false,
@@ -58,7 +58,7 @@ const AREAS = [
   {
     name: 'Horn',
     plz: '22111',
-    href: '/areas/horn',
+    href: '/einzugsgebiet/horn',
     description: 'Per U2 oder Fahrrad in ca. 10 Minuten bei uns im Salon.',
     travel: 'U2 ab Rauhes Haus/Horn – 4-5 Min.',
     isMain: false,

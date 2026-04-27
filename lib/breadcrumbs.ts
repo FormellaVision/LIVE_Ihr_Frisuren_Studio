@@ -26,11 +26,11 @@ export const AREA_LABELS: Record<string, string> = {
 };
 
 export const AREA_HREFS: Record<string, string> = {
-  'hamm': '/friseur-hamburg-hamm',
-  'borgfelde': '/areas/borgfelde',
-  'horn': '/areas/horn',
-  'mitte': '/areas/hamburg-mitte',
-  'hamburg-mitte': '/areas/hamburg-mitte',
+  'hamm': '/einzugsgebiet/hamm',
+  'borgfelde': '/einzugsgebiet/borgfelde',
+  'horn': '/einzugsgebiet/horn',
+  'mitte': '/einzugsgebiet/hamburg-mitte',
+  'hamburg-mitte': '/einzugsgebiet/hamburg-mitte',
 };
 
 export function extractBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
@@ -53,12 +53,12 @@ export function extractBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
       label,
       href: `/${segment}`,
     });
-  } else if (segments[0] === 'areas') {
+  } else if (segments[0] === 'einzugsgebiet') {
     const areaSlug = segments[1];
     const areaLabel = AREA_LABELS[areaSlug] || formatLabel(areaSlug);
     breadcrumbs.push({
       label: areaLabel,
-      href: `/areas/${areaSlug}`,
+      href: `/einzugsgebiet/${areaSlug}`,
     });
   } else if (segments.length >= 2) {
     const serviceSlug = segments[0];
@@ -69,7 +69,7 @@ export function extractBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
 
     breadcrumbs.push({
       label: areaLabel,
-      href: `/areas/${areaSlug}`,
+      href: `/einzugsgebiet/${areaSlug}`,
     });
 
     breadcrumbs.push({
@@ -117,7 +117,7 @@ export function createServiceAreaBreadcrumbs(
 ): BreadcrumbItem[] {
   const serviceLabel = formatServiceLabel(service);
   const areaLabel = AREA_LABELS[area] || formatLabel(area);
-  const areaHref = AREA_HREFS[area] || `/areas/${area}`;
+  const areaHref = AREA_HREFS[area] || `/einzugsgebiet/${area}`;
 
   return [
     {

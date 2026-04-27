@@ -320,19 +320,19 @@ export function Footer() {
                   Friseur Hamburg Hamm
                 </Link>
                 <Link
-                  href="/areas/borgfelde"
+                  href="/einzugsgebiet/borgfelde"
                   className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Borgfelde
                 </Link>
                 <Link
-                  href="/areas/hamburg-mitte"
+                  href="/einzugsgebiet/hamburg-mitte"
                   className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Hamburg Mitte
                 </Link>
                 <Link
-                  href="/areas/horn"
+                  href="/einzugsgebiet/horn"
                   className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Horn

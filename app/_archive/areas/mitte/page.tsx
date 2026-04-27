@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Friseur Hamburg Mitte – Ihr Frisuren-Studio in der Nähe',
   description: `Friseur nahe Hamburg Mitte – Meisterbetrieb seit 2004 in Hamburg-Hamm. Damen, Herren, Balayage & Kosmetik. Tel: ${BUSINESS_INFO.phone}`,
   keywords: ['friseur hamburg mitte', 'friseur mitte hamburg', 'haarschnitt hamburg mitte', 'friseursalon hamburg mitte'],
-  alternates: { canonical: `${BUSINESS_INFO.website}/areas/mitte` },
+  alternates: { canonical: `${BUSINESS_INFO.website}/einzugsgebiet/hamburg-mitte` },
   openGraph: {
     title: 'Friseur Hamburg Mitte – Ihr Frisuren-Studio',
     description: `Premium Friseur nahe Hamburg Mitte. ${BUSINESS_INFO.reviews.count}+ Google-Bewertungen (${BUSINESS_INFO.reviews.rating} Sterne).`,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function MittePage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Start', url: BUSINESS_INFO.website },
-    { name: 'Friseur Hamburg Mitte', url: `${BUSINESS_INFO.website}/areas/mitte` },
+    { name: 'Friseur Hamburg Mitte', url: `${BUSINESS_INFO.website}/einzugsgebiet/hamburg-mitte` },
   ]);
 
   const localBusinessSchema = {
