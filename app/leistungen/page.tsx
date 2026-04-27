@@ -58,16 +58,16 @@ export default function LeistungenPage() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <ScrollAnimationCard direction="left" delay={0.1} hasScale>
-              <PriceList title="Damen" services={SERVICES_DAMEN} />
+              <PriceList title="Damen" services={SERVICES_DAMEN} href="/damenfriseur-hamburg-hamm" />
             </ScrollAnimationCard>
             <ScrollAnimationCard direction="right" delay={0.2} hasScale>
-              <PriceList title="Herren" services={SERVICES_HERREN} />
+              <PriceList title="Herren" services={SERVICES_HERREN} href="/herrenfriseur-hamburg-hamm" />
             </ScrollAnimationCard>
           </div>
 
           <AnimatedSection direction="up" delay={0.3} hasScale>
             <div id="kosmetik" className="mt-8 max-w-3xl mx-auto">
-              <PriceList title="Kosmetik" services={SERVICES_KOSMETIK} />
+              <PriceList title="Kosmetik" services={SERVICES_KOSMETIK} href="/kosmetik-hamburg-hamm" />
             </div>
           </AnimatedSection>
 

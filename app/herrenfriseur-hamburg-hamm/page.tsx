@@ -12,8 +12,8 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, SERVICE_FAQS } fro
 import { Check, Scissors, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Herrenfriseur Hamburg Hamm | Barbier & Meisterbetrieb · ab 19€',
-  description: `Herrenfriseur Hamburg Hamm ✓ Haarschnitt ab 19€ ✓ Bartpflege ✓ Gentleman-Paket 49€ ✓ Meisterbetrieb ✓ 270+ Bewertungen 4,9★ ☎ 040 2509029`,
+  title: "Herrenfriseur Hamburg-Hamm | Männerhaarschnitt ab 19 € · Ihr Frisuren-Studio",
+  description: "Herrenfriseur Hamburg-Hamm ✓ Meisterbetrieb seit 2004 ✓ Haarschnitt ab 19 € ✓ Bartpflege ✓ Fade Cut ✓ Afterwork-Termine ✓ 277+ Bewertungen 4,9★ ☎ 040 2509029",
   keywords: ['herrenfriseur hamburg hamm', 'friseur herren hamburg', 'herrenhaarschnitt hamburg', 'bartpflege hamburg hamm'],
   openGraph: {
     title: 'Herrenfriseur Hamburg Hamm – Haarschnitt & Bartpflege | Ihr Frisuren-Studio',

@@ -14,7 +14,7 @@ import { Check, Sparkles, Palette, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Damenfriseur Hamburg Hamm | Meisterbetrieb · ab 43€',
-  description: `Damenfriseur Hamburg Hamm ✓ Meisterbetrieb seit 2004 ✓ Balayage ab 179€ ✓ Haarschnitt ab 43€ ✓ 270+ Bewertungen 4,9★ Jetzt Termin: ☎ 040 2509029`,
+  description: `Damenfriseur Hamburg Hamm ✓ Meisterbetrieb seit 2004 ✓ Balayage ab 179€ ✓ Haarschnitt ab 43€ ✓ 277+ Bewertungen 4,9★ Jetzt Termin: ☎ 040 2509029`,
   keywords: ['damenfriseur hamburg hamm', 'friseur damen hamburg', 'haarschnitt damen hamburg hamm', 'balayage hamburg', 'coloration hamburg'],
   openGraph: {
     title: 'Damenfriseur Hamburg Hamm – Meisterbetrieb seit 2004 | Ihr Frisuren-Studio',
@@ -145,7 +145,7 @@ export default function DamenfriseurPage() {
                 · inkl. Typberatung, Festiger und Finish-Spray.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Über 270 Kundinnen bewerten uns mit 4,9 Sternen für unsere persönliche Beratung,
+                Über 277 Kundinnen bewerten uns mit 4,9 Sternen für unsere persönliche Beratung,
                 präzisen Schnitte und die angenehme Atmosphäre. Wir bieten auch Afterwork-Termine
                 nach 19:00 Uhr — ideal für Berufstätige in Hamburg-Hamm.
               </p>

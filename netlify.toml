@@ -53,11 +53,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/areas/hamm"
-  to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
-  status = 301
-  force = true
 
 [[redirects]]
   from = "/en/*"
@@ -168,6 +163,18 @@
 
 
 # www -> non-www canonical redirect (must stay below specific 1-hop rules above)
+[[redirects]]
+  from = "http://ihr-frisuren-studio.de/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.ihr-frisuren-studio.de/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "https://www.ihr-frisuren-studio.de/*"
   to = "https://ihr-frisuren-studio.de/:splat"
@@ -282,11 +289,7 @@
   force = true
 
 # /areas/hamm cannibalization consolidation -> canonical service page
-[[redirects]]
-  from = "/areas/hamm"
-  to = "/friseur-hamburg-hamm"
-  status = 301
-  force = true
+
 
 # Damenfriseur service×area -> Hamm canonical
 [[redirects]]

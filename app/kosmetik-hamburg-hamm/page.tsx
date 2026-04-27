@@ -10,7 +10,7 @@ import { RelatedServices } from '@/components/sections/RelatedServices';
 
 export const metadata: Metadata = {
   title: 'Kosmetik Hamburg Hamm | Gesichtsbehandlung, Maniküre & Fußpflege · Ihr Frisuren-Studio',
-  description: 'Kosmetik Hamburg Hamm ✓ Gesichtsbehandlung ab 45€ ✓ Maniküre ab 26€ ✓ Med. Fußpflege ab 32€ ✓ Meisterbetrieb seit 2004 ✓ 270+ Bewertungen 4,9★ ☎ 040 2509029',
+  description: 'Kosmetik Hamburg Hamm ✓ Gesichtsbehandlung ab 45€ ✓ Maniküre ab 26€ ✓ Med. Fußpflege ab 32€ ✓ Meisterbetrieb seit 2004 ✓ 277+ Bewertungen 4,9★ ☎ 040 2509029',
   keywords: [
     'kosmetik hamburg hamm',
     'gesichtsbehandlung hamburg hamm',
