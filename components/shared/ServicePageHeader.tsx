@@ -1,5 +1,6 @@
 'use client';
 
+import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Star, Phone, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
@@ -8,7 +9,7 @@ import { BUSINESS_INFO } from '@/lib/constants';
 
 interface ServicePageHeaderProps {
   title: string;
-  subtitle: string;
+  subtitle: ReactNode;
   description: string;
   backgroundImage: string;
   backgroundFit?: 'cover' | 'contain';

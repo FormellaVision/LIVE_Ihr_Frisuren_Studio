@@ -151,19 +151,19 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
                 <div className="flex-1">
                   <h3 className="font-bold text-xl mb-4">Öffnungszeiten</h3>
                   <div className="space-y-2 text-sm">
-                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 1 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay !== null && currentDay === 1 ? "text-amber-300 font-bold" : "text-white/90")}>
                       <span>Montag</span>
                       <span>Geschlossen</span>
                     </div>
-                    <div className={cn("flex justify-between transition-all duration-300", currentDay >= 2 && currentDay <= 5 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay !== null && currentDay >= 2 && currentDay <= 5 ? "text-amber-300 font-bold" : "text-white/90")}>
                       <span>Dienstag - Freitag</span>
                       <span className="font-semibold">{OPENING_HOURS.tuesday.times}</span>
                     </div>
-                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 6 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay !== null && currentDay === 6 ? "text-amber-300 font-bold" : "text-white/90")}>
                       <span>Samstag</span>
                       <span className="font-semibold">{OPENING_HOURS.saturday.times}</span>
                     </div>
-                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 0 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay !== null && currentDay === 0 ? "text-amber-300 font-bold" : "text-white/90")}>
                       <span>Sonntag</span>
                       <span>Geschlossen</span>
                     </div>
