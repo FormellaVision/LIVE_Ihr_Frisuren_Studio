@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle, Calendar, ChevronDown } from 'lucide-react';
 import { NAV_LINKS, BUSINESS_INFO } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -162,7 +162,7 @@ export function Navigation() {
 
   return (
     <>
-      <motion.header
+      <m.header
         role="banner"
         initial={{ y: -80 }}
         animate={{ y: 0 }}
@@ -184,7 +184,7 @@ export function Navigation() {
       >
         <nav className="max-w-7xl mx-auto px-4" role="navigation" aria-label="Hauptnavigation">
           <div className="flex items-center justify-between h-16">
-            <motion.div
+            <m.div
               initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
@@ -207,7 +207,7 @@ export function Navigation() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8" ref={dropdownRef}>
@@ -239,7 +239,7 @@ export function Navigation() {
 
                       <AnimatePresence>
                         {isDropdownOpen && (
-                          <motion.div
+                          <m.div
                             initial={{ opacity: 0, y: -8, scale: 0.97 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.97 }}
@@ -270,7 +270,7 @@ export function Navigation() {
                                 {child.label}
                               </Link>
                             ))}
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
                     </div>
@@ -309,7 +309,7 @@ export function Navigation() {
               </Link>
             </div>
 
-            <motion.button
+            <m.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden relative z-50 min-w-[44px] min-h-[44px] p-2.5 text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 transition-all duration-300 rounded-xl bg-white shadow-md border border-gray-200 hover:bg-gray-50 active:bg-gray-100 flex items-center justify-center"
@@ -319,14 +319,14 @@ export function Navigation() {
               aria-haspopup="dialog"
             >
               <Menu className="w-6 h-6 text-teal-800" aria-hidden="true" />
-            </motion.button>
+            </m.button>
           </div>
         </nav>
-      </motion.header>
+      </m.header>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             ref={menuRef}
             id="mobile-menu"
             role="dialog"
@@ -341,17 +341,17 @@ export function Navigation() {
               if (e.target === e.currentTarget) closeMenu();
             }}
           >
-            <motion.button
+            <m.button
               whileTap={{ scale: 0.9 }}
               onClick={closeMenu}
               className="absolute top-[10px] right-4 z-[101] min-w-[44px] min-h-[44px] p-2.5 bg-white backdrop-blur-sm border border-gray-200 rounded-xl text-gray-900 hover:bg-gray-50 shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent flex items-center justify-center"
               aria-label="Menü schließen"
             >
               <X className="w-6 h-6 text-teal-800" aria-hidden="true" />
-            </motion.button>
+            </m.button>
 
             <nav aria-label="Mobilnavigation" className="w-full max-w-md">
-              <motion.ul
+              <m.ul
                 className="list-none p-0 m-0 space-y-3"
                 initial="hidden"
                 animate="visible"
@@ -366,7 +366,7 @@ export function Navigation() {
                   }
                 }}
               >
-                <motion.div
+                <m.div
                   key={mobileExpanded ?? 'main'}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -453,9 +453,9 @@ export function Navigation() {
                       })}
                     </>
                   )}
-                </motion.div>
+                </m.div>
 
-                <motion.li
+                <m.li
                   variants={{
                     hidden: { opacity: 0, y: 16 },
                     visible: { opacity: 1, y: 0 }
@@ -502,10 +502,10 @@ export function Navigation() {
                       <span className="break-words">Online buchen (Treatwell)</span>
                     </span>
                   </a>
-                </motion.li>
-              </motion.ul>
+                </m.li>
+              </m.ul>
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

@@ -94,6 +94,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LazyMotion, domMax } from 'framer-motion';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = getOrganizationSchema();
   const brandSchema = getBrandOrganizationSchema();
@@ -109,12 +111,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="preload"
           as="image"
           href="https://res.cloudinary.com/dqkld61zu/image/upload/v1772399060/2face_Logo_zczbdd.svg"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
           fetchPriority="high"
         />
         <link
@@ -146,30 +142,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-montserrat sm:pb-16 md:pb-0">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
-        >
-          Zum Hauptinhalt springen
-        </a>
-        <Navigation />
-        <main id="main">{children}</main>
-        <Footer />
-        <StickyMobileBar />
-        <CookieBanner />
-        <AnalyticsScript />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
+        <LazyMotion features={domMax}>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
+          >
+            Zum Hauptinhalt springen
+          </a>
+          <Navigation />
+          <main id="main">{children}</main>
+          <Footer />
+          <StickyMobileBar />
+          <CookieBanner />
+          <AnalyticsScript />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+        </LazyMotion>
       </body>
     </html>
   );

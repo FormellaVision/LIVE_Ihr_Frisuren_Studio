@@ -249,14 +249,14 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-sm">
               <li className={cn(
-                "flex justify-between gap-4 transition-all duration-300",
+                "flex justify-between gap-4 transition-colors duration-300",
                 currentDay !== null && currentDay === 1 ? "text-teal-400 font-bold" : "text-gray-400"
               )}>
                 <span className="flex-shrink-0">Montag</span>
                 <span className="text-right">Geschlossen</span>
               </li>
               <li className={cn(
-                "flex justify-between gap-4 transition-all duration-300",
+                "flex justify-between gap-4 transition-colors duration-300",
                 currentDay !== null && currentDay >= 2 && currentDay <= 5 ? "text-teal-400 font-bold" : "text-gray-300"
               )}>
                 <span className="flex-shrink-0 min-w-0">Dienstag - Freitag</span>
@@ -265,7 +265,7 @@ export function Footer() {
                 </span>
               </li>
               <li className={cn(
-                "flex justify-between gap-4 transition-all duration-300",
+                "flex justify-between gap-4 transition-colors duration-300",
                 currentDay !== null && currentDay === 6 ? "text-teal-400 font-bold" : "text-gray-300"
               )}>
                 <span className="flex-shrink-0">Samstag</span>
@@ -274,7 +274,7 @@ export function Footer() {
                 </span>
               </li>
               <li className={cn(
-                "flex justify-between gap-4 transition-all duration-300",
+                "flex justify-between gap-4 transition-colors duration-300",
                 currentDay !== null && currentDay === 0 ? "text-teal-400 font-bold" : "text-gray-400"
               )}>
                 <span className="flex-shrink-0">Sonntag</span>

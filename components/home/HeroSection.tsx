@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Phone, Star, MessageCircle, MapPin, Award } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,13 +19,13 @@ export function HeroSection() {
       aria-label="Friseur Hamburg Hamm – Ihr Frisuren-Studio"
       className="relative min-h-[100svh] flex flex-col bg-gradient-to-br from-[#E5E0DA] via-[#F5F0EA] to-[#E5E0DA] overflow-x-hidden"
     >
-      <img
-        src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
+      <Image
+        src="https://res.cloudinary.com/dqkld61zu/image/upload/q_auto:eco,f_auto/v1770218177/Ihr_Frisuren-Studio_Au%C3%9Fenansicht_oyydcb.webp"
         alt="Premium Friseursalon Ihr Frisuren-Studio in Hamburg Hamm"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.16]"
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
+        fill
+        priority
+        className="object-cover object-center opacity-[0.16]"
+        sizes="100vw"
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.20)_0%,rgba(229,224,218,0.10)_45%,rgba(0,0,0,0.06)_100%)]" />
@@ -33,7 +33,7 @@ export function HeroSection() {
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="container mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-full flex-col items-center justify-center py-12 sm:py-16 md:py-20 lg:py-0 text-center">
-            <motion.div
+            <m.div
               initial={{ scale: 0.96, y: 8 }}
               animate={{ scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
@@ -49,18 +49,18 @@ export function HeroSection() {
                   className="object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 />
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8"
             >
               <OpeningStatusBadge />
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05, ease: [0.23, 1, 0.32, 1] }}
@@ -80,9 +80,9 @@ export function HeroSection() {
               >
                 Meisterbetrieb mit {reviewRating} Sternen – für <Link href="/leistungen" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Haarschnitte</Link>, <Link href="/balayage-hamburg-hamm" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Balayage</Link> und <Link href="/kosmetik-hamburg-hamm" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Kosmetik</Link> in Hamburg Hamm.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
@@ -109,9 +109,9 @@ export function HeroSection() {
                   <span className="whitespace-nowrap">WhatsApp</span>
                 </a>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.22 }}
@@ -130,9 +130,9 @@ export function HeroSection() {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.28 }}
@@ -144,7 +144,7 @@ export function HeroSection() {
                   Hammer Landstraße 4 · 20537 Hamburg
                 </span>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </div>
