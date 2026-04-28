@@ -127,6 +127,7 @@ export default function KosmetikHamburgHammPage() {
         subtitle="Gesichtsbehandlung, Maniküre & med. Fußpflege"
         description="Professionelle Kosmetikbehandlungen im Meisterbetrieb – für Damen und Herren in Hamburg-Hamm."
         backgroundImage="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        imageAlt="Professionelle Kosmetikbehandlung und Gesichtspflege im Frisuren-Studio Hamburg Hamm"
       />
 
       <Breadcrumb />
@@ -144,6 +145,11 @@ export default function KosmetikHamburgHammPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        title="Kosmetik-Termin in Hamburg Hamm buchen"
+        description="Gesichtsbehandlung ab 45€ · Maniküre ab 26€ · Med. Fußpflege ab 32€ · Bitte telefonisch anfragen"
+      />
 
       <ServiceFAQSection
         faqs={kosmetikFaqs}
@@ -164,11 +170,6 @@ export default function KosmetikHamburgHammPage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Kosmetik-Termin in Hamburg Hamm buchen"
-        description="Gesichtsbehandlung ab 45€ · Maniküre ab 26€ · Med. Fußpflege ab 32€ · Bitte telefonisch anfragen"
-      />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />

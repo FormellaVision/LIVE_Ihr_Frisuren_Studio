@@ -28,7 +28,7 @@ const contactOptions = [
     value: BUSINESS_INFO.phone,
     href: `tel:${BUSINESS_INFO.phoneInternational}`,
     cta: 'Jetzt anrufen',
-    color: 'teal',
+    color: 'amber',
     recommended: true,
   },
   {
@@ -42,16 +42,6 @@ const contactOptions = [
     recommended: false,
   },
   {
-    icon: Mail,
-    title: 'E-Mail',
-    description: 'Für ausführliche Anfragen und Rückfragen',
-    value: BUSINESS_INFO.email,
-    href: `mailto:${BUSINESS_INFO.email}`,
-    cta: 'E-Mail senden',
-    color: 'amber',
-    recommended: false,
-  },
-  {
     icon: Calendar,
     title: 'Online buchen',
     description: 'Service auswählen & Termin direkt online buchen',
@@ -59,6 +49,16 @@ const contactOptions = [
     href: BUSINESS_INFO.treatwell,
     cta: 'Jetzt online buchen',
     color: 'violet',
+    recommended: false,
+  },
+  {
+    icon: MapPin,
+    title: 'Kontakt',
+    description: 'Besuchen Sie uns persönlich in Hamburg Hamm',
+    value: BUSINESS_INFO.address.full,
+    href: '/kontakt',
+    cta: 'Anfahrt & Kontakt',
+    color: 'teal',
     recommended: false,
   },
 ];
@@ -176,7 +176,7 @@ export default function TerminBuchenPage() {
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
                         : option.color === 'violet'
                         ? 'bg-violet-600 hover:bg-violet-700 text-white'
-                        : 'bg-amber-500 hover:bg-amber-600 text-white'
+                        : 'bg-amber-600 hover:bg-amber-500 text-white'
                     }`}
                   >
                     {option.cta}

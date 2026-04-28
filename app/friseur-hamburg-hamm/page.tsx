@@ -267,7 +267,10 @@ export default function FriseurHamburgHammPage() {
         </div>
       </section>
 
-      <ServiceContactBlock />
+      <CTABanner
+        title="Termin beim Friseur in Hamburg Hamm buchen"
+        description="Meisterbetrieb seit 2004. Damen ab 33€ · Herren ab 19€ · Balayage ab 179€"
+      />
 
       <section className="section-padding bg-warm-white" aria-labelledby="faq-friseur-heading">
         <div className="container-custom">
@@ -339,11 +342,6 @@ export default function FriseurHamburgHammPage() {
           </div>
         </div>
       </section>
-
-      <CTABanner
-        title="Termin beim Friseur in Hamburg Hamm buchen"
-        description="Meisterbetrieb seit 2004. Damen ab 33€ · Herren ab 19€ · Balayage ab 179€"
-      />
 
       <script
         type="application/ld+json"

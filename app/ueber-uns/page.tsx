@@ -97,7 +97,9 @@ export default function UeberUnsPage() {
         subtitle={`Meisterbetrieb seit ${BUSINESS_INFO.founded}`}
         description="Lernen Sie die Menschen hinter Ihr Frisuren-Studio kennen - erfahrene Meister und Gesellen mit Leidenschaft fürs Handwerk"
         backgroundImage="https://res.cloudinary.com/dqkld61zu/image/upload/v1773015024/Teamfoto2_w3uxfj.webp"
+        imageAlt="Das Team von Ihr Frisuren-Studio Hamburg Hamm – Ihr Friseurmeisterbetrieb seit 2004"
         backgroundFit="contain"
+        backgroundPosition="center 64px"
       />
 
       <Breadcrumb />
@@ -149,6 +151,11 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
+      <CTABanner
+        title="Lernen Sie uns persönlich kennen!"
+        description="Buchen Sie Ihren ersten Termin und erleben Sie unseren Service."
+      />
+
       <section className="section-padding">
         <div className="container-custom">
           <ServiceCards
@@ -159,11 +166,6 @@ export default function UeberUnsPage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Lernen Sie uns persönlich kennen!"
-        description="Buchen Sie Ihren ersten Termin und erleben Sie unseren Service."
-      />
 
       <script
         type="application/ld+json"

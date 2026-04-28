@@ -20,7 +20,8 @@ export const BUSINESS_INFO = {
   taxId: 'DE235319231',
   instagram: '@ihrfrisurenstudio',
   instagramUrl: 'https://www.instagram.com/ihrfrisurenstudio/',
-  googleMaps: 'https://maps.app.goo.gl/FPjSjzu6HpPyeJco6',
+  googleMaps: 'https://www.google.com/maps/place/Ihr+Frisuren-Studio/@53.5553174,10.0412498,17z/data=!4m18!1m9!3m8!1s0x47b18ebd949375c1:0xe58185a4fcf09502!2sIhr+Frisuren-Studio!8m2!3d53.5553174!4d10.0412498!9m1!1b1!16s%2Fg%2F1t_hy0xx!3m7!1s0x47b18ebd949375c1:0xe58185a4fcf09502!8m2!3d53.5553174!4d10.0412498!9m1!1b1!16s%2Fg%2F1t_hy0xx?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D',
+  googleReviewUrl: 'https://g.page/r/CQKV8PykhYHlEAE/review',
   appleMaps: 'https://maps.apple.com/place?place-id=I63F08FF445E51F7F&_provider=9902',
   googleMapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2369.1!2d10.0412498!3d53.5553174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b18ebd949375c1%3A0xe58185a4fcf09502!2sIhr%20Frisuren-Studio!5e0!3m2!1sde!2sde',
   coordinates: {
@@ -53,12 +54,22 @@ export const OPENING_HOURS = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: '/leistungen', label: 'Leistungen' },
+  {
+    href: '/leistungen',
+    label: 'Leistungen',
+    children: [
+      { href: '/damenfriseur-hamburg-hamm', label: 'Damenfriseur' },
+      { href: '/herrenfriseur-hamburg-hamm', label: 'Herrenfriseur' },
+      { href: '/balayage-hamburg-hamm', label: 'Balayage' },
+      { href: '/haare-faerben-hamburg-hamm', label: 'Haare färben' },
+      { href: '/kosmetik-hamburg-hamm', label: 'Kosmetik' },
+    ],
+  },
   { href: '/galerie', label: 'Galerie' },
   { href: '/ueber-uns', label: 'Team' },
   { href: '/bewertungen', label: 'Bewertungen' },
   { href: '/kontakt', label: 'Kontakt' },
-] as const;
+];
 
 export const TEAM_MEMBERS = [
   {
@@ -117,42 +128,36 @@ export const REVIEWS = [
     text: 'Top Leute, die was von ihrem Handwerk verstehen. Kann es nur jedem weiter empfehlen. Von Färben bis krasse Fades kriegt man da alles.',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 2 Wochen',
     rating: 5,
   },
   {
     text: 'Ich bin seit vielen Jahren hier Kunde und immer absolut zufrieden. Super angenehme Atmosphäre, sehr nette Menschen und immer ein guter Haarschnitt.',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 1 Monat',
     rating: 5,
   },
   {
     text: 'Immer top zufrieden! Erste Klasse Service und super freundliche Mitarbeiter! Serbay bester Mann!',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 3 Wochen',
     rating: 5,
   },
   {
     text: 'Seit Jahren Stammkunde, wer schwierige Haare hat oder einfach konstant gute Schnitte will ist hier richtig.',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 1 Monat',
     rating: 5,
   },
   {
     text: 'Moin, Habe schon oft von euch gehört! Mein Bester Freund sieht nach einem Besuch bei euch immer on Point aus! Werde mit Sicherheit auch nochmal vorbeischauen!',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 2 Monaten',
     rating: 5,
   },
   {
     text: 'Gehe hier seit 2 Jahren hin. Bin super happy. Beratung, Service und Leistung sind einfach top. Ich war noch nie so zufrieden bei einem Friseur! Vor allem das Personal ist einfach spitze! Man kennt die Kunden beim Namen und gibt 110%, dass die Kunden sich wohl fühlen. Kann ich nur empfehlen.',
     author: 'Google Kunde',
     initial: 'G',
-    date: 'vor 3 Monaten',
     rating: 5,
   },
 ] as const;

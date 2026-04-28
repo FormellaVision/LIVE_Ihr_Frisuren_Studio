@@ -3,27 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Award, Globe, Star, MapPin, Clock, Palette, Sparkles } from 'lucide-react';
 import { BUSINESS_INFO } from '@/lib/constants';
-
-const usps = [
-  {
-    icon: Award,
-    title: `Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
-    description: '20 Jahre Erfahrung und Leidenschaft. Zertifizierte Meisterqualität in Hamburg-Hamm.',
-    color: 'bg-teal-600',
-  },
-  {
-    icon: Globe,
-    title: 'Mehrsprachiges Team',
-    description: 'Beratung in Deutsch, Englisch, Türkisch & Persisch. Ihr Friseur für alle Kulturen.',
-    color: 'bg-amber-500',
-  },
-  {
-    icon: Star,
-    title: `${BUSINESS_INFO.reviews.count}+ Top-Bewertungen`,
-    description: `${BUSINESS_INFO.reviews.rating} Sterne bei Google. Unsere Kunden lieben uns - überzeugen Sie sich selbst!`,
-    color: 'bg-coral-500',
-  },
-];
+import { useReviewCount } from '@/hooks/use-review-count';
 
 const features = [
   {
@@ -56,14 +36,36 @@ const tween = (delay: number) => ({
 
 export function USPSection() {
   const prefersReducedMotion = useReducedMotion();
+  const { reviewCount } = useReviewCount();
+
+  const usps = [
+    {
+      icon: Award,
+      title: `Meisterbetrieb seit ${BUSINESS_INFO.founded}`,
+      description: '20 Jahre Erfahrung und Leidenschaft. Zertifizierte Meisterqualität in Hamburg-Hamm.',
+      color: 'bg-teal-600',
+    },
+    {
+      icon: Globe,
+      title: 'Mehrsprachiges Team',
+      description: 'Beratung in Deutsch, Englisch, Türkisch & Persisch. Ihr Friseur für alle Kulturen.',
+      color: 'bg-amber-500',
+    },
+    {
+      icon: Star,
+      title: `${reviewCount}+ Top-Bewertungen`,
+      description: `${BUSINESS_INFO.reviews.rating} Sterne bei Google. Unsere Kunden lieben uns - überzeugen Sie sich selbst!`,
+      color: 'bg-coral-500',
+    },
+  ];
 
   return (
     <section id="usp-section" aria-labelledby="usp-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -79,9 +81,9 @@ export function USPSection() {
           {usps.map((usp, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(index * 0.08)}
               className="text-center bg-white p-8 rounded-2xl shadow-lg card-hover"
             >
@@ -101,9 +103,9 @@ export function USPSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: index % 2 === 0 ? -12 : 12 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(index * 0.07)}
               className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md card-hover"
             >

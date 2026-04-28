@@ -55,10 +55,10 @@ export default function HomePage() {
       <ServicesSection />
       <TeamSection />
       <ReviewsSection />
+      <CTASection />
       <LocationSection />
       <ServiceAreaStrip />
       <FAQSection />
-      <CTASection />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

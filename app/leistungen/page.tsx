@@ -120,6 +120,11 @@ export default function LeistungenPage() {
         </div>
       </section>
 
+      <CTABanner
+        title="Überzeugt? Buchen Sie Ihren Termin!"
+        description="Rufen Sie uns an oder schreiben Sie uns per WhatsApp."
+      />
+
       <section className="section-padding pt-0">
         <div className="container-custom">
           <RelatedServices
@@ -193,11 +198,6 @@ export default function LeistungenPage() {
           </div>
         </div>
       </section>
-
-      <CTABanner
-        title="Überzeugt? Buchen Sie Ihren Termin!"
-        description="Rufen Sie uns an oder schreiben Sie uns per WhatsApp."
-      />
 
       <script
         type="application/ld+json"

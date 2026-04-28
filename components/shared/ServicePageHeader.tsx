@@ -11,7 +11,9 @@ interface ServicePageHeaderProps {
   subtitle: string;
   description: string;
   backgroundImage: string;
-  backgroundFit?: 'cover' | 'contain'; // NEW
+  backgroundFit?: 'cover' | 'contain';
+  backgroundPosition?: string;
+  imageAlt?: string;
 }
 
 export function ServicePageHeader({
@@ -20,6 +22,8 @@ export function ServicePageHeader({
   description,
   backgroundImage,
   backgroundFit = 'cover',
+  backgroundPosition = 'center 40%',
+  imageAlt = '',
 }: ServicePageHeaderProps) {
   const isContain = backgroundFit === 'contain';
 
@@ -31,12 +35,12 @@ export function ServicePageHeader({
     >
       <Image
         src={backgroundImage}
-        alt=""
+        alt={imageAlt}
         fill
         priority
         sizes="100vw"
         className="object-cover"
-        style={{ objectPosition: '50% 64px' }}
+        style={{ objectPosition: backgroundPosition }}
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />

@@ -29,12 +29,15 @@ export function StickyDesktopCTA() {
             <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
                 aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-                className="group relative"
+                className="group relative flex flex-col items-center gap-1"
             >
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 transition-all duration-200 hover:scale-110">
                     <Phone className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                <span className="text-[10px] font-semibold text-gray-700 bg-white/90 rounded-full px-2 py-0.5 shadow-sm">
+                    Anrufen
+                </span>
+                <div className="absolute right-full mr-3 top-5 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 pointer-events-none">
                     {BUSINESS_INFO.phone}
                 </div>
             </a>
@@ -44,12 +47,15 @@ export function StickyDesktopCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Nachricht senden"
-                className="group relative"
+                className="group relative flex flex-col items-center gap-1"
             >
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 transition-all duration-200 hover:scale-110">
                     <MessageCircle className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                <span className="text-[10px] font-semibold text-gray-700 bg-white/90 rounded-full px-2 py-0.5 shadow-sm">
+                    WhatsApp
+                </span>
+                <div className="absolute right-full mr-3 top-5 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 pointer-events-none">
                     WhatsApp
                 </div>
             </a>

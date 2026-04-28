@@ -198,6 +198,11 @@ export default function EinzugsgebietPage() {
         </div>
       </section>
 
+      <CTABanner
+        title="Termin vereinbaren"
+        description="Rufen Sie uns an oder buchen Sie direkt online – wir freuen uns auf Ihren Besuch."
+      />
+
       <section className="section-padding bg-warm-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
@@ -228,11 +233,6 @@ export default function EinzugsgebietPage() {
           </div>
         </div>
       </section>
-
-      <CTABanner
-        title="Termin vereinbaren"
-        description="Rufen Sie uns an oder buchen Sie direkt online – wir freuen uns auf Ihren Besuch."
-      />
 
       <script
         type="application/ld+json"

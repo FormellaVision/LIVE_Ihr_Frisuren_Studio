@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Calendar, ChevronDown } from 'lucide-react';
 import { NAV_LINKS, BUSINESS_INFO } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
@@ -76,14 +76,36 @@ export function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showNavLogo, setShowNavLogo] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const closeMenu = useCallback(() => setIsOpen(false), []);
   const menuRef = useFocusTrap(isOpen, closeMenu);
 
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenDropdown(null);
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setMobileExpanded(null); // Reset sub-menu state when opening the hamburger menu
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -94,6 +116,8 @@ export function Navigation() {
 
   useEffect(() => {
     setIsOpen(false);
+    setOpenDropdown(null);
+    setMobileExpanded(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -139,6 +163,7 @@ export function Navigation() {
   return (
     <>
       <motion.header
+        role="banner"
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -184,26 +209,94 @@ export function Navigation() {
               </Link>
             </motion.div>
 
-            <div className="hidden md:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={pathname === link.href ? 'page' : undefined}
-                  className={cn(
-                    'relative text-base font-medium transition-all duration-300 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded',
-                    pathname === link.href
-                      ? 'text-gray-900 font-semibold'
-                      : 'text-gray-700 hover:text-gray-900',
-                    'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-teal-700 after:transition-transform after:duration-300',
-                    pathname === link.href
-                      ? 'after:scale-x-100 after:origin-left'
-                      : 'after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-8" ref={dropdownRef}>
+              {NAV_LINKS.map((link) => {
+                const hasChildren = 'children' in link && link.children && link.children.length > 0;
+                const isDropdownOpen = openDropdown === link.href;
+                const isActive = pathname === link.href || ('children' in link && link.children?.some(c => pathname === c.href));
+
+                if (hasChildren) {
+                  return (
+                    <div key={link.href} className="relative">
+                      <button
+                        onClick={() => setOpenDropdown(isDropdownOpen ? null : link.href)}
+                        aria-expanded={isDropdownOpen}
+                        aria-haspopup="true"
+                        className={cn(
+                          'relative flex items-center gap-1 text-base font-medium transition-all duration-300 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded',
+                          isActive ? 'text-gray-900 font-semibold' : 'text-gray-700 hover:text-gray-900',
+                          'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-teal-700 after:transition-transform after:duration-300',
+                          isActive ? 'after:scale-x-100 after:origin-left' : 'after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left'
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          className={cn('w-4 h-4 transition-transform duration-200', isDropdownOpen && 'rotate-180')}
+                          aria-hidden="true"
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                            role="menu"
+                          >
+                            <Link
+                              href={link.href}
+                              role="menuitem"
+                              className="block px-4 py-3 text-sm font-semibold text-teal-600 hover:bg-teal-50 transition-colors border-b border-gray-100"
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              Alle Leistungen & Preise →
+                            </Link>
+                            {'children' in link && link.children?.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                role="menuitem"
+                                aria-current={pathname === child.href ? 'page' : undefined}
+                                className={cn(
+                                  'block px-4 py-2.5 text-sm transition-colors hover:bg-gray-50',
+                                  pathname === child.href ? 'text-teal-600 font-semibold bg-teal-50/50' : 'text-gray-700 hover:text-gray-900'
+                                )}
+                                onClick={() => setOpenDropdown(null)}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={pathname === link.href ? 'page' : undefined}
+                    className={cn(
+                      'relative text-base font-medium transition-all duration-300 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded',
+                      pathname === link.href
+                        ? 'text-gray-900 font-semibold'
+                        : 'text-gray-700 hover:text-gray-900',
+                      'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-teal-700 after:transition-transform after:duration-300',
+                      pathname === link.href
+                        ? 'after:scale-x-100 after:origin-left'
+                        : 'after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="hidden md:flex items-center gap-3">
@@ -218,19 +311,6 @@ export function Navigation() {
 
             <motion.button
               whileTap={{ scale: 0.9 }}
-              animate={!isOpen ? {
-                scale: [1, 1.06, 1],
-                boxShadow: [
-                  '0 0 0 0px rgba(13, 148, 136, 0)',
-                  '0 0 0 8px rgba(13, 148, 136, 0.15)',
-                  '0 0 0 0px rgba(13, 148, 136, 0)'
-                ]
-              } : {}}
-              transition={!isOpen ? {
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              } : {}}
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden relative z-50 min-w-[44px] min-h-[44px] p-2.5 text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 transition-all duration-300 rounded-xl bg-white shadow-md border border-gray-200 hover:bg-gray-50 active:bg-gray-100 flex items-center justify-center"
               aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
@@ -239,11 +319,6 @@ export function Navigation() {
               aria-haspopup="dialog"
             >
               <Menu className="w-6 h-6 text-teal-800" aria-hidden="true" />
-              {/* Subtle notification dot to attract eye */}
-              <span className="absolute top-1 right-1 flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-              </span>
             </motion.button>
           </div>
         </nav>
@@ -277,7 +352,7 @@ export function Navigation() {
 
             <nav aria-label="Mobilnavigation" className="w-full max-w-md">
               <motion.ul
-                className="list-none p-0 m-0 space-y-5"
+                className="list-none p-0 m-0 space-y-3"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -291,29 +366,94 @@ export function Navigation() {
                   }
                 }}
               >
-                {NAV_LINKS.map((link) => (
-                  <motion.li
-                    key={link.href}
-                    variants={{
-                      hidden: { opacity: 0, y: 16 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={closeMenu}
-                      aria-current={pathname === link.href ? 'page' : undefined}
-                      className={cn(
-                        'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
-                        pathname === link.href
-                          ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
-                          : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.li>
-                ))}
+                <motion.div
+                  key={mobileExpanded ?? 'main'}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.18 }}
+                  className="space-y-3 w-full"
+                >
+                  {mobileExpanded ? (
+                    <>
+                      {/* Back button — teal/active, centered text */}
+                      <button
+                        onClick={() => setMobileExpanded(null)}
+                        aria-expanded={true}
+                        className="relative flex items-center justify-center w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50"
+                      >
+                        <ChevronDown className="absolute left-6 w-5 h-5 rotate-90" aria-hidden="true" />
+                        Leistungen
+                      </button>
+
+                      {/* Alle Leistungen */}
+                      <Link
+                        href="/leistungen"
+                        onClick={closeMenu}
+                        className="block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 border-teal-400 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-white/90 text-teal-700 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+                      >
+                        Alle Leistungen & Preise
+                      </Link>
+
+                      {/* Sub-items as identical full buttons */}
+                      {(NAV_LINKS.find(l => l.href === mobileExpanded) as { children?: { href: string; label: string }[] } | undefined)?.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={closeMenu}
+                          aria-current={pathname === child.href ? 'page' : undefined}
+                          className={cn(
+                            'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                            pathname === child.href
+                              ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
+                              : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
+                          )}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </>
+                  ) : (
+                    <>
+                      {/* Main nav links */}
+                      {NAV_LINKS.map((link) => {
+                        const hasChildren = 'children' in link && link.children && link.children.length > 0;
+                        const isActiveLink = pathname === link.href || ('children' in link && (link as { children: { href: string }[] }).children?.some(c => pathname === c.href));
+                        return (
+                          <div key={link.href}>
+                            {hasChildren ? (
+                              <button
+                                onClick={() => setMobileExpanded(link.href)}
+                                className={cn(
+                                  'relative flex items-center justify-center w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                                  isActiveLink
+                                    ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
+                                    : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
+                                )}
+                              >
+                                {link.label}
+                                <ChevronDown className="absolute right-6 w-5 h-5" aria-hidden="true" />
+                              </button>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                onClick={closeMenu}
+                                aria-current={pathname === link.href ? 'page' : undefined}
+                                className={cn(
+                                  'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                                  pathname === link.href
+                                    ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
+                                    : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
+                                )}
+                              >
+                                {link.label}
+                              </Link>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </>
+                  )}
+                </motion.div>
 
                 <motion.li
                   variants={{
@@ -337,15 +477,29 @@ export function Navigation() {
                   <a
                     href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
                     onClick={closeMenu}
-                    aria-label="Termin via WhatsApp vereinbaren (öffnet in neuem Tab)"
-                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-green-500/50 hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    aria-label="Per WhatsApp schreiben (öffnet in neuem Tab)"
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-emerald-500/50 hover:from-emerald-600 hover:to-emerald-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                     <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                       <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                      <span className="break-words">Termin vereinbaren</span>
+                      <span className="break-words">Per WhatsApp schreiben</span>
+                    </span>
+                  </a>
+                  <a
+                    href={BUSINESS_INFO.treatwell}
+                    onClick={closeMenu}
+                    aria-label="Online bei Treatwell buchen (öffnet in neuem Tab)"
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-violet-600 to-violet-700 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-violet-600/50 hover:from-violet-700 hover:to-violet-800 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
+                    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                      <Calendar className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+                      <span className="break-words">Online buchen (Treatwell)</span>
                     </span>
                   </a>
                 </motion.li>
@@ -357,3 +511,4 @@ export function Navigation() {
     </>
   );
 }
+

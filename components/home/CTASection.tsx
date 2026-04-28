@@ -28,7 +28,7 @@ export function CTASection() {
             <a
               href={`tel:${BUSINESS_INFO.phoneInternational}`}
               aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-              className="bg-white hover:bg-gray-100 text-teal-700 px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3 min-w-0"
+              className="bg-amber-600 hover:bg-amber-500 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3 min-w-0"
             >
               <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
               <span className="whitespace-nowrap">{BUSINESS_INFO.phone}</span>
@@ -38,18 +38,20 @@ export function CTASection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Termin via WhatsApp buchen (öffnet in neuem Tab)"
-              className="bg-amber-500 hover:bg-amber-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3"
             >
               <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
               WhatsApp
             </a>
             <a
-              href={`mailto:${BUSINESS_INFO.email}`}
-              aria-label={`E-Mail schreiben an ${BUSINESS_INFO.email}`}
-              className="bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3 backdrop-blur-sm"
+              href={BUSINESS_INFO.treatwell}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Online bei Treatwell buchen (öffnet in neuem Tab)"
+              className="bg-violet-600 hover:bg-violet-500 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2 sm:gap-3"
             >
-              <Mail className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-              E-Mail
+              <Calendar className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
+              Online buchen (Treatwell)
             </a>
             <Link
               href="/kontakt"

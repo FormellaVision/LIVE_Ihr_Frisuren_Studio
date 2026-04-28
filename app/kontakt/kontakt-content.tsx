@@ -3,7 +3,10 @@
 import { ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, MessageCircle, Mail, ExternalLink, Calendar } from 'lucide-react';
+
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
 
 interface KontaktContentProps {
   googleMap: ReactNode;
@@ -17,6 +20,11 @@ const tween = (delay: number) => ({
 
 export function KontaktContent({ googleMap }: KontaktContentProps) {
   const prefersReducedMotion = useReducedMotion();
+  const [currentDay, setCurrentDay] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentDay(new Date().getDay());
+  }, []);
 
   return (
     <section className="section-padding">
@@ -38,7 +46,7 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
               {
                 href: `tel:${BUSINESS_INFO.phoneInternational}`,
                 icon: Phone,
-                bg: 'bg-teal-600',
+                bg: 'bg-amber-600',
                 title: 'Telefon',
                 content: BUSINESS_INFO.phone,
                 note: 'Mo geschlossen | Di-Fr 9-19 | Sa 8-14',
@@ -46,27 +54,27 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
               {
                 href: `https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`,
                 icon: MessageCircle,
-                bg: 'bg-green-500',
+                bg: 'bg-emerald-600',
                 title: 'WhatsApp',
                 content: BUSINESS_INFO.whatsapp,
                 note: 'Schreiben Sie uns jederzeit',
               },
               {
+                href: BUSINESS_INFO.treatwell,
+                icon: Calendar,
+                bg: 'bg-violet-600',
+                title: 'Termin buchen',
+                content: 'Direkt via Treatwell',
+                note: 'Bequem online reservieren',
+                external: true,
+              },
+              {
                 href: `mailto:${BUSINESS_INFO.email}`,
                 icon: Mail,
-                bg: 'bg-amber-500',
+                bg: 'bg-teal-600',
                 title: 'E-Mail',
                 content: BUSINESS_INFO.email,
                 note: 'Antwort innerhalb von 24 Stunden',
-              },
-              {
-                href: BUSINESS_INFO.instagramUrl,
-                icon: Instagram,
-                bg: 'bg-gradient-to-br from-pink-500 to-orange-400',
-                title: 'Instagram',
-                content: BUSINESS_INFO.instagram,
-                note: 'Folgen Sie uns für Inspiration',
-                external: true,
               },
             ].map((item, i) => (
               <motion.a
@@ -143,19 +151,19 @@ export function KontaktContent({ googleMap }: KontaktContentProps) {
                 <div className="flex-1">
                   <h3 className="font-bold text-xl mb-4">Öffnungszeiten</h3>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 1 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
                       <span>Montag</span>
                       <span>Geschlossen</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay >= 2 && currentDay <= 5 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
                       <span>Dienstag - Freitag</span>
                       <span className="font-semibold">{OPENING_HOURS.tuesday.times}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 6 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
                       <span>Samstag</span>
                       <span className="font-semibold">{OPENING_HOURS.saturday.times}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className={cn("flex justify-between transition-all duration-300", currentDay === 0 ? "text-amber-300 font-bold scale-105 origin-left" : "text-white/90")}>
                       <span>Sonntag</span>
                       <span>Geschlossen</span>
                     </div>

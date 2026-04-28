@@ -41,26 +41,27 @@ export function CookieBanner() {
   return (
     <>
       <div
-        role="region"
-        aria-label="Cookie-Einstellungen"
-        aria-live="polite"
-        className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-2xl animate-in slide-in-from-bottom duration-300"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="cookie-banner-title"
+        aria-describedby="cookie-banner-desc"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-teal-600 shadow-2xl animate-in slide-in-from-bottom duration-300"
       >
         <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
           <div className="flex flex-col gap-6">
             <div className="flex justify-between items-start gap-4">
               <div className="flex-1">
-                <h3 className="font-playfair text-lg font-semibold text-gray-900 mb-2">
+                <h3 id="cookie-banner-title" className="font-playfair text-lg font-semibold text-gray-900 mb-2">
                   Cookie-Einstellungen
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p id="cookie-banner-desc" className="text-sm text-gray-600 leading-relaxed">
                   Wir nutzen Cookies und externe Dienste (Google Analytics, Google Maps)
                   für Analyse und Funktionalität. Diese Auswahl wird für 365 Tage gespeichert.
-                  Sie können Ihre Einwilligung jederzeit über "Cookie-Einstellungen" im Footer
+                  Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen“ im Footer
                   widerrufen. Mehr erfahren Sie in unserer{' '}
                   <a
                     href="/datenschutz"
-                    className="text-teal-700 hover:text-teal-800 underline"
+                    className="text-teal-700 hover:text-teal-800 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 rounded"
                   >
                     Datenschutzerklärung
                   </a>
@@ -79,30 +80,33 @@ export function CookieBanner() {
               </button>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 ref={firstButtonRef}
-                onClick={() => {
-                  acceptAll();
-                  setShowBanner(false);
-                }}
-                className="flex-1 bg-teal-600 hover:bg-teal-700 text-white"
-              >
-                Alle akzeptieren
-              </Button>
-              <Button
                 onClick={() => {
                   rejectAll();
                   setShowBanner(false);
                 }}
-                className="flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"
+                className="flex-1 order-2 sm:order-1 bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300"
+                aria-label="Nur notwendige Cookies akzeptieren (Ablehnen)"
               >
-                Nur notwendige
+                Ablehnen
+              </Button>
+              <Button
+                onClick={() => {
+                  acceptAll();
+                  setShowBanner(false);
+                }}
+                className="flex-1 order-1 sm:order-2 bg-teal-600 hover:bg-teal-700 text-white"
+                aria-label="Alle Cookies akzeptieren"
+              >
+                Alle akzeptieren
               </Button>
               <Button
                 onClick={() => setShowSettings(true)}
                 variant="ghost"
-                className="flex-1 text-gray-600 hover:text-gray-900 hover:bg-gray-50 underline"
+                className="flex-1 order-3 text-gray-500 hover:text-gray-800 hover:bg-gray-50 text-sm underline underline-offset-2"
+                aria-label="Cookie-Einstellungen anpassen"
               >
                 Einstellungen
               </Button>

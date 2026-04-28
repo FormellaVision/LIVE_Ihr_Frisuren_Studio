@@ -20,7 +20,7 @@ export function ServiceAreaStrip() {
   };
 
   const itemVariants = {
-    hidden: prefersReducedMotion ? {} : { opacity: 0, y: 20, scale: 0.95 },
+    hidden: prefersReducedMotion ? {} : { opacity: 0, y: 12, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
@@ -36,9 +36,9 @@ export function ServiceAreaStrip() {
     >
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0, margin: '-10px' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-12"
         >
@@ -59,7 +59,7 @@ export function ServiceAreaStrip() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-30px' }}
+          viewport={{ once: true, amount: 0, margin: '-10px' }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8"
         >
           {areas.map((area) => (
@@ -85,9 +85,9 @@ export function ServiceAreaStrip() {
         </motion.div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0, margin: '-10px' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.15 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400"
         >
@@ -103,9 +103,9 @@ export function ServiceAreaStrip() {
         </motion.div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, amount: 0, margin: '-10px' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.2 }}
           className="mt-12 text-center"
         >
