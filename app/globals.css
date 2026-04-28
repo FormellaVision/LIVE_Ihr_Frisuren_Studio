@@ -194,7 +194,8 @@
   }
 
   .card-hover {
-    @apply transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-1;
+    @apply transition-[box-shadow,transform] duration-500 ease-out hover:shadow-2xl hover:-translate-y-1;
+    will-change: transform, opacity;
   }
 
   .text-gradient {

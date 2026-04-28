@@ -50,7 +50,7 @@ export function Footer() {
 
       <div className="container-custom section-padding">
         {/* Compact Trust + CTA Bar */}
-        <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.04] px-6 py-6 backdrop-blur-sm">
+        <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.04] px-4 sm:px-6 py-6 backdrop-blur-sm">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 text-amber-400">
@@ -85,14 +85,14 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="flex gap-2 w-full sm:w-auto sm:justify-end">
+            <div className="flex gap-1.5 w-full sm:w-auto sm:justify-end">
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
                 className="flex-1 sm:flex-none inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-full bg-amber-600 px-3 sm:px-5 py-2 text-[13px] sm:text-sm font-semibold text-white shadow-lg shadow-amber-600/20 transition-all hover:scale-[1.02] hover:bg-amber-500 hover:shadow-amber-600/35"
                 aria-label="Jetzt anrufen"
               >
                 <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>Anrufen</span>
+                <span className="whitespace-nowrap">Anrufen</span>
               </a>
 
               <a
@@ -103,7 +103,7 @@ export function Footer() {
                 aria-label="WhatsApp öffnen"
               >
                 <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>WhatsApp</span>
+                <span className="whitespace-nowrap">WhatsApp</span>
               </a>
 
               <a
@@ -114,7 +114,7 @@ export function Footer() {
                 aria-label="Direkt bei Treatwell buchen"
               >
                 <Star className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>Buchen</span>
+                <span className="whitespace-nowrap">Buchen</span>
               </a>
             </div>
           </div>
