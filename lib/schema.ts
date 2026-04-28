@@ -282,24 +282,50 @@ export function getReviewSchema() {
 }
 
 export function getPersonSchemas() {
-  return TEAM_MEMBERS.map((member) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: member.name,
-    jobTitle: member.role,
-    description: member.description,
-    knowsLanguage: member.languages,
-    worksFor: {
-      '@type': 'HairSalon',
-      '@id': BUSINESS_ID,
-      name: BUSINESS_INFO.name,
-    },
-    affiliation: {
-      '@type': 'HairSalon',
-      name: BUSINESS_INFO.name,
-      url: BUSINESS_INFO.website,
-    },
-  }));
+  return TEAM_MEMBERS.map((member) => {
+    const base: any = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: member.name,
+      jobTitle: member.role,
+      description: member.description,
+      knowsLanguage: member.languages,
+      worksFor: {
+        '@type': 'HairSalon',
+        '@id': BUSINESS_ID,
+        name: BUSINESS_INFO.name,
+      },
+      affiliation: {
+        '@type': 'HairSalon',
+        name: BUSINESS_INFO.name,
+        url: BUSINESS_INFO.website,
+      },
+      url: `${BUSINESS_INFO.website}/ueber-uns`,
+    };
+
+    // Spezifische Details für Serbay Eskici (Inhaber & Meister)
+    if (member.name === 'Serbay Eskici') {
+      return {
+        ...base,
+        knowsAbout: [
+          'Haarschnitte',
+          'Balayage',
+          'Colorationen',
+          'Friseurhandwerk',
+        ],
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'Meisterbrief',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'Handwerkskammer Hamburg',
+          },
+        },
+      };
+    }
+
+    return base;
+  });
 }
 
 export function getAfterworkOfferSchema() {
