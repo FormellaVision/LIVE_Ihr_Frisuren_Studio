@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, Variants } from 'framer-motion';
 import Link from 'next/link';
+import { useHasMounted } from '@/hooks/use-has-mounted';
 import { Sparkles, Scissors, Moon, Phone, Palette } from 'lucide-react';
 import { SERVICES_DAMEN, SERVICES_HERREN, SERVICES_KOSMETIK, SERVICES_BALAYAGE, BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 
@@ -53,24 +54,48 @@ const serviceCategories = [
 ];
 
 const tween = (delay: number) => ({
-  duration: 0.4,
+  duration: 0.5,
   delay,
   ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 });
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
 
 export function ServiceCardsSection({ 
   title = "Unsere Leistungen in Hamburg Hamm",
   subtitle = "Damen - Herren - Balayage - Kosmetik"
 }: ServiceCardsSectionProps) {
   const prefersReducedMotion = useReducedMotion();
+  const hasMounted = useHasMounted();
 
   return (
     <section id="leistungen" aria-labelledby="services-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          initial={hasMounted && !prefersReducedMotion ? { opacity: 0, y: 10 } : false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
+          viewport={{ once: true, amount: 0.1, margin: "-20px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -78,14 +103,17 @@ export function ServiceCardsSection({
           <p className="text-xl text-gray-600">{subtitle}</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial={hasMounted && !prefersReducedMotion ? "hidden" : false}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05, margin: "-20px" }}
+        >
           {serviceCategories.map((category, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
-              transition={tween(index * 0.07)}
+              variants={itemVariants}
               className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0" aria-hidden="true">
@@ -114,13 +142,13 @@ export function ServiceCardsSection({
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          initial={hasMounted && !prefersReducedMotion ? { opacity: 0, y: 10 } : false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
-          transition={tween(0.1)}
+          viewport={{ once: true, amount: 0.1, margin: "-20px" }}
+          transition={tween(0.15)}
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">

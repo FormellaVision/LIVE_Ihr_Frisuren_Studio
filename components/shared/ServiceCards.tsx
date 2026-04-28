@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, Variants } from 'framer-motion';
+import { useHasMounted } from '@/hooks/use-has-mounted';
 
 export interface ServiceCard {
   title: string;
@@ -23,12 +24,36 @@ export function ServiceCards({
   items,
   columns = 'auto',
 }: ServiceCardsProps) {
+  const hasMounted = useHasMounted();
+  const prefersReducedMotion = useReducedMotion();
   const gridClass = {
     auto: 'grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4',
     3: 'grid sm:grid-cols-2 md:grid-cols-3 gap-4',
     4: 'grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4',
   }[columns];
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
 
   return (
     <div>
@@ -37,10 +62,10 @@ export function ServiceCards({
           {title && (
             <motion.div
               className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
+              initial={hasMounted && !prefersReducedMotion ? { opacity: 0, y: 12 } : false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, amount: 0.1, margin: '-20px' }}
             >
               <h2 className="font-playfair text-2xl md:text-3xl font-bold mb-2 text-gray-900">
                 {title}
@@ -53,17 +78,15 @@ export function ServiceCards({
 
           <motion.div
             className={gridClass}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
-            viewport={{ once: true, margin: '-80px' }}
+            variants={containerVariants}
+            initial={hasMounted && !prefersReducedMotion ? "hidden" : false}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05, margin: '-20px' }}
           >
             {items.map((item, index) => (
               <motion.div
                 key={item.href}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={itemVariants}
               >
                 <Link
                   href={item.href}

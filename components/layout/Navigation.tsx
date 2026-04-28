@@ -336,7 +336,7 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-gray-900/96 backdrop-blur-2xl flex flex-col items-center justify-center px-8 space-y-5"
+            className="fixed inset-0 z-[100] bg-gray-900/96 backdrop-blur-2xl flex flex-col items-center justify-start px-4 sm:px-8 pt-24 pb-12 overflow-y-auto space-y-5"
             onClick={(e) => {
               if (e.target === e.currentTarget) closeMenu();
             }}
@@ -379,7 +379,7 @@ export function Navigation() {
                       <button
                         onClick={() => setMobileExpanded(null)}
                         aria-expanded={true}
-                        className="relative flex items-center justify-center w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50"
+                        className="relative flex items-center justify-center w-full px-6 sm:px-8 py-3.5 sm:py-5 border-2 rounded-2xl text-center text-base sm:text-xl font-bold shadow-2xl transition-all duration-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50"
                       >
                         <ChevronDown className="absolute left-6 w-5 h-5 rotate-90" aria-hidden="true" />
                         Leistungen
@@ -389,7 +389,7 @@ export function Navigation() {
                       <Link
                         href="/leistungen"
                         onClick={closeMenu}
-                        className="block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 border-teal-400 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-white/90 text-teal-700 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+                        className="block w-full px-6 sm:px-8 py-3.5 sm:py-5 border-2 border-teal-400 rounded-2xl text-center text-base sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-white/90 text-teal-700 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 whitespace-nowrap"
                       >
                         Alle Leistungen & Preise
                       </Link>
@@ -402,7 +402,7 @@ export function Navigation() {
                           onClick={closeMenu}
                           aria-current={pathname === child.href ? 'page' : undefined}
                           className={cn(
-                            'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                            'block w-full px-6 sm:px-8 py-3.5 sm:py-5 border-2 rounded-2xl text-center text-base sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
                             pathname === child.href
                               ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
                               : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
@@ -424,7 +424,7 @@ export function Navigation() {
                               <button
                                 onClick={() => setMobileExpanded(link.href)}
                                 className={cn(
-                                  'relative flex items-center justify-center w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                                  'relative flex items-center justify-center w-full px-6 sm:px-8 py-3.5 sm:py-5 border-2 rounded-2xl text-center text-base sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
                                   isActiveLink
                                     ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
                                     : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
@@ -439,7 +439,7 @@ export function Navigation() {
                                 onClick={closeMenu}
                                 aria-current={pathname === link.href ? 'page' : undefined}
                                 className={cn(
-                                  'block w-full px-6 sm:px-8 py-4 sm:py-5 border-2 rounded-2xl text-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
+                                  'block w-full px-6 sm:px-8 py-3.5 sm:py-5 border-2 rounded-2xl text-center text-base sm:text-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent',
                                   pathname === link.href
                                     ? 'bg-teal-500/95 border-teal-400 text-white shadow-teal-500/50'
                                     : 'bg-white/90 border-gray-200 text-gray-900 hover:bg-white hover:border-teal-700 hover:text-teal-700 hover:shadow-teal-700/30'
@@ -466,7 +466,7 @@ export function Navigation() {
                     href={`tel:${BUSINESS_INFO.phoneInternational}`}
                     onClick={closeMenu}
                     aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
-                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-lg sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    className="group relative overflow-hidden block w-full px-6 sm:px-8 py-3.5 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl text-center text-base sm:text-xl font-bold text-white shadow-2xl shadow-amber-500/50 hover:from-amber-600 hover:to-amber-700 hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" aria-hidden="true"></span>
                     <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
