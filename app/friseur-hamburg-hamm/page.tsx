@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     question: 'Was macht Ihr Frisuren-Studio zum besten Friseur in Hamburg Hamm?',
-    answer: 'Als zertifizierter Meisterbetrieb seit 2004 verbinden wir 20 Jahre Erfahrung mit modernsten Techniken. 277+ Kunden bewerten uns mit 4,9 Sternen. Unser Team spricht Deutsch, Englisch, Türkisch und Persisch — für alle Kulturen und Haartypen.',
+    answer: `Als zertifizierter Meisterbetrieb seit 2004 verbinden wir 20 Jahre Erfahrung mit modernsten Techniken. ${BUSINESS_INFO.reviews.count}+ Kunden bewerten uns mit 4,9 Sternen. Unser Team spricht Deutsch, Englisch, Türkisch und Persisch — für alle Kulturen und Haartypen.`,
   },
 ];
 
