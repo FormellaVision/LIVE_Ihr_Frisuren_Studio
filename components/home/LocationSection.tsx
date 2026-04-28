@@ -18,9 +18,9 @@ export function LocationSection() {
     <section id="standort" aria-labelledby="location-heading" className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -35,9 +35,9 @@ export function LocationSection() {
         <div className="grid md:grid-cols-2 md:items-stretch gap-8 md:gap-12 max-w-6xl mx-auto">
           <div className="h-full flex flex-col gap-6">
             <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: -12 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(0)}
               className="flex-1 min-h-[320px] md:min-h-0"
             >
@@ -47,9 +47,9 @@ export function LocationSection() {
             </motion.div>
 
             <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: -12 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(0.06)}
               className="shrink-0 bg-gradient-to-br from-teal-600 to-teal-700 p-6 rounded-xl shadow-lg text-white"
             >
@@ -131,9 +131,9 @@ export function LocationSection() {
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, x: 12 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.02, margin: "-10px" }}
                 transition={tween(index * 0.07)}
                 className="flex-1 bg-white p-6 rounded-xl shadow-lg"
               >

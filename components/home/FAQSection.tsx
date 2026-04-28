@@ -20,9 +20,9 @@ export function FAQSection() {
     <section id="faq" aria-labelledby="faq-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -43,9 +43,9 @@ export function FAQSection() {
             return (
               <motion.div
                 key={index}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.02 }}
                 transition={tween(index * 0.04)}
                 className="mb-4"
               >

@@ -130,6 +130,7 @@ export default function BalayagePage() {
         subtitle="Professionelle Färbetechnik ab 179€"
         description="Natürliche Highlights und strahlende Farben mit der Balayage-Technik - handgemalt von unseren Colorations-Expertinnen"
         backgroundImage="https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        imageAlt="Natürliche Balayage Highlights und Farbverlauf bei Ihr Frisuren-Studio Hamburg Hamm"
       />
 
       <Breadcrumb />
@@ -267,7 +268,10 @@ export default function BalayagePage() {
         </div>
       </section>
 
-      <ServiceContactBlock />
+      <CTABanner
+        title="Bereit für Ihre Balayage?"
+        description="Vereinbaren Sie einen Beratungstermin und lassen Sie sich von unseren Expertinnen beraten."
+      />
 
       <ServiceFAQSection
         faqs={SERVICE_FAQS.balayage}
@@ -283,11 +287,6 @@ export default function BalayagePage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Bereit für Ihre Balayage?"
-        description="Vereinbaren Sie einen Beratungstermin und lassen Sie sich von unseren Expertinnen beraten."
-      />
 
       <script
         type="application/ld+json"

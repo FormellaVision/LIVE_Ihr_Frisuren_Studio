@@ -123,6 +123,7 @@ export default function HerrenfriseurPage() {
         subtitle="Moderne Herrenhaarschnitte & Bartpflege"
         description="Professionelle Herrenhaarschnitte, Bartmodellage und Gentleman-Service von erfahrenen Stylisten"
         backgroundImage="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        imageAlt="Moderner Herrenhaarschnitt und Bartpflege im Frisuren-Studio Hamburg Hamm"
       />
 
       <Breadcrumb />
@@ -243,7 +244,10 @@ export default function HerrenfriseurPage() {
         </div>
       </section>
 
-      <ServiceContactBlock />
+      <CTABanner
+        title="Zeit für einen neuen Style?"
+        description="Buchen Sie jetzt Ihren Termin für professionelle Herrenhaarschnitte in Hamburg Hamm."
+      />
 
       <ServiceFAQSection
         faqs={SERVICE_FAQS.herren}
@@ -259,11 +263,6 @@ export default function HerrenfriseurPage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Zeit für einen neuen Style?"
-        description="Buchen Sie jetzt Ihren Termin für professionelle Herrenhaarschnitte in Hamburg Hamm."
-      />
 
       <script
         type="application/ld+json"

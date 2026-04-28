@@ -31,11 +31,11 @@ export function ServiceContactBlock() {
                         href={`tel:${BUSINESS_INFO.phoneInternational}`}
                         className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                     >
-                        <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-600 transition-colors duration-300">
-                            <Phone className="w-6 h-6 text-teal-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-600 transition-colors duration-300">
+                            <Phone className="w-6 h-6 text-amber-600 group-hover:text-white transition-colors duration-300" />
                         </div>
                         <h3 className="font-bold text-lg mb-1">Anrufen</h3>
-                        <p className="text-teal-600 font-semibold">{BUSINESS_INFO.phone}</p>
+                        <p className="text-amber-600 font-semibold">{BUSINESS_INFO.phone}</p>
                     </a>
 
                     {/* WhatsApp */}
@@ -52,18 +52,19 @@ export function ServiceContactBlock() {
                         <p className="text-emerald-600 font-semibold">Nachricht senden</p>
                     </a>
 
-                    {/* Öffnungszeiten */}
-                    <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-                        <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Clock className="w-6 h-6 text-amber-600" />
+                    {/* Termin buchen */}
+                    <a
+                        href={BUSINESS_INFO.treatwell}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    >
+                        <div className="w-14 h-14 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-violet-600 transition-colors duration-300">
+                            <Clock className="w-6 h-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
                         </div>
-                        <h3 className="font-bold text-lg mb-2">Öffnungszeiten</h3>
-                        <div className="text-sm text-gray-600 space-y-1">
-                            <p>Di - Fr: {OPENING_HOURS.tuesday.times}</p>
-                            <p>Sa: {OPENING_HOURS.saturday.times}</p>
-                            <p className="text-gray-400">So & Mo: Geschlossen</p>
-                        </div>
-                    </div>
+                        <h3 className="font-bold text-lg mb-1">Termin buchen</h3>
+                        <p className="text-violet-600 font-semibold">Online via Treatwell</p>
+                    </a>
 
                     {/* Adresse */}
                     <a
@@ -72,8 +73,8 @@ export function ServiceContactBlock() {
                         rel="noopener noreferrer"
                         className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                     >
-                        <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors duration-300">
-                            <MapPin className="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-600 transition-colors duration-300">
+                            <MapPin className="w-6 h-6 text-teal-600 group-hover:text-white transition-colors duration-300" />
                         </div>
                         <h3 className="font-bold text-lg mb-1">Adresse</h3>
                         <p className="text-sm text-gray-600">
@@ -93,15 +94,22 @@ export function ServiceContactBlock() {
                     className="mt-8 max-w-2xl mx-auto"
                     style={{ willChange: 'transform, opacity' }}
                 >
-                    <div className="bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-xl p-4 flex items-center gap-4">
-                        <div className="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center flex-shrink-0">
-                            <Moon className="w-5 h-5 text-amber-700" />
+                    <div className="bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                        <div className="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center flex-shrink-0">
+                            <Clock className="w-6 h-6 text-amber-700" />
                         </div>
-                        <div className="text-sm">
-                            <p className="font-semibold text-amber-800">Afterwork-Termine verfügbar</p>
-                            <p className="text-amber-700">
-                                {OPENING_HOURS.afterwork.weekdays} & {OPENING_HOURS.afterwork.saturday} · {OPENING_HOURS.afterwork.surcharge} Aufschlag
-                            </p>
+                        <div className="flex-1">
+                            <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-sm font-medium text-amber-900 mb-1">
+                                <span>Di - Fr: {OPENING_HOURS.tuesday.times}</span>
+                                <span>Sa: {OPENING_HOURS.saturday.times}</span>
+                                <span className="text-amber-600/70 text-xs">So & Mo: Geschlossen</span>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-amber-700">
+                                <Moon className="w-3.5 h-3.5" />
+                                <p>
+                                    Afterwork: {OPENING_HOURS.afterwork.weekdays} & {OPENING_HOURS.afterwork.saturday} · {OPENING_HOURS.afterwork.surcharge} Aufschlag
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </motion.div>

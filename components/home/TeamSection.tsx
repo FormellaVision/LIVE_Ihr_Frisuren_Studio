@@ -12,9 +12,9 @@ export function TeamSection() {
     <section className="section-padding bg-warm-white">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="text-center mb-12"
         >
@@ -26,9 +26,9 @@ export function TeamSection() {
         </motion.div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.96 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 16, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={{ type: 'spring', stiffness: 260, damping: 28, delay: 0.08 }}
           className="max-w-4xl mx-auto"
         >
@@ -51,18 +51,18 @@ export function TeamSection() {
 
             <div className="p-5 sm:p-8 md:p-12 text-center">
               <motion.h3
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.1 }}
                 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4"
               >
                 Lernen Sie uns kennen
               </motion.h3>
               <motion.p
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.16 }}
                 className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto"
               >
@@ -71,9 +71,9 @@ export function TeamSection() {
               </motion.p>
 
               <motion.div
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.22 }}
               >
                 <Link href="/ueber-uns">

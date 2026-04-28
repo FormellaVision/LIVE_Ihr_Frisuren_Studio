@@ -115,6 +115,7 @@ export default function DamenfriseurPage() {
         subtitle="Premium Haarschnitte & Colorationen"
         description="Professionelle Damenhaarschnitte, Balayage und Colorationen von erfahrenen Stylisten in Hamburg-Hamm"
         backgroundImage="https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        imageAlt="Professioneller Damenhaarschnitt und Styling im Frisuren-Studio Hamburg Hamm"
       />
 
       <Breadcrumb />
@@ -199,7 +200,10 @@ export default function DamenfriseurPage() {
         </div>
       </section>
 
-      <ServiceContactBlock />
+      <CTABanner
+        title="Ihr neuer Look wartet!"
+        description="Buchen Sie jetzt Ihren Termin für professionelle Damenhaarschnitte in Hamburg Hamm."
+      />
 
       <ServiceFAQSection
         faqs={SERVICE_FAQS.damen}
@@ -215,11 +219,6 @@ export default function DamenfriseurPage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Ihr neuer Look wartet!"
-        description="Buchen Sie jetzt Ihren Termin für professionelle Damenhaarschnitte in Hamburg Hamm."
-      />
 
       <script
         type="application/ld+json"

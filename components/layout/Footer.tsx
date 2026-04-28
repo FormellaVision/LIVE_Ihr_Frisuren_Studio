@@ -15,13 +15,23 @@ import {
 import { BUSINESS_INFO, OPENING_HOURS } from '@/lib/constants';
 import { PaymentBadges } from '@/components/shared/PaymentBadges';
 import { CookieResetButton } from './CookieResetButton';
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { useReviewCount } from '@/hooks/use-review-count';
 
 function toWhatsAppNumber(raw: string) {
   return raw.replace(/\D/g, '');
 }
 
 export function Footer() {
+  const { reviewCount } = useReviewCount();
   const currentYear = new Date().getFullYear();
+  const [currentDay, setCurrentDay] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentDay(new Date().getDay());
+  }, []);
+
   const waNumber = toWhatsAppNumber(
     BUSINESS_INFO.whatsapp ||
       BUSINESS_INFO.phoneFormatted ||
@@ -48,9 +58,16 @@ export function Footer() {
                 <span className="font-semibold">
                   {BUSINESS_INFO.reviews.rating} Sterne
                 </span>
-                <span className="text-gray-300">
-                  ({BUSINESS_INFO.reviews.count}+ Google Bewertungen)
-                </span>
+                <a 
+                  href={BUSINESS_INFO.googleReviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-1.5"
+                  aria-label="Google Rezensionen ansehen oder schreiben (öffnet in neuem Tab)"
+                >
+                  ({reviewCount}+ Google Bewertungen)
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
               </div>
 
               <a
@@ -68,23 +85,36 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+            <div className="flex gap-2 w-full sm:w-auto sm:justify-end">
               <a
                 href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-lg shadow-amber-500/20 transition-all hover:scale-[1.02] hover:bg-amber-400 hover:shadow-amber-500/35"
+                className="flex-1 sm:flex-none inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-full bg-amber-600 px-3 sm:px-5 py-2 text-[13px] sm:text-sm font-semibold text-white shadow-lg shadow-amber-600/20 transition-all hover:scale-[1.02] hover:bg-amber-500 hover:shadow-amber-600/35"
                 aria-label="Jetzt anrufen"
               >
-                <Phone className="h-5 w-5" aria-hidden="true" />
-                <span>Jetzt anrufen</span>
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>Anrufen</span>
               </a>
 
               <a
                 href={`https://wa.me/${waNumber}`}
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:scale-[1.02] hover:border-white/35 hover:bg-white/15"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-full bg-emerald-600 px-3 sm:px-5 py-2 text-[13px] sm:text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.02] hover:bg-emerald-500 hover:shadow-emerald-600/35"
                 aria-label="WhatsApp öffnen"
               >
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>WhatsApp</span>
+              </a>
+
+              <a
+                href={BUSINESS_INFO.treatwell}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-full bg-violet-600 px-3 sm:px-5 py-2 text-[13px] sm:text-sm font-semibold text-white shadow-lg shadow-violet-600/20 transition-all hover:scale-[1.02] hover:bg-violet-500 hover:shadow-violet-600/35"
+                aria-label="Direkt bei Treatwell buchen"
+              >
+                <Star className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>Buchen</span>
               </a>
             </div>
           </div>
@@ -125,7 +155,7 @@ export function Footer() {
               <span className="font-semibold" aria-hidden="true">
                 {BUSINESS_INFO.reviews.rating} Sterne
               </span>
-              <span className="text-gray-400">({BUSINESS_INFO.reviews.count}+)</span>
+              <span className="text-gray-400">({reviewCount}+)</span>
             </div>
           </div>
 
@@ -141,7 +171,7 @@ export function Footer() {
                   aria-label={`Anrufen: ${BUSINESS_INFO.phone}`}
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-amber-500" aria-hidden="true" />
                   <span>{BUSINESS_INFO.phone}</span>
                 </a>
               </li>
@@ -151,7 +181,7 @@ export function Footer() {
                   aria-label="WhatsApp öffnen"
                   className="flex items-start gap-3 text-gray-400 hover:text-teal-400 transition-colors"
                 >
-                  <MessageCircle className="w-5 h-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                  <MessageCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-500" aria-hidden="true" />
                   <span className="text-sm">WhatsApp</span>
                 </a>
               </li>
@@ -187,6 +217,18 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={BUSINESS_INFO.googleMaps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Uns auf Google Maps ansehen (öffnet in neuem Tab)"
+                  className="flex items-center gap-3 text-gray-400 hover:text-teal-400 transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5 flex-shrink-0 text-teal-500" aria-hidden="true" />
+                  <span className="text-sm font-medium">Google Maps</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href={BUSINESS_INFO.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -206,23 +248,35 @@ export function Footer() {
               Öffnungszeiten
             </h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex justify-between gap-2 text-gray-400">
+              <li className={cn(
+                "flex justify-between gap-4 transition-all duration-300",
+                currentDay !== null && currentDay === 1 ? "text-teal-400 font-bold" : "text-gray-400"
+              )}>
                 <span className="flex-shrink-0">Montag</span>
                 <span className="text-right">Geschlossen</span>
               </li>
-              <li className="flex justify-between gap-2 text-gray-300">
+              <li className={cn(
+                "flex justify-between gap-4 transition-all duration-300",
+                currentDay !== null && currentDay >= 2 && currentDay <= 5 ? "text-teal-400 font-bold" : "text-gray-300"
+              )}>
                 <span className="flex-shrink-0 min-w-0">Dienstag - Freitag</span>
                 <span className="whitespace-nowrap text-right">
                   {OPENING_HOURS.tuesday.times}
                 </span>
               </li>
-              <li className="flex justify-between gap-2 text-gray-300">
+              <li className={cn(
+                "flex justify-between gap-4 transition-all duration-300",
+                currentDay !== null && currentDay === 6 ? "text-teal-400 font-bold" : "text-gray-300"
+              )}>
                 <span className="flex-shrink-0">Samstag</span>
                 <span className="whitespace-nowrap text-right">
                   {OPENING_HOURS.saturday.times}
                 </span>
               </li>
-              <li className="flex justify-between gap-2 text-gray-400">
+              <li className={cn(
+                "flex justify-between gap-4 transition-all duration-300",
+                currentDay !== null && currentDay === 0 ? "text-teal-400 font-bold" : "text-gray-400"
+              )}>
                 <span className="flex-shrink-0">Sonntag</span>
                 <span className="text-right">Geschlossen</span>
               </li>
@@ -298,58 +352,49 @@ export function Footer() {
                   Kosmetik
                 </Link>
               </li>
-            </ul>
 
-            {/* Einzugsgebiet integrated (no extra "row") */}
-            <div className="mt-6 pt-6 border-t border-white/10">
-              <Link
-                href="/einzugsgebiet"
-                className="text-xs text-gray-400 font-medium uppercase tracking-wider hover:text-teal-400 transition-colors"
-              >
-                Einzugsgebiet
-              </Link>
-              <p className="mt-2 text-xs text-gray-400 leading-relaxed">
-                Ein Standort in Hamburg-Hamm. Gut erreichbar aus:
-              </p>
+              <li className="pt-4">
+                <Link
+                  href="/einzugsgebiet"
+                  className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
+                >
+                  Einzugsgebiet
+                </Link>
+              </li>
 
-              <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
+              <li>
                 <Link
                   href="/friseur-hamburg-hamm"
-                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Hamburg Hamm
                 </Link>
+              </li>
+              <li>
                 <Link
                   href="/einzugsgebiet/borgfelde"
-                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Borgfelde
                 </Link>
+              </li>
+              <li>
                 <Link
                   href="/einzugsgebiet/hamburg-mitte"
-                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Hamburg Mitte
                 </Link>
+              </li>
+              <li>
                 <Link
                   href="/einzugsgebiet/horn"
-                  className="text-xs text-gray-400 hover:text-teal-400 transition-colors"
+                  className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
                 >
                   Friseur Horn
                 </Link>
-              </div>
-
-              <a
-                href={BUSINESS_INFO.googleMaps}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Uns auf Google Maps ansehen (öffnet in neuem Tab)"
-                className="mt-4 inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300 transition-colors"
-              >
-                <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                Google Maps
-              </a>
-            </div>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>

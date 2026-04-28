@@ -8,6 +8,7 @@ import { getBreadcrumbSchema, getReviewSchema } from '@/lib/schema';
 import { Star, ExternalLink, Quote } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ScrollAnimationCard } from '@/components/shared/ScrollAnimationCard';
+import { DynamicReviewCount } from '@/components/shared/DynamicReviewCount';
 
 const nextStepServices = [
   {
@@ -57,7 +58,7 @@ export default function BewertungenPage() {
     <>
       <ServicePageHeader
         title="Kundenbewertungen"
-        subtitle={`${BUSINESS_INFO.reviews.rating} Sterne bei ${BUSINESS_INFO.reviews.count}+ Bewertungen`}
+        subtitle={<>{BUSINESS_INFO.reviews.rating} Sterne bei <DynamicReviewCount fallback={BUSINESS_INFO.reviews.count} /> Bewertungen</>}
         description="Lesen Sie was unsere zufriedenen Kunden über Ihr Frisuren-Studio in Hamburg Hamm sagen"
         backgroundImage="https://images.pexels.com/photos/3993452/pexels-photo-3993452.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
@@ -75,7 +76,7 @@ export default function BewertungenPage() {
               </div>
               <div className="text-5xl font-bold mb-2">{BUSINESS_INFO.reviews.rating}</div>
               <p className="text-xl text-white/90">
-                Durchschnittliche Bewertung bei {BUSINESS_INFO.reviews.count}+ Google-Rezensionen
+                Durchschnittliche Bewertung bei <DynamicReviewCount fallback={BUSINESS_INFO.reviews.count} /> Google-Rezensionen
               </p>
             </div>
           </AnimatedSection>
@@ -104,7 +105,6 @@ export default function BewertungenPage() {
                     </div>
                     <div>
                       <p className="font-semibold">{review.author}</p>
-                      <p className="text-sm text-gray-500">{review.date}</p>
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function BewertungenPage() {
 
           <AnimatedSection direction="up" delay={0.1} className="text-center mt-12">
             <a
-              href="https://www.google.com/search?sca_esv=53f9ef8ad52bf813&sxsrf=ANbL-n7wtq05pqHV_w3nIoBUs5SHrciZqw:1773511578393&q=ihr+frisuren-studio+rezensionen&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xzusQ4-hKiZyijZmCmVGeW9hjTRxZB0UswrtwUzbWhrC440O5a3tfwqPU069AIWbzH8-nOs%3D&uds=ALYpb_mVCDtJE7tUaAp18ol_X8XU-xWLUEqHxWZr2ypjn4p3Jg1Q84aPRgbH25qzUdgqUTgD2iQ104Z6wfwUjpz81BG_goHTA-QYeL5aopOSutjd05LcQDSPggWNDOD5-tgABes2qx-y&sa=X&sqi=2&ved=2ahUKEwiPiIq9_Z-TAxVGBdsEHaoEM5EQ3PALegQILRAF&biw=1904&bih=960&dpr=1"
+              href={BUSINESS_INFO.googleMaps}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -127,25 +127,30 @@ export default function BewertungenPage() {
           <AnimatedSection direction="up" delay={0.15} className="mt-16 max-w-3xl mx-auto text-center">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-8">
               <h2 className="font-playfair text-2xl font-bold mb-4">
-                Waren Sie zufrieden mit Ihrem Besuch?
+                Hat Ihnen Ihr Besuch gefallen?
               </h2>
               <p className="text-gray-700 mb-6">
-                Wir freuen uns über Ihre Bewertung! Ihr Feedback hilft uns, noch besser zu werden
-                und anderen Kunden bei ihrer Entscheidung.
+                Dann freuen wir uns über Ihre Bewertung! Ihr Feedback hilft uns und anderen Kunden
+                bei der Entscheidung für den richtigen Friseur.
               </p>
               <a
-                href="https://g.page/r/CQKV8PykhYHlEAE/review"
+                href={BUSINESS_INFO.googleReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
                 <Star className="w-5 h-5" />
-                Bewertung abgeben
+                Jetzt bei Google bewerten ⭐
               </a>
             </div>
           </AnimatedSection>
         </div>
       </section>
+
+      <CTABanner
+        title="Überzeugt von unseren Bewertungen?"
+        description="Werden Sie Teil unserer zufriedenen Stammkunden!"
+      />
 
       <section className="section-padding bg-warm-white">
         <div className="container-custom max-w-6xl mx-auto">
@@ -155,11 +160,6 @@ export default function BewertungenPage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Überzeugt von unseren Bewertungen?"
-        description="Werden Sie Teil unserer zufriedenen Stammkunden!"
-      />
 
 
       <script

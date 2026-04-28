@@ -15,7 +15,7 @@
     --secondary: 40 24% 90%;
     --secondary-foreground: 220 14% 10%;
     --muted: 40 24% 90%;
-    --muted-foreground: 220 9% 38%;
+    --muted-foreground: 220 9% 32%;
     --accent: 38 92% 50%;
     --accent-foreground: 220 14% 10%;
     --destructive: 0 84% 60%;
@@ -119,6 +119,54 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Globally upgrade gray-500 text to gray-600 for WCAG AA contrast on light backgrounds */
+@layer utilities {
+  .text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity)); /* gray-600 equivalent */
+  }
+}
+
+@media (prefers-contrast: more) {
+  body {
+    color: #0f0f0f;
+    background-color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 4px solid #000000;
+    outline-offset: 4px;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* Boost any remaining low-contrast gray text */
+  .text-gray-400,
+  .text-gray-500,
+  .text-gray-600 {
+    color: #374151; /* gray-700 */
+  }
+
+  /* Ensure teal elements remain readable */
+  .text-teal-600,
+  .text-teal-700 {
+    color: #0f766e; /* teal-700 - already high contrast */
+  }
+
+  /* Stronger borders for interactive elements */
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    border-width: 2px;
   }
 }
 

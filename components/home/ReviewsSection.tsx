@@ -18,9 +18,9 @@ export function ReviewsSection() {
     <section id="bewertungen" aria-labelledby="reviews-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -40,12 +40,14 @@ export function ReviewsSection() {
           {displayReviews.map((review, index) => (
             <motion.article
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(index * 0.07)}
-              aria-label={`Bewertung von ${review.author}`}
+              aria-label={`Bewertung von ${review.author}, ${review.rating} von 5 Sternen`}
               className="bg-white p-8 rounded-2xl shadow-lg card-hover"
+              itemScope
+              itemType="https://schema.org/Review"
             >
               <div
                 className="flex gap-1 text-amber-500 mb-4"
@@ -69,7 +71,6 @@ export function ReviewsSection() {
                 </div>
                 <div>
                   <p className="font-semibold">{review.author}</p>
-                  <p className="text-sm text-gray-500">{review.date}</p>
                 </div>
               </div>
             </motion.article>
@@ -77,9 +78,9 @@ export function ReviewsSection() {
         </div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0.15)}
           className="text-center mt-12"
         >

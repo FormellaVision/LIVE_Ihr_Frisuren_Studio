@@ -98,6 +98,11 @@ export default function GaleriePage() {
         </div>
       </section>
 
+      <CTABanner
+        title="Gefällt Ihnen was Sie sehen?"
+        description="Buchen Sie Ihren Termin und lassen Sie sich von unserem Team verwöhnen."
+      />
+
       <section className="section-padding">
         <div className="container-custom max-w-6xl mx-auto">
           <RelatedServices
@@ -106,11 +111,6 @@ export default function GaleriePage() {
           />
         </div>
       </section>
-
-      <CTABanner
-        title="Gefällt Ihnen was Sie sehen?"
-        description="Buchen Sie Ihren Termin und lassen Sie sich von unserem Team verwöhnen."
-      />
 
       <script
         type="application/ld+json"

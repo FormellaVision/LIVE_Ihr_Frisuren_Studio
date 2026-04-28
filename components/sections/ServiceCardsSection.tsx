@@ -14,7 +14,11 @@ const serviceCategories = [
   {
     title: 'Damen',
     icon: Sparkles,
-    description: 'Professionelle Damenhaarschnitte & Colorationen in Hamburg-Hamm',
+    description: (
+      <>
+        Professionelle <Link href="/damenfriseur-hamburg-hamm" className="underline decoration-white/30 hover:decoration-white transition-colors">Damenhaarschnitte</Link> & <Link href="/balayage-hamburg-hamm" className="underline decoration-white/30 hover:decoration-white transition-colors">Balayage</Link> in Hamburg-Hamm
+      </>
+    ),
     services: SERVICES_DAMEN.slice(0, 5),
     href: '/damenfriseur-hamburg-hamm',
     gradient: 'from-teal-600 to-teal-700',
@@ -23,7 +27,11 @@ const serviceCategories = [
   {
     title: 'Herren',
     icon: Scissors,
-    description: 'Moderne Herrenhaarschnitte, Bartpflege & Gentleman-Service',
+    description: (
+      <>
+        Moderne <Link href="/herrenfriseur-hamburg-hamm" className="underline decoration-white/30 hover:decoration-white transition-colors">Herrenhaarschnitte</Link>, Bartpflege & Gentleman-Service
+      </>
+    ),
     services: SERVICES_HERREN.slice(0, 5),
     href: '/herrenfriseur-hamburg-hamm',
     gradient: 'from-gray-800 to-gray-900',
@@ -32,7 +40,11 @@ const serviceCategories = [
   {
     title: 'Kosmetik',
     icon: Sparkles,
-    description: 'Kosmetik Hamburg Hamm: Gesichtsbehandlung, Maniküre & med. Fußpflege',
+    description: (
+      <>
+        <Link href="/kosmetik-hamburg-hamm" className="underline decoration-white/30 hover:decoration-white transition-colors">Kosmetik Hamburg Hamm</Link>: Gesichtsbehandlung, Maniküre & Fußpflege
+      </>
+    ),
     services: SERVICES_KOSMETIK.slice(0, 5),
     href: '/kosmetik-hamburg-hamm',
     gradient: 'from-amber-500 to-amber-600',
@@ -56,9 +68,9 @@ export function ServiceCardsSection({
     <section id="leistungen" aria-labelledby="services-heading" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0)}
           className="text-center mb-16"
         >
@@ -70,9 +82,9 @@ export function ServiceCardsSection({
           {serviceCategories.map((category, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.02, margin: "-10px" }}
               transition={tween(index * 0.07)}
               className={`bg-gradient-to-br ${category.gradient} p-4 sm:p-6 md:p-8 rounded-2xl text-white shadow-xl card-hover`}
             >
@@ -105,9 +117,9 @@ export function ServiceCardsSection({
         </div>
 
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.02, margin: "-10px" }}
           transition={tween(0.1)}
           className="mt-12 sm:mt-16 max-w-4xl mx-auto bg-gradient-to-r from-amber-300 to-amber-400 p-4 sm:p-8 md:p-12 rounded-2xl shadow-2xl"
         >
@@ -120,8 +132,7 @@ export function ServiceCardsSection({
                 Afterwork Spezialcut
               </h3>
               <p className="text-base sm:text-lg mb-4 text-gray-800 break-words leading-relaxed">
-                Arbeiten Sie bis spät? Kein Problem! Genießen Sie eine exklusive 1-zu-1 Behandlung
-                nach Feierabend in privater Atmosphäre.
+                Nutzen Sie unsere exklusiven <strong>Afterwork-Termine</strong>: Ideal für Berufstätige, bieten wir Ihnen Dienstag bis Freitag auch nach 19:00 Uhr volle Aufmerksamkeit in privater Atmosphäre.
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
                 <span className="bg-white/40 text-gray-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap">

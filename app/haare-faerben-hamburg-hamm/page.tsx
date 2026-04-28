@@ -156,6 +156,7 @@ export default function HaareFaerbenPage() {
                 subtitle="Coloration, Balayage & Strähnen"
                 description="Professionelles Haare färben von erfahrenen Coloristinnen — mit Olaplex-Schutz für gesundes, strahlendes Haar"
                 backgroundImage="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                imageAlt="Professionelles Haare färben und Coloration im Frisuren-Studio Hamburg Hamm"
             />
 
             <Breadcrumb />
@@ -253,8 +254,10 @@ export default function HaareFaerbenPage() {
                 </div>
             </section>
 
-            {/* Kontaktblock */}
-            <ServiceContactBlock />
+            <CTABanner
+                title="Bereit für Ihre Traumfarbe?"
+                description="Buchen Sie jetzt Ihren Termin für professionelles Haare färben in Hamburg Hamm."
+            />
 
             {/* FAQs */}
             <ServiceFAQSection
@@ -272,11 +275,6 @@ export default function HaareFaerbenPage() {
                     />
                 </div>
             </section>
-
-            <CTABanner
-                title="Bereit für Ihre Traumfarbe?"
-                description="Buchen Sie jetzt Ihren Termin für professionelles Haare färben in Hamburg Hamm."
-            />
 
             <script
                 type="application/ld+json"

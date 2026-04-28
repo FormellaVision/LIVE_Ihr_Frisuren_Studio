@@ -3,11 +3,13 @@
 import { motion } from 'framer-motion';
 import { Phone, Star, MessageCircle, MapPin, Award } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/constants';
 import { OpeningStatusBadge } from '@/components/shared/OpeningStatusBadge';
+import { useReviewCount } from '@/hooks/use-review-count';
 
 export function HeroSection() {
-  const reviewCount = BUSINESS_INFO.reviews.count;
+  const { reviewCount } = useReviewCount();
   const reviewRating = BUSINESS_INFO.reviews.rating;
   const foundedYear = BUSINESS_INFO?.founded ?? 2004;
 
@@ -76,7 +78,7 @@ export function HeroSection() {
               <p
                 className="mx-auto mt-3 sm:mt-4 max-w-[32rem] text-balance text-[0.96rem] leading-relaxed text-gray-700 sm:text-base md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl"
               >
-                Meisterbetrieb mit {reviewRating} Sternen – für Haarschnitte, Balayage und Kosmetik in Hamburg Hamm.
+                Meisterbetrieb mit {reviewRating} Sternen – für <Link href="/leistungen" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Haarschnitte</Link>, <Link href="/balayage-hamburg-hamm" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Balayage</Link> und <Link href="/kosmetik-hamburg-hamm" className="underline decoration-gray-300 hover:decoration-gray-900 transition-colors">Kosmetik</Link> in Hamburg Hamm.
               </p>
             </motion.div>
 
@@ -89,7 +91,7 @@ export function HeroSection() {
               <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <a
                   href={`tel:${BUSINESS_INFO.phoneInternational}`}
-                  className="inline-flex min-h-[48px] w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-400 hover:shadow-amber-500/35 sm:w-auto sm:min-w-[185px] sm:max-w-none sm:px-8 sm:text-base"
+                  className="inline-flex min-h-[48px] w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-amber-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-amber-600/20 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-500 hover:shadow-amber-600/35 sm:w-auto sm:min-w-[185px] sm:max-w-none sm:px-8 sm:text-base"
                   aria-label="Jetzt anrufen"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
@@ -98,8 +100,10 @@ export function HeroSection() {
 
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.phoneFormatted.replace('+', '')}`}
-                  className="inline-flex min-h-[48px] w-full max-w-[260px] items-center justify-center gap-2 rounded-full border border-gray-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-gray-800 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-gray-400 hover:bg-white/85 sm:w-auto sm:min-w-[185px] sm:max-w-none sm:px-8 sm:text-base"
+                  className="inline-flex min-h-[48px] w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all duration-300 hover:scale-[1.02] hover:bg-emerald-500 hover:shadow-emerald-600/35 sm:w-auto sm:min-w-[185px] sm:max-w-none sm:px-8 sm:text-base"
                   aria-label="WhatsApp schreiben"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <MessageCircle className="h-5 w-5 shrink-0" />
                   <span className="whitespace-nowrap">WhatsApp</span>

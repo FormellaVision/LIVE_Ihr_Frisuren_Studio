@@ -97,7 +97,7 @@ export function StickyMobileBar() {
           className="relative group"
           aria-label={`Jetzt anrufen: ${BUSINESS_INFO.phone}`}
         >
-          <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/40 active:scale-95 transition-transform">
+          <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/40 active:scale-95 transition-transform">
             <Phone className="w-7 h-7 text-white" aria-hidden="true" />
 
             <motion.div
@@ -111,7 +111,7 @@ export function StickyMobileBar() {
                 ease: "easeInOut",
                 delay: 0.3,
               }}
-              className="absolute inset-0 rounded-full bg-red-400/50 blur-md -z-10"
+              className="absolute inset-0 rounded-full bg-amber-400/50 blur-md -z-10"
             />
 
             <motion.div
@@ -125,7 +125,7 @@ export function StickyMobileBar() {
                 ease: "easeInOut",
                 delay: 0.3,
               }}
-              className="absolute inset-0 rounded-full border-2 border-red-400"
+              className="absolute inset-0 rounded-full border-2 border-amber-400"
             />
           </div>
         </a>
