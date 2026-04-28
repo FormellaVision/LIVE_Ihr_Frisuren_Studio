@@ -41,24 +41,7 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/preise-leistungen/herren"
-  to = "https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/preise-leistungen/herren/"
-  to = "https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm"
-  status = 301
-  force = true
-
-
-[[redirects]]
-  from = "/en/*"
-  to = "https://ihr-frisuren-studio.de/:splat"
-  status = 301
-  force = true
 
 # Removed satellite service-area pages -> Hamm canonical (1-hop, excludes -hamm itself)
 # These must be above the en/* and www redirects to avoid multi-hop chains
@@ -184,7 +167,7 @@
 # Area URL Migration → Einzugsgebiet
 [[redirects]]
   from = "/areas/hamm"
-  to = "/friseur-hamburg-hamm"
+  to = "https://ihr-frisuren-studio.de/friseur-hamburg-hamm"
   status = 301
   force = true
 
@@ -224,45 +207,33 @@
 # 404 Cleanup Redirects (legacy URLs that currently return 404)
 # ------------------------------------------------------------
 
-# Old English URLs (no EN version now) -> map to closest DE equivalents
+# Team
 [[redirects]]
-  from = "/en/"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/en/ueber-uns"
+  from = "/team"
   to = "/ueber-uns"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/en/philosophie"
+  from = "/team/"
   to = "/ueber-uns"
   status = 301
   force = true
 
+# Anfahrt
 [[redirects]]
-  from = "/en/faq"
-  to = "/friseur-hamburg-hamm"
+  from = "/anfahrt"
+  to = "/kontakt"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/en/herrenfriseur-hamburg-hamm"
-  to = "/herrenfriseur-hamburg-hamm"
+  from = "/anfahrt/"
+  to = "/kontakt"
   status = 301
   force = true
 
-# Fallback for any other /en/* URLs -> drop /en and keep path (safe fallback)
-[[redirects]]
-  from = "/en/*"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Old "preise-leistungen" structure -> canonical /leistungen
+# Preise & Leistungen
 [[redirects]]
   from = "/preise-leistungen"
   to = "/leistungen"
@@ -276,24 +247,60 @@
   force = true
 
 [[redirects]]
+  from = "/preise-leistungen/damen"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/damen/"
+  to = "/damenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/herren"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/herren/"
+  to = "/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/kosmetik"
+  to = "/kosmetik-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/kosmetik/"
+  to = "/kosmetik-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/kinder"
+  to = "/leistungen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preise-leistungen/kinder/"
+  to = "/leistungen"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/preise-leistungen/*"
   to = "/leistungen"
   status = 301
   force = true
 
-# Old utility URLs
-[[redirects]]
-  from = "/anfahrt"
-  to = "/kontakt"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/anfahrt/"
-  to = "/kontakt"
-  status = 301
-  force = true
-
+# About
 [[redirects]]
   from = "/about"
   to = "/ueber-uns"
@@ -306,9 +313,48 @@
   status = 301
   force = true
 
+# Booking
 [[redirects]]
   from = "/booking"
   to = "/termin-buchen"
+  status = 301
+  force = true
+
+# Legacy English URLs (no EN version now) -> map to closest DE equivalents
+# Using absolute URLs for EN to avoid chains (www -> non-www -> target)
+[[redirects]]
+  from = "/en/"
+  to = "https://ihr-frisuren-studio.de/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/ueber-uns"
+  to = "https://ihr-frisuren-studio.de/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/faq"
+  to = "https://ihr-frisuren-studio.de/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/herrenfriseur-hamburg-hamm"
+  to = "https://ihr-frisuren-studio.de/herrenfriseur-hamburg-hamm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/philosophie"
+  to = "https://ihr-frisuren-studio.de/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/*"
+  to = "https://ihr-frisuren-studio.de/:splat"
   status = 301
   force = true
 
